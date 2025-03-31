@@ -5,6 +5,8 @@
 [[ sections/basic-syntax/headings.md ]]
 [[ sections/basic-syntax/paragraphs.md ]]
 [[ sections/basic-syntax/emphasis.md ]]
+[[ sections/basic-syntax/blockquotes.md ]]
+[[ sections/basic-syntax/lists.md ]]
 
 ## Extended Syntax 扩展语法
 

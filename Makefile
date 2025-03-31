@@ -14,10 +14,9 @@ TARGETS   = $(patsubst docs/%,%,$(MARKDOWNS))
 # PDF documents (will be created in the directory 'dist')
 PDFS = $(patsubst docs/%,%,$(subst .md,.pdf,$(wildcard docs/*.md)))
 
-# Export variable TARGETS and PDFS, so that they can be accessed 
-# by Makefile in the directory 'dist'.
-export TARGETS
-export PDFS
+# Don't export variables, evaluate them directly in submakefile
+# export TARGETS
+# export PDFS
 
 all: $(DUPLICATE) dist/Makefile dist/depends
 	make -C dist
@@ -67,9 +66,9 @@ endef
 # the actual number of dollar signs output is only half.
 define submakefile
 # TARGETS is defined in parent Makefile
-all: $$(TARGETS) 
+all: $(TARGETS) 
 
-pdf: $$(PDFS)
+pdf: $(PDFS)
 
 include depends
 
