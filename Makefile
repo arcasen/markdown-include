@@ -1,18 +1,17 @@
-# 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
-FONT = CJKmainfont="方正楷体_GBK"
+# Makefiel for merging Markdown files and converting Markdown to PDF
 
 # Copy all files to the 'dist' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
 # these .markdown files into the final .md files.
-DOCUMENTS = $(shell find docs -type f)
-DUPLICATE = $(patsubst docs%,dist%,$(subst .md,.markdown,$(DOCUMENTS)))
-MARKDOWNS = $(shell find docs -name "*.md")
+DOCUMENTS := $(shell find docs -type f)
+DUPLICATE := $(patsubst docs%,dist%,$(subst .md,.markdown,$(DOCUMENTS)))
+MARKDOWNS := $(shell find docs -name "*.md")
 
 # Proccessed .md documents (will be created in the directory 'dist')
-TARGETS   = $(patsubst docs/%,%,$(MARKDOWNS))
+TARGETS   := $(patsubst docs/%,%,$(MARKDOWNS))
 
 # PDF documents (will be created in the directory 'dist')
-PDFS = $(patsubst docs/%,%,$(subst .md,.pdf,$(wildcard docs/*.md)))
+PDFS := $(patsubst docs/%,%,$(subst .md,.pdf,$(wildcard docs/*.md)))
 
 # Don't export variables, evaluate them directly in submakefile
 # export TARGETS
@@ -70,6 +69,7 @@ all: $(TARGETS)
 
 pdf: $(PDFS)
 
+include ../options
 include depends
 
 # Rule: perform file inclusion
@@ -78,7 +78,7 @@ include depends
 
 # Rule: create PDF document
 %.pdf: %.md
-	pandoc --pdf-engine=xelatex -V $(FONT) $$< -o $$@
+	pandoc --pdf-engine=xelatex $$(OPTIONS) $$< -o $$@
 endef
 
 export submakefile

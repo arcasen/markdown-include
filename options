@@ -1,0 +1,7 @@
+# Options for coverting Markdown to PDF
+
+# 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
+OPTIONS += -V CJKmainfont="方正楷体_GBK"
+
+# eisvogel.latex should be located in ~/.local/share/pandoc/templates
+OPTIONS += --template eisvogel
