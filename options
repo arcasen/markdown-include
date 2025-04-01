@@ -1,7 +1,25 @@
-# Options for coverting Markdown to PDF
+# Options for Pandoc to covert Markdown to PDF or LaTeX
+
+# To process Chinese, you need to use xelatex engine
+OPTIONS += --pdf-engine=xelatex 
 
 # 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
 OPTIONS += -V CJKmainfont="方正楷体_GBK"
 
 # eisvogel.latex should be located in ~/.local/share/pandoc/templates
-OPTIONS += --template eisvogel
+OPTIONS += --template eisvogel 
+
+# Numbered Sections
+# OPTIONS += --number-sections
+
+# Syntax Highlighting with Listings
+OPTIONS += --listings
+
+# Table of Contents
+# OPTIONS += --toc
+
+# Syntax Highlighting Without Listings, 
+# The following examples show syntax highlighting of delimited code blocks 
+# without using listings. To see a list of all the supported highlight 
+# styles, type `pandoc --list-highlight-styles`.
+# OPTIONS += --highlight-style zenburn

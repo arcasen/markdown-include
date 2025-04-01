@@ -7,6 +7,7 @@
 [[ sections/basic-syntax/emphasis.md ]]
 [[ sections/basic-syntax/blockquotes.md ]]
 [[ sections/basic-syntax/lists.md ]]
+[[ sections/basic-syntax/links.md ]]
 
 ## Extended Syntax 扩展语法
 

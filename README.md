@@ -6,6 +6,12 @@ Markdown 的优点是简洁, 只需很少的几种标记即可将文档内容条
 
 The advantage of Markdown is its simplicity; with just a few types of markup, it can present document content to readers in a clear and organized manner, making it very easy for users to get started. In contrast, markup languages like AsciiDoc and reStructuredText, while offering more features, are not as easy to master—not to mention heavyweight typesetting tools like LaTeX. However, "what makes it succeed can also lead to its failure." Markdown lacks a crucial file inclusion function, which limits its ability to build complex documents. This project utilizes text processing programs (such as Perl, Awk, Sed, etc.) and GNU Make to implement file inclusion for Markdown. It can automatically generate the inclusion dependencies of .md files and then use GNU Make to build a single, unified .md file.
 
+## Prerequistes
+
+- Text processing utilities: perl, awk, sed
+- GNU make
+- If you want to convert Markdown to PDF, you must install TeX Live and Pandoc.
+
 ## Syntax and Usage
 
 文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含，文件包含路径应是相对 docs/ 的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
@@ -16,22 +22,26 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 [[ filename.md ]]
 ```
 
-注意: 
-- `[[` 必须顶格开始, 
-- `filename.md` 前后可以有空格, 
+注意:
+
+- 文件包含指令必须单独成行,
+- `[[` 必须顶格开始,
+- `filename.md` 前后可以有空格,
 - `]]` 后面除了空格外, 不能含有其它字符.
 
 All files of the document should be placed in the `docs` directory, and all Markdown files should have the `.md` suffix. If file inclusion is involved, the file inclusion path should be relative to `docs/`. Place the `Makefile` in the same level directory as `docs`, and simply run the `make` command to generate the files in the `dist` directory.
 
-The file inclusion syntax is as follows:  
+The file inclusion syntax is as follows:
 
 ```
 [[ filename.md ]]
 ```
 
-Note:  
-- `[[` must start at the beginning of the line.  
-- Spaces before or after `filename.md` are allowed.  
+Note:
+
+- The file contains instructions that must be on separate lines.
+- `[[` must start at the beginning of the line.
+- Spaces before or after `filename.md` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
 
 ## Converting Markdown to PDF with Pandoc

@@ -78,7 +78,7 @@ include depends
 
 # Rule: create PDF document
 %.pdf: %.md
-	pandoc --pdf-engine=xelatex $$(OPTIONS) $$< -o $$@
+	pandoc $$(OPTIONS) $$< -o $$@
 endef
 
 export submakefile

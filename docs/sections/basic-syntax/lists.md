@@ -12,7 +12,7 @@
 
 渲染效果:
 
-[[ snippets/lists-ordered.md]]
+[[snippets/lists-ordered.md]]
 
 #### 无序列表（Unordered Lists）
 
@@ -24,4 +24,4 @@
 
 渲染效果:
 
-[[ snippets/lists-unordered.md]]
+[[snippets/lists-unordered.md]]
