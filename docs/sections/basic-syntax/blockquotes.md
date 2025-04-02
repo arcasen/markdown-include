@@ -44,3 +44,7 @@
 渲染效果如下：
 
 [[ snippets/blockquotes-with-other-elements.md]]
+
+#### Blockquotes 最佳实践
+
+在 blockquotes 的前后各加上一空行。

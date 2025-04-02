@@ -13,6 +13,9 @@ TARGETS   := $(patsubst docs/%,%,$(MARKDOWNS))
 # PDF documents (will be created in the directory 'dist')
 PDFS := $(patsubst docs/%,%,$(subst .md,.pdf,$(wildcard docs/*.md)))
 
+# PDF documents (will be created in the directory 'dist')
+TEXS := $(patsubst docs/%,%,$(subst .md,.tex,$(wildcard docs/*.md)))
+
 # Don't export variables, evaluate them directly in submakefile
 # export TARGETS
 # export PDFS
@@ -24,38 +27,55 @@ all: $(DUPLICATE) dist/Makefile dist/depends
 pdf: all
 	make -C dist pdf
 
+# Create LaTeX documents
+tex: all
+	make -C dist tex
+
 clean:
-	rm -rf dist
+	@echo "Removing the 'dist' directory ..."
+	@rm -rf dist
 
 # Rule: create Makefile in the directory 'dist'
 dist/Makefile:
-	mkdir -p dist
-	echo "$$submakefile" > $@
+	@echo "Creating Makefile ..."
+	@mkdir -p dist
+	@echo "$$submakefile" > $@
 
 # Rule: automatically generating inclusion dependencies between Markdown files
 dist/depends: $(MARKDOWNS)
-	mkdir -p dist
-	$(makedepend)
+	@echo "Creating 'depends' ..."
+	@mkdir -p dist
+	@$(makedepend)
 
 # Rule: copy Markdown files and change extensions
 dist/%.markdown: docs/%.md
-	mkdir -p $(dir $@)
-	cp -rf $< $@
+	@echo "Duplicating '$<' ..."
+	@mkdir -p $(dir $@)
+	@cp -rf $< $@
 
 # Rule: copy other files to the directory 'dist'
 dist/%: docs/%
-	mkdir -p $(dir $@)
-	cp -rf $< $@
+	@echo "Duplicating '$<' ..."
+	@mkdir -p $(dir $@)
+	@cp -rf $< $@
 
 .PHONY: all clean
 
 # automatically generating inclusion dependencies between Markdown files
 define makedepend
-find docs -name "*.md" -exec                    \
-awk 'match($$0, /^\[\[([^]]+)\]\] *$$/, a)      \
-{files = (files ? files " " : "") a[1]}         \
-END {if (files) {sub(/^docs\//, "", FILENAME);  \
-print FILENAME ": " files}}' {} \;              \
+find docs -name "*.md" -exec                   \
+awk 'match($$0, /^\[\[([^]]+)\]\] *$$/, a) {   \
+  gsub(/^ +| +$$/, "", a[1]);                   \
+	if (!seen[a[1]]++) {                         \
+		files = (files ? files " " : "") a[1]      \
+	}                                            \
+}                                              \
+END {                                          \
+	if (files) {                                 \
+		sub(/^docs\//, "", FILENAME);              \
+    print FILENAME ": " files                  \
+  }                                            \
+}' {} \;                                       \
 > dist/depends
 endef
 
@@ -69,15 +89,22 @@ all: $(TARGETS)
 
 pdf: $(PDFS)
 
+tex: $(TEXS)
+
 include ../options
 include depends
 
 # Rule: perform file inclusion
 %.md: %.markdown
-	perl -ne 's/^\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
+	@echo "Procesing '$$<' ..."
+	@perl -ne 's/^\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
 
 # Rule: create PDF document
 %.pdf: %.md
+	pandoc $$(OPTIONS) $$< -o $$@
+
+# Rule: create PDF document
+%.tex: %.md
 	pandoc $$(OPTIONS) $$< -o $$@
 endef
 

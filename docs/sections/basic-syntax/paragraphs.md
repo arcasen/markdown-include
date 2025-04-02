@@ -7,3 +7,7 @@ I really like using Markdown.
 
 I think I'll use it to format all of my documents from now on.
 ```
+
+#### 段落（Paragraph）用法的最佳实践
+
+除非 段落在列表中，否则不要用空格（spaces）或制表符（ tabs）缩进段落。

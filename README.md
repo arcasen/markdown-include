@@ -14,7 +14,7 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 
 ## Syntax and Usage
 
-文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含，文件包含路径应是相对 docs/ 的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
+文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含 (包括图片等)，文件包含路径应是相对 docs/ 的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
 
 文件包含的语法:
 
@@ -29,7 +29,9 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 - `filename.md` 前后可以有空格,
 - `]]` 后面除了空格外, 不能含有其它字符.
 
-All files of the document should be placed in the `docs` directory, and all Markdown files should have the `.md` suffix. If file inclusion is involved, the file inclusion path should be relative to `docs/`. Place the `Makefile` in the same level directory as `docs`, and simply run the `make` command to generate the files in the `dist` directory.
+Beset practice: 为了保证文件之间的内容不相互干扰, 每个文件指令包含指令前后应该空出一行.
+
+All files of the document should be placed in the `docs` directory, and all Markdown files should have the `.md` suffix. If file inclusion is involved （including images etc）, the file inclusion path should be relative to `docs/`. Place the `Makefile` in the same level directory as `docs`, and simply run the `make` command to generate the files in the `dist` directory.
 
 The file inclusion syntax is as follows:
 
@@ -39,10 +41,12 @@ The file inclusion syntax is as follows:
 
 Note:
 
-- The file contains instructions that must be on separate lines.
+- The file inclusion directives must stand alone on their own lines.
 - `[[` must start at the beginning of the line.
 - Spaces before or after `filename.md` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
+
+Beset practice: To ensure content between files does not interfere with each other, each directive in a file should be preceded and followed by a blank line.
 
 ## Converting Markdown to PDF with Pandoc
 
@@ -50,10 +54,19 @@ The rule in Makefile is as follows:
 
 ```
 %.pdf: %.md
-	pandoc --pdf-engine=xelatex -V $(FONT) $$< -o $$@
+	pandoc $(OPTIONS) $< -o $@
 ```
 
 You need to reset variable FONT in Makefile according to your system and run `make pdf`.
+
+When automatically generated PDFs have formatting issues, you can generate a .tex file instead by running `make tex`, edit it manually, and then compile it to the final PDF.
+
+The rule in Makefile is as follows:
+
+```
+%.tex: %.md
+	pandoc $(OPTIONS) $< -o $@
+```
 
 ## References
 
