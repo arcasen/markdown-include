@@ -65,14 +65,14 @@ dist/%: docs/%
 define makedepend
 find docs -name "*.md" -exec                   \
 awk 'match($$0, /^\[\[([^]]+)\]\] *$$/, a) {   \
-  gsub(/^ +| +$$/, "", a[1]);                   \
-	if (!seen[a[1]]++) {                         \
-		files = (files ? files " " : "") a[1]      \
-	}                                            \
+  gsub(/^ +| +$$/, "", a[1]);                  \
+  if (!seen[a[1]]++) {                         \
+    files = (files ? files " " : "") a[1]      \
+  }                                            \
 }                                              \
 END {                                          \
-	if (files) {                                 \
-		sub(/^docs\//, "", FILENAME);              \
+  if (files) {                                 \
+    sub(/^docs\//, "", FILENAME);              \
     print FILENAME ": " files                  \
   }                                            \
 }' {} \;                                       \
