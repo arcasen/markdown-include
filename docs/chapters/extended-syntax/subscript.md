@@ -1,9 +1,10 @@
-### Subscript
+### 下标 Subscript
 
-This isn’t common, but some Markdown processors allow you to use subscript to position one or more characters slightly below the normal line of type. To create a subscript, use one tilde symbol (~) before and after the characters.
+这种情况并不常见，但一些 Markdown 处理器允许你使用下标将一个或多个字符置于正常文本行的下方。要创建下标，请在字符前后使用一个波浪号 (`~`)。
 
 ```
 H~2~O
 ```
+渲染效果如下：
 
 H~2~O

@@ -1,12 +1,12 @@
-### Superscript
+### 上标 Superscript
 
-This isn’t common, but some Markdown processors allow you to use superscript to position one or more characters slightly above the normal line of type. To create a superscript, use one caret symbol (^) before and after the characters.
+这并不常见，但一些 Markdown 处理器允许你使用上标将一个或多个字符放置在正常文本行上方。要创建上标，请在字符前后使用一个插入符号 (`^`)。
 
 ```
 X^2^
 ```
 
-The rendered output looks like this:
+渲染效果如下：
 
 X^2^
 

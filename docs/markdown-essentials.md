@@ -1,11 +1,15 @@
 # Markdown Guide
 
-[[ chapters/ch01-basic-syntax.md ]]
+[[ chapters/introduction.md ]]
 
-[[ chapters/ch02-extended-syntax.md ]]
+[[ chapters/markdown-cheat-sheet.md ]]
 
-[[ chapters/ch03-math.md ]]
+[[ chapters/basic-syntax.md ]]
 
-[[ chapters/ch04-cross-referencing.md ]]
+[[ chapters/extended-syntax.md ]]
+
+[[ chapters/math.md ]]
+
+[[ chapters/cross-referencing.md ]]
 
 [[ chapters/references.md ]]
