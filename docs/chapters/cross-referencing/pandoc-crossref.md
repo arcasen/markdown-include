@@ -8,14 +8,26 @@
 - [pandoc 下载地址](https://github.com/jgm/pandoc/releases)
 - [pandoc-crossref 下载地址](https://github.com/lierdakil/pandoc-crossref/releases)
 
-解压缩 pandoc 到一个目录中，如 `~/.pandoc`。
-解压缩 pandoc-crossref 到 `~/.pandoc/bin` 中. 
+解压缩 pandoc 可执行文件到一个目录中，如 `~/.local/bin/pandoc`。
+解压缩 pandoc-crossref 可执行文件到 `~/.local/bin/pandoc-crossref` 中.
+帮助文档拷贝到 `~/.local/share/man/man1`中，目录结构如下：
+
+```
+$ tree ~/.local/share/man
+/home/USERNAME/.local/share/man
+└── man1
+    ├── pandoc.1.gz
+    ├── pandoc-crossref.1
+    ├── pandoc-lua.1.gz
+    └── pandoc-server.1.gz
+
+```
 
 #### 运行 pandoc-crossref
 
 首先， 需要设置环境变量 PATH：
 
-`export PATH=~/.pandoc/bin:$PATH`
+`export PATH=~/.local/bin:$PATH`
 
 在 macOS 中，运行 `pandoc --filter pandoc-crossref` 时会提示安全问题，需要在 “系统偏好设置-安全性与隐私-通用” 中“允许从以下下载的 App” 通过验证。
 
@@ -38,4 +50,4 @@ l.340 (\passthrough
 
 或者：添加 `-M listings` 选项[^pandoc-crossref]。
 
-[^pandoc-crossref]: [pandoc-crossrefとEisvogelを併用する](https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146)
+[^pandoc-crossref]: [pandoc-crossref と Eisvogel を併用する](https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146)

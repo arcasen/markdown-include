@@ -64,7 +64,7 @@ dist/%: docs/%
 # automatically generating inclusion dependencies between Markdown files
 define makedepend
 find docs -name "*.md" -exec                   \
-awk 'match($$0, /^\[\[([^]]+)\]\] *$$/, a) {   \
+awk 'match($$0, /^!\[\[([^]]+)\]\] *$$/, a) { \
   gsub(/^ +| +$$/, "", a[1]);                  \
   if (!seen[a[1]]++) {                         \
     files = (files ? files " " : "") a[1]      \
@@ -97,7 +97,7 @@ include depends
 # Rule: perform file inclusion
 %.md: %.markdown
 	@echo "Procesing '$$<' ..."
-	@perl -ne 's/^\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
+	@perl -ne 's/^!\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
 
 # Rule: create PDF document
 %.pdf: %.md

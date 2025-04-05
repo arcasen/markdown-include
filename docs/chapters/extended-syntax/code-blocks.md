@@ -4,12 +4,12 @@ Markdown 的基本语法允许你通过缩进四个空格或一个制表符来�
 
 ````
 ```
-[[ chapters/extended-syntax/helloworld.c ]]
+![[ chapters/extended-syntax/helloworld.c ]]
 ```
 ````
 
 渲染效果如下：
 
 ```
-[[ chapters/extended-syntax/helloworld.c ]]
+![[ chapters/extended-syntax/helloworld.c ]]
 ```

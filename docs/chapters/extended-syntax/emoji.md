@@ -11,9 +11,9 @@
 某些 Markdown 应用程序允许你通过键入表情符号的简码（shortcodes）来插入表情符号。简码以冒号开头和结尾，两个冒号中间是表情符号的名称。
 
 ```
-[[ snippets/emoji-shortcodes.md]]
+![[ snippets/emoji-shortcodes.md]]
 ```
 
 渲染效果如下：
 
-[[ snippets/emoji-shortcodes.md]]
+![[ snippets/emoji-shortcodes.md]]

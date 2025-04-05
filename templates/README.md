@@ -51,9 +51,10 @@ keywords: [Markdown, Example]
 
 然后在文档中添加实际的内容即可。
 
-- Pandoc 2.17.1.1 编译时出现: `Could not find data file /usr/share/pandoc/data/templates/eisvogle.latex`()
+## Templates
 
-https://github.com/Wandmalfarbe/pandoc-latex-template/issues/49
+- [Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template)
+- [Academic Pandoc template](https://github.com/maehr/academic-pandoc-template)
 
 ## References
 

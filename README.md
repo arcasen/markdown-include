@@ -12,37 +12,37 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 - GNU make
 - If you want to convert Markdown to PDF, you must install TeX Live and Pandoc.
 
-## Syntax and Usage
+## Embedded Markdown Syntax
 
-文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含 (包括图片等)，文件包含路径应是相对 docs/ 的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
+该语法与 [Obsidian Flavored Markdown](https://help.obsidian.md/obsidian-flavored-markdown) 兼容，但做了一些限制。文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含 (包括图片等)，文件包含路径应是相对 docs/ 的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
 
 文件包含的语法:
 
 ```
-[[ filename.md ]]
+![[ filename.md ]]
 ```
 
 注意:
 
 - 文件包含指令必须单独成行,
-- `[[` 必须顶格开始,
+- `![[` 必须顶格开始,
 - `filename.md` 前后可以有空格,
 - `]]` 后面除了空格外, 不能含有其它字符.
 
 Beset practice: 为了保证文件之间的内容不相互干扰, 每个文件指令包含指令前后应该空出一行.
 
-All files of the document should be placed in the `docs` directory, and all Markdown files should have the `.md` suffix. If file inclusion is involved （including images etc）, the file inclusion path should be relative to `docs/`. Place the `Makefile` in the same level directory as `docs`, and simply run the `make` command to generate the files in the `dist` directory.
+The embeded markdown syntax is comptiable with [Obsidian Flavored Markdown](https://help.obsidian.md/obsidian-flavored-markdown), but adding more restrictions. All files of the document should be placed in the `docs` directory, and all Markdown files should have the `.md` suffix. If file inclusion is involved （including images etc）, the file inclusion path should be relative to `docs/`. Place the `Makefile` in the same level directory as `docs`, and simply run the `make` command to generate the files in the `dist` directory.
 
 The file inclusion syntax is as follows:
 
 ```
-[[ filename.md ]]
+![[ filename.md ]]
 ```
 
 Note:
 
 - The file inclusion directives must stand alone on their own lines.
-- `[[` must start at the beginning of the line.
+- `![[` must start at the beginning of the line.
 - Spaces before or after `filename.md` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
 
