@@ -8,7 +8,7 @@
 
 渲染效果如下：
 
-![The San Juan Mountains are beautiful!](images/san-juan-mountains.jpg "San Juan Mountains")
+![The San Juan Mountains are beautiful!](../../images/san-juan-mountains.jpg "San Juan Mountains")
 
 
 #### 带链接的图片

@@ -1,5 +1,5 @@
 ## Hacks
 
-![[ chapters/hacks/underline.md ]]
+![[ hacks/underline.md ]]
 
-![[ chapters/hacks/center.md ]]
+![[ hacks/center.md ]]

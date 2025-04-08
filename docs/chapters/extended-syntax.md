@@ -10,26 +10,26 @@
 
 并非所有的 Markdown 应用程序都支持扩展语法。你需要确认你所使用的应用程序是否支持你所需要使用的扩展语法。如果不支持，则有可能是需要开启相应的扩展模块。
 
-![[ chapters/extended-syntax/tables.md ]]
+![[ extended-syntax/tables.md ]]
 
-![[ chapters/extended-syntax/code-blocks.md ]]
+![[ extended-syntax/code-blocks.md ]]
 
-![[ chapters/extended-syntax/footnotes.md ]]
+![[ extended-syntax/footnotes.md ]]
 
-![[ chapters/extended-syntax/anchor-links.md ]]
+![[ extended-syntax/anchor-links.md ]]
 
-![[ chapters/extended-syntax/definition-lists.md ]]
+![[ extended-syntax/definition-lists.md ]]
 
-![[ chapters/extended-syntax/task-lists.md ]]
+![[ extended-syntax/task-lists.md ]]
 
-![[ chapters/extended-syntax/strikethrough.md ]]
+![[ extended-syntax/strikethrough.md ]]
 
-![[ chapters/extended-syntax/emoji.md ]]
+![[ extended-syntax/emoji.md ]]
 
-![[ chapters/extended-syntax/highlight.md ]]
+![[ extended-syntax/highlight.md ]]
 
-![[ chapters/extended-syntax/subscript.md ]]
+![[ extended-syntax/subscript.md ]]
 
-![[ chapters/extended-syntax/superscript.md ]]
+![[ extended-syntax/superscript.md ]]
 
-![[ chapters/extended-syntax/links.md ]]
+![[ extended-syntax/links.md ]]

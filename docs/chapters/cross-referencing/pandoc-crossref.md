@@ -29,7 +29,8 @@ $ tree ~/.local/share/man
 
 `export PATH=~/.local/bin:$PATH`
 
-在 macOS 中，运行 `pandoc --filter pandoc-crossref` 时会提示安全问题，需要在 “系统偏好设置-安全性与隐私-通用” 中“允许从以下下载的 App” 通过验证。
+在 macOS 中，首次运行 `pandoc --filter pandoc-crossref` 时会提示：“无法打开“pandoc-crossref”，因为无法验证开发者。” 
+点击“取消”，然后在 “系统偏好设置-安全性与隐私-通用” 中“仍然允许” 通过验证。
 
 #### 直接转换成 PDF 时的错误处理
 

@@ -7,9 +7,9 @@
 另一种创建脚注的方式是在方括号内添加一个插入符（caret）以及一个数字，后面跟着冒号和文本，即（[^1]: My footnote.）。这种方式让你不必在文档末尾添加脚注。你可以将脚注放到除列表（lists）、块引用（block quotes）和表格（tables）之外的任何位置上。
 
 ```
-![[ snippets/footnotes.md ]]
+![[ ../../snippets/footnotes.md ]]
 ```
 
 渲染效果如下:
 
-![[ snippets/footnotes.md ]]
+![[ ../../snippets/footnotes.md ]]

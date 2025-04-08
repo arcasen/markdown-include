@@ -6,11 +6,13 @@ OPTIONS += --pdf-engine=xelatex
 # 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
 OPTIONS += -V CJKmainfont="方正楷体_GBK"
 
+# OPTIONS += -V mainfont="DejaVu Sans"
+
 # Cross Referencing
 # https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146
 OPTIONS += --filter pandoc-crossref -M listings 
 
-OPTIONS += --metadata=crossrefYaml=../crossref.yaml
+# OPTIONS += --metadata=crossrefYaml=../crossref.yaml
 
 # eisvogel.latex should be located in ~/.local/share/pandoc/templates
 OPTIONS += --template eisvogel 
@@ -29,3 +31,7 @@ OPTIONS += --listings
 # without using listings. To see a list of all the supported highlight 
 # styles, type `pandoc --list-highlight-styles`.
 # OPTIONS += --highlight-style zenburn
+
+# OPTIONS += -f markdown+emoji
+
+# OPTIONS += --metadata-file ../metadata.yaml

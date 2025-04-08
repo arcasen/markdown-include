@@ -35,7 +35,7 @@ Markdown 应用程序使用称为 Markdown 处理器（通常也称为“解析�
 
 Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（“Markdown 应用程序”）。
 
-![Markdown Flowchart](images/markdown-flowchart.png)
+![Markdown Flowchart]( ../images/markdown-flowchart.png)
 
 总而言之，这是一个由四部分组成的过程
 

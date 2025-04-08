@@ -1,6 +1,8 @@
 ### 表情符号 Emoji
 
-有两种方式可以将表情符号添加到 Markdown 文档中：将表情符号复制并粘贴到 Markdown 格式的文本中，或者键入 表情符号的简码（emoji shortcodes）。
+有两种方式可以将表情符号添加到 Markdown 文档中：将表情符号复制并粘贴到 Markdown 格式的文本中，或者键入 表情符号的简码（emoji shortcodes）[^pandoc-emoji]。
+
+[^pandoc-emoji]: 调用 pandoc 时需要加选项 `--from markdown+emoji`。如果要转换 tex/pdf，模板中需要支持包，系统中需要支持表情的字体，如 Noto Color Emoji，并使用 LuaTeX 编译。
 
 #### 复制并粘贴表情符号
 
@@ -11,9 +13,9 @@
 某些 Markdown 应用程序允许你通过键入表情符号的简码（shortcodes）来插入表情符号。简码以冒号开头和结尾，两个冒号中间是表情符号的名称。
 
 ```
-![[ snippets/emoji-shortcodes.md]]
+![[ ../../snippets/emoji-shortcodes.md]]
 ```
 
 渲染效果如下：
 
-![[ snippets/emoji-shortcodes.md]]
+![[ ../../snippets/emoji-shortcodes.md]]
