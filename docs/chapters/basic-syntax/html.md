@@ -1,8 +1,8 @@
 ### HTML 标签
 
-大多 Markdown 应用程序允许你在 Markdown 格式文本中添加 HTML 标签。如果你喜欢使用某些 HTML 标签胜于 Markdown 语法的话，这将很有帮助。例如，某些人发现通过 HTML 标签添加图片更加容易。当你需要更改某个 HTML 元素的属性时（例如为 文本指定颜色 或更改图片的宽度），使用 HTML 标签更方便些。
+许多 Markdown 应用程序允许你在 Markdown 格式文本中使用 HTML 标签。如果你更喜欢某些 HTML 标签而不是 Markdown 语法，这会很有帮助。例如，有些人觉得使用 HTML 标签来处理图片更简单。当你需要更改元素的属性（例如指定 文本颜色 或更改图片的宽度）时，使用 HTML 也会很有帮助。
 
-如需使用 HTML，请将 HTML 标签添加到 Markdown 格式文本中即可。
+要使用 HTML，请将标签放置在 Markdown 格式文件文本中。
 
 ```
 This **word** is bold. This <em>word</em> is italic.
@@ -10,12 +10,12 @@ This **word** is bold. This <em>word</em> is italic.
 
 渲染效果如下：
 
-This word is bold. This word is italic.
+This **word** is bold. This <em>word</em> is italic.
 
-#### HTML 用法最佳实践
+#### HTML 最佳实践
 
-出于安全原因，并非所有 Markdown 应用程序都支持在 Markdown 文档中添加 HTML。如有疑问，请查看 Markdown 应用程序的文档。某些应用程序只支持 HTML 标签的子集。
+出于安全原因，并非所有 Markdown 应用程序都支持 Markdown 文档中的 HTML。如有疑问，请查看 Markdown 应用程序的文档。一些应用程序仅支持 HTML 标签的子集。
 
-对于 HTML 的块级元素 `<div>`、`<table>`、`<pre>` 和 `<p>`，请在其前后使用空行（blank lines）与其它内容进行分隔。尽量不要使用制表符（tabs）或空格（spaces）对 HTML 标签做缩进，否则将影响格式。
+使用空行来分隔块级 HTML 元素，如 `<div>`、`<table>`、`<pre>` 和 `<p>`，使其与周围内容分开。尽量不要使用制表符或空格缩进标签，因为这会影响格式。
 
-在 HTML 块级标签内不能使用 Markdown 语法。例如 <p>italic and **bold**</p> 将不起作用。
+您不能在块级 HTML 标签中使用 Markdown 语法。例如，`<p>italic and **bold**</p>` 将不起作用。

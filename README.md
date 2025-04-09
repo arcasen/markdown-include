@@ -73,7 +73,7 @@ The rule in Makefile is as follows:
 - [Markdown and Including Multiple Files](https://stackoverflow.com/questions/4779582/markdown-and-including-multiple-files)
 - [Embedding One Markdown Document in Another](https://stackoverflow.com/questions/18438907/embedding-one-markdown-document-in-another)
 - [Markdown Guide](https://www.markdownguide.org/)
-- [Markdown 指南中文版](https://www.markdown.xyz/)
+- [Makrdown 中文](https://www.markdown.cn/) 或 [Markdown 指南中文版](https://www.markdown.xyz/)
 - [Introducing Markdown and Pandoc](https://github.com/Apress/introducing-markdown-and-pandoc)
 
 ## License

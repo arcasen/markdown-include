@@ -9,10 +9,10 @@ DIST ?= dist
 # these .markdown files into the final .md files.
 DOCUMENTS := $(shell find $(DOCS) -type f)
 DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
-MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$($(shell find $(DOCS) -name "*.md")))
+MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
 
 # Proccessed .md documents (will be created in the directory '$(DIST)')
-TARGETS   := $(patsubst $(DIST)/%,%,$($(subst .markdown,.md,$(MARKDOWNS))))
+TARGETS   := $(patsubst $(DIST)/%,%,$(subst .markdown,.md,$(MARKDOWNS)))
 
 # PDF documents (will be created in the directory '$(DIST)')
 PDFS := $(patsubst $(DOCS)/%,%,$(subst .md,.pdf,$(wildcard $(DOCS)/*.md)))
@@ -28,6 +28,7 @@ HTML := $(patsubst $(DOCS)/%,%,$(subst .md,.html,$(wildcard $(DOCS)/*.md)))
 # export PDFS
 
 all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends $(DIST)/options
+	echo $(TARGETS)
 	make -C $(DIST)
 
 # Create PDF documents
@@ -48,31 +49,31 @@ clean:
 
 # Rule: create Makefile in the directory '$(DIST)'
 $(DIST)/Makefile:
-	@echo "Creating Makefile ..."
+	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
 
 $(DIST)/options: options
-	@echo "Creating 'options' ..."
+	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@cp -f $< $@
 
 # Rule: automatically generating inclusion dependencies between Markdown files
 $(DIST)/depends: $(MARKDOWNS)
-	@echo "Creating 'depends' ..."
+	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@$(makedepend)
 
 # Rule: copy Markdown files, change extension and resolve paths
 $(DIST)/%.markdown: $(DOCS)/%.md
-	@echo "Duplicating '$<' ..."
+	@echo "Creating $@ ..."
 	@mkdir -p $(dir $@)
 	@cp -rf $< $@
 	@$(call resolvepath,$@)
 
 # Rule: copy other files to the directory '$(DIST)'
 $(DIST)/%: $(DOCS)/%
-	@echo "Duplicating '$<' ..."
+	@echo "Creating $@ ..."
 	@mkdir -p $(dir $@)
 	@cp -rf $< $@
 
@@ -81,10 +82,10 @@ $(DIST)/%: $(DOCS)/%
 # Resolving paths of embedded images and markdowns
 define resolvepath
 $(eval RELPATH := $(patsubst $(DIST)/%,%,$(dir $1)))
-sed -i -E -e "/\!\[.*\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
--e "/\!\[.*\]\(\ *(\/|\~)[^)]*\)/b"                         \
--e "s|\!\[([^]]*)\]\(\ *([^)]*)\)|\![\1]($(RELPATH)\2)|g"   \
--e "/^\!\[\[\ *(\/|\~)[^]]*\]\]$$/b"                        \
+sed -i -E -e "/\!\[([^]]*)\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
+-e "/\!\[([^]]*)\]\(\ *(\/|\~)[^)]*\)/b"                         \
+-e "s|\!\[([^]]*)\]\(\ *([^)]*)\)|\![\1]($(RELPATH)\2)|g"        \
+-e "/^\!\[\[\ *(\/|\~)[^]]*\]\]$$/b"                             \
 -e "s|^\!\[\[\ *([^]]*)\]\]$$|![[$(RELPATH)\1]]|g" $1
 endef
 

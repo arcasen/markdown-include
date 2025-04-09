@@ -22,7 +22,11 @@
 
 以非 `/` 和 `~` 字符开始的路径
 
-![octcat]( images/goretocat.png)
+[![octcat]( images/goretocat.png)dd](http://)
+
+### 图片链接
+
+[![octcat]( images/goretocat.png)]( https://octodex.github.com/images/collabocats.jpg)
 
 ## Markdown 包含路径的解析
 

@@ -1,8 +1,8 @@
-## Basic Syntax 基本语法
+## Basic Syntax 基本语法{#basic-syntax}
 
-### 总览 Overview
+### 概述 Overview
 
-几乎所有 Markdown 应用程序都支持原始 Markdown 设计文档中列出的 Markdown 基本语法。但是，Markdown 处理程序之间存在着细微的变化和差异，我们都会尽可能给出提示。
+几乎所有 Markdown 应用程序都支持原始 Markdown 设计文档中概述的基本语法。Markdown 处理器之间存在细微的差异和出入，这些差异和出入在可能的情况下都会以内联方式注明。
 
 ![[ basic-syntax/headings.md ]]
 

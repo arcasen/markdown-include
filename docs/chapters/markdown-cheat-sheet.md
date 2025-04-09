@@ -4,7 +4,7 @@
 
 This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax/) and [extended syntax](https://www.markdownguide.org/extended-syntax/).
 
-### Basic Syntax
+### 基本语法 Basic Syntax 
 
 These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
 
@@ -94,7 +94,7 @@ Syntax:
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 ```
 
-### Extended Syntax
+### 扩展语法 Extended Syntax
 
 Syntax:
 

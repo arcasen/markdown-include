@@ -1,14 +1,28 @@
 ## Extended Syntax 扩展语法
 
-### 概述
+### 概述 Overview
 
-即便 Markdown 的原始设计文档中所列出的 [Markdown 基本语法](https://www.markdown.xyz/basic-syntax/) 已经囊括了许多满足日常所需的元素，但对于某些人来说仍然不够。这就是 Markdown 扩展语法出现的缘由。
+原始 Markdown 设计文档中概述的 [基本语法](#basic-syntax) 添加了许多日常所需元素，但对某些人来说还不够。这就是扩展语法发挥作用的地方。
 
-一些个人和组织通过添加表格（tables）、代码块（code blocks）、语法高亮、将 URL 自动转换为链接和脚注（footnotes）等额外的元素来扩展 Markdown 的基本语法。这些额外添加的元素可以通过使用构建于 Markdown 之上的轻量级标记语言或通过向兼容的 Markdown 解析器添加扩展来启用这些新元素。
+一些个人和组织通过添加表格、代码块、语法高亮、URL 自动链接和脚注等其他元素，自行扩展了基本语法。这些元素可以通过使用基于基本 Markdown 语法的轻量级标记语言或向兼容的 Markdown 处理器添加扩展来启用。
 
 ### 可用性
 
-并非所有的 Markdown 应用程序都支持扩展语法。你需要确认你所使用的应用程序是否支持你所需要使用的扩展语法。如果不支持，则有可能是需要开启相应的扩展模块。
+并非所有 Markdown 应用程序都支持扩展语法元素。您需要检查应用程序使用的轻量级标记语言是否支持您想要使用的扩展语法元素。如果不支持，您仍然可以在 Markdown 处理器中启用扩展。
+
+#### 轻量级标记语言
+
+有几种轻量级标记语言是 Markdown 的超集。它们包含基本语法，并通过添加表格、代码块、语法高亮、URL 自动链接和脚注等其他元素对其进行扩展。许多最流行的 Markdown 应用程序都使用以下轻量级标记语言之一
+
+- [CommonMark](https://commonmark.org/)
+- [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/)
+- [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/)
+- [MultiMarkdown](https://fletcherpenney.net/multimarkdown/)
+- [R Markdown](https://rmarkdown.rstudio.com/)
+
+#### Markdown 处理器
+
+有 [数十个 Markdown 处理器](https://github.com/markdown/markdown.github.com/wiki/Implementations) 可用。其中许多允许您添加启用扩展语法元素的扩展。有关更多信息，请查看处理器的文档。
 
 ![[ extended-syntax/tables.md ]]
 
