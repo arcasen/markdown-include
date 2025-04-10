@@ -1,4 +1,4 @@
-# Markdown Guide
+# Markdown Essentials
 
 ![[ chapters/introduction.md ]]
 
@@ -9,6 +9,8 @@
 ![[ chapters/extended-syntax.md ]]
 
 ![[ chapters/pandoc-flavored-markdown.md ]]
+
+![[ chapters/metadata.md ]]
 
 ![[ chapters/hacks.md ]]
 

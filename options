@@ -4,6 +4,7 @@
 OPTIONS += --pdf-engine=xelatex 
 
 # 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
+# 写入 metadata.yaml 时, 会被解析成 "方正楷体\_GBK", 导致编译出错
 OPTIONS += -V CJKmainfont="方正楷体_GBK"
 
 # OPTIONS += -V mainfont="DejaVu Sans"
@@ -15,7 +16,8 @@ OPTIONS += --filter pandoc-crossref -M listings
 # OPTIONS += --metadata=crossrefYaml=../crossref.yaml
 
 # eisvogel.latex should be located in ~/.local/share/pandoc/templates
-OPTIONS += --template eisvogel 
+# OPTIONS += --template eisvogel
+OPTIONS += --template=../templates/eisvogel.latex 
 
 # Numbered Sections
 # OPTIONS += --number-sections
@@ -23,8 +25,11 @@ OPTIONS += --template eisvogel
 # Syntax Highlighting with Listings
 OPTIONS += --listings
 
+# OPTIONS += -M book=true -M has-frontmatter=true
+
 # Table of Contents
-# OPTIONS += --toc
+OPTIONS += --toc --toc-depth=3 --shift-heading-level-by=-1
+# OPTIONS += -V toc-title="Table of Contents" -V pagestyle=empty
 
 # Syntax Highlighting Without Listings, 
 # The following examples show syntax highlighting of delimited code blocks 
@@ -34,4 +39,4 @@ OPTIONS += --listings
 
 # OPTIONS += -f markdown+emoji
 
-# OPTIONS += --metadata-file ../metadata.yaml
+OPTIONS += --metadata-file=metadata.yaml

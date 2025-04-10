@@ -27,7 +27,7 @@ HTML := $(patsubst $(DOCS)/%,%,$(subst .md,.html,$(wildcard $(DOCS)/*.md)))
 # export TARGETS
 # export PDFS
 
-all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends $(DIST)/options
+all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends $(DIST)/options $(DIST)/metadata.yaml
 	make -C $(DIST)
 
 # Create PDF documents
@@ -53,6 +53,11 @@ $(DIST)/Makefile:
 	@echo "$$submakefile" > $@
 
 $(DIST)/options: options
+	@echo "Creating $@ ..."
+	@mkdir -p $(DIST)
+	@cp -f $< $@
+
+$(DIST)/metadata.yaml: metadata.yaml
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@cp -f $< $@
@@ -125,7 +130,7 @@ include depends
 
 # Rule: perform file inclusion
 %.md: %.markdown
-	@echo "Procesing '$$<' ..."
+	@echo "Processing $$< ..."
 	@perl -ne 's/^!\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
 
 # Rule: create PDF document
