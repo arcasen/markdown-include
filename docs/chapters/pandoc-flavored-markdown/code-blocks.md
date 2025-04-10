@@ -44,7 +44,7 @@ code including tildes
 或者，您可以使用以下语法将属性附加到隔离或反引号代码块：
 
 ~~~
-![[ ../../snippets/pandoc-flavored-markdown/fenced_code_attributes.md]]
+![[ ../../examples/pandoc-flavored-markdown/fenced_code_attributes.md]]
 ~~~
 
 这里 `#helloworld` 是一个标识符， `python` 和 `numberLines` 是类，并且 `startFrom` 是一个值为 100 的属性。某些输出格式可以使用此信息进行语法高亮显示。目前，唯一使用此信息的输出格式是 HTML、LaTeX、Docx、Ms 和 PowerPoint。如果您的输出格式和语言支持高亮显示，则上面的代码块将高亮显示，并带有编号行。（要查看支持哪些语言，请输入 `pandoc --list-highlight-languages`。）

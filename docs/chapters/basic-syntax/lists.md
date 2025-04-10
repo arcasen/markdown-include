@@ -7,12 +7,12 @@
 要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。
 
 ```
-![[ ../../snippets/lists-ordered.md]]
+![[ ../../examples/lists-ordered.md]]
 ```
 
 渲染效果:
 
-![[../../snippets/lists-ordered.md]]
+![[../../examples/lists-ordered.md]]
 
 ##### 有序列表（Ordered List）用法的最佳实践
 
@@ -23,24 +23,24 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（)）�
 要创建无序列表，请在每个列表项前面添加破折号 (`-`)、星号 (`*`) 或加号 (`+`) 。缩进一个或多个列表项可创建嵌套列表。
 
 ```
-![[ ../../snippets/lists-unordered.md]]
+![[ ../../examples/lists-unordered.md]]
 ```
 
 渲染效果:
 
-![[../../snippets/lists-unordered.md]]
+![[../../examples/lists-unordered.md]]
 
 ##### 以数字开头的无序列表项
 
 如果你需要以数字开头并且紧跟一个英文句号（也就是 `.`）的无序列表项，则可以使使用反斜线（`\`）来 转义 这个英文句号。
 
 ```
-![[ ../../snippets/lists-unordered-start-with-number-period.md ]]
+![[ ../../examples/lists-unordered-start-with-number-period.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-unordered-start-with-number-period.md ]]
+![[ ../../examples/lists-unordered-start-with-number-period.md ]]
 
 ##### 无序列表（Unordered List）用法的最佳实践
 
@@ -55,58 +55,58 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 列表中加入段落：
 
 ```
-![[ ../../snippets/lists-including-paragraphs.md ]]
+![[ ../../examples/lists-including-paragraphs.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-including-paragraphs.md ]]
+![[ ../../examples/lists-including-paragraphs.md ]]
 
 ##### 引用
 
 列表中加入引用：
 
 ```
-![[ ../../snippets/lists-including-blockquotes.md ]]
+![[ ../../examples/lists-including-blockquotes.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-including-blockquotes.md ]]
+![[ ../../examples/lists-including-blockquotes.md ]]
 
 ##### 代码块
 
 代码块通常缩进四个空格或一个制表符。当它们在列表中时，将它们缩进八个空格或两个制表符。
 
 ```
-![[ ../../snippets/lists-including-codeblocks.md ]]
+![[ ../../examples/lists-including-codeblocks.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-including-codeblocks.md ]]
+![[ ../../examples/lists-including-codeblocks.md ]]
 
 ##### 图片
 
 列表中加入图片：
 
 ```
-![[ ../../snippets/lists-including-images.md ]]
+![[ ../../examples/lists-including-images.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-including-images.md ]]
+![[ ../../examples/lists-including-images.md ]]
 
 ##### 列表
 
 你可以在有序列表中嵌套无序列表，反之亦然。
 
 ```
-![[ ../../snippets/lists-nested.md ]]
+![[ ../../examples/lists-nested.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/lists-nested.md ]]
+![[ ../../examples/lists-nested.md ]]
 

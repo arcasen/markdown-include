@@ -1,8 +1,16 @@
 ---
 book: true
 has-frontmatter: true
-# CJKmainfont: "方正楷体_GBK" # 会被解析成 "方正楷体\_GBK"
 toc-title: "Table of Contents"
 pagestyle: empty
+# 直接如下写入 metadata.yaml 时, 会被解析成 "方正楷体\_GBK", 导致编译出错
+# 因为 Pandoc 将 metadata 解析成 Markdown, 而非 literal 文本
+# https://github.com/jgm/pandoc/issues/2139
+# https://github.com/jgm/pandoc/issues/2630
+# https://github.com/jgm/pandoc/issues/2565
+# CJKmainfont: "方正楷体_GBK" # ERROR
+header-includes: |
+  \usepackage{ctex}
+  \setCJKmainfont{"方正楷体_GBK"}
 ---
 

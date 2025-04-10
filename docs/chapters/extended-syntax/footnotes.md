@@ -7,9 +7,9 @@
 使用方括号内的另一个插入符号和数字以及冒号和文本添加脚注 (`[^1]: My footnote.`)。您不必将脚注放在文档末尾。您可以在列表、块引用和表格等其他元素之外的任何位置放置它们。
 
 ```
-![[ ../../snippets/footnotes.md ]]
+![[ ../../examples/footnotes.md ]]
 ```
 
 渲染效果如下:
 
-![[ ../../snippets/footnotes.md ]]
+![[ ../../examples/footnotes.md ]]

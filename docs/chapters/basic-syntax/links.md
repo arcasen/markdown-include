@@ -41,30 +41,30 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 要 强调 链接，请在方括号和圆括号前后添加星号。要将链接表示为 代码，请在方括号中添加反引号。
 
 ```
-![[ ../../snippets/links-formatted.md ]]
+![[ ../../examples/links-formatted.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/links-formatted.md ]]
+![[ ../../examples/links-formatted.md ]]
 
 #### 引用式链接
 
 假设您将一个 URL 作为 标准 URL 链接 添加到一个段落，并且在 Markdown 中看起来像这样：
 
 ```
-![[ ../../snippets/links-standard-url.md ]]
+![[ ../../examples/links-standard-url.md ]]
 ```
 
 虽然它可能指向有趣的附加信息，但显示的 URL 除了使其更难阅读之外，实际上并没有给现有原始文本增加太多内容。要解决这个问题，您可以像这样格式化 URL：
 
 ```
-![[ ../../snippets/links-reference-style.md ]]
+![[ ../../examples/links-reference-style.md ]]
 ```
 
 在上面的两个实例中，呈现的输出将是相同的：
 
-![[ ../../snippets/links-reference-style.md ]]
+![[ ../../examples/links-reference-style.md ]]
 
 ##### 链接最佳实践
 

@@ -7,9 +7,9 @@
 反斜杠后跟换行符也是一种硬换行符。注意：在多行和网格表格单元格中，这是创建硬换行符的唯一方法，因为单元格中的尾随空格会被忽略。
 
 ```
-![[ ../../snippets/pandoc-flavored-markdown/escaped_line_breaks.md ]]
+![[ ../../examples/pandoc-flavored-markdown/escaped_line_breaks.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../snippets/pandoc-flavored-markdown/escaped_line_breaks.md ]]
+![[ ../../examples/pandoc-flavored-markdown/escaped_line_breaks.md ]]

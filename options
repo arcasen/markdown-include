@@ -4,9 +4,7 @@
 OPTIONS += --pdf-engine=xelatex 
 
 # 根据系统字体设置中文字体, 运行 `fc-list :lang=zh` 查查系统中文字体
-# 写入 metadata.yaml 时, 会被解析成 "方正楷体\_GBK", 导致编译出错
-OPTIONS += -V CJKmainfont="方正楷体_GBK"
-
+# OPTIONS += -V CJKmainfont="方正楷体_GBK"
 # OPTIONS += -V mainfont="DejaVu Sans"
 
 # Cross Referencing
