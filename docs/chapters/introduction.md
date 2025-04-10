@@ -13,6 +13,8 @@ Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档�
 根据你使用的应用程序，你可能无法实时预览格式化的文档。但这没关系。据 [John Gruber](https://daringfireball.net/projects/markdown/) 所说，Markdown 语法旨在具有可读性和不显眼性，因此即使没有呈现 Markdown 文件中的文本，也可以读取该文本。
 
 > Markdown 格式语法的主要设计目标是使其尽可能具有可读性。其理念是 Markdown 格式的文档应可按原样发布为纯文本，而不会看起来像是用标记或格式化指令标记的。
+> A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
+> \- [John Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy)
 
 ### 为何使用 Markdown？
 

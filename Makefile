@@ -28,7 +28,6 @@ HTML := $(patsubst $(DOCS)/%,%,$(subst .md,.html,$(wildcard $(DOCS)/*.md)))
 # export PDFS
 
 all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends $(DIST)/options
-	echo $(TARGETS)
 	make -C $(DIST)
 
 # Create PDF documents
@@ -69,7 +68,7 @@ $(DIST)/%.markdown: $(DOCS)/%.md
 	@echo "Creating $@ ..."
 	@mkdir -p $(dir $@)
 	@cp -rf $< $@
-	@$(call resolvepath,$@)
+	@$(call rebasepath,$@)
 
 # Rule: copy other files to the directory '$(DIST)'
 $(DIST)/%: $(DOCS)/%
@@ -79,8 +78,8 @@ $(DIST)/%: $(DOCS)/%
 
 .PHONY: all clean
 
-# Resolving paths of embedded images and markdowns
-define resolvepath
+# Rebasing paths of embedded images and markdowns
+define rebasepath
 $(eval RELPATH := $(patsubst $(DIST)/%,%,$(dir $1)))
 sed -i -E -e "/\!\[([^]]*)\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
 -e "/\!\[([^]]*)\]\(\ *(\/|\~)[^)]*\)/b"                         \

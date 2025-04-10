@@ -8,6 +8,8 @@
 
 ![[ chapters/extended-syntax.md ]]
 
+![[ chapters/pandoc-flavored-markdown.md ]]
+
 ![[ chapters/hacks.md ]]
 
 ![[ chapters/math.md ]]

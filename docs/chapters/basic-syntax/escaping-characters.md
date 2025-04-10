@@ -1,4 +1,4 @@
-### 转义字符（Escaping Characters）
+### 转义字符 Escaping Characters
 
 要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 (\) 。
 
