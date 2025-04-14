@@ -1,22 +1,28 @@
 ### 列表 Lists
 
-你可以将多个条目组织成有序或无序列表。
+Markdown 支持有序或无序列表 ( ordered/numbered lists & unordered/bulleted lists)。
 
-#### 有序列表（Ordered Lists）
+#### 有序列表 Ordered Lists
 
-要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。
+要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字**不必**按数学顺序排列，但是列表应当以数字 1 起始。
 
 ```
-![[ ../../examples/lists-ordered.md]]
+![[ ../../examples/lists-ordered.md ]]
 ```
 
 渲染效果:
 
-![[../../examples/lists-ordered.md]]
+![[ ../../examples/lists-ordered.md ]]
 
-##### 有序列表（Ordered List）用法的最佳实践
+```
+![[ ../../examples/lists-ordered-with-disordered-numbers.md ]]
+```
 
-CommonMark 和其它几种轻量级标记语言可以让你使用括号（)）作为分隔符（例如 1) First item），但并非所有的 Markdown 应用程序都支持此种用法，因此，从兼容的角度来看，此用法不推荐。为了兼容起见，请只使用英文句点作为分隔符。
+渲染效果:
+
+![[ ../../examples/lists-ordered-with-disordered-numbers.md ]]
+
+CommonMark 和其它几种轻量级标记语言可以让你使用括号（`)`）作为分隔符（例如 `1) First item`），但并非所有的 Markdown 应用程序都支持此种用法，因此，从兼容的角度来看，此用法不推荐。为了兼容起见，请只使用英文句点作为分隔符。
 
 #### 无序列表（Unordered Lists）
 
@@ -28,7 +34,7 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（)）�
 
 渲染效果:
 
-![[../../examples/lists-unordered.md]]
+![[ ../../examples/lists-unordered.md ]]
 
 ##### 以数字开头的无序列表项
 
@@ -41,8 +47,6 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（)）�
 渲染效果如下：
 
 ![[ ../../examples/lists-unordered-start-with-number-period.md ]]
-
-##### 无序列表（Unordered List）用法的最佳实践
 
 Markdown 应用程序在如何处理同一列表中混用不同分隔符上并不一致。为了兼容起见，请不要在同一个列表中混用不同的分隔符，最好选定一种分隔符并一直用下去。
 

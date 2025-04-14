@@ -53,8 +53,11 @@ keywords: [Markdown, Example]
 
 ## Templates
 
+- <https://pandoc-templates.org/>
 - [Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template)
 - [Academic Pandoc template](https://github.com/maehr/academic-pandoc-template)
+- [User contributed templates](https://github.com/jgm/pandoc/wiki/User-contributed-templates)
+- [Default templates for pandoc](https://github.com/jgm/pandoc-templates)
 
 ## References
 

@@ -62,9 +62,16 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 ![[ ../../examples/links-reference-style.md ]]
 ```
 
-在上面的两个实例中，呈现的输出将是相同的：
+也可以采用隐式的链接名称：
 
-![[ ../../examples/links-reference-style.md ]]
+```
+![[ ../../examples/links-implicit-link.md ]]
+```
+
+在上面的实例中，呈现的输出将是相同的：
+
+![[ ../../examples/links-implicit-link.md ]]
+
 
 ##### 链接最佳实践
 

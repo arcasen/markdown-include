@@ -1,4 +1,4 @@
-## Extended Syntax 扩展语法
+## 扩展语法 Extended Syntax
 
 ### 概述 Overview
 
