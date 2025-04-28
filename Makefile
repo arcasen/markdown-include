@@ -1,8 +1,12 @@
-# Makefiel for merging Markdown files and converting Markdown to PDF
+# Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
+# Version: 20250428
 
 # Specify input and output directories
 DOCS ?= docs
 DIST ?= dist
+
+# Changes of options or metadata.yaml will trigger re-compiling
+SETTINGS := options metadata.yaml
 
 # Copy all files to the '$(DIST)' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
@@ -12,16 +16,19 @@ DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
 MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
 
 # Proccessed .md documents (will be created in the directory '$(DIST)')
-TARGETS   := $(patsubst $(DIST)/%,%,$(subst .markdown,.md,$(MARKDOWNS)))
+TARGETS   := $(patsubst $(DIST)/%,%,$(patsubst %.markdown,%.md,$(MARKDOWNS)))
+
+# Top level documents
+TOP_DOCS  := $(wildcard $(DOCS)/*.md)
 
 # PDF documents (will be created in the directory '$(DIST)')
-PDFS := $(patsubst $(DOCS)/%,%,$(subst .md,.pdf,$(wildcard $(DOCS)/*.md)))
+PDFS := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.pdf,$(TOP_DOCS)))
 
 # Tex documents (will be created in the directory '$(DIST)')
-TEXS := $(patsubst $(DOCS)/%,%,$(subst .md,.tex,$(wildcard $(DOCS)/*.md)))
+TEXS := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.tex,$(TOP_DOCS)))
 
 # HTML documents (will be created in the directory '$(DIST)')
-HTML := $(patsubst $(DOCS)/%,%,$(subst .md,.html,$(wildcard $(DOCS)/*.md)))
+HTML := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.html,$(TOP_DOCS)))
 
 # Don't export variables, evaluate them directly in submakefile
 # export TARGETS
@@ -47,7 +54,7 @@ clean:
 	@rm -rf $(DIST)
 
 # Rule: create Makefile in the directory '$(DIST)'
-$(DIST)/Makefile:
+$(DIST)/Makefile: $(MARKDOWNS)
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
@@ -105,6 +112,7 @@ awk 'match($$0, /^!\[\[([^]]+)\]\] *$$/, a) {  \
 END {                                          \
   if (files) {                                 \
     sub(/^$(DIST)\//, "", FILENAME);           \
+    sub(/\.markdown$$/, ".md", FILENAME);      \
     print FILENAME ": " files                  \
   }                                            \
 }' {} \;                                       \
@@ -134,15 +142,15 @@ include depends
 	@perl -ne 's/^!\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
 
 # Rule: create PDF document
-%.pdf: %.md
+%.pdf: %.md $(SETTINGS)
 	pandoc $$(OPTIONS) $$< -o $$@
 
 # Rule: create LaTeX document
-%.tex: %.md
+%.tex: %.md $(SETTINGS)
 	pandoc $$(OPTIONS) $$< -o $$@
 
 # Rule: create html document
-%.html: %.md
+%.html: %.md $(SETTINGS)
 	pandoc -f markdown+emoji $$< -o $$@
 endef
 

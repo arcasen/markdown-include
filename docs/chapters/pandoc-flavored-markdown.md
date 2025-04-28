@@ -25,3 +25,5 @@ Pandoc 所支持的语法各种对标准 Markdown 语法的扩展可以通过在
 ![[ pandoc-flavored-markdown/inline-formatting.md ]]
 
 ![[ pandoc-flavored-markdown/links.md ]]
+
+![[ pandoc-flavored-markdown/images.md ]]

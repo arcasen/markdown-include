@@ -11,6 +11,10 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 - Text processing utilities: perl, awk, sed
 - GNU make
 - If you want to convert Markdown to PDF, you must install TeX Live and Pandoc.
+- Noto fonts
+  - Debian: `sudo apt install fonts-noto-cjk`
+  - macOS: `brew install --cask font-noto-sans-cjk font-noto-serif-cjk`
+
 
 ## Embedded Markdown Syntax
 
