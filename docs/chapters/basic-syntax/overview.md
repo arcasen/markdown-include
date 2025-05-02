@@ -2,9 +2,11 @@
 
 #### 设计哲学
 
-Markdown 致力于实现最大程度的易读性与易写性。
+Markdown 设计为易于编写，并且更重要的是易于阅读：
 
-但可读性始终是最重要的准则。Markdown 格式的文档应当能够直接以纯文本形式发布，而不会看起来像被填满了标签或格式指令。尽管 Markdown 的语法受到多种 text-to-HTML 过滤器的影响——包括 [Setext][1]、[atx][2]、[Textile][3]、[reStructuredText][4]、[Grutatext][5]和[EtText][6]——但其语法灵感主要来源于纯文本电子邮件的格式。
+> Markdown 格式的文档应该可以直接发布为纯文本，而不应看起来像是被标签或格式化指令标记过。 — [John Gruber](https://daringfireball.net/projects/markdown/syntax)
+
+尽管 Markdown 的语法受到多种 text-to-HTML 过滤器的影响——包括 [Setext][1]、[atx][2]、[Textile][3]、[reStructuredText][4]、[Grutatext][5]和[EtText][6]——但其语法灵感主要来源于纯文本电子邮件的格式。
 
 [1]: https://docutils.sourceforge.net/mirror/setext.html
 [2]: https://www.aaronsw.com/2002/atx/

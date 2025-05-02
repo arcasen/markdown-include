@@ -3,12 +3,12 @@
 代码块（Code blocks） 通常采用四个空格或一个制表符缩进。当它们被放在列表中时，请将它们缩进八个空格或两个制表符。要创建不缩进行的代码块，请使用 [围栏代码块 Fenced Code Blocks](#fenced-code-blocks)。
 
 ```
-![[ ../../examples/code-blocks.md ]]
+![[ ../../examples/basic-syntax/code-blocks.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/code-blocks.md ]]
+![[ ../../examples/basic-syntax/code-blocks.md ]]
 
 #### 转义反引号
 

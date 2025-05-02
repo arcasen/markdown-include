@@ -1,0 +1,1 @@
+The [Markdown Guide](https://www.markdownguide.org/ "Click to Visit Markdown Guide") is a free and open-source reference guide that explains how to use Markdown, the simple and easy-to-use markup language you can use to format virtually any document.

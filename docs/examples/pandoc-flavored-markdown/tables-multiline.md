@@ -22,3 +22,11 @@ multiple lines.
 ----------- ------- --------------- -------------------------
 
 : Here's a multiline table without a header.
+
+----------- ------- --------------- -------------------------
+   First    row                12.0 Example of a row that
+                                    spans multiple lines.
+
+----------- ------- --------------- -------------------------
+
+: Here's a multiline table with just one row.

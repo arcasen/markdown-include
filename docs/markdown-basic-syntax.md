@@ -31,7 +31,6 @@ blockquotes look like quoted passages of text, assuming you've ever
 used email.
 
 
-
 ### Inline HTML
 
 Markdown's syntax is intended for one purpose: to be used as a

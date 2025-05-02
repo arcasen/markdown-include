@@ -18,7 +18,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 ![[ ../../examples/pandoc-flavored-markdown/atx-style-headings.md ]]
 ```
 
-#### Extension: `blank_before_header`
+#### 扩展： `blank_before_header`
 
 原始 Markdown 语法不需要标题前有空行。 Pandoc 确实需要这个（当然，文档的开头除外）。提出这一要求的原因是，`#` 很容易意外地出现在一行的开头（可能由于换行）。
 
@@ -26,7 +26,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 ![[ ../../examples/pandoc-flavored-markdown/blank_before_header.md ]]
 ```
 
-#### Extension: `space_in_atx_header`
+#### 扩展： `space_in_atx_header`
 
 许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-space_in_atx_header` 来取消这个要求。
 
@@ -36,9 +36,53 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 
 编译时运行：`pandoc -f markdown-space_in_atx_header input.md -o output.md`。
 
-#### 标题标识符
+#### 扩展： `auto_identifiers`
 
-#### Extension: `header_attributes`
+没有明确指定标识符的标题将根据标题文本自动分配唯一标识符。
+
+从标题文本中获取标识符的默认算法是：
+
+- 删除所有格式、链接等。
+- 删除所有脚注。
+- 删除所有非字母数字字符，下划线、连字符和句点除外。
+- 用连字符替换所有空格和换行符。
+- 将所有字母字符转换为小写。
+- 删除第一个字母之前的所有内容（标识符不能以数字或标点符号开头）。
+- 如果此后没有剩余内容，则使用标识符 `section`。
+
+例如：
+| 标题 | 标识符 |
+| --- | --- |
+|Heading identifiers in HTML	|heading-identifiers-in-html|
+|Maître d'hôtel	              |maître-dhôtel|
+|*Dogs*?--in *my* house?	    |dogs--in-my-house|
+|[HTML], [S5], or [RTF]?	    |html-s5-or-rtf|
+|3. Applications	            |applications|
+|33	                          |section|
+
+在大多数情况下，这些规则应该允许根据标题文本确定标识符。例外情况是多个标题具有相同的文本；在这种情况下，第一个标题将获得如上所述的标识符；第二个标题将获得相同的标识符并-1附加；第三个标题将附加 -2；依此类推。
+
+`gfm_auto_identifiers`（但是，如果启用，则会使用不同的算法 ；请参见下文。）
+
+这些标识符用于在选项生成的目录中提供链接目标 `--toc|--table-of-contents`。它们还可以轻松地提供从文​​档某个部分到另一个部分的链接。例如，指向此部分的链接可能如下所示：
+
+```
+See the section on
+[heading identifiers](#heading-identifiers-in-html-latex-and-context).
+```
+但请注意，这种提供章节链接的方法仅适用于 HTML、LaTeX 和 ConTeXt 格式。
+
+如果 `--section-divs` 指定了该选项，则每个部分将被包裹在 section（或 div，如果html4 指定了 ）中，并且标识符将附加到封闭的 `<section>`（或 `<div>`）标签而不是标题本身。这允许使用 JavaScript 操作整个部分，或在 CSS 中进行不同的处理。
+
+#### 扩展： `ascii_identifiers`
+
+使生成的标识符为 `auto_identifiers` 纯 ASCII 码。带重音符号的拉丁字母中的重音符号会被去除，非拉丁字母会被省略。
+
+#### 扩展： `gfm_auto_identifiers`
+
+更改 `auto_identifiers` 使用的算法以符合 GitHub 的方法。空格将转换为短划线 (`-`)，大写字母将转换为小写字母，除`-`和 `_` 之外的标点符号将被删除。表情符号将替换为其名称。
+
+#### 扩展： `header_attributes`
 
 可以在包含标题文本的行末尾使用以下语法为标题分配属性：
 
@@ -66,17 +110,48 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 ![[ ../../examples/pandoc-flavored-markdown/header_attributes.md ]]
 ```
 
-#### Extension: `implicit_header_references`
+#### 扩展： `implicit_header_references`
 
-Pandoc 的行为就像每个标题都定义了引用链接 （reference links） 一样。因此，要链接到标题，只需要直接加上`[]`，如：
+Pandoc 的行为就像每个标题都定义了引用链接 （reference links） 一样。因此，要链接到标题，只需要直接在标题加上`[]`。
+
+如要链接到标题：
+
+`# Heading identifiers in HTML`
+
+你可以简单地写：
+
+`[Heading identifiers in HTML]`
+
+或者
+
+`[Heading identifiers in HTML][]`
+
+或者
+
+`[the section on heading identifiers][heading identifiers in
+HTML]`
+
+而不是明确给出标识符：
+
+`[Heading identifiers in HTML](#heading-identifiers-in-html)`
+
+如果有多个标题具有相同的文本，则相应的参考将仅链接到第一个标题，并且您需要使用明确的链接来链接到其他标题，如上所述。
+
+与常规参考链接一样，这些参考不区分大小写。
+
+显式链接引用定义始终优先于隐式标题引用。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
+
+```
+# Foo
+
+[foo]: bar
+
+See [foo]
+```
+
+下面是一个完整示例：
 
 ```
 ![[ ../../examples/pandoc-flavored-markdown/implicit_header_references.md ]]
 ```
-
-如果有多个标题具有相同的文本，则相应的引用将仅链接到第一个标题，并且您需要使用明确的链接来链接到其他标题，如上所述。
-
-与常规引用链接一样，这些引用不区分大小写。
-
-显式链接引用定义始终优先于隐式标题引用。
 

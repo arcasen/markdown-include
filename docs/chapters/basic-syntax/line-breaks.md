@@ -7,9 +7,9 @@
 [^pandoc-linebreak]: Pandoc 在转换成 latex 或 pdf 时不支持 `<br>` 换行, 见：<https://github.com/jgm/pandoc/issues/10043>。
 
 ```
-![[ ../../examples/line-breaks.md ]]
+![[ ../../examples/basic-syntax/line-breaks.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/line-breaks.md ]]
+![[ ../../examples/basic-syntax/line-breaks.md ]]

@@ -1,5 +1,5 @@
 # Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250428
+# Version: 20250501
 
 # Specify input and output directories
 DOCS ?= docs
@@ -91,13 +91,20 @@ $(DIST)/%: $(DOCS)/%
 .PHONY: all clean
 
 # Rebasing paths of embedded images and markdowns
+# Caution: processing embedded images in both inline and reference form
+#          - ![<alt-text>](<url> "<picture-title>")
+#          - ![<atl-text>][<picture-reference>]
+#            [<pciture-reference>]: <url> "<picture-title>"
 define rebasepath
 $(eval RELPATH := $(patsubst $(DIST)/%,%,$(dir $1)))
 sed -i -E -e "/\!\[([^]]*)\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
 -e "/\!\[([^]]*)\]\(\ *(\/|\~)[^)]*\)/b"                         \
 -e "s|\!\[([^]]*)\]\(\ *([^)]*)\)|\![\1]($(RELPATH)\2)|g"        \
 -e "/^\!\[\[\ *(\/|\~)[^]]*\]\]$$/b"                             \
--e "s|^\!\[\[\ *([^]]*)\]\]$$|![[$(RELPATH)\1]]|g" $1
+-e "s|^\!\[\[\ *([^]]*)\]\]$$|![[$(RELPATH)\1]]|g" $1            \
+-e "/\[([^]]*)\]\:\ *(http|https|ftp):\/\/([^[:space:]$$])*/b"   \
+-e "/\[([^]]*)\]\:\ *(\/|\~)([^[:space:]$$])*/b"                 \
+-e "s|\[([^]]*)\]\:\ *([^[:space:]$$]*)(jpg\|jpeg\|png)|[\1]\: $(RELPATH)\2\3|g"        
 endef
 
 # automatically generating inclusion dependencies between Markdown files

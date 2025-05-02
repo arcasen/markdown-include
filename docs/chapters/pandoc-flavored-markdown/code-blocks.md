@@ -16,7 +16,7 @@
 
 #### 围栏代码块 Fenced code blocks
 
-#### Extension: `fenced_code_blocks`
+#### 扩展： `fenced_code_blocks`
 
 除了标准缩进的代码块外，Pandoc 还支持 带围栏的代码块。这些代码块以一行三个或更多波浪号 (`~`) 开始，以一行波浪号结束，波浪号的长度必须至少与起始行一样长。这些行之间的所有内容都被视为代码。无需缩进：
 
@@ -35,16 +35,16 @@ code including tildes
 ~~~~~~~~~~
 ~~~~~~~~~~~~~~~~
 
-#### Extension: `backtick_code_blocks`
+#### 扩展： `backtick_code_blocks`
 
 与 `fenced_code_blocks` 相同，但使用反引号 (\`) 而不是波浪号 (`~`)。
 
-#### Extension: `fenced_code_attributes`
+#### 扩展： `fenced_code_attributes`
 
 或者，您可以使用以下语法将属性附加到隔离或反引号代码块：
 
 ~~~
-![[ ../../examples/pandoc-flavored-markdown/fenced_code_attributes.md]]
+![[ ../../examples/pandoc-flavored-markdown/fenced_code_attributes.md ]]
 ~~~
 
 这里 `#helloworld` 是一个标识符， `python` 和 `numberLines` 是类，并且 `startFrom` 是一个值为 100 的属性。某些输出格式可以使用此信息进行语法高亮显示。目前，唯一使用此信息的输出格式是 HTML、LaTeX、Docx、Ms 和 PowerPoint。如果您的输出格式和语言支持高亮显示，则上面的代码块将高亮显示，并带有编号行。（要查看支持哪些语言，请输入 `pandoc --list-highlight-languages`。）
