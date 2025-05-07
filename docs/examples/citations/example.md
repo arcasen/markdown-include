@@ -1,12 +1,28 @@
 ---
-title: "示例论文"
+# Metadata
 bibliography: references.bib
-csl: chicago-author-date.csl  # 可选，指定引用样式
+# download csl styles from https://github.com/citation-style-language/styles
+# store csl styles in ~/.local/share/pandoc/cls (for Debian or macOS)
+# csl styles preview: https://www.zotero.org/styles
+csl: apa.csl
 ---
 
-# 引言
+# 示例文档
 
-根据最近研究[@smith2020; @johnson2018]，深度学习已经取得了显著进展。
-正如 @smith2020 所述，这一领域的快速发展带来了新的挑战。
+这是对 Knuth 的引用[@knuth1997]。  
+
+Lamport 的 LaTeX 系统也很重要[@lamport1994, p. 310]。
+
+同时引用[@knuth1997; @lamport1994]。
+
+[参考 @knuth1997; 同时 @lamport1994, p. 310]
+
+[-@knuth1997]
+
+@knuth1997
+
+@knuth1997[第 11 章]
 
 # 参考文献
+
+<!-- 这里会自动生成参考文献列表 -->

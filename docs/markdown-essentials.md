@@ -18,4 +18,6 @@
 
 ![[ chapters/cross-referencing.md ]]
 
+![[ chapters/citations.md ]]
+
 ![[ chapters/references.md ]]
