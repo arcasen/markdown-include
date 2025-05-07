@@ -1,4 +1,4 @@
-MARKDOWNS := $(wildcard *.md)
+MARKDOWNS := $(shell find . -name "*.md")
 TARGETS   := $(subst .md,.pdf,$(MARKDOWNS))
 TARGETS   += $(subst .md,.html,$(MARKDOWNS))
 

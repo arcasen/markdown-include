@@ -1,4 +1,4 @@
-### Inline math
+### 行内公式 Inline math
 
 ```
 ![[ ../../examples/math/euler-formula.md ]]

@@ -1,5 +1,5 @@
 # Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250501
+# Version: 20250507
 
 # Specify input and output directories
 DOCS ?= docs
@@ -50,8 +50,14 @@ html: all
 	make -C $(DIST) html
 
 clean:
+	@echo "Removing '$(PDFS)' in the '$(DIST)' directory ..."
+	@rm -f $(DIST)/*.pdf
+
+cleanup:
 	@echo "Removing the '$(DIST)' directory ..."
 	@rm -rf $(DIST)
+
+.PHONY: all clean cleanup pdf tex html
 
 # Rule: create Makefile in the directory '$(DIST)'
 $(DIST)/Makefile: $(MARKDOWNS)
@@ -158,7 +164,7 @@ include depends
 
 # Rule: create html document
 %.html: %.md $(SETTINGS)
-	pandoc -f markdown+emoji $$< -o $$@
+	pandoc --mathjax -s -f markdown+emoji $$< -o $$@
 endef
 
 export submakefile
