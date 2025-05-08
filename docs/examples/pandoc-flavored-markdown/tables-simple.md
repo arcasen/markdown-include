@@ -1,6 +1,6 @@
 <!-- simple table -->
 
-Table: 简单列表示例
+Table: 简单表格示例
 
   Right     Left     Center     Default
 -------     ------ ----------   -------

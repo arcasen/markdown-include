@@ -1,4 +1,4 @@
-# Markdown Essentials
+# Markdown & Pandoc Essentials
 
 ![[ chapters/introduction.md ]]
 

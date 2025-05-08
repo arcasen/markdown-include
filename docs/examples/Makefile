@@ -7,6 +7,7 @@ OPTIONS   += --pdf-engine=xelatex
 OPTIONS   += -f markdown-space_in_atx_header-intraword_underscores
 # OPTIONS   += --highlight-style pygments
 OPTIONS   += --highlight-style tango
+OPTIONS   += --number-sections --filter pandoc-crossref
 
 all: $(TARGETS)
 
@@ -17,6 +18,6 @@ clean:
 	pandoc $(OPTIONS) $< -o $@
 
 %.html: %.md
-	pandoc -s $< -o $@
+	pandoc -s --mathjax $< -o $@
 
 .PHONY: all clean
