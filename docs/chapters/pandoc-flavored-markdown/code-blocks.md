@@ -14,7 +14,9 @@
 
 初始（四个空格或一个制表符）缩进不被视为逐字文本的一部分，并将在输出中删除。
 
-**注意**：逐字文本中的空白行不必以四个空格开头。
+**注意**
+
+逐字文本中的空白行不必以四个空格开头。
 
 #### 扩展：`fenced_code_blocks`
 
@@ -44,9 +46,9 @@ code including tildes
 
 或者，您可以使用以下语法将属性附加到隔离或反引号代码块：
 
-```
+~~~
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/fenced_code_attributes.md ]]
-```
+~~~
 
 渲染效果如下：
 

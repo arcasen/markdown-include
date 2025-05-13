@@ -51,7 +51,7 @@ html: all
 
 clean:
 	@echo "Removing '$(PDFS)' in the '$(DIST)' directory ..."
-	@rm -f $(DIST)/*.pdf
+	@rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html
 
 cleanup:
 	@echo "Removing the '$(DIST)' directory ..."

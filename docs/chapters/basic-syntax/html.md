@@ -12,7 +12,7 @@ This **word** is bold. This <em>word</em> is italic.
 
 This **word** is bold. This <em>word</em> is italic.
 
-#### HTML 最佳实践
+**注意**
 
 出于安全原因，并非所有 Markdown 应用程序都支持 Markdown 文档中的 HTML。如有疑问，请查看 Markdown 应用程序的文档。一些应用程序仅支持 HTML 标签的子集。
 

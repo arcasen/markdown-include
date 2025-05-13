@@ -23,12 +23,12 @@
 如果将 URL 或电子邮件地址放在尖括号中，它将变成链接：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/links-automatic.md  ]]
+![[ ../../examples/pandoc-flavored-markdown/links/automatic-links.md  ]]
 ```
 
 渲染结果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/links-automatic.md ]]
+![[ ../../examples/pandoc-flavored-markdown/links/automatic-links.md ]]
 
 #### 内联链接 Inline Links
 
@@ -37,12 +37,12 @@
 [^URL]: URL 可以是网址也可以是本地路径。
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/links-inline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/links/inline-links.md ]]
 ```
 
 渲染结果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/links-inline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/links/inline-links.md ]]
 
 方括号和圆括号之间不能有空格。链接文本可以包含格式（例如强调），但标题不能。
 
@@ -72,11 +72,19 @@ URL 可以选择性地用尖括号括起来。
 
 以下是一些示例：
 
-![[ ../../examples/pandoc-flavored-markdown/links-reference.md ]]
+```
+![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
+```
 
-注意：在Markdown.plMarkdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
+渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/links-inside-blockquotes-and-lists.md ]]
+![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
+
+**注意**
+
+在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
+
+![[ ../../examples/pandoc-flavored-markdown/links/links-inside-blockquotes-and-lists.md ]]
 
 #### 扩展： `shortcut_reference_links`
 

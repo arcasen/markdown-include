@@ -7,7 +7,7 @@ Pandoc 可以使用两种标题格式：Setext 和 ATX。
 Setext 样式的标题是一行带有“下划线”的文本，其中带有一行=符号（对于一级标题）或 -符号（对于二级标题）。标题文本可能包括[内联格式](#inline-formatting)，例如强调和斜体。
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/setext-style-headings.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/setext-style-headings.md ]]
 ```
 
 #### ATX 格式
@@ -15,7 +15,7 @@ Setext 样式的标题是一行带有“下划线”的文本，其中带有一�
 ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行尾可能有任意数量的符号。行首的符号`#`数量即为标题的级别。与 Setext 标题一样，ATX 标题允许[内联格式](#inline-formatting)。
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/atx-style-headings.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/atx-style-headings.md ]]
 ```
 
 #### 扩展： `blank_before_header`
@@ -23,7 +23,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 原始 Markdown 语法不需要标题前有空行。 Pandoc 确实需要这个（当然，文档的开头除外）。提出这一要求的原因是，`#` 很容易意外地出现在一行的开头（可能由于换行）。
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/blank_before_header.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/blank_before_header.md ]]
 ```
 
 #### 扩展： `space_in_atx_header`
@@ -31,7 +31,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-space_in_atx_header` 来取消这个要求。
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/space_in_atx_header.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/space_in_atx_header.md ]]
 ```
 
 编译时运行：`pandoc -f markdown-space_in_atx_header input.md -o output.md`。
@@ -51,8 +51,9 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 - 如果此后没有剩余内容，则使用标识符 `section`。
 
 例如：
+
 | 标题 | 标识符 |
-| --- | --- |
+| :---: | :---: |
 |Heading identifiers in HTML	|heading-identifiers-in-html|
 |Maître d'hôtel	              |maître-dhôtel|
 |*Dogs*?--in *my* house?	    |dogs--in-my-house|
@@ -107,7 +108,7 @@ See the section on
 如果存在 `unnumbered` 和 `unlisted` ，则标题将不会包含在目录中。（目前此功能仅适用于某些格式：基于 LaTeX 和 HTML、PowerPoint 和 RTF 的格式。）
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/header_attributes.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/header_attributes.md ]]
 ```
 
 #### 扩展： `implicit_header_references`
@@ -152,6 +153,6 @@ See [foo]
 下面是一个完整示例：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/implicit_header_references.md ]]
+![[ ../../examples/pandoc-flavored-markdown/headings/implicit_header_references.md ]]
 ```
 

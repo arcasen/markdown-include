@@ -14,10 +14,12 @@ all: $(TARGETS)
 clean: 
 	rm -f $(TARGETS)
 
+# since images path is relative to its markdown files, 
+# change to the directory of the markdown file and make
 %.pdf: %.md
-	pandoc $(OPTIONS) $< -o $@
+	cd $(dir $<) && pandoc $(OPTIONS) $(notdir $<) -o $(notdir $@)
 
 %.html: %.md
-	pandoc -s --mathjax $< -o $@
+	cd $(dir $<) && pandoc -s --mathjax $(OPTIONS) $(notdir $<) -o $(notdir $@)
 
 .PHONY: all clean

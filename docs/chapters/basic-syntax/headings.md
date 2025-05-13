@@ -2,9 +2,9 @@
 
 Markdown 支持两种标题样式：[Setext][stx] 和 [atx][atx]。
 
-Setext 风格的标题使用等号（一级标题）和短横线（二级标题）作为"下划线"。例如：
+Setext 风格的标题使用等号（一级标题）和短横线（二级标题）作为“下划线”。例如：
 
-```markdown
+```
 ![[ ../../examples/basic-syntax/headings-setext-style.md ]]
 ```
 

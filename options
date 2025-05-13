@@ -20,7 +20,7 @@ OPTIONS += --template=../templates/eisvogel.latex
 # Numbered Sections
 # OPTIONS += --number-sections
 
-# Syntax Highlighting with Listings
+# Syntax Highlighting with Listings enviroment (default: verbatim)
 OPTIONS += --listings
 
 # OPTIONS += -M book=true -M has-frontmatter=true

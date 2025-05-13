@@ -33,12 +33,12 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/tables-simple.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-simple.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables-simple.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-simple.md ]]
 
 #### 扩展： `mutiline_tables`
 
@@ -59,12 +59,12 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/tables-multiline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-multiline.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables-multiline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-multiline.md ]]
 
 #### 扩展： `grid_tables`
 
@@ -87,12 +87,12 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/tables-grid.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-grid.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables-grid.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-grid.md ]]
 
 #### 扩展： `pipe_tables`
 
@@ -103,9 +103,9 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```
-![[ ../../examples/pandoc-flavored-markdown/tables-pipe.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables-pipe.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]

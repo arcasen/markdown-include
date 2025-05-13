@@ -2,7 +2,9 @@
 
 ### 什么是 Markdown？
 
-Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档添加格式元素。Markdown 由 [John Gruber](https://daringfireball.net/projects/markdown/) 于 2004 年创建，现在是世界上最流行的标记语言之一。
+Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档添加格式元素。Markdown 由 [John Gruber] 于 2004 年创建，现在是世界上最流行的标记语言之一。
+
+[John Gruber]: https://daringfireball.net/projects/markdown/
 
 使用 Markdown 与使用 [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) 编辑器不同。在 Microsoft Word 等应用程序中，你可以单击按钮来设置单词和短语的格式，并且更改会立即显示。Markdown 并非如此。当你创建一个 Markdown 格式的文件时，你向文本添加 Markdown 语法来指示哪些单词和短语应显示为不同格式。
 
@@ -10,11 +12,7 @@ Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档�
 
 你可以使用文本编辑器应用程序向纯文本文件添加 Markdown 格式元素。或者，你可以使用 macOS、Windows、Linux、iOS 和 Android 操作系统的众多 Markdown 应用程序之一。还有专门用于编写 Markdown 的几个基于 Web 的应用程序。
 
-根据你使用的应用程序，你可能无法实时预览格式化的文档。但这没关系。据 [John Gruber](https://daringfireball.net/projects/markdown/) 所说，Markdown 语法旨在具有可读性和不显眼性，因此即使没有呈现 Markdown 文件中的文本，也可以读取该文本。
-
-> Markdown 格式语法的主要设计目标是使其尽可能具有可读性。其理念是 Markdown 格式的文档应可按原样发布为纯文本，而不会看起来像是用标记或格式化指令标记的。
-> A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
-> \- [John Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy)
+根据你使用的应用程序，你可能无法实时预览格式化的文档。但这没关系， Markdown 格式语法的主要设计目标是使其尽可能具有可读性。
 
 ### 为何使用 Markdown？
 
@@ -37,7 +35,7 @@ Markdown 应用程序使用称为 Markdown 处理器（通常也称为“解析�
 
 Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（“Markdown 应用程序”）。
 
-![Markdown Flowchart]( ../images/markdown-flowchart.png)
+![Markdown Flowchart](../images/markdown-flowchart.png)
 
 总而言之，这是一个由四部分组成的过程
 
@@ -54,13 +52,7 @@ Markdown 是一种快速简便的方法，可用于做笔记、为网站创建�
 
 ### Markdown 的风格
 
-使用 Markdown 最令人困惑的方面之一是几乎每个 Markdown 应用程序都实现了略有不同的 Markdown 版本。这些 Markdown 变体通常称为风格。您的工作是掌握应用程序已实现的任何风格的 Markdown。
-
-为了理解 Markdown 语言的理念，可以将它们视为语言方言。纽约市的人们和伦敦的人们都说英语，但这两个城市使用的方言之间存在很大差异。使用不同 Markdown 应用程序的人们也是如此。
-
-实际上，这意味着你永远不知道当一家公司说他们支持“Markdown”时，他们具体是什么意思。他们所说的仅仅是 [基本语法元素](https://www.markdownguide.org/basic-syntax/) 吗，还是所有基本和 [扩展语法元素](https://www.markdownguide.org/extended-syntax/) 的组合，或者是一些任意的语法元素组合？只有在阅读文档或开始使用应用程序后，你才能知道。
-
-如果你刚开始，我能给你的最佳建议是选择一个 Markdown 支持良好的 Markdown [应用程序](https://www.markdownguide.org/tools/)。这将极大地提高 Markdown 文件的可移植性。你可能希望在其他应用程序中存储和使用 Markdown 文件，而要做到这一点，你需要从提供良好支持的应用程序入手。你可以使用 工具目录 找到一个合适的应用程序。
+使用 Markdown 最令人困惑的方面之一是几乎每个 Markdown 应用程序都实现了略有不同的 Markdown 版本。这些 Markdown 变体通常称为风格，如 GitHub Flavored Markdown， Pandoc Flavored Markdown 等等。
 
 ### 其他资源
 

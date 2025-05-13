@@ -739,7 +739,7 @@ $if(listings)$
 \definecolor{listing-comment}{HTML}{8E8E8E}
 
 \lstdefinestyle{eisvogel_listing_style}{
-  language         = java,
+%  language         = java,
 $if(listings-disable-line-numbers)$
   xleftmargin      = 0.6em,
   framexleftmargin = 0.4em,
