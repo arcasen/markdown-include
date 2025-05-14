@@ -1,0 +1,12 @@
+\documentclass{book}
+\usepackage{hyperref}
+
+\title{$title$$if(subtitle)$: $subtitle$ $endif$}
+\author{$for(author)$$author$$sep$and $endfor$}
+
+\begin{document}
+\maketitle
+
+$body$
+
+\end{document}

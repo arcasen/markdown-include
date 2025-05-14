@@ -10,14 +10,14 @@
 
 ![[ chapters/pandoc-flavored-markdown.md ]]
 
-![[ chapters/metadata.md ]]
-
-<!-- ![[ chapters/hacks.md ]] -->
+![[ chapters/templates.md ]]
 
 ![[ chapters/math.md ]]
 
 ![[ chapters/cross-referencing.md ]]
 
 ![[ chapters/citations.md ]]
+
+![[ chapters/metadata.md ]]
 
 ![[ chapters/references.md ]]
