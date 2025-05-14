@@ -1,5 +1,3 @@
-
-
 all: dist/main.md
 	$(call resolvepath,$<)
 
@@ -8,7 +6,6 @@ dist/main.md:
 
 clean:
 	rm -rf dist
-
 
 # define resolvepath
 # sed -i -E -e "/\!\[.*\]\(\ *(http|https|ftp):\/\/[^)]*\)/b"      \

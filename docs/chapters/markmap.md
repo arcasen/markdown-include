@@ -1,83 +1,47 @@
-# Markmap
+## 使用 Markmap 制作思维导图
 
-安装 Node 14 兼容的版本[^markmap-version]：
+### 什么是 Markmap ？
 
-```
-npm install -g markmap-cli@0.14
-```
+[Markmap][^markmap] 是一个将 Markdown 文本转换为交互式思维导图的工具，简单易用，适合整理笔记、规划项目或可视化复杂信息。Markmap 是一个 JavaScript 库，能够解析 Markdown 文本的层级结构（如标题、列表等），并将其渲染为交互式思维导图。它支持：
 
-[^markmap-version]: markmap-cli 0.15 到 0.18 需要 Node 18
+- Markdown 语法（链接、粗体、斜体、代码块等）
+- 数学公式（通过 KaTeX）
+- 动态交互（缩放、拖动、折叠/展开节点）
+- 导出为 HTML 或 SVG 文件
 
-Markmap 是一个用于将 Markdown 转换为思维导图的工具，但它本身主要生成交互式的 SVG 格式思维导图。如果需要将 Markmap 思维导图导出为图片（如 PNG），可以按照以下方法操作：
+[Markmap]: https://markmap.js.org/
+[^markmap]: https://markmap.js.org/
 
-### 方法一：通过浏览器截图或导出 SVG
-1. **生成 Markmap 思维导图**：
-   - 使用 Markmap 的在线编辑器（https://markmap.js.org/）或本地安装 Markmap（如通过 npm 安装 `markmap-cli`）。
-   - 输入 Markdown 格式的文本，生成交互式 SVG 思维导图。
+### 使用方法
 
-2. **导出为图片**：
-   - **浏览器截图**：在浏览器中打开生成的思维导图，使用截图工具（如 Windows 的 Snip & Sketch 或 macOS 的 Command+Shift+4）捕获屏幕。
-   - **导出 SVG 后转换**：
-     - 右键点击 Markmap 页面，选择“保存为 SVG”或复制 SVG 代码。
-     - 使用在线工具（如 https://svg2png.com/）或软件（如 Inkscape、Adobe Illustrator）将 SVG 转换为 PNG 或其他图片格式。
+#### 使用在线编辑器
 
-### 方法二：使用 Node.js 渲染为 PNG
-Markmap 官方文档提供了一种通过 Node.js 将思维导图渲染为 PNG 的方法，适合需要自动化的场景。以下是具体步骤（参考）：[](https://markmap.js.org/docs/guide--use-with-nodejs)
+访问 Markmap 官方在线编辑器：https://markmap.js.org/repl
 
-1. **安装依赖**：
-   确保已安装 Node.js，然后安装以下包：
+#### 使用 markmap-cli
+
+1. 确保系统安装 Node.js（版本 ≥ 10）。
+2. 全局安装 Markmap[^markmap-version]：
    ```bash
-   npm install markmap-lib markmap-render node-html-to-image
+   npm install -g markmap-cli@0.14
    ```
-
-2. **编写代码**：
-   创建一个 JavaScript 文件（如 `render.js`），使用以下代码：
-   ```javascript
-   import { Transformer } from 'markmap-lib';
-   import { fillTemplate } from 'markmap-render';
-   import nodeHtmlToImage from 'node-html-to-image';
-   import { writeFile } from 'node:fs/promises';
-
-   async function renderMarkmap(markdown, outFile) {
-       const transformer = new Transformer();
-       const { root, features } = transformer.transform(markdown);
-       const assets = transformer.getUsedAssets(features);
-       const html = fillTemplate(root, assets, {
-           jsonOptions: { duration: 0, maxInitialScale: 5 }
-       }) + `<style> body, #mindmap { width: 2400px; height: 1800px; } </style>`;
-       const image = await nodeHtmlToImage({ html });
-       await writeFile(outFile, image);
-   }
-
-   const markdown = `
-   # Markmap
-   ## Topic 1
-   - Detail A
-   ## Topic 2
-   - Detail B
-   `;
-   renderMarkmap(markdown, 'markmap.png');
-   ```
-
-3. **运行代码**：
+3. 运行命令将 Markdown 文件转换为思维导图：
    ```bash
-   node render.js
+   markmap sample.md
    ```
-   这会在当前目录生成 `markmap.png` 文件。注意：此方法依赖 Puppeteer，可能会占用较多内存。
+   - 输出为 `sample.html`，自动在浏览器打开。
+   - 可选参数：
+     - `-o output.html`：指定输出文件名
+     - `--enable-mathjax`：启用 MathJax 渲染数学公式
+     - `--enable-prism`：启用 PrismJS 代码高亮
+     - `--no-open`：生成后不自动打开浏览器
 
-### 方法三：借助第三方工具或插件
-1. **Obsidian 插件**：
-   如果你在 Obsidian 中使用 Markmap 插件（如 Mind Map 插件），可以先生成思维导图，然后：[](https://www.obsidianstats.com/plugins/obsidian-mind-map)
-   - 复制 SVG 图像（插件支持复制 SVG）。
-   - 使用工具（如 Inkscape）将 SVG 转为 PNG。
-   - 未来版本可能支持直接导出 PNG（根据，插件计划添加此功能）。[](https://discourse.joplinapp.org/t/plugin-markmap/30426)
+[^markmap-version]: Node 14 兼容的版本为 markmap-cli 0.14，而 markmap-cli 0.15 到 0.18 需要 Node 18
 
-2. **Logseq 或 Joplin**：
-   - 在 Logseq 或 Joplin 中使用 Markmap 插件（,），生成思维导图后，类似地通过截图或导出 SVG 转换为图片。[](https://medium.com/free-or-open-source-software/ollama-logseq-markmap-auto-generate-mindmap-from-ollamas-answer-8b17aebabd6d)[](https://discourse.joplinapp.org/t/plugin-markmap/30426)
+#### 使用 VS Code 插件
 
-### 注意事项
-- **图片质量**：通过 Node.js 渲染或 SVG 转换可以获得高分辨率图片，而截图质量取决于屏幕分辨率。
-- **本地图片支持**：Markmap 目前不支持直接在思维导图中嵌入本地图片（），需先上传图片并使用链接。[](https://github.com/markmap/markmap/issues/119)
-- **自定义样式**：可通过 JSON 配置（如）调整颜色、字体等，优化图片效果。[](https://dongou.tech/ai/dongou/generating-mind-maps-and-customizing-colors-in-ai-applications/)
+1. 在 VS Code 中安装扩展：搜索 “Markmap” 并安装。
+2. 创建以 `.mm.md` 结尾的 Markdown 文件（或普通 `.md` 文件）。
+3. 编写 Markdown 文本，点击右上角的 “Markmap” 图标或使用快捷键（默认 `Ctrl+Alt+M`）预览思维导图。
+4. 可点击 “Export” 按钮导出为 HTML。
 
-如果需要更具体的代码示例或自动化脚本，请告诉我你的使用场景（如是否需要批量生成图片）！
