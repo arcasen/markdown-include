@@ -5,12 +5,14 @@ SNIPPET   += $(subst .md,.tex,$(MARKDOWNS))
 
 OPTIONS   += -V CJKmainfont="华文楷体"
 OPTIONS   += --pdf-engine=xelatex
+OPTIONS   += --listings
+OPTIONS   += --template=eisvogel
 # OPTIONS   += -f markdown-space_in_atx_header-intraword_underscores
 # OPTIONS   += --highlight-style pygments
 # OPTIONS   += --highlight-style tango
 # OPTIONS   += --number-sections --filter pandoc-crossref
 
-TEX_OPTIONS := --listings
+# TEX_OPTIONS := --listings
 # TEX_OPTIONS += -s 
 # TEX_OPTIONS += --highlight-style tango
 
@@ -28,6 +30,6 @@ clean:
 	cd $(dir $<) && pandoc -s --mathjax $(OPTIONS) $(notdir $<) -o $(notdir $@)
 
 %.tex: %.md
-	cd $(dir $<) && pandoc $(TEX_OPTIONS) $(notdir $<) -o $(notdir $@)
+	cd $(dir $<) && pandoc $(OPTIONS) $(notdir $<) -o $(notdir $@)
 
 .PHONY: all clean

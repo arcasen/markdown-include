@@ -16,9 +16,15 @@
 
 ![[ chapters/citations.md ]]
 
+![[ chapters/defaults-files.md ]]
+
 ![[ chapters/metadata.md ]]
 
 ![[ chapters/templates.md ]]
+
+![[ chapters/reference-document.md ]]
+
+![[ chapters/filters.md ]]
 
 ![[ chapters/slides.md ]]
 

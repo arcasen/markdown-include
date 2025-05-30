@@ -1,5 +1,0 @@
-#!/bin/bash
-
-TEMPLATES_DIR=~/.local/share/pandoc/templates
-mkdir -p $TEMPLATES_DIR
-cp -f *.latex *.beamer $TEMPLATES_DIR

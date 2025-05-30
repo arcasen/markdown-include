@@ -1,0 +1,6 @@
+#!/bin/bash
+
+PANDOC_DATADIR=~/.local/share/pandoc
+mkdir -p $PANDOC_DATADIR
+cp -rfp templates $PANDOC_DATADIR
+cp -rfp filters $PANDOC_DATADIR

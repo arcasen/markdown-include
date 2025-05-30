@@ -1,4 +1,4 @@
-## 模板  
+## 模板 Templates
 
 当使用 `-s/--standalone` 选项时，Pandoc 会使用模板添加独立文档所需的头部和尾部内容。要查看使用的默认模板[^default-templates]，只需输入：  
 

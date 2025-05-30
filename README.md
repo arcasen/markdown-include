@@ -15,7 +15,6 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
   - Debian: `sudo apt install fonts-noto-cjk`
   - macOS: `brew install --cask font-noto-sans-cjk font-noto-serif-cjk`
 
-
 ## Embedded Markdown Syntax
 
 语法 Syntax:
@@ -70,6 +69,20 @@ The rule in Makefile is as follows:
 ```
 %.tex: %.md
 	pandoc $(OPTIONS) $< -o $@
+```
+
+## Building the project
+
+To create a standalone HTML file:
+
+```bash
+make html
+```
+
+To create a PDF file (TeX Live is required): 
+
+```bash
+make pdf
 ```
 
 ## References

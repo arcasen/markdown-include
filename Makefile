@@ -5,14 +5,15 @@
 DOCS ?= docs
 DIST ?= dist
 
-# Changes of options or metadata.yaml will trigger re-compiling
-SETTINGS := options metadata.yaml
+# Changes of defaults.yaml or metadata.yaml will trigger re-compiling
+SETTINGS := defaults.yaml metadata.yaml
 
 # Copy all files to the '$(DIST)' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
 # these .markdown files into the final .md files.
 DOCUMENTS := $(shell find $(DOCS) -type f)
 DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
+DUPLICATE += $(patsubst %,$(DIST)/%,$(SETTINGS))
 MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
 
 # Proccessed .md documents (will be created in the directory '$(DIST)')
@@ -34,7 +35,7 @@ HTML := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.html,$(TOP_DOCS)))
 # export TARGETS
 # export PDFS
 
-all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends $(DIST)/options $(DIST)/metadata.yaml
+all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends
 	make -C $(DIST)
 
 # Create PDF documents
@@ -65,12 +66,7 @@ $(DIST)/Makefile: $(MARKDOWNS)
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
 
-$(DIST)/options: options
-	@echo "Creating $@ ..."
-	@mkdir -p $(DIST)
-	@cp -f $< $@
-
-$(DIST)/metadata.yaml: metadata.yaml
+$(DIST)/%.yaml: %.yaml
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@cp -f $< $@
@@ -146,7 +142,6 @@ tex: $(TEXS)
 
 html: $(HTML)
 
-include options
 include depends
 
 # Rule: perform file inclusion
@@ -156,15 +151,15 @@ include depends
 
 # Rule: create PDF document
 %.pdf: %.md $(SETTINGS)
-	pandoc $$(OPTIONS) $$< -o $$@
+	pandoc -d defaults.yaml --template eisvogel.latex $$< -o $$@
 
 # Rule: create LaTeX document
 %.tex: %.md $(SETTINGS)
-	pandoc $$(OPTIONS) $$< -o $$@
+	pandoc -d defaults.yaml --template eisvogel.latex $$< -o $$@
 
 # Rule: create html document
 %.html: %.md $(SETTINGS)
-	pandoc --mathjax -s -f markdown+emoji $$< -o $$@
+	pandoc -d defaults.yaml $$< -o $$@
 endef
 
 export submakefile

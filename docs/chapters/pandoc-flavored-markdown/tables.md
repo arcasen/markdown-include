@@ -109,3 +109,39 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]
+
+#### Caveats
+
+1. 在 Pandoc 表格中插入图片是支持的，而且相对简单。你可以使用标准的 Markdown 图片语法在表格的单元格中插入图片。
+
+2. 在 Pandoc 中，直接在 Markdown 表格的单元格内插入多行围栏代码块是不支持的。
+
+   Pandoc 的标准 Markdown 表格语法（如 Pipe Tables、Simple Tables 和 Grid Tables）对单元格内容有一些限制。它们通常期望单元格内容是单行的，或者至少是不包含像围栏代码块那样需要多行且有特定格式的块级元素。
+
+   如果你尝试这样做，Pandoc 通常会将其解析为表格中断，或者将代码块视为表格之外的独立内容，导致表格结构被破坏。
+
+   在 Pandoc Markdown 表格中直接插入多行围栏代码块是不推荐且通常不可行的。Pandoc 的表格语法设计目的不是为了容纳这种复杂的块级内容。
+
+3. 在 Pandoc 的 Markdown 表格中处理多行中文内容时，容易出现换行错乱、对齐错误或单元格溢出等问题。以下是具体原因和解决方案：
+
+   **问题原因**
+   
+   - 换行符不兼容：Pandoc 的 Markdown 表格默认用 `<br>` 或空格换行，但中文段落换行可能被忽略。
+   - 中文字符宽度计算错误：中文字符宽度是西文的 2 倍，导致自动列宽计算失效。
+   - 表格语法限制：Pandoc 的 pipe_tables（`|` 分隔表格）对多行支持较弱，尤其是跨行内容。
+
+   **问题处理**
+
+   - 确保分隔线 `|---|` 的宽度足够（如 `|--------|`）。
+   - 在网格表格中用空行分隔段落。
+  
+示例：
+
+```
+![[ ../../examples/pandoc-flavored-markdown/tables/multiline-chinese.md ]]
+```
+
+渲染效果如下：
+
+![[ ../../examples/pandoc-flavored-markdown/tables/multiline-chinese.md ]]
+

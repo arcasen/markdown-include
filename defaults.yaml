@@ -1,0 +1,44 @@
+# Defaults file used specify a package of options
+# https://pandoc.org/MANUAL.html#defaults-files
+
+# ======================= General options =======================
+from: markdown+emoji
+
+# ======================== Reader options =======================
+shift-heading-level-by: -1
+# Cross Referencing
+# OPTIONS += --filter pandoc-crossref -M listings
+filters:
+  - pandoc-crossref
+# Resolve '! LaTeX Error: Environment lstlisting undefined.' when 
+# using the pandoc-crossref filter together with Eisvogel template
+# https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146
+metadata:
+  listings: true
+  
+metadata-file: metadata.yaml
+
+# ==================== General writer options ===================
+standalone: true
+# eisvogel.latex should be located in ~/.local/share/pandoc/templates
+# OPTIONS += --template eisvogel
+# OPTIONS += --template=../templates/eisvogel.latex
+# template: eisvogel.latex
+toc: true
+toc-depth: 3
+
+# ============= Options affecting specific writers ==============
+top-level-division: chapter
+number-sections: true
+# To process Chinese, you need to use xelatex engine
+pdf-engine: xelatex
+# Use the listings package for LaTeX code blocks. 
+# (default: pandoc's Shaded envrionment)
+listings: true
+# reference-doc: custom-reference.docx
+
+# ====================== Citation rendering =====================
+
+# ==================== Math rendering in HTML ===================
+html-math-method:
+  method: mathjax

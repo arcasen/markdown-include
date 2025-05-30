@@ -1,9 +1,5 @@
 ## 使用元数据 Metadata
 
-### YAML 介绍
-
-YAML 最初是 "Yet Another Markup Language" 的缩写，但后来为了强调其数据导向（而非标记语言）的特性，官方将其重新定义为 "YAML Ain't Markup Language"（一种递归缩写，即“YAML 不是标记语言”）。最初设计时，YAML 被视作类似 XML 的标记语言，但后来转向更简洁的 数据描述格式，专注于存储和传输结构化数据（如配置、API 请求等）。与 XML（标记语言）不同，YAML 避免使用标签（< >），而是依赖缩进和符号表示结构。
-
 在 Pandoc 中，YAML 元数据是指文档开头的一段 YAML 格式的内容，用于描述文档的属性和元信息。通过读取 Pandoc 标记文件中的 YAML 元数据，我们可以获取文档的各种属性，如标题、作者、日期等，以及自定义的元信息。
 
 当 Pandoc 生成独立文档时，会利用标题、作者等元数据来填充部分信息。这些数据通常不会在 Markdown 源文件中直接指定——毕竟 Markdown 语法本身并未提供定义此类元数据的标注方式——但您可以通过 `--metadata` 选项或 YAML 格式进行设置（具体方法见下文说明）。
@@ -19,7 +15,7 @@ YAML 最初是 "Yet Another Markup Language" 的缩写，但后来为了强调�
 
 读取 Pandoc 标记文件中的 YAML 元数据可以通过使用 Pandoc 提供的命令行参数或API来实现。以下是一个示例命令行使用方式：
 
-```
+```bash
 pandoc --metadata-file=metadata.yaml input.md -o output.html
 ```
 
@@ -41,3 +37,29 @@ Pandoc 命令中的几个相关选项：
 注意：将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 \LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式 [^underscore_issue]，可以将相关代码直接以 `header-includes` 形式加入。
 
 [^underscore_issue]: <https://github.com/jgm/pandoc/issues/2139>
+
+### `--defaults`/`-d` 与 `--metadata-file`
+
+Pandoc 的 `-d`（`--defaults`）和 `--metadata-file` 选项都用于从外部文件加载配置，但它们的用途和功能有显著区别：
+
+1. `-d` / `--defaults`（默认配置文件）的用途：定义 **Pandoc 转换的全局默认选项**（如输入/输出格式、模板、变量、过滤器等）。
+
+2. `--metadata-file`（元数据文件）的用途：仅用于定义文档的 **元数据**（如标题、作者、日期等），不影响转换行为。
+
+: `--defaults`/`-d` 与 `--metadata-file` 关键区别对比
+
+| 特性             | `-d` / `--defaults`              | `--metadata-file`         |
+| ---------------- | -------------------------------- | ------------------------- |
+| **影响范围**     | 控制整个转换流程（格式、模板等） | 仅设置文档元数据          |
+| **文件内容**     | Pandoc 选项 + 元数据             | 仅元数据                  |
+| **优先级**       | 低于命令行选项                   | 与文档内元数据合并        |
+| **常用字段示例** | `from`, `to`, `filters`          | `title`, `author`, `date` |
+
+示例：结合使用两者
+
+```bash
+pandoc -d defaults.yaml --metadata-file meta.yaml input.md -o output.pdf
+```
+
+- `defaults.yaml` 定义转换规则（如 PDF 模板、字体）。
+- `meta.yaml` 定义文档内容相关的元数据（如标题、作者）。
