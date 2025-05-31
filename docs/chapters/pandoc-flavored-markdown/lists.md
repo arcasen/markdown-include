@@ -8,7 +8,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
 
@@ -20,7 +20,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-with-block-contents.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-with-block-contents.md ]]
 
@@ -30,7 +30,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-nested.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-nested.md ]]
 
@@ -44,7 +44,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-ordered.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-ordered.md ]]
 
@@ -58,7 +58,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-fancy.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-fancy.md ]]
 
@@ -71,7 +71,7 @@ Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-task.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-task.md ]]
 
@@ -85,7 +85,7 @@ Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
 
@@ -97,13 +97,6 @@ Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-end.md ]]
 ```
 
-渲染效果：
+渲染效果如下：
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-end.md ]]
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 ### 反斜杠转义 Blackslash escapes
 
-#### 扩展： `all_symbols_escapable`
+#### 扩展：`all_symbols_escapable`
 
 除了在代码块或内联代码中，任何以反斜杠开头的标点符号或空格符都将按字面意思处理，即使它通常用于指示格式。例如，如果写成
 

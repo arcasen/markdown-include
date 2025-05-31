@@ -4,6 +4,8 @@
 
 除非[段落在列表中](#adding-elements-in-lists)，否则不要用空格（spaces）或制表符（tabs）缩进段落。
 
+示例：
+
 ```
 ![[ ../../examples/basic-syntax/paragraphs.md ]]
 ```

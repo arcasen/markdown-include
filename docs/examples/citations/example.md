@@ -1,13 +1,15 @@
----
-# Metadata
-bibliography: references.bib
-# download csl styles from https://github.com/citation-style-language/styles
-# store csl styles in ~/.local/share/pandoc/cls (for Debian or macOS)
-# csl styles preview: https://www.zotero.org/styles
-csl: apa.csl
----
-
 # 示例文档
+
+## 交叉引用
+
+When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+
+$$ x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a} $$ {#eq:quad}
+
+We can solve the equation $x^2 - x -2 = 0$ based on [@eq:quad]:
+$x_1=-1,x_2=2$.
+
+## 文献引用
 
 这是对 Knuth 的引用[@knuth1997]。  
 

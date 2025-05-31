@@ -78,7 +78,7 @@ pandoc habits.txt -o habits.pptx
 
 这些规则支持多种幻灯片展示风格。如果您不关心幻灯片的章节和子章节结构，可以仅使用 1 级标题（此时幻灯片级别为 1），或设置 `--slide-level=0`。
 
-**注意**：在 reveal.js 幻灯片中，如果幻灯片级别为 2，将生成二维布局，1 级标题水平构建，2 级标题垂直构建。建议不要在 reveal.js 中使用更深的嵌套，除非设置 `--slide-level=0`（此时 reveal.js 生成一维布局，仅将水平线视为幻灯片分隔）。
+注意：在 reveal.js 幻灯片中，如果幻灯片级别为 2，将生成二维布局，1 级标题水平构建，2 级标题垂直构建。建议不要在 reveal.js 中使用更深的嵌套，除非设置 `--slide-level=0`（此时 reveal.js 生成一维布局，仅将水平线视为幻灯片分隔）。
 
 ### PowerPoint 布局选择
 
@@ -150,7 +150,7 @@ content before the pause
 content after the pause
 ```
 
-**注意**：此功能尚未在 PowerPoint 输出中实现。
+注意：此功能尚未在 PowerPoint 输出中实现。
 
 ### 幻灯片样式
 
@@ -172,7 +172,7 @@ content after the pause
 pandoc -t beamer habits.txt -V theme:Warsaw -o habits.pdf
 ```
 
-**注意**：在 HTML 幻灯片格式中，标题属性将转换为幻灯片属性（在 `<div>` 或 `<section>` 上），允许您为单个幻灯片设置样式。在 beamer 中，某些标题类和属性被识别为框架选项，并作为选项传递给框架（见下文 beamer 的框架属性）。
+注意：在 HTML 幻灯片格式中，标题属性将转换为幻灯片属性（在 `<div>` 或 `<section>` 上），允许您为单个幻灯片设置样式。在 beamer 中，某些标题类和属性被识别为框架选项，并作为选项传递给框架（见下文 beamer 的框架属性）。
 
 ### 演讲者笔记
 
@@ -208,7 +208,7 @@ contents...
 ::::::::::::::
 ```
 
-**注意**：当前不支持在 PowerPoint 中指定列宽。
+注意：当前不支持在 PowerPoint 中指定列宽。
 
 ### beamer 中的额外列属性
 
@@ -272,7 +272,7 @@ contents...
 
 在 beamer 和 reveal.js 中，可以通过 YAML 元数据块或命令行变量使用 `background-image` 配置选项，在每页幻灯片上设置相同的背景图片。
 
-**注意**：对于 reveal.js，`background-image` 将作为 `parallaxBackgroundImage` 使用（见下文）。
+注意：对于 reveal.js，`background-image` 将作为 `parallaxBackgroundImage` 使用（见下文）。
 
 对于 pptx，可以使用 `--reference-doc`，在相关布局上设置背景图片。
 
@@ -288,7 +288,7 @@ contents...
 
 由于 HTML 编写器会传递未知属性，reveal.js 的其他背景设置也适用于单个幻灯片，包括 `background-size`、`background-repeat`、`background-color`、`transition` 和 `transition-speed`。（`data-` 前缀会自动添加。）
 
-**注意**：为与 reveal.js 保持一致，pptx 也支持 `data-background-image`——如果未找到 `background-image`，将检查 `data-background-image`。
+注意：为与 reveal.js 保持一致，pptx 也支持 `data-background-image`——如果未找到 `background-image`，将检查 `data-background-image`。
 
 #### 标题幻灯片（reveal.js、pptx）
 

@@ -80,13 +80,11 @@ URL 可以选择性地用尖括号括起来。
 
 ![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
 
-**注意**
-
-在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
+注意：在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
 
 ![[ ../../examples/pandoc-flavored-markdown/links/links-inside-blockquotes-and-lists.md ]]
 
-#### 扩展： `shortcut_reference_links`
+#### 扩展：`shortcut_reference_links`
 
 在快捷引用链接中，第二对括号可以完全省略：
 

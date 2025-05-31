@@ -6,6 +6,8 @@
 
 [^pandoc-linebreak]: Pandoc 在转换成 latex 或 pdf 时不支持 `<br>` 换行, 见：<https://github.com/jgm/pandoc/issues/10043>。
 
+示例：
+
 ```
 ![[ ../../examples/basic-syntax/line-breaks.md ]]
 ```

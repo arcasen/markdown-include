@@ -42,6 +42,8 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 要 强调 链接，请在方括号和圆括号前后添加星号。要将链接表示为 代码，请在方括号中添加反引号。
 
+示例：
+
 ```
 ![[ ../../examples/basic-syntax/links/links-formatted.md ]]
 ```
@@ -74,11 +76,5 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 ![[ ../../examples/basic-syntax/links/links-implicit-link.md ]]
 
-
-**注意**
-
-Markdown 应用程序对于如何处理 URL 中间的空格没有达成一致。为了兼容性，请尝试使用 `%20` 对 URL 中的任何空格进行 URL 编码。或者，如果您的 Markdown 应用程序 支持 HTML，则可以使用 a HTML 标签。
-
-
-URL 中间的括号也可能带来问题。为了兼容性，尝试使用 `%28` 对左括号 (`(`) 进行 URL 编码，使用 `%29` 对右括号 (`)`) 进行 URL 编码。或者，如果 Markdown 应用程序 支持 HTML，可以使用 a HTML 标签。
+注意：Markdown 应用程序对于如何处理 URL 中间的空格没有达成一致。为了兼容性，请尝试使用 `%20` 对 URL 中的任何空格进行 URL 编码。或者，如果您的 Markdown 应用程序 支持 HTML，则可以使用 a HTML 标签。URL 中间的括号也可能带来问题。为了兼容性，尝试使用 `%28` 对左括号 (`(`) 进行 URL 编码，使用 `%29` 对右括号 (`)`) 进行 URL 编码。或者，如果 Markdown 应用程序 支持 HTML，可以使用 a HTML 标签。
 

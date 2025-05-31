@@ -1,0 +1,17 @@
+# Defaults
+
+# crossref and citeproc use similar syntax, use pandoc-crossref first
+filters:
+  - pandoc-crossref
+  - citeproc
+
+variables:
+  CJKmainfont: "华文楷体"
+
+pdf-engine: xelatex
+
+bibliography: references.bib
+# download csl styles from https://github.com/citation-style-language/styles
+# store csl styles in ~/.local/share/pandoc/cls (for Debian or macOS)
+# csl styles preview: https://www.zotero.org/styles
+csl: apa.csl

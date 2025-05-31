@@ -4,6 +4,8 @@
 
 要使用 HTML，请将标签放置在 Markdown 格式文件文本中。
 
+示例：
+
 ```
 This **word** is bold. This <em>word</em> is italic.
 ```
@@ -12,7 +14,7 @@ This **word** is bold. This <em>word</em> is italic.
 
 This **word** is bold. This <em>word</em> is italic.
 
-**注意**：出于安全原因，并非所有 Markdown 应用程序都支持 Markdown 文档中的 HTML。如有疑问，请查看 Markdown 应用程序的文档。一些应用程序仅支持 HTML 标签的子集。
+注意：出于安全原因，并非所有 Markdown 应用程序都支持 Markdown 文档中的 HTML。如有疑问，请查看 Markdown 应用程序的文档。一些应用程序仅支持 HTML 标签的子集。
 
 使用空行来分隔块级 HTML 元素，如 `<div>`、`<table>`、`<pre>` 和 `<p>`，使其与周围内容分开。尽量不要使用制表符或空格缩进标签，因为这会影响格式。
 

@@ -1,5 +1,7 @@
 ### 使用 pandoc-crossref
 
+pandoc-crossref 主要用于交叉引用 图表、公式、章节、表格 等，但 不支持直接交叉引用参考文献（如 `[@citekey]` 生成的文献引用）。
+
 #### 安装 pandoc 和 pandoc-crossref
 
 要想使用 pandoc-crossref，需要安装相互兼容的 pandoc 和 pandoc-crossref；

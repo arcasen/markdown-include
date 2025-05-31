@@ -8,8 +8,12 @@ from: markdown+emoji
 shift-heading-level-by: -1
 # Cross Referencing
 # OPTIONS += --filter pandoc-crossref -M listings
+# crossref and citeproc use similar syntax, use pandoc-crossref first
 filters:
   - pandoc-crossref
+  - citeproc
+  - change-textcolor.py
+
 # Resolve '! LaTeX Error: Environment lstlisting undefined.' when 
 # using the pandoc-crossref filter together with Eisvogel template
 # https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146
@@ -38,6 +42,11 @@ listings: true
 # reference-doc: custom-reference.docx
 
 # ====================== Citation rendering =====================
+# bibliography: references.bib
+# download csl styles from https://github.com/citation-style-language/styles
+# store csl styles in ~/.local/share/pandoc/cls (for Debian or macOS)
+# csl styles preview: https://www.zotero.org/styles
+csl: apa.csl
 
 # ==================== Math rendering in HTML ===================
 html-math-method:

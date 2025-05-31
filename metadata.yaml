@@ -16,5 +16,6 @@ linkcolor: purple
 header-includes: |
   \usepackage{ctex}
   \setCJKmainfont[BoldFont=NotoSansSC-Bold]{"华文楷体"}
+  \raggedbottom
 ---
 

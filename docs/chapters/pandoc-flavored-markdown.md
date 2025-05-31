@@ -34,6 +34,8 @@ Pandoc 所支持的语法各种对标准 Markdown 语法的扩展可以通过在
 
 ![[ pandoc-flavored-markdown/images.md ]]
 
+![[ pandoc-flavored-markdown/divs-spans.md ]]
+
 ![[ pandoc-flavored-markdown/footnotes.md ]]
 
 ![[ pandoc-flavored-markdown/html.md ]]

@@ -14,9 +14,7 @@
 
 初始（四个空格或一个制表符）缩进不被视为逐字文本的一部分，并将在输出中删除。
 
-**注意**
-
-逐字文本中的空白行不必以四个空格开头。
+注意：逐字文本中的空白行不必以四个空格开头。
 
 #### 扩展：`fenced_code_blocks`
 
@@ -38,11 +36,11 @@ code including tildes
 ~~~~~~~~~~
 ~~~~~~~~~~~~~~~~
 
-#### 扩展： `backtick_code_blocks`
+#### 扩展：`backtick_code_blocks`
 
 与 `fenced_code_blocks` 相同，但使用反引号 (\`) 而不是波浪号 (`~`)。
 
-#### 扩展： `fenced_code_attributes`
+#### 扩展：`fenced_code_attributes`
 
 或者，您可以使用以下语法将属性附加到隔离或反引号代码块：
 
