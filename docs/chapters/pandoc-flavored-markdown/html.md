@@ -11,7 +11,7 @@
 
 例如，Pandoc 会将
 
-```
+```markdown
 <table>
 <tr>
 <td>*one*</td>
@@ -22,7 +22,7 @@
 
 转换成：
 
-```
+```html
 <table>
 <tr>
 <td><em>one</em></td>

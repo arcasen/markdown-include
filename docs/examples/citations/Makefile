@@ -1,7 +1,18 @@
-example.pdf: example.md references.bib
-	pandoc -d defaults.yaml example.md -o example.pdf
+TARGETS := example.pdf example.html example.tex
+OPTIONS := -d defaults.yaml --metadata-file metadata.yaml
+
+all: $(TARGETS)
+
+%.html: %.md
+	pandoc $(OPTIONS) --mathjax -s $< -o $@
+
+%.pdf: %.md
+	pandoc $(OPTIONS) $< -o $@
+
+%.tex: %.md
+	pandoc $(OPTIONS) -s $< -o $@
 
 clean:
-	rm *.pdf
+	rm $(TARGETS)
 
-.PHONY: clean
+.PHONY: all clean

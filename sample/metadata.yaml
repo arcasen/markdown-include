@@ -1,1 +1,21 @@
-../metadata.yaml
+---
+book: true
+has-frontmatter: true
+toc-title: Contents
+titlepage: true
+pagestyle: empty
+linkcolor: purple
+# listings-disable-line-numbers: true
+# 直接如下写入 metadata.yaml 时, 会被解析成 "方正楷体\_GBK", 导致编译出错
+# 因为 Pandoc 将 metadata 解析成 Markdown, 而非 literal 文本
+# https://github.com/jgm/pandoc/issues/2139
+# https://github.com/jgm/pandoc/issues/2630
+# https://github.com/jgm/pandoc/issues/2565
+# CJKmainfont: "方正楷体_GBK" # ERROR 
+# 方正楷体缺字, 弃用
+header-includes: |
+  \usepackage{ctex}
+  \setCJKmainfont[BoldFont=NotoSansSC-Bold]{"华文楷体"}
+  \raggedbottom
+---
+

@@ -4,7 +4,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/code-blocks.md ]]
 ```
 
@@ -18,7 +18,7 @@
 
 示例：
 
-~~~
+~~~markdown
 ``在你的 Markdown 文件中使用 `code`。``
 ~~~
 
@@ -32,7 +32,7 @@
 
 示例：
 
-~~~
+~~~markdown
     <html>
       <head>
       </head>

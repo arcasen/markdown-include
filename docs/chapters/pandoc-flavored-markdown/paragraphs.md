@@ -8,7 +8,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/escaped_line_breaks.md ]]
 ```
 

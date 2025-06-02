@@ -2,7 +2,7 @@
 
 要创建链接，请将链接文本括在方括号中，后面紧跟着括在圆括号中的 URL，如：
 
-```
+```markdown
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 ```
 
@@ -14,7 +14,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
 您可以选择为链接添加标题。当用户将鼠标悬停在链接上时，它将显示为工具提示。要添加标题，请在 URL 后用引号将其括起来，如：
 
-```
+```markdown
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 ```
 
@@ -26,7 +26,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 要快速将 URL 或电子邮件地址变成链接，请用尖括号将其括起来。
 
-```
+```markdown
 <https://www.markdownguide.org>
 
 <fake@example.com>
@@ -44,7 +44,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/links/links-formatted.md ]]
 ```
 
@@ -56,19 +56,19 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 假设您将一个 URL 作为 标准 URL 链接 添加到一个段落，并且在 Markdown 中看起来像这样：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/links/links-standard-url.md ]]
 ```
 
 虽然它可能指向有趣的附加信息，但显示的 URL 除了使其更难阅读之外，实际上并没有给现有原始文本增加太多内容。要解决这个问题，您可以像这样格式化 URL：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/links/links-reference-style.md ]]
 ```
 
 也可以采用隐式的链接名称：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/links/links-implicit-link.md ]]
 ```
 

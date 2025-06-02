@@ -6,7 +6,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/paragraphs.md ]]
 ```
 

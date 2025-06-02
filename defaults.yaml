@@ -12,7 +12,8 @@ shift-heading-level-by: -1
 filters:
   - pandoc-crossref
   - citeproc
-  - change-textcolor.py
+  - define-textcolor.py
+  - define-environment.py
 
 # Resolve '! LaTeX Error: Environment lstlisting undefined.' when 
 # using the pandoc-crossref filter together with Eisvogel template
@@ -36,6 +37,10 @@ top-level-division: chapter
 number-sections: true
 # To process Chinese, you need to use xelatex engine
 pdf-engine: xelatex
+# Option for `minted` package: --shell-escape
+# pdf-engine-opts:
+#   - '-shell-escape'
+
 # Use the listings package for LaTeX code blocks. 
 # (default: pandoc's Shaded envrionment)
 listings: true

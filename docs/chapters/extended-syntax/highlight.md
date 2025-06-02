@@ -2,7 +2,7 @@
 
 This isn’t common, but some Markdown processors allow you to highlight text. The result looks like this. To highlight words, use two equal signs (`==`) before and after the words.
 
-```
+```markdown
 I need to highlight these ==very important words==.
 ```
 

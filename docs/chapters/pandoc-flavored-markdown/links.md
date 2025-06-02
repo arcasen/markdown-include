@@ -22,7 +22,7 @@
 
 如果将 URL 或电子邮件地址放在尖括号中，它将变成链接：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/links/automatic-links.md  ]]
 ```
 
@@ -36,7 +36,7 @@
 
 [^URL]: URL 可以是网址也可以是本地路径。
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/links/inline-links.md ]]
 ```
 
@@ -48,7 +48,7 @@
 
 内联链接中的电子邮件地址无法自动检测，因此必须加上前缀 `mailto`：
 
-```
+```markdown
 [Write me!](mailto:sam@green.eggs.ham)
 ```
 
@@ -72,7 +72,7 @@ URL 可以选择性地用尖括号括起来。
 
 以下是一些示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
 ```
 
@@ -88,7 +88,7 @@ URL 可以选择性地用尖括号括起来。
 
 在快捷引用链接中，第二对括号可以完全省略：
 
-```
+```markdown
 See [my website].
 
 [my website]: http://foo.bar.baz
@@ -98,19 +98,19 @@ See [my website].
 
 要链接到同一文档的其他部分，请使用自动生成的标识符（请参阅标题标识符）。例如：
 
-```
+```markdown
 See the [Introduction].
 ```
 
 或者
 
-```
+```markdown
 See the [Introduction](#introduction).
 ```
 
 或者
 
-```
+```markdown
 See the [Introduction].
 
 [Introduction]: #introduction

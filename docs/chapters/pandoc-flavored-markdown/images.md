@@ -2,7 +2,7 @@
 
 在链接语法前加上 `!` 就是图片插入语法[^caution]。“链接文本”将用作图片的替代文本，图片的标题是“链接文本”内容，“链接标题”在鼠标悬停在图片上时显示的文本（见[扩展: `implicit_figures`]）。如：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/images.md ]]
 ```
 
@@ -16,7 +16,7 @@
 
 如果图片带有非空的 alt 文本，且单独出现在段落中，则该图片将被渲染为带有标题的图形。图片的 alt 文本将用作标题。
 
-```
+```markdown
 ![This is the caption](/url/of/image.png)
 ```
 
@@ -24,7 +24,7 @@
 
 如果你只是想要一个普通的内联图片，请确保它不是段落中唯一的内容。一种方法是在图片后插入一个不间断的空格：
 
-```
+```markdown
 ![This image won't be a figure](/url/of/image.png)\
 ```
 
@@ -34,7 +34,7 @@
 
 图片的 width 和 height 属性 会被特殊处理。如果不带单位使用，则单位被假定为像素（pixels）。但是，可以使用以下任何单位标识符：`px`、`cm`、 `mm`、`in`、`inch` 和 `%`。**数字和单位之间不得有任何空格**。例如：
 
-```
+```markdown
 ![](file.jpg){ width=50% }
 ```
 
@@ -49,7 +49,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/images-attributes.md ]]
 ```
 

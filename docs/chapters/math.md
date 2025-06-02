@@ -12,13 +12,13 @@ Displayed math
 
 Pandoc 生成 HTML 或 EPUB 需要使用 MathML 或 MathJax，如：
 
-```
+```bash
 pandoc -s --mathjax -o document.epub document.md
 ```
 
 Pandoc 生成 DOCX 时将使用 OMML 数学标记来呈现：
 
-```
+```bash
 pandoc -s -o document.docx document.md
 ```
 

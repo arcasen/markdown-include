@@ -6,7 +6,7 @@ Pandoc 支持文献引用，常用格式为 BibTeX 或 BibLaTeX，结合 Markdow
 
 创建一个名为 `references.bib` 的文件，内容如下：
 
-```
+```bibtex
 ![[ ../examples/citations/references.bib ]]
 ```
 
@@ -59,7 +59,7 @@ CSL 文件存储位置：
 
 或也可以通过 YAML 文件指定，见[引文渲染]：
 
-```
+```yaml
 ---
 bibliography: references.bib
 csl: apa.csl
@@ -80,15 +80,21 @@ csl: apa.csl
 
 运行以下 Pandoc 命令，将 Markdown 文件转换为目标格式（如 PDF 或 HTML）：
 
-```
+```bash
 pandoc example.md --citeproc -o example.pdf
 ```
 
 当与 `pandoc-crossref` 一起使用时，处理顺序很重要。通常情况下，你需要先运行 `pandoc-crossref`，然后再运行 `--citeproc`。这是因为 `pandoc-crossref` 使用了与 `--citeproc` 相似的 `[@...]` 引用语法，先运行 `pandoc-crossref` 可以避免两者之间的冲突。
 
-```
+```bash
 pandoc example.md --filter pandoc-crossref --citeproc -o example.pdf
 ```
 
 注意：`pandoc-crossref` 并不能为参考文献建立链接。
+
+#### `link-citations` 元数据
+
+如果为 true，引文将超链接到对应的参考文献条目（仅适用于作者-日期和数字样式）。默认为 false。
+
+在编译时加入：`-M link-citations=true` 或将 `link-citations=true` 写入元数据文件中（注意不是 defaults file）。
 

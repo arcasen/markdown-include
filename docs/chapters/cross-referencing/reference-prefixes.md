@@ -8,7 +8,7 @@
 
 自定义前缀：
 
-```
+```yaml
 ---
 secPrefix: ["Sect.", "Sects."]
 ---

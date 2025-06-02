@@ -2,7 +2,7 @@
 
 #### 扩展：`pandoc_title_block`
 
-```
+```markdown
 % title
 % author(s) (separated by semicolons)
 % date

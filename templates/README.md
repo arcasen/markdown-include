@@ -1,14 +1,27 @@
 # 使用 LaTeX 模板
 
-## 简介
+## Pandoc 默认模板
+
+下载地址： https://github.com/jgm/pandoc-templates/tree/master
+
+default.latex 依次调用了下面的文件：
+
+- passoptions.latex
+- fonts.latex
+- font-settings.latex
+- common.latex
+- after-header-includes.latex
+- hypersetup.latex
+
+## Stenciler 模板
+
+stenciler.latex 由 default.latex 修改而来，listingsetup.latex 借鉴了 Eisvogel 模板。
+
+## Eisvogel 模板简介
 
 Eisvogel 是一个用于将 Markdown 文件转换为 PDF 或 LaTeX 的 pandoc 干净清爽的模板。与 pandoc 3 兼容，改模板为 pandoc 转换提供了定制化的排版结果，包括选择字体和配置封面的背景图等设计，是一套优雅、现代的排版风格，适用于各种类型的文档，包括书籍、文章、报告、幻灯片等。
 
-## 获取方式
-
 获取方式：[Github 库下载](https://github.com/Wandmalfarbe/pandoc-latex-template)
-
-## 使用方法
 
 ### 安装准备
 
@@ -51,7 +64,7 @@ keywords: [Markdown, Example]
 
 然后在文档中添加实际的内容即可。
 
-## Templates
+## 其它模板资源
 
 - <https://pandoc-templates.org/>
 - [Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template)

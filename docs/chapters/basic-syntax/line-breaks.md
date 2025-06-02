@@ -8,7 +8,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/line-breaks.md ]]
 ```
 

@@ -1,3 +1,7 @@
+---
+documentclass: scrbook
+---
+
 # Markdown Basic Syntax 
 
 **Note:** See Markdown syntax documentation on <https://daringfireball.net/projects/markdown/syntax>.
@@ -168,7 +172,7 @@ work best -- and look better -- when you format them with hard breaks.
 
 ### Headers
 
-Markdown supports two styles of headers, [Setext] [1] and [atx] [2].
+Markdown supports two styles of headers, [Setext][1] and [atx][2].
 
 Setext-style headers are "underlined" using equal signs (for first-level
 headers) and dashes (for second-level headers). For example:
@@ -535,7 +539,7 @@ which you place a label of your choosing to identify the link:
 
 You can optionally use a space to separate the sets of brackets:
 
-    This is [an example] [id] reference-style link.
+    This is [an example][id] reference-style link.
 
 Then, anywhere in the document, you define your link label like this,
 on a line by itself:
@@ -610,8 +614,8 @@ document, sort of like footnotes.
 
 Here's an example of reference links in action:
 
-    I get 10 times more traffic from [Google] [1] than from
-    [Yahoo] [2] or [MSN] [3].
+    I get 10 times more traffic from [Google][1] than from
+    [Yahoo][2] or [MSN][3].
 
       [1]: http://google.com/        "Google"
       [2]: http://search.yahoo.com/  "Yahoo Search"

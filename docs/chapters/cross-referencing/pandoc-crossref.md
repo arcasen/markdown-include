@@ -14,7 +14,7 @@ pandoc-crossref 主要用于交叉引用 图表、公式、章节、表格 等�
 解压缩 pandoc-crossref 可执行文件到 `~/.local/bin/pandoc-crossref` 中.
 帮助文档拷贝到 `~/.local/share/man/man1`中，目录结构如下：
 
-```
+```bash
 $ tree ~/.local/share/man
 /home/USERNAME/.local/share/man
 └── man1
@@ -38,7 +38,7 @@ $ tree ~/.local/share/man
 
 直接转换时出现以下错误：
 
-```
+```bash
 Error producing PDF.
 ! Undefined control sequence.
 l.340 (\passthrough
@@ -46,7 +46,7 @@ l.340 (\passthrough
 
 可以先转换成 .tex 文件，然后在文件的导言区中加入：
 
-```
+```latex
 \usepackage{listings}
 \newcommand{\passthrough}[1]{#1}
 ```

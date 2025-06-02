@@ -4,7 +4,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-single-paragraph.md ]]
 ```
 
@@ -18,7 +18,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-multiple-paragraphs.md ]]
 ```
 
@@ -32,7 +32,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/blockquotes/nested-blockquotes.md ]]
 ```
 
@@ -46,7 +46,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-other-elements.md ]]
 ```
 

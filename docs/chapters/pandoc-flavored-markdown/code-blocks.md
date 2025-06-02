@@ -4,7 +4,7 @@
 
 缩进四个空格（或一个制表符）的文本块将被视为逐字文本：也就是说，特殊字符不会触发特殊格式，所有空格和换行符都会保留。例如：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/indented-code-blocks.md ]]
 ```
 
@@ -20,11 +20,13 @@
 
 除了标准缩进的代码块外，Pandoc 还支持 带围栏的代码块。这些代码块以一行三个或更多波浪号 (`~`) 开始，以一行波浪号结束，波浪号的长度必须至少与起始行一样长。这些行之间的所有内容都被视为代码。无需缩进：
 
+```
 ~~~~~~~
 if (a > 3) {
   moveShip(5 * gravity, DOWN);
 }
 ~~~~~~~
+```
 
 与常规代码块一样，围栏代码块必须用空行与周围文本分隔开。
 
@@ -44,7 +46,7 @@ code including tildes
 
 或者，您可以使用以下语法将属性附加到隔离或反引号代码块：
 
-~~~
+~~~markdown
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/fenced_code_attributes.md ]]
 ~~~
 

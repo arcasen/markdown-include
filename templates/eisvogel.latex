@@ -285,11 +285,6 @@ $-- highlighting
 $if(listings)$
 \usepackage{listings}
 \newcommand{\passthrough}[1]{#1}
-\lstset{
-  breaklines=true,
-  breakatwhitespace=true,
-  basicstyle=\ttfamily\small
-}
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
 $endif$
@@ -479,7 +474,7 @@ $--
 $-- tight lists
 $--
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\topsep}{0pt}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
 $--
 $-- subfigure support
 $--
@@ -906,7 +901,7 @@ $endif$
 \noindent
 \\[-1em]
 \color[HTML]{$if(titlepage-text-color)$$titlepage-text-color$$else$5F5F5F$endif$}
-\makebox[0pt][l]{\colorRule[$if(titlepage-rule-color)$$titlepage-rule-color$$else$435488$endif$]{1.3\textwidth}{$if(titlepage-rule-height)$$titlepage-rule-height$$else$4$endif$pt}}
+\makebox[0pt][l]{\colorRule[$if(titlepage-rule-color)$$titlepage-rule-color$$else$C71585$endif$]{1.3\textwidth}{$if(titlepage-rule-height)$$titlepage-rule-height$$else$4$endif$pt}}
 \par
 \noindent
 

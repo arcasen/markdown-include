@@ -8,7 +8,7 @@
 
 例如：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/emphasis.md ]]
 ```
 
@@ -21,7 +21,7 @@
 
 由于 `_` 有时会在单词和标识符内部使用，因此 pandoc 不会将 `_` 字母数字字符包围的 解释为强调标记。如果只想强调单词的一部分，请使用*：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/intraword_underscores.md ]]
 ```
 
@@ -35,7 +35,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 要用水平线划掉一段文本，请以 开始和结束该部分~~。例如，
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/strikeout.md ]]
 ```
 
@@ -48,7 +48,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 上标可以用字符包围上标文本来书写`^`；下标也可以用字符包围下标文本来书写`~`。例如，
 
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/superscript-subscript.md ]]
 ```
 
@@ -64,7 +64,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 - 如果抄录文本包含反引号，请使用双反引号
 - 反斜杠转义符（和其他 Markdown 结构）在抄录环境中不起作用
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/verbatim.md ]]
 ```
 
@@ -76,7 +76,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 可以将属性附加到逐字文本，就像围栏代码块一样：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/inline_code_attributes.md ]]
 ```
 
@@ -88,7 +88,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 要为文本添加下划线，请使用以下underline类：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/underline.md ]]
 ```
 
@@ -100,7 +100,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 要编写小型大写字母，请使用以下smallcaps类：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/small-caps.md ]]
 ```
 
@@ -112,7 +112,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 要突出显示文本，请使用以下mark类：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/highlighting.md ]]
 ```
 

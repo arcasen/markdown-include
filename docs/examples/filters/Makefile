@@ -5,7 +5,7 @@ TARGETS   += $(subst .md,.html,$(MARKDOWNS))
 
 OPTIONS   += -V CJKmainfont="华文楷体"
 OPTIONS   += --pdf-engine=xelatex
-OPTIONS   += --filter change-textcolor.py
+OPTIONS   += --filter define-textcolor.py --filter define-environment.py
 
 all: $(TARGETS)
 

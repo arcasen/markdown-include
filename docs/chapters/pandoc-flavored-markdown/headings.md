@@ -8,7 +8,7 @@ Setext 样式的标题是一行带有“下划线”的文本，其中带有一�
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/setext-style-headings.md ]]
 ```
 
@@ -18,7 +18,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/atx-style-headings.md ]]
 ```
 
@@ -28,7 +28,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/blank_before_header.md ]]
 ```
 
@@ -40,7 +40,7 @@ Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-s
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/space_in_atx_header.md ]]
 ```
 
@@ -97,7 +97,7 @@ See the section on
 
 可以在包含标题文本的行末尾使用以下语法为标题分配属性：
 
-```
+```markdown
 {#identifier .class .class key=value key=value}
 ```
 
@@ -105,13 +105,13 @@ See the section on
 
 即使指定了 ，带有 类的标题unnumbered也不会被编号--number-sections。属性上下文中的单个连字符 ( -) 相当于.unnumbered，并且在非英语文档中更可取。因此，
 
-```
+```markdown
 # My heading {-}
 ```
 
 和
 
-```
+```markdown
 # My heading {.unnumbered}
 ```
 
@@ -119,7 +119,7 @@ See the section on
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/header_attributes.md ]]
 ```
 
@@ -154,7 +154,7 @@ HTML]`
 
 显式链接引用定义始终优先于隐式标题引用。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
 
-```
+```markdown
 # Foo
 
 [foo]: bar
@@ -164,7 +164,7 @@ See [foo]
 
 下面是一个完整示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/implicit_header_references.md ]]
 ```
 

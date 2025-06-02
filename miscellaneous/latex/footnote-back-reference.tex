@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+
+\documentclass{article}
+
+\usepackage{footnotebackref}
+%\usepackage{hyperref}
+
+
+\usepackage{blindtext}
+
+\begin{document}
+
+Something here\footnote{foo}
+
+\blindtext[2]
+
+And another footnote is here\footnote{foobar}
+
+\end{document}

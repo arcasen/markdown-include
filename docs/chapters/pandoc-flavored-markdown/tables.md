@@ -32,7 +32,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/tables/tables-simple.md ]]
 ```
 
@@ -58,7 +58,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/tables/tables-multiline.md ]]
 ```
 
@@ -86,7 +86,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/tables/tables-grid.md ]]
 ```
 
@@ -102,7 +102,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]
 ```
 
@@ -137,7 +137,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
   
 示例：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/tables/multiline-chinese.md ]]
 ```
 

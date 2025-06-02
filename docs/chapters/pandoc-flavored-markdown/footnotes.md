@@ -4,7 +4,7 @@
 
 Pandoc 的 Markdown 允许使用脚注，使用以下语法：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/footnotes.md ]]
 ```
 
@@ -16,7 +16,7 @@ Pandoc 的 Markdown 允许使用脚注，使用以下语法：
 
 行内脚注也是允许的（不过，与常规注释不同，行内脚注不能包含多个段落）。语法如下：
 
-```
+```markdown
 ![[ ../../examples/pandoc-flavored-markdown/footnotes-inline.md ]]
 ```
 

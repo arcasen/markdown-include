@@ -6,7 +6,7 @@
 
 示例：
 
-```
+```markdown
 This **word** is bold. This <em>word</em> is italic.
 ```
 

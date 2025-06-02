@@ -8,7 +8,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/emphasis/bold.md ]]
 ```
 
@@ -24,7 +24,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/emphasis/italic.md ]]
 ```
 
@@ -40,7 +40,7 @@
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/emphasis/bold-italic.md ]]
 ```
 

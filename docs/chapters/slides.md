@@ -98,7 +98,7 @@ pandoc habits.txt -o habits.pptx
 
 默认情况下，列表一次性显示所有内容。如果希望列表逐项显示，使用 `-i` 选项。如果希望特定列表偏离默认设置，可将其放入带有 `incremental` 或 `nonincremental` 类的 div 块中。例如，使用围栏式 div 语法，以下内容无论文档默认设置如何都将逐项显示：
 
-```
+```markdown
 ::: incremental
 
 - Eat spaghetti
@@ -109,7 +109,7 @@ pandoc habits.txt -o habits.pptx
 
 或：
 
-```
+```markdown
 ::: nonincremental
 
 - Eat spaghetti
@@ -120,7 +120,7 @@ pandoc habits.txt -o habits.pptx
 
 虽然推荐使用 `incremental` 和 `nonincremental` div 设置逐个列表的增量显示，但也支持一种较旧的方法：将列表放入引用块会偏离文档默认设置（即不使用 `-i` 选项时逐项显示，使用 `-i` 选项时一次性显示）：
 
-```
+```markdown
 > - Eat spaghetti
 > - Drink wine
 ```
@@ -129,7 +129,7 @@ pandoc habits.txt -o habits.pptx
 
 如果想包含引用块中的列表，可以通过将列表放入围栏式 div 绕过此行为，使其不直接作为引用块的子节点：
 
-```
+```markdown
 > ::: wrapper
 > - a
 > - list in a quote
@@ -140,7 +140,7 @@ pandoc habits.txt -o habits.pptx
 
 您可以通过包含一个包含三个点的段落（点之间用空格分隔）在幻灯片内添加“暂停”：
 
-```
+```markdown
 # Slide with a pause
 
 content before the pause
@@ -160,7 +160,7 @@ content after the pause
 
 所有 reveal.js 配置选项都可以通过变量设置。例如，可以通过设置 `theme` 变量使用主题：
 
-```
+```bash
 -V theme=moon
 ```
 
@@ -178,7 +178,7 @@ pandoc -t beamer habits.txt -V theme:Warsaw -o habits.pdf
 
 reveal.js、PowerPoint (pptx) 和 beamer 输出支持演讲者笔记。您可以在 Markdown 文档中添加笔记，如下所示：
 
-```
+```markdown
 ::: notes
 
 This is my note.
@@ -197,7 +197,7 @@ This is my note.
 
 要将内容并排放置在列中，可以使用带有 `columns` 类的原生 div 容器，其中包含两个或更多带有 `column` 类和 `width` 属性的 div 容器：
 
-```
+```markdown
 :::::::::::::: {.columns}
 ::: {.column width="40%"}
 contents...
@@ -214,7 +214,7 @@ contents...
 
 带有 `columns` 和 `column` 类的 div 容器可以选择性地具有 `align` 属性。`columns` 类还可以选择性地具有 `totalwidth` 属性或 `onlytextwidth` 类：
 
-```
+```markdown
 :::::::::::::: {.columns align=center totalwidth=8em}
 ::: {.column width="40%"}
 contents...
@@ -229,7 +229,7 @@ contents...
 
 `totalwidth` 属性将列的总宽度限制为指定值：
 
-```
+```markdown
 :::::::::::::: {.columns align=top .onlytextwidth}
 ::: {.column width="40%" align=center}
 contents...
@@ -248,19 +248,19 @@ contents...
 
 有时需要在 beamer 的框架中添加 LaTeX `[fragile]` 选项（例如，使用 minted 环境时）。可以通过在引入幻灯片的标题中添加 `fragile` 类强制实现：
 
-```
+```markdown
 # Fragile slide {.fragile}
 ```
 
 《Beamer 用户指南》第 8.1 节中描述的所有其他框架属性也都可以使用：`allowdisplaybreaks`、`allowframebreaks`、`b`、`c`、`s`、`t`、`environment`、`label`、`plain`、`shrink`、`standout`、`noframenumbering`、`squeeze`。特别推荐使用 `allowframebreaks`，尤其是在参考文献中，因为它允许在内容溢出框架时创建多个幻灯片：
 
-```
+```markdown
 # References {.allowframebreaks}
 ```
 
 此外，`frameoptions` 属性可用于将任意框架选项传递给 beamer 幻灯片：
 
-```
+```markdown
 # Heading {frameoptions="squeeze,shrink,customoption=foobar"}
 ```
 
@@ -298,7 +298,7 @@ contents...
 
 #### 示例（reveal.js）
 
-```
+```markdown
 ---
 title: My Slide Show
 parallaxBackgroundImage: /path/to/my/background_image.png

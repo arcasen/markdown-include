@@ -1,5 +1,5 @@
 # Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250507
+# Version: 20250601
 
 # Specify input and output directories
 DOCS ?= docs
@@ -51,12 +51,10 @@ html: all
 	make -C $(DIST) html
 
 clean:
-	@echo "Removing '$(PDFS)' in the '$(DIST)' directory ..."
-	@rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html
+	rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html
 
 cleanup:
-	@echo "Removing the '$(DIST)' directory ..."
-	@rm -rf $(DIST)
+	rm -rf $(DIST)
 
 .PHONY: all clean cleanup pdf tex html
 
@@ -151,11 +149,11 @@ include depends
 
 # Rule: create PDF document
 %.pdf: %.md $(SETTINGS)
-	pandoc -d defaults.yaml --template eisvogel.latex $$< -o $$@
+	pandoc -d defaults.yaml --template stenciler.latex $$< -o $$@
 
 # Rule: create LaTeX document
 %.tex: %.md $(SETTINGS)
-	pandoc -d defaults.yaml --template eisvogel.latex $$< -o $$@
+	pandoc -d defaults.yaml --template stenciler.latex $$< -o $$@
 
 # Rule: create html document
 %.html: %.md $(SETTINGS)

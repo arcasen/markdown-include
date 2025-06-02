@@ -1,0 +1,73 @@
+### 增强版 Panflute 过滤器：支持 DOCX、HTML 和 PDF 输出的颜色处理
+
+以下是支持 DOCX、HTML 和 PDF 输出的完整过滤器，能够处理以 `#` 开头的十六进制颜色代码：
+
+```python
+![[ ../../examples/filters/define-textcolor-enhanced.py ]]
+```
+
+#### 使用说明
+
+1. 将上述代码保存为 `define-textcolor-enhanced.py`
+2. 准备一个 Word 参考文档 `custom-reference.docx` 包含以下样式：
+   - `ColoredText` - 用于行内彩色文本
+   - `ColoredBlock` - 用于彩色文本块
+
+3. 使用 Pandoc 转换时添加过滤器：
+
+   ```bash
+   # 转换为 HTML
+   pandoc input.md -o output.html --filter define-textcolor-enhanced.py
+   
+   # 转换为 PDF
+   pandoc input.md -o output.pdf --filter define-textcolor-enhanced.py
+   
+   # 转换为 DOCX
+   pandoc input.md -o output.docx --filter define-textcolor-enhanced.py --reference-doc=custom-reference.docx
+   ```
+
+注意事项：
+
+1. DOCX 输出需要参考文档中的预定义样式
+2. 对于 DOCX 输出，颜色信息存储在 `_color` 属性中，实际渲染需要 Word 应用这些样式
+3. 更高级的 DOCX 处理可能需要直接操作 OpenXML，这超出了 panflute 的基本功能
+4. 确保在所有输出格式中测试颜色显示效果，因为不同格式对颜色的支持可能有所不同
+
+#### 使用步骤
+
+1. 创建参考 Word 文档：
+   - 新建一个 Word 文档
+   - 创建两个样式：
+     - `ColoredText`：字符样式，可以设置任意颜色（实际颜色将由过滤器覆盖）
+     - `ColoredBlock`：段落样式，可以设置任意颜色
+   - 保存为 `custom-reference.docx`
+
+2. 修改过滤器（可选）：
+   - 如果需要更精细的 DOCX 样式控制，可以扩展过滤器以生成更复杂的 OpenXML 属性
+
+3. 颜色映射（可选）：
+   - 可以添加颜色名称到十六进制值的映射表，确保 DOCX 中的颜色一致性
+
+完整解决方案文件结构：
+
+```bash
+.
+├── define-textcolor-enhanced.py             # 过滤器脚本
+├── custom-reference.docx       # Word 参考文档
+├── input.md                    # 示例输入文件
+└── Makefile                    # 构建脚本示例
+```
+
+命令：
+
+```bash
+#!/bin/bash
+# 生成 HTML
+pandoc input.md -o output.html --filter ./define-textcolor-enhanced.py
+
+# 生成 PDF
+pandoc input.md -o output.pdf --filter ./define-textcolor-enhanced.py
+
+# 生成 DOCX
+pandoc input.md -o output.docx --filter ./define-textcolor-enhanced.py --reference-doc=custom-reference.docx
+```

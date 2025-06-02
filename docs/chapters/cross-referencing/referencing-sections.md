@@ -2,7 +2,7 @@
 
 在文本中定义章节标签 `{#sec:label}`，然后引用该标签 `[@sec:label]`：
 
-```
+```markdown
 # This is a chapter {#sec:ch}
 
 ## This is the first section {#sec:a}
@@ -18,6 +18,6 @@ See [@sec:a] and [@sec:b].
 
 编译时必须使用 `--number-sections`，如：
 
-```
+```bash
 pandoc --number-sections --filter pandoc-crossref -o output.pdf input.md
 ```

@@ -8,7 +8,7 @@ Markdown 支持有序或无序列表 ( ordered/numbered lists & unordered/bullet
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-ordered.md ]]
 ```
 
@@ -18,7 +18,7 @@ Markdown 支持有序或无序列表 ( ordered/numbered lists & unordered/bullet
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-ordered-with-disordered-numbers.md ]]
 ```
 
@@ -34,7 +34,7 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（`)`）
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-unordered.md]]
 ```
 
@@ -48,7 +48,7 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（`)`）
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-unordered-start-with-number-period.md ]]
 ```
 
@@ -66,7 +66,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 
 列表中加入段落：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-including-paragraphs.md ]]
 ```
 
@@ -92,7 +92,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-including-codeblocks.md ]]
 ```
 
@@ -104,7 +104,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 
 列表中加入图片：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-including-images.md ]]
 ```
 
@@ -118,7 +118,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 
 示例：
 
-```
+```markdown
 ![[ ../../examples/basic-syntax/lists/lists-nested.md ]]
 ```
 
