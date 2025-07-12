@@ -1,4 +1,4 @@
-### 图片
+### 图片 Images
 
 在链接语法前加上 `!` 就是图片插入语法[^caution]。“链接文本”将用作图片的替代文本，图片的标题是“链接文本”内容，“链接标题”在鼠标悬停在图片上时显示的文本（见[扩展: `implicit_figures`]）。如：
 
@@ -6,7 +6,7 @@
 ![[ ../../examples/pandoc-flavored-markdown/images.md ]]
 ```
 
-渲染效果如下：
+渲染效果见下文^[在使用 Pandoc 将 Markdown 文档转换为 PDF（通常通过 LaTeX）时，图片插入位置默认是*浮动的*（floating）。]
 
 ![[ ../../examples/pandoc-flavored-markdown/images.md ]]
 

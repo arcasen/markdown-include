@@ -1,0 +1,109 @@
+% -----------------------------------------------
+% Mathematical Symbols & Envrionments
+% -----------------------------------------------
+
+% fourier package 产生如下错误:
+%   xdvipdfmx: Command for 'xdvipdfmx' gave return code 34304
+
+% \usepackage{siunitx}  % 与 tiklibraryeuclidea.tex 存在冲突
+\usepackage{amsmath}  % include commands: \cfrac
+\usepackage{amsthm}   % AMS 定理环境
+\usepackage{amssymb}  % AMS 符号
+% \usepackage{fourier}  % AMS 符号
+\usepackage{bm}
+\allowdisplaybreaks       % 允许 align 等环境跨页显示公式
+
+% surrounding text font size is <tfs>, <ts> being the size used for \textfont, <ss> for \scriptfont and <sss> for \scriptscriptfont
+% \DeclareMathSizes{<tfs>}{<ts>}{<ss>}{<sss>}
+\DeclareMathSizes{12}{12}{9}{6}
+\DeclareMathSizes{10}{10}{8}{5}
+
+% 自定义 thm 环境(由文档示例修改):
+%   1. 将 punctuation 改为 空格
+%   2. 定理名称粗体字
+\newtheoremstyle{note}% ⟨name ⟩ 
+{3pt}% ⟨Space above ⟩1 
+{3pt}% ⟨Space below ⟩1
+{}% ⟨Body font ⟩
+{}% ⟨Indent amount ⟩2
+{\bf}% ⟨Theorem head font⟩
+{}% ⟨Punctuation after theorem head ⟩
+{.5em}% ⟨Space after theorem head ⟩3
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% ⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+
+\theoremstyle{note}
+
+% 重新定义 proof 环境(由文档示例修改):
+%   1. 将 addpunct 由 . 改为 空格
+\makeatletter
+\renewenvironment{proof}[1][\indent \proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item\relax
+{\itshape #1\@addpunct{ }}\hspace\labelsep\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+$if(chinese)$
+% 中文定理环境设置(来自知乎), 包括定理, 引理, 命题, 例题, 证明等环境, 
+% 说明:
+%   1. \indent 为了段前空两格, 似乎未起作用
+%   2. [] 内参数: [chapter] 指的是包含章的编号, 如: 1.1, 1.2, ...; 
+%      [section] 指的是包含章的编号, 如: 1.1.1, 1.1.2, ...;
+%      不含参数[] 指的是编号为: 1, 2, ...
+%   3. 下面的英文版定义的环境有 bug, 如 theorem, lemma
+%      使用了同一编号计算器, 应该各自独立编号
+%   4. proof 默认以 QED 符号结束, 而 solution 去掉了 QED 符号
+\makeatletter%
+\@ifclassloaded{book}% 对于 documentclass 为 ctexbook, book
+{
+  \newtheorem{theorem}{\indent 定理}[chapter] 
+  \newtheorem{lemma}{\indent 引理}[chapter]
+  \newtheorem{proposition}{\indent 命题}[chapter]
+  \newtheorem{corollary}{\indent 推论}[chapter]
+  \newtheorem{definition}{\indent 定义}[chapter]
+  \newtheorem{example}{\indent 例}[chapter]
+  \newtheorem{remark}{\indent 注}[] 
+  \newtheorem*{remark*}{\indent 注} % unnumbered
+  \newtheorem{problem}{\indent 问题}[chapter]
+  \newtheorem*{problem*}{\indent 问题}
+  \newtheorem{solution}{\indent 解}
+  \newtheorem*{solution*}{\indent 解}
+  \renewcommand{\proofname}{\indent\bf 证明}
+  %\renewcommand{\qedsymbol}{}
+}{ % 其它 documentclass
+  \newtheorem{theorem}{\indent 定理}[section] 
+  \newtheorem{lemma}{\indent 引理}[section]
+  \newtheorem{proposition}{\indent 命题}[section]
+  \newtheorem{corollary}{\indent 推论}[section]
+  \newtheorem{definition}{\indent 定义}[section]
+  \newtheorem{example}{\indent 例}[section]
+  \newtheorem{remark}{\indent 注}[] 
+  \newtheorem*{remark*}{\indent 注} % unnumbered
+  \newtheorem{problem}{\indent 问题}[section]
+  \newtheorem*{problem*}{\indent 问题}
+  \newtheorem{solution}{\indent 解}
+  \newtheorem*{solution*}{\indent 解}
+  \renewcommand{\proofname}{\indent\bf 证明}
+  %\renewcommand{\qedsymbol}{}
+}
+\makeatother%
+$else$
+% English theorem environment
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+$endif$
+
+% cases
+\newenvironment{rcase}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}

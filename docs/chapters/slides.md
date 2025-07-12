@@ -1,6 +1,6 @@
 ## 幻灯片展示
 
-您可以使用 Pandoc 生成基于 HTML + JavaScript 的幻灯片演示文稿，可通过网页浏览器查看。有五种方式可以实现：使用 S5、DZSlides、Slidy、Slideous 或 reveal.js。您还可以使用 LaTeX beamer 生成 PDF 格式的幻灯片，或生成 Microsoft PowerPoint 格式的幻灯片。
+您可以使用 Pandoc 生成基于 HTML + JavaScript 的幻灯片演示文稿，可通过网页浏览器查看。有五种方式可以实现：使用 S5、DZSlides、Slidy、Slideous 或 reveal.js。您还可以使用 LaTeX Beamer 生成 PDF 格式的幻灯片，或生成 Microsoft PowerPoint 格式的幻灯片。
 
 以下是一个简单的幻灯片展示的 Markdown 源文件，名为 habits.txt：
 
@@ -50,13 +50,13 @@ pandoc -t FORMAT -s habits.txt -o habits.html
 
 对于所有 HTML 幻灯片格式，可以使用 `--self-contained` 选项生成一个包含所有展示所需数据的单一文件，包括链接的脚本、样式表、图片和视频。
 
-要使用 beamer 生成 PDF 幻灯片，输入：
+要使用 Beamer 生成 PDF 幻灯片，输入：
 
 ```
-pandoc -t beamer habits.txt -o habits.pdf
+pandoc -t Beamer habits.txt -o habits.pdf
 ```
 
-注意：reveal.js 幻灯片还可以通过浏览器打印到文件转换为 PDF。
+**注意**：reveal.js 幻灯片还可以通过浏览器打印到文件转换为 PDF。
 
 要生成 PowerPoint 幻灯片，输入：
 
@@ -72,13 +72,13 @@ pandoc habits.txt -o habits.pptx
 
 - 水平线始终开始一个新幻灯片。
 - 幻灯片级别的标题始终开始一个新幻灯片。
-- 低于幻灯片级别的标题在幻灯片内创建子标题。（在 beamer 中，会创建一个“块”。如果标题带有 `example` 类，将使用 `exampleblock` 环境；如果带有 `alert` 类，将使用 `alertblock`；否则使用普通块。）
-- 高于幻灯片级别的标题创建“标题幻灯片”，仅包含章节标题，用于将幻灯片展示分段。HTML 幻灯片中，这些标题下的非幻灯片内容将包含在标题幻灯片中；beamer 中，则包含在后续同标题的幻灯片中。
-- 如果文档包含标题块，会自动生成标题页。（在 beamer 中，可通过注释默认模板中的某些行禁用此功能。）
+- 低于幻灯片级别的标题在幻灯片内创建子标题。（在 Beamer 中，会创建一个“块”。如果标题带有 `example` 类，将使用 `exampleblock` 环境；如果带有 `alert` 类，将使用 `alertblock`；否则使用普通块。）
+- 高于幻灯片级别的标题创建“标题幻灯片”，仅包含章节标题，用于将幻灯片展示分段。HTML 幻灯片中，这些标题下的非幻灯片内容将包含在标题幻灯片中；Beamer 中，则包含在后续同标题的幻灯片中。
+- 如果文档包含标题块，会自动生成标题页。（在 Beamer 中，可通过注释默认模板中的某些行禁用此功能。）
 
 这些规则支持多种幻灯片展示风格。如果您不关心幻灯片的章节和子章节结构，可以仅使用 1 级标题（此时幻灯片级别为 1），或设置 `--slide-level=0`。
 
-注意：在 reveal.js 幻灯片中，如果幻灯片级别为 2，将生成二维布局，1 级标题水平构建，2 级标题垂直构建。建议不要在 reveal.js 中使用更深的嵌套，除非设置 `--slide-level=0`（此时 reveal.js 生成一维布局，仅将水平线视为幻灯片分隔）。
+**注意**：在 reveal.js 幻灯片中，如果幻灯片级别为 2，将生成二维布局，1 级标题水平构建，2 级标题垂直构建。建议不要在 reveal.js 中使用更深的嵌套，除非设置 `--slide-level=0`（此时 reveal.js 生成一维布局，仅将水平线视为幻灯片分隔）。
 
 ### PowerPoint 布局选择
 
@@ -150,7 +150,7 @@ content before the pause
 content after the pause
 ```
 
-注意：此功能尚未在 PowerPoint 输出中实现。
+**注意**：此功能尚未在 PowerPoint 输出中实现。
 
 ### 幻灯片样式
 
@@ -166,17 +166,17 @@ content after the pause
 
 或者可以使用 `--css` 选项指定自定义样式表。
 
-要为 beamer 幻灯片设置样式，可以使用 `-V` 选项指定主题、颜色主题、字体主题、内部主题和外部主题：
+要为 Beamer 幻灯片设置样式，可以使用 `-V` 选项指定主题、颜色主题、字体主题、内部主题和外部主题：
 
 ``` bash
-pandoc -t beamer habits.txt -V theme:Warsaw -o habits.pdf
+pandoc -t Beamer habits.txt -V theme:Warsaw -o habits.pdf
 ```
 
-注意：在 HTML 幻灯片格式中，标题属性将转换为幻灯片属性（在 `<div>` 或 `<section>` 上），允许您为单个幻灯片设置样式。在 beamer 中，某些标题类和属性被识别为框架选项，并作为选项传递给框架（见下文 beamer 的框架属性）。
+**注意**：在 HTML 幻灯片格式中，标题属性将转换为幻灯片属性（在 `<div>` 或 `<section>` 上），允许您为单个幻灯片设置样式。在 Beamer 中，某些标题类和属性被识别为框架选项，并作为选项传递给框架（见下文 Beamer 的框架属性）。
 
 ### 演讲者笔记
 
-reveal.js、PowerPoint (pptx) 和 beamer 输出支持演讲者笔记。您可以在 Markdown 文档中添加笔记，如下所示：
+reveal.js、PowerPoint (pptx) 和 Beamer 输出支持演讲者笔记。您可以在 Markdown 文档中添加笔记，如下所示：
 
 ```markdown
 ::: notes
@@ -208,9 +208,9 @@ contents...
 ::::::::::::::
 ```
 
-注意：当前不支持在 PowerPoint 中指定列宽。
+**注意**：当前不支持在 PowerPoint 中指定列宽。
 
-### beamer 中的额外列属性
+### Beamer 中的额外列属性
 
 带有 `columns` 和 `column` 类的 div 容器可以选择性地具有 `align` 属性。`columns` 类还可以选择性地具有 `totalwidth` 属性或 `onlytextwidth` 类：
 
@@ -244,9 +244,9 @@ contents...
 
 详情请参阅《Beamer 用户指南》第 12.7 节。
 
-### beamer 中的框架属性
+### Beamer 中的框架属性
 
-有时需要在 beamer 的框架中添加 LaTeX `[fragile]` 选项（例如，使用 minted 环境时）。可以通过在引入幻灯片的标题中添加 `fragile` 类强制实现：
+有时需要在 Beamer 的框架中添加 LaTeX `[fragile]` 选项（例如，使用 minted 环境时）。可以通过在引入幻灯片的标题中添加 `fragile` 类强制实现：
 
 ```markdown
 # Fragile slide {.fragile}
@@ -258,21 +258,21 @@ contents...
 # References {.allowframebreaks}
 ```
 
-此外，`frameoptions` 属性可用于将任意框架选项传递给 beamer 幻灯片：
+此外，`frameoptions` 属性可用于将任意框架选项传递给 Beamer 幻灯片：
 
 ```markdown
 # Heading {frameoptions="squeeze,shrink,customoption=foobar"}
 ```
 
-### reveal.js、beamer 和 pptx 中的背景
+### reveal.js、Beamer 和 pptx 中的背景
 
-可以在自包含的 reveal.js 幻灯片、beamer 幻灯片和 pptx 幻灯片中添加背景图片。
+可以在自包含的 reveal.js 幻灯片、Beamer 幻灯片和 pptx 幻灯片中添加背景图片。
 
-#### 所有幻灯片（beamer、reveal.js、pptx）
+#### 所有幻灯片（Beamer、reveal.js、pptx）
 
-在 beamer 和 reveal.js 中，可以通过 YAML 元数据块或命令行变量使用 `background-image` 配置选项，在每页幻灯片上设置相同的背景图片。
+在 Beamer 和 reveal.js 中，可以通过 YAML 元数据块或命令行变量使用 `background-image` 配置选项，在每页幻灯片上设置相同的背景图片。
 
-注意：对于 reveal.js，`background-image` 将作为 `parallaxBackgroundImage` 使用（见下文）。
+**注意**：对于 reveal.js，`background-image` 将作为 `parallaxBackgroundImage` 使用（见下文）。
 
 对于 pptx，可以使用 `--reference-doc`，在相关布局上设置背景图片。
 
@@ -288,7 +288,7 @@ contents...
 
 由于 HTML 编写器会传递未知属性，reveal.js 的其他背景设置也适用于单个幻灯片，包括 `background-size`、`background-repeat`、`background-color`、`transition` 和 `transition-speed`。（`data-` 前缀会自动添加。）
 
-注意：为与 reveal.js 保持一致，pptx 也支持 `data-background-image`——如果未找到 `background-image`，将检查 `data-background-image`。
+**注意**：为与 reveal.js 保持一致，pptx 也支持 `data-background-image`——如果未找到 `background-image`，将检查 `data-background-image`。
 
 #### 标题幻灯片（reveal.js、pptx）
 

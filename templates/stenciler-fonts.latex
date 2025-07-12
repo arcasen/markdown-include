@@ -1,0 +1,46 @@
+% -----------------------------------------------
+% Fonts Settings
+% -----------------------------------------------
+
+\setmainfont{Noto Serif SC}
+\setsansfont{Noto Sans SC}
+\setmonofont{Source Han Mono}
+
+$if(chinese)$
+% 中文默认字体 rffamily
+\setCJKmainfont[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  % BoldFont       = *-Bold,
+  BoldFont       = NotoSansSC-Regular,
+  ItalicFont     = 方正楷体_GBK.TTF,
+  BoldItalicFont = 方正魏碑_GBK.TTF
+]{NotoSerifSC}
+
+% 中文无衬线字体 sffamily
+\setCJKsansfont[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-Light,
+  BoldItalicFont = *-Medium
+]{NotoSansSC}
+
+% 中文等宽字体 ttfamily
+% \setCJKmonofont[
+%   BoldFont       = 方正隶书_GBK.TTF,
+%   ItalicFont     = 方正楷体_GBK.TTF,
+%   BoldItalicFont = 方正魏碑_GBK.TTF
+% ]{方正仿宋_GBK.TTF}
+\setCJKmonofont{SourceHanMono.ttc}
+
+\AtBeginDocument{
+  % setmainfont, setsansfont, setmonofont等
+  % 需要在 document 环境前定义
+  \usepackage{fontspec}
+  %\setmainfont{Noto Sans} % texlive 2022 没有预装字体
+}
+
+% CJK 下的中文下划线, 波浪线, 加点等标记
+\usepackage{CJKfntef}  
+$endif$

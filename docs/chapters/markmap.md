@@ -9,14 +9,14 @@
 - 动态交互（缩放、拖动、折叠/展开节点）
 - 导出为 HTML 或 SVG 文件
 
-[Markmap]: https://markmap.js.org/
-[^markmap]: https://markmap.js.org/
+[Markmap]: <https://markmap.js.org/>
+[^markmap]: <https://markmap.js.org/>
 
 ### 使用方法
 
 #### 使用在线编辑器
 
-访问 Markmap 官方在线编辑器：https://markmap.js.org/repl
+访问 Markmap 官方在线编辑器：<https://markmap.js.org/repl>
 
 #### 使用 markmap-cli
 

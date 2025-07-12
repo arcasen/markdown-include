@@ -2,9 +2,9 @@
 
 Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式[^yaml]的配置文件，用于存储 Pandoc 转换文档时常用的选项和设置。它允许用户将命令行参数持久化保存，避免重复输入相同的参数，特别适合复杂的文档转换任务或团队协作场景。
 
-[^defaults]: https://pandoc.org/MANUAL.html#defaults-files
+[^defaults]: <https://pandoc.org/MANUAL.html#defaults-files>
 
-[^yaml]: “YAML Ain't Markup Language”，与 XML（标记语言）不同，YAML 避免使用标签（`< >`），而是依赖缩进和符号表示结构。
+[^yaml]: YAML Ain't Markup Language，与 XML（标记语言）不同，YAML 避免使用标签（`< >`），而是依赖缩进和符号表示结构。
 
 `--defaults` 选项可用于指定一组选项，格式为 YAML 文件。默认文件可以放置在用户数据目录的 defaults 子目录中，并从任何目录使用。例如，可以创建一个指定写信默认设置的文件，将其保存为用户数据目录的 defaults 子目录中的 letter.yaml，然后从任何目录通过 `pandoc --defaults letter` 或 `pandoc -dletter` 调用这些默认设置。
 
@@ -12,35 +12,40 @@ Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式
 
 ### General Options
 
-| 命令行                        | 默认文件                         |
-| -------------------------------- | ------------------------------------ |
-| `--from markdown+emoji`          | `from: markdown+emoji`               |
-| `--to markdown+hard_line_breaks` | `to: markdown+hard_line_breaks`      |
-| `--output foo.pdf`               | `output-file: foo.pdf`               |
-| `--data-dir dir`                 | `data-dir: dir`                      |
-| `--defaults file`                | `defaults:`                          |
-|                                  | `  - file`                           |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--from markdown+emoji`             `from: markdown+emoji`          
+
+`--to markdown+hard_line_breaks`    `to: markdown+hard_line_breaks` 
+
+`--output foo.pdf`                  `output-file: foo.pdf`          
+
+`--data-dir dir`                    `data-dir: dir`                 
+
+`--defaults file`                   `defaults:`\                     
+                                    `- file`       
+----------------------------------------------------------------------
 
 默认文件中指定的选项始终优先于通过 `defaults:` 条目包含的其他文件中的选项。
 
 ### Reader Options
 
-| 命令行                        | 默认文件                         |
-| ---------------------------------- | ------------------------------------ |
-| `--shift-heading-level-by -1`      | `shift-heading-level-by: -1`      |
-| `--default-image-extension ".jpg"` | `default-image-extension: '.jpg'` |
-| `--file-scope`                     | `file-scope: true`                |
-| `--citeproc --lua-filter count-words.lua --filter special.lua` | `filters:` |
-|                                                                | `  - citeproc` |
-|                                                                | `  - count-words.lua` |
-|                                                                | `  - type: json` |
-|                                                                | `     path: special.lua` |
-| `--metadata key=value --metadata key2`                         | `metadata:` |
-|                                                                | `  key: value` |
-|                                                                | `  key2: true` |
-| `--metadata-file meta.yaml`                                    | `metadata-files: meta.yaml` |
-| `--metadata-file meta.yaml`                                    | `metadata-files:` |
-|                                                                | `  - meta.yaml` |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--shift-heading-level-by -1`       `shift-heading-level-by: -1`
+
+`--default-image-extension ".jpg"`  `default-image-extension: '.jpg'`
+
+`--file-scope`                      `file-scope: true`
+
+`--citeproc \`                      `filters:`\
+`--lua-filter count-words.lua \`    `- citeproc`\
+`--filter special.lua`              `- count-words.lua`\
+                                    `- type: json`\
+                                    `  path: special.lua`
+----------------------------------------------------------------------
 
 默认文件中指定的元数据值被解析为字面字符串文本（literal string text），而不是 Markdown。
 
@@ -48,67 +53,129 @@ Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式
 
 ### 通用写入器选项
 
-| 命令行                        | 默认文件                         |
-| -------------------------------- | ------------------------------------ |
-| `--standalone`                       | `standalone: true`               |
-| `--template letter`                  | `template: letter`               |
-| `--variable key=val --variable key2` | `variables:`                     | 
-|                                      | `  key: val`                     |
-|                                      | `  key2: true`                   |
-| `--table-of-contents`                | `table-of-contents: true`        |
-| `--toc`                              | `toc: true`                      |
-| `--toc-depth 3`                      | `toc-depth: 3`                   |
-| `--strip-comments`                   | `strip-comments: true`           |
-| `--no-highlight`                     | `highlight-style: null`          |
-| `--highlight-style kate`             | `highlight-style: kate`          |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--standalone`                      `standalone: true`               
+
+`--template letter`                 `template: letter`               
+
+`--variable key=val \`              `variables:`\
+`--variable key2`                   `  key: val`\  
+                                    `  key2: true`                   
+
+`--table-of-contents`               `table-of-contents: true`        
+
+`--toc`                             `toc: true`                      
+
+`--toc-depth 3`                     `toc-depth: 3`                   
+
+`--strip-comments`                  `strip-comments: true`           
+
+`--no-highlight`                    `highlight-style: null`          
+
+`--highlight-style kate`            `highlight-style: kate`  
+
+`--include-in-header inc.tex`       `include-in-header:`\
+                                    `- inc.tex`
+
+`--include-before-body inc.tex`     `include-before-body:`\
+                                    `- inc.tex`
+
+`--include-after-body inc.tex`      `include-after-body:`\
+                                    `- inc.tex`
+----------------------------------------------------------------------
 
 ### 特定写入器选项
 
-| 命令行                        | 默认文件                         |
-| -------------------------------- | ------------------------------------ |
-| `--self-contained`                | `self-contained: true`            |
-| `--link-images`                   | `link-images: true`               |
-| `--html-q-tags`                   | `html-q-tags: true`               |
-| `--ascii`                         | `ascii: true`                     |
-| `--reference-links`               | `reference-links: true`           |
-| `--reference-location block`      | `reference-location: block`       |
-| `--figure-caption-position=above` | `figure-caption-position: above`  |
-| `--table-caption-position=below`  | `table-caption-position: below`   |
-| `--markdown-headings atx`         | `markdown-headings: atx`          |
-| `--list-tables`                   | `list-tables: true`               |
-| `--top-level-division chapter`    | `top-level-division: chapter`     |
-| `--number-sections`               | `number-sections: true`           |
-| `--number-offset=1,4`             | `number-offset: [1,4]`            |
-| `--listings`                      | `listings: true`                  |
-| `--list-of-figures`               | `list-of-figures: true`           |
-| `--lof`                           | `lof: true`                       |
-| `--list-of-tables`                | `list-of-tables: true`            |
-| `--lot`                           | `lot: true`                       |
-| `--incremental`                   | `incremental: true`               |
-| `--slide-level 2`                 | `slide-level: 2`                  |
-| `--section-divs`                  | `section-divs: true`              |
-| `--email-obfuscation references`  | `email-obfuscation: references`   |
-| `--id-prefix ch1`                 | `identifier-prefix: ch1`          |
-| `--title-prefix MySite`           | `title-prefix: MySite`            |
-| `--reference-doc my.docx`         | `reference-doc: my.docx`          |
-| `--epub-cover-image cover.jpg`    | `epub-cover-image: cover.jpg`     |
-| `--epub-title-page=false`         | `epub-title-page: false`          |
-| `--epub-metadata meta.xml`        | `epub-metadata: meta.xml`         |
-| `--split-level 2`                 | `split-level: 2`                  |
-| `--chunk-template="%i.html"`      | `chunk-template: "%i.html"`       |
-| `--pdf-engine xelatex`            | `pdf-engine: xelatex`             |
-| `--pdf-engine-opt=--shell-escape` | `pdf-engine-opt: '-shell-escape'` |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--self-contained`                  `self-contained: true`            
+
+`--link-images`                     `link-images: true`               
+
+`--html-q-tags`                     `html-q-tags: true`               
+
+`--ascii`                           `ascii: true`                     
+
+`--reference-links`                 `reference-links: true`           
+
+`--reference-location block`        `reference-location: block`       
+
+`--figure-caption-position=above`   `figure-caption-position: above`  
+
+`--table-caption-position=below`    `table-caption-position: below`   
+
+`--markdown-headings atx`           `markdown-headings: atx`          
+
+`--list-tables`                     `list-tables: true`               
+
+`--top-level-division chapter`      `top-level-division: chapter`     
+
+`--number-sections`                 `number-sections: true`           
+
+`--number-offset=1,4`               `number-offset: [1,4]`            
+
+`--listings`                        `listings: true`                  
+
+`--list-of-figures`                 `list-of-figures: true`           
+
+`--lof`                             `lof: true`                       
+
+`--list-of-tables`                  `list-of-tables: true`            
+
+`--lot`                             `lot: true`                       
+
+`--incremental`                     `incremental: true`               
+
+`--slide-level 2`                   `slide-level: 2`                  
+
+`--section-divs`                    `section-divs: true`              
+
+`--email-obfuscation references`    `email-obfuscation: references`   
+
+`--id-prefix ch1`                   `identifier-prefix: ch1`          
+
+`--title-prefix MySite`             `title-prefix: MySite`            
+
+`--reference-doc my.docx`           `reference-doc: my.docx`          
+
+`--epub-cover-image cover.jpg`      `epub-cover-image: cover.jpg`     
+
+`--epub-title-page=false`           `epub-title-page: false`          
+
+`--epub-metadata meta.xml`          `epub-metadata: meta.xml`         
+
+`--split-level 2`                   `split-level: 2`                  
+
+`--chunk-template="%i.html"`        `chunk-template: "%i.html"`       
+
+`--pdf-engine xelatex`              `pdf-engine: xelatex`             
+
+`--pdf-engine-opt=--shell-escape`   `pdf-engine-opts: `\
+                                    `  - 'shell-escape`\
+                                    OR\
+                                    `pdf-engine-opt: '-shell-escape'` 
+----------------------------------------------------------------------
 
 ### 引文渲染
 
-| 命令行                        | 默认文件                         |
-| -------------------------------- | ------------------------------------ |
-| `--citeproc`                       | `citeproc: true`                  |
-| `--bibliography logic.bib`         | `bibliography: logic.bib`         |
-| `--csl ieee.csl`                   | `csl: ieee.csl`                   |
-| `--citation-abbreviations ab.json` | `citation-abbreviations: ab.json` |
-| `--natbib`                         | `cite-method: natbib`             |
-| `--biblatex`                       | `cite-method: biblatex`           |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--citeproc`                        `citeproc: true`                  
+
+`--bibliography logic.bib`          `bibliography: logic.bib`         
+
+`--csl ieee.csl`                    `csl: ieee.csl`                   
+
+`--citation-abbreviations ab.json`  `citation-abbreviations: ab.json` 
+
+`--natbib`                          `cite-method: natbib`             
+
+`--biblatex`                        `cite-method: biblatex`           
+----------------------------------------------------------------------
 
 `cite-method` 可以是 `citeproc`、`natbib` 或 `biblatex`。这仅影响 LaTeX 输出。如果要使用 citeproc 格式化引文，还应设置 `citeproc: true`。
 
@@ -116,18 +183,24 @@ Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式
 
 ### HTML 中的数学渲染
 
-| 命令行                        | 默认文件                         |
-| -------------------------------- | ------------------------------------ |
-| `--mathjax` | `html-math-method:` |
-|             | `  method: mathjax` |
-| `--mathml`  | `html-math-method:` |
-|             | `  method: mathml`  |
-| `--webtex`  | `html-math-method:` |
-|             | `  method: webtex`  |
-| `--katex`   | `html-math-method:` |
-|             | `  method: katex`   |
-| `--gladtex` | `html-math-method:` |
-|             | `  method: gladtex` |
+----------------------------------------------------------------------
+Command line                        Default file                  
+----------------------------------  ----------------------------------
+`--mathjax`                         `html-math-method:`\
+                                    `  method: mathjax` 
+
+`--mathml`                          `html-math-method:`\
+                                    `  method: mathml`  
+
+`--webtex`                          `html-math-method:`\
+                                    `  method: webtex`  
+
+`--katex`                           `html-math-method:`\
+                                    `  method: katex`   
+
+`--gladtex`                         `html-math-method:`\
+                                    `  method: gladtex` 
+----------------------------------------------------------------------
 
 除上述值外，`method` 还可以取值 `plain`。
 

@@ -30,7 +30,7 @@ pandoc input.md --to json | python3 -m json.tool > output.json
 
 传递给 --filter/-F 参数的文件应为可执行文件。然而，如果文件的可执行位未设置，Pandoc 会尝试根据文件扩展名猜测合适的解释器[^interpreters]。
 
-[^interpreters]: https://pandoc.org/filters.html#supported-interpreters
+[^interpreters]: <https://pandoc.org/filters.html#supported-interpreters>
 
 
 | 文件扩展名 |	解释器 |
@@ -56,7 +56,7 @@ mkdir -p ~/.local/share/pandoc/filters
 cp -p /path/to/thefilter ~/.local/share/pandoc/filters
 ```
 
-注意： 在 Linux/Unix 系统中， `cp` 命令的 `-p` 选项的作用是保留源文件的元数据，包括以下内容：
+**注意**： 在 Linux/Unix 系统中， `cp` 命令的 `-p` 选项的作用是保留源文件的元数据，包括以下内容：
 
 1. 文件权限：保留源文件的权限设置（读、写、执行等）。
 2. 时间戳：保留源文件的访问时间（atime）、修改时间（mtime）和创建时间（ctime，如果系统支持）。
@@ -68,7 +68,7 @@ cp -p /path/to/thefilter ~/.local/share/pandoc/filters
 pandoc input.md --filter thefilter
 ```
 
-![[ ./filters/panflute.md ]]
+![[ ./filters/Panflute.md ]]
 
 ![[ ./filters/define-environment.md ]]
 

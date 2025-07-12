@@ -8,7 +8,7 @@ documentclass: ctexbook
 
 <!-- ![[ chapters/markdown-cheat-sheet.md ]] -->
 
-![[ chapters/basic-syntax.md ]]
+<!-- ![[ chapters/basic-syntax.md ]] -->
 
 <!-- ![[ chapters/extended-syntax.md ]] -->
 

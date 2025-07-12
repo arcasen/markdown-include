@@ -2,8 +2,6 @@
 
 ![[ cross-referencing/pandoc-crossref.md ]]
 
-<!-- ![[ cross-referencing/cross-referencing.md ]] -->
-
 ![[ cross-referencing/referencing-sections.md ]]
 
 ![[ cross-referencing/referencing-figures.md ]]

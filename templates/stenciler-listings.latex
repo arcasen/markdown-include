@@ -1,20 +1,20 @@
-% =========================================================
+% -----------------------------------------------
 % Code Listings Style
+% -----------------------------------------------
+
 % https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
-% =========================================================
 
-$if(listings)$
-
-\definecolor{listing-background}{HTML}{f2f4f4}
-\definecolor{listing-rule}      {HTML}{d6dbdf}
-\definecolor{listing-numbers}   {HTML}{aeb6bf}
-\definecolor{listing-text-color}{HTML}{17202a}
-\definecolor{listing-keyword}   {HTML}{7d3c98}
-\definecolor{listing-keyword-2} {HTML}{7d3c98} % additional keywords
-\definecolor{listing-keyword-3} {HTML}{7d3c98} % additional keywords
-\definecolor{listing-identifier}{HTML}{2874a6}
-\definecolor{listing-string}    {HTML}{e74c3c}
-\definecolor{listing-comment}   {HTML}{1e8449}
+% Colors: https://htmlcolorcodes.com/color-chart/
+\definecolor{color-background}{HTML}{fafafa}
+\definecolor{color-rule}      {HTML}{d5dbdb}
+\definecolor{color-number}    {HTML}{abb2b9}
+\definecolor{color-text}      {HTML}{1b2631}
+\definecolor{color-keyword}   {HTML}{6c3483}
+\definecolor{color-keyword-2} {HTML}{6c3483} % additional keywords
+\definecolor{color-keyword-3} {HTML}{6c3483} % additional keywords
+\definecolor{color-identifier}{HTML}{01579b}
+\definecolor{color-string}    {HTML}{f4511e}
+\definecolor{color-comment}   {HTML}{388e3c}
 
 \lstdefinestyle{stenciler_listing_style}{
 %  language         = java,
@@ -26,29 +26,29 @@ $else$
   xleftmargin      = 2.7em,
   framexleftmargin = 2.5em,
 $endif$
-  backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\linespread{1.0}%
+  backgroundcolor  = \color{color-background},
+  basicstyle       = \color{color-text}\linespread{1.0}%
                       \lst@ifdisplaystyle%
                       $if(code-block-font-size)$$code-block-font-size$$else$\small$endif$%
-                      \fi\ttfamily{},
+                      \fi\small\ttfamily{},
   breaklines       = true,
   frame            = single,
   framesep         = 0.19em,
-  rulecolor        = \color{listing-rule},
+  rulecolor        = \color{color-rule},
   frameround       = ffff,
   tabsize          = 4,
-  numberstyle      = \color{listing-numbers},
+  numberstyle      = \color{color-number},
   aboveskip        = 1.0em,
   belowskip        = 0.1em,
   abovecaptionskip = 0em,
   belowcaptionskip = 1.0em,
-  keywordstyle     = {\color{listing-keyword}\bfseries},
-  keywordstyle     = {[2]\color{listing-keyword-2}\bfseries},
-  keywordstyle     = {[3]\color{listing-keyword-3}\bfseries\itshape},
+  keywordstyle     = {\color{color-keyword}\bfseries},
+  keywordstyle     = {[2]\color{color-keyword-2}\bfseries},
+  keywordstyle     = {[3]\color{color-keyword-3}\bfseries\itshape},
   sensitive        = true,
-  identifierstyle  = \color{listing-identifier},
-  commentstyle     = \color{listing-comment},
-  stringstyle      = \color{listing-string},
+  identifierstyle  = \color{color-identifier},
+  commentstyle     = \color{color-comment},
+  stringstyle      = \color{color-string},
   showstringspaces = false,
   escapeinside     = {/*@}{@*/}, % Allow LaTeX inside these special comments
   literate         =
@@ -69,4 +69,7 @@ $endif$
 }
 \lstset{style=stenciler_listing_style}
 
-$endif$
+% 代码中的空格样式
+\makeatletter
+\def\lst@visiblespace{{\color{gray}\textvisiblespace}}
+\makeatother

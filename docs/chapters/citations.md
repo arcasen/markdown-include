@@ -90,7 +90,7 @@ pandoc example.md --citeproc -o example.pdf
 pandoc example.md --filter pandoc-crossref --citeproc -o example.pdf
 ```
 
-注意：`pandoc-crossref` 并不能为参考文献建立链接。
+**注意**：`pandoc-crossref` 并不能为参考文献建立链接。
 
 #### `link-citations` 元数据
 

@@ -25,17 +25,18 @@ def action(elem, doc):
             return [begin_env] + list(elem.content) + [end_env]
 
 def finalize(doc):
-    # 添加 LaTeX 前置内容
-    if doc.format == 'latex':
-        if 'header-includes' not in doc.metadata:
-            doc.metadata['header-includes'] = MetaList()
+    pass
+#     # 添加 LaTeX 前置内容
+#     if doc.format == 'latex':
+#         if 'header-includes' not in doc.metadata:
+#             doc.metadata['header-includes'] = MetaList()
         
-        header = RawBlock(r"""
-\usepackage{amsthm}
-\newtheorem{theorem}{\indent 定理}[section]
-\renewcommand{\proofname}{\indent\bfseries 证明}
-""", format='latex')
-        doc.metadata['header-includes'].append(header)
+#         header = RawBlock(r"""
+# \usepackage{amsthm}
+# \newtheorem{theorem}{\indent 定理}[section]
+# \renewcommand{\proofname}{\indent\bfseries 证明}
+# """, format='latex')
+#         doc.metadata['header-includes'].append(header)
 
 
 if __name__ == '__main__':

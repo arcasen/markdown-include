@@ -1,6 +1,6 @@
-### 增强版 Panflute 过滤器：支持 DOCX、HTML 和 PDF 输出的颜色处理
+### 支持 docx、HTML 和 PDF 格式输出
 
-以下是支持 DOCX、HTML 和 PDF 输出的完整过滤器，能够处理以 `#` 开头的十六进制颜色代码：
+以下是支持 docx、HTML 和 PDF 输出的完整过滤器，能够处理以 `#` 开头的十六进制颜色代码：
 
 ```python
 ![[ ../../examples/filters/define-textcolor-enhanced.py ]]
@@ -22,15 +22,15 @@
    # 转换为 PDF
    pandoc input.md -o output.pdf --filter define-textcolor-enhanced.py
    
-   # 转换为 DOCX
+   # 转换为 docx
    pandoc input.md -o output.docx --filter define-textcolor-enhanced.py --reference-doc=custom-reference.docx
    ```
 
 注意事项：
 
-1. DOCX 输出需要参考文档中的预定义样式
-2. 对于 DOCX 输出，颜色信息存储在 `_color` 属性中，实际渲染需要 Word 应用这些样式
-3. 更高级的 DOCX 处理可能需要直接操作 OpenXML，这超出了 panflute 的基本功能
+1. docx 输出需要参考文档中的预定义样式
+2. 对于 docx 输出，颜色信息存储在 `_color` 属性中，实际渲染需要 Word 应用这些样式
+3. 更高级的 docx 处理可能需要直接操作 OpenXML，这超出了 Panflute 的基本功能
 4. 确保在所有输出格式中测试颜色显示效果，因为不同格式对颜色的支持可能有所不同
 
 #### 使用步骤
@@ -43,10 +43,10 @@
    - 保存为 `custom-reference.docx`
 
 2. 修改过滤器（可选）：
-   - 如果需要更精细的 DOCX 样式控制，可以扩展过滤器以生成更复杂的 OpenXML 属性
+   - 如果需要更精细的 docx 样式控制，可以扩展过滤器以生成更复杂的 OpenXML 属性
 
 3. 颜色映射（可选）：
-   - 可以添加颜色名称到十六进制值的映射表，确保 DOCX 中的颜色一致性
+   - 可以添加颜色名称到十六进制值的映射表，确保 docx 中的颜色一致性
 
 完整解决方案文件结构：
 
@@ -68,6 +68,6 @@ pandoc input.md -o output.html --filter ./define-textcolor-enhanced.py
 # 生成 PDF
 pandoc input.md -o output.pdf --filter ./define-textcolor-enhanced.py
 
-# 生成 DOCX
+# 生成 docx
 pandoc input.md -o output.docx --filter ./define-textcolor-enhanced.py --reference-doc=custom-reference.docx
 ```

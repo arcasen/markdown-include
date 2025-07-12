@@ -1,8 +1,8 @@
 ## 使用样式参考文档
 
-`--reference-doc` 是 Pandoc 中用于指定模板文档（DOCX、ODT 或 PPTX 格式）的选项[^ref-doc]，可在转换为同类文件时保留模板的样式和格式。尤其适用于需要严格匹配 Word（.docx）、LibreOffice（.odt）或 PowerPoint（.pptx）模板的场景。基本用法：
+`--reference-doc` 是 Pandoc 中用于指定模板文档（docx、ODT 或 pptx 格式）的选项[^ref-doc]，可在转换为同类文件时保留模板的样式和格式。尤其适用于需要严格匹配 Word（.docx）、LibreOffice（.odt）或 PowerPoint（.pptx）模板的场景。基本用法：
 
-[^ref-doc]: https://pandoc.org/MANUAL.html#option--reference-doc
+[^ref-doc]: <https://pandoc.org/MANUAL.html#option--reference-doc>
 
 ```bash
 pandoc input.md --reference-doc=reference.docx -o output.docx
@@ -25,7 +25,7 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
   - 支持 .docx、.odt（LibreOffice）和 .pptx（演示文稿）。
 
-### 参考 DOCX 文件
+### 参考 docx 文件
 
 为了获得最佳结果，参考的 docx 文件应是使用 Pandoc 生成的 docx 文件的修改版本。参考 docx 文件的内容会被忽略，但其样式表和文档属性（包括边距、页面大小、页眉和页脚）将被用于新的 docx 文件。如果在命令行中未指定参考 docx 文件，Pandoc 将在用户数据目录（参见 `--data-dir` 选项）中查找名为 reference.docx 的文件。
 
@@ -82,7 +82,7 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
  
 - 表格
 
-### 参考 PPTX 文件
+### 参考 pptx 文件
 
 微软 PowerPoint 2013 包含的模板（扩展名为 .pptx 或 .potx）已知是可用的，大多数基于这些模板衍生的模板也是如此。
 
@@ -102,13 +102,13 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
 您还可以修改默认的 reference.pptx：首先运行命令 `pandoc -o custom-reference.pptx --print-default-data-file reference.pptx` ，然后在 MS PowerPoint 中修改 custom-reference.pptx（Pandoc 将使用上述列出的布局名称）。
 
-### PPTX 分页
+### pptx 分页
 
 在使用 Pandoc 生成 PowerPoint（.pptx）文件时，可以通过在 Markdown 文件中设置标题级别或使用特定的分隔符来实现分页（即创建新的幻灯片）。以下是具体的方法和步骤：
 
 #### 使用标题级别控制分页
    
-Pandoc 在生成 PPTX 时，会根据 Markdown 文件中的标题级别（#, ##, ### 等）来决定幻灯片的划分。默认情况下，Pandoc 使用最高级别标题之后有内容的标题级别作为幻灯片标题（slide level）。
+Pandoc 在生成 pptx 时，会根据 Markdown 文件中的标题级别（#, ##, ### 等）来决定幻灯片的划分。默认情况下，Pandoc 使用最高级别标题之后有内容的标题级别作为幻灯片标题（slide level）。
 
 示例：
 
@@ -147,7 +147,7 @@ pandoc -t pptx input.md -o output.pptx
 
 - 每个 `##` 标题会生成一个新的幻灯片，标题内容为 `##` 的文本，后面跟着该标题下的内容。
 
-注意：
+**注意**：
 
 - 如果文档中没有足够的标题级别，Pandoc 会自动选择最高标题级别作为幻灯片标题。
 - 如果你不想用标题来分页，可以设置 `--slide-level=0`，然后使用其他方式（如分隔符）来控制分页。
@@ -176,7 +176,7 @@ Pandoc 支持使用水平线（`---`）作为幻灯片的分隔符来手动分�
 说明：
 
 - `---` 表示一个新的幻灯片开始。
-- 在 PowerPoint 输出中，Pandoc 不需要额外的 `-s`（standalone）参数，因为 PPTX 文件本身就是独立的。
+- 在 PowerPoint 输出中，Pandoc 不需要额外的 `-s`（standalone）参数，因为 pptx 文件本身就是独立的。
 
 命令：
 

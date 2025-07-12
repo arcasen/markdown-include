@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/questions/187566/change-space-style-using-listings-package
+% https://tex.stackexchange.com/questions/50804/explicit-space-character
+
+\documentclass[a4paper, 10pt]{book}
+
+\usepackage{amssymb}
+\usepackage{listings}
+
+\usepackage[usenames, dvipsnames]{xcolor}
+
+\makeatletter
+\def\lst@visiblespace{{\color{gray}\textvisiblespace}}
+\makeatother
+
+\lstset{%
+    language     = c,
+    basicstyle   = \ttfamily,
+    keywordstyle = \color{blue},
+    stringstyle  = \color{purple},
+    showspaces   = true,
+    numbers      = left,
+    numberstyle  = \ttfamily \color{black}
+}
+
+\begin{document}
+
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+\end{lstlisting}
+
+\end{document}

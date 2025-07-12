@@ -1,0 +1,28 @@
+% -----------------------------------------------
+% Package `hyperref` Settings 
+% -----------------------------------------------
+
+% Note: Do not use blank lines inside.
+\hypersetup{
+  % Metadata for PDF
+$if(title)$
+  pdftitle={$title$},
+$endif$
+$if(author)$
+  pdfauthor={$author$},
+$endif$
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+  pdfcreator={LaTeX via pandoc},
+  bookmarksnumbered=true, %
+  colorlinks=true,        % set true if you want colored links
+  linktoc=all,            % set to all if you want both sections and subsections linked
+  linkcolor=blue,         % choose some color if you want links to stand out
+  citecolor=violet,
+  urlcolor=violet,
+  hyperfootnotes=true,    % for table footnote
+}

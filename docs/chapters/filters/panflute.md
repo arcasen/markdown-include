@@ -1,4 +1,4 @@
-### 使用 panflute
+### 使用 Panflute
 
 Pandoc 过滤器是一个程序，主要功能是：
 
@@ -8,10 +8,10 @@ Pandoc 过滤器是一个程序，主要功能是：
 
 Panflute 简化了这个过程，让你可以用 Python 轻松操作文档。
 
-先运行以下命令安装 panflute：
+先运行以下命令安装 Panflute：
 
 ```bash
-$ pip3 install panflute
+$ pip3 install Panflute
 ```
 
 下面的实例中将将 Markdown 文本的字母转换为大写字母：
@@ -32,13 +32,13 @@ pandoc helloworld.md --filter ./uppercase.py
 <p>你好, 世界</p>
 ```
 
-注意： 默认情况下， Pandoc 调用系统的 Python 解释器（如： macOS 是 python2），而上述过滤器需要调用 python3 解释器。解决方案如下：
+**注意**： 默认情况下， Pandoc 调用系统的 Python 解释器（如： macOS 是 python2），而上述过滤器需要调用 python3 解释器。解决方案如下：
 
 方案 1： 建立虚拟环境，如：
 
 ```bash
 mkvirtualenv pandoc
-pip install panflute
+pip install Panflute
 workon pandoc
 ```
 

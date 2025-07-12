@@ -1,4 +1,4 @@
-### 内联格式 Inline formatting{#inline-formatting}
+### 内联格式 Inline Formatting
 
 #### 强调
 
@@ -74,7 +74,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 #### 扩展：`inline_code_attributes`
 
-可以将属性附加到逐字文本，就像围栏代码块一样：
+可以将属性附加到逐字文本，就像围栏式代码块一样：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/inline_code_attributes.md ]]

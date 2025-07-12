@@ -11,9 +11,9 @@
 
 二者的核心区别在于：元数据可被 Pandoc 及其过滤器（即在最终格式化前处理输入内容的脚本）识别和处理，而模板变量仅作用于模板系统。若您通过 `--metadata` 标签或元数据头文件设置某个变量，该变量同样可供模板系统调用，因此通常只需使用元数据即可。虽然最终输出可能存在细微差异（因为过滤器可能对元数据进行特殊处理而忽略普通变量），但坚持使用单一类型选项显然更简便。除非有充分理由，否则建议统一采用元数据设置方式。
 
-###  Pandoc 读取 YAML 元数据
+### 读取 YAML 元数据
 
-读取 Pandoc 标记文件中的 YAML 元数据可以通过使用 Pandoc 提供的命令行参数或API来实现。以下是一个示例命令行使用方式：
+读取 Pandoc 标记文件中的 YAML 元数据可以通过使用 Pandoc 提供的命令行参数或 API 来实现。以下是一个示例命令行使用方式：
 
 ```bash
 pandoc --metadata-file=metadata.yaml input.md -o output.html
@@ -26,25 +26,61 @@ pandoc --metadata-file=metadata.yaml input.md -o output.html
 Pandoc 命令中的几个相关选项：
 
 `--metadata-file=FILE`
+
 : Read metadata from the supplied YAML (or JSON) file. 
 
 `-M KEY[=VAL], --metadata=KEY[:VAL]`
+
 : Set the metadata field KEY to the value VAL.
 
 `-V KEY[=VAL], --variable=KEY[:VAL]`
+
 : Set the template variable KEY to the string value VAL when rendering the document in standalone mode.
 
-注意：将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 \LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式 [^underscore_issue]，可以将相关代码直接以 `header-includes` 形式加入。
+**注意**：将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式 [^underscore_issue]，可以将相关代码直接以 `header-includes` 形式加入。
 
 [^underscore_issue]: <https://github.com/jgm/pandoc/issues/2139>
+
+### 命令行选项、元数据块和元数据文件的优先顺序
+
+在 Pandoc 中，元数据（metadata）的优先级遵循以下规则（从高到低）：
+
+1. 命令行参数 (`--metadata` 或 `-M` 选项)
+   - 最高优先级，会覆盖其他来源的同名元数据，例如：`pandoc -M title="New Title"`
+
+2. YAML 元数据块 (位于文档头部)
+   - 中等优先级，会被命令行参数覆盖，但会覆盖外部元数据文件
+   - 例如：
+     ```markdown
+     ---
+     title: Document Title
+     author: John Doe
+     ---
+     ```
+
+3. 外部元数据文件 (`--metadata-file` 或 `-d` 选项)
+   - 最低优先级，会被以上两者覆盖
+   - 例如：`pandoc --metadata-file=meta.yaml`
+
+**特殊说明**：
+
+- 如果同时使用多个来源定义同一个变量，Pandoc 会按照上述优先级采用值
+- YAML 元数据块中可以包含复杂结构（如列表、嵌套对象），而命令行参数只适合简单键值对
+- 可以通过 `--variable` (`-V`) 定义的变量属于 LaTeX 模板变量系统，与元数据系统不同但可能有交互
+
+**建议实践**：
+
+- 将通用元数据放在外部 YAML 文件中
+- 文档特定的元数据放在文档头部的 YAML 块中
+- 需要临时覆盖时使用命令行参数
 
 ### `--defaults`/`-d` 与 `--metadata-file`
 
 Pandoc 的 `-d`（`--defaults`）和 `--metadata-file` 选项都用于从外部文件加载配置，但它们的用途和功能有显著区别：
 
-1. `-d` / `--defaults`（默认配置文件）的用途：定义 **Pandoc 转换的全局默认选项**（如输入/输出格式、模板、变量、过滤器等）。
+1. `-d` / `--defaults`（默认配置文件）的用途：定义 Pandoc 转换的全局默认选项（如输入/输出格式、模板、变量、过滤器等）。
 
-2. `--metadata-file`（元数据文件）的用途：仅用于定义文档的 **元数据**（如标题、作者、日期等），不影响转换行为。
+2. `--metadata-file`（元数据文件）的用途：仅用于定义文档的元数据（如标题、作者、日期等），不影响转换行为。
 
 : `--defaults`/`-d` 与 `--metadata-file` 关键区别对比
 

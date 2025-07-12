@@ -1,4 +1,4 @@
-### 概述
+### 概述 Overview
 
 #### 设计哲学
 
@@ -39,7 +39,7 @@ Markdown 并非要替代 HTML，甚至不能与 HTML 相提并论。它的语法
 
     这是另一个普通段落。
 
-需注意： Markdown 语法在块级 HTML 标签内部不会生效。例如不能在 HTML 区块内使用 Markdown 的`*强调*`语法。
+需**注意**： Markdown 语法在块级 HTML 标签内部不会生效。例如不能在 HTML 区块内使用 Markdown 的`*强调*`语法。
 
 而行级 HTML 标签（如`<span>`、`<cite>`、`<del>`）可用于 Markdown 段落、列表项或标题中的任意位置。你甚至可以完全用 HTML 标签代替 Markdown 格式，比如用 HTML 的`<a>`或`<img>`标签替代 Markdown 的链接或图片语法。
 

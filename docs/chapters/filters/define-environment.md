@@ -1,6 +1,6 @@
 ### 过滤器实例：定理环境
 
-下面是一个用 panflute 编写的过滤器，可以处理 Pandoc 的 Div，将其转换成对应类名的 LaTeX 环境：
+下面是一个用 Panflute 编写的过滤器，可以处理 Pandoc 的 Div，将其转换成对应类名的 LaTeX 环境：
 
 ```python
 ![[ ../../examples/filters/define-environment.py ]]

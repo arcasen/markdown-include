@@ -54,4 +54,4 @@
 
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-other-elements.md ]]
 
-注意：Pandoc 要求引用块必须前面必须要有空行，见[扩展：`blank_before_blockquote`]。
+**注意**：Pandoc 要求引用块必须前面必须要有空行，见[扩展：`blank_before_blockquote`]。

@@ -1,4 +1,12 @@
-$passoptions.latex()$
+% ===============================================
+%
+% The Stenciler Pandoc LaTeX Template
+%
+% 参考 default.latex 和 eisvogel.latex
+%
+% ===============================================
+
+$stenciler-passoptions.latex()$
 \documentclass[
 $for(babel-otherlangs)$
   $babel-otherlangs$,
@@ -23,7 +31,8 @@ $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
-\usepackage{amsmath,amssymb}
+$-- \usepackage{amsmath,amssymb}
+$stenciler-math.latex()$
 $--
 $-- section numbering
 $--
@@ -32,15 +41,28 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
-$fonts.latex()$
-$font-settings.latex()$
-$common.latex()$
+$stenciler-fonts.latex()$
+$stenciler-common.latex()$
 $for(header-includes)$
 $header-includes$
 $endfor$
-$after-header-includes.latex()$
-$hypersetup.latex()$
-$listingsetup.latex()$
+$-------- after-header-includes.latex() ---------
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{$if(urlstyle)$$urlstyle$$else$same$endif$}
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allow verbatim text in footnotes
+$endif$
+$--------------------- end ----------------------
+$stenciler-hypersetup.latex()$
+
+$if(listings)$
+$stenciler-listings.latex()$
+$endif$
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}

@@ -1,5 +1,2 @@
-block qoutes
-
-> This is a block quote.
->
-> > A block quote within a block quote.
+This is NOT a block quote.
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

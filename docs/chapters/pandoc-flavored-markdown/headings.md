@@ -1,10 +1,10 @@
-### 标题
+### 标题 Headings
 
 Pandoc 可以使用两种标题格式：Setext 和 ATX。
 
 #### Setext 样式
 
-Setext 样式的标题是一行带有“下划线”的文本，其中带有一行=符号（对于一级标题）或 -符号（对于二级标题）。标题文本可能包括[内联格式](#inline-formatting)，例如强调和斜体。
+Setext 样式的标题是一行带有“下划线”的文本，其中带有一行=符号（对于一级标题）或 -符号（对于二级标题）。标题文本可能包括[内联格式 Inline Formatting]，例如强调和斜体。
 
 示例：
 
@@ -14,7 +14,7 @@ Setext 样式的标题是一行带有“下划线”的文本，其中带有一�
 
 #### ATX 格式
 
-ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行尾可能有任意数量的符号。行首的符号`#`数量即为标题的级别。与 Setext 标题一样，ATX 标题允许[内联格式](#inline-formatting)。
+ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行尾可能有任意数量的符号。行首的符号`#`数量即为标题的级别。与 Setext 标题一样，ATX 标题允许[内联格式 Inline Formatting]。
 
 示例：
 
@@ -34,9 +34,9 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 
 #### 扩展：`space_in_atx_header`
 
-许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。
+许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。*Pandoc 默认要求 `#` 与标题文本之间有空格[^disable-space-atx]。*
 
-Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-space_in_atx_header` 来取消这个要求。
+[^disable-space-atx]: 如果要取消这个要求，编译时使用选项 `-f markdown-space_in_atx_header`。
 
 示例：
 
@@ -62,18 +62,18 @@ Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-s
 
 例如：
 
-| 标题 | 标识符 |
-| :---: | :---: |
+|           标题               |            标识符          |
+| --------------------------- | ------------------------- |
 |Heading identifiers in HTML	|heading-identifiers-in-html|
-|Maître d'hôtel	              |maître-dhôtel|
-|*Dogs*?--in *my* house?	    |dogs--in-my-house|
-|[HTML], [S5], or [RTF]?	    |html-s5-or-rtf|
-|3. Applications	            |applications|
-|33	                          |section|
+|Maître d'hôtel	              |maître-dhôtel              |
+|*Dogs*?--in *my* house?	    |dogs--in-my-house          |
+|[HTML], [S5], or [RTF]?	    |html-s5-or-rtf             |
+|3. Applications	            |applications               |
+|33	                          |section                    |
 
-在大多数情况下，这些规则应该允许根据标题文本确定标识符。例外情况是多个标题具有相同的文本；在这种情况下，第一个标题将获得如上所述的标识符；第二个标题将获得相同的标识符并-1附加；第三个标题将附加 -2；依此类推。
+在大多数情况下，这些规则应该允许根据标题文本确定标识符。例外情况是多个标题具有*相同的文本*；在这种情况下，第一个标题将获得如上所述的标识符；第二个标题将获得相同的标识符并附加 `-1`；第三个标题将附加 `-2`；依此类推。
 
-`gfm_auto_identifiers`（但是，如果启用，则会使用不同的算法 ；请参见下文。）
+但是，如果启用 `gfm_auto_identifiers`，则会使用不同的算法；请参见下文。
 
 这些标识符用于在选项生成的目录中提供链接目标 `--toc|--table-of-contents`。它们还可以轻松地提供从文​​档某个部分到另一个部分的链接。例如，指向此部分的链接可能如下所示：
 
@@ -81,9 +81,10 @@ Pandoc 默认要求`#` 与标题文本之间有空格，可以用 `-f markdown-s
 See the section on
 [heading identifiers](#heading-identifiers-in-html-latex-and-context).
 ```
+
 但请注意，这种提供章节链接的方法仅适用于 HTML、LaTeX 和 ConTeXt 格式。
 
-如果 `--section-divs` 指定了该选项，则每个部分将被包裹在 section（或 div，如果html4 指定了 ）中，并且标识符将附加到封闭的 `<section>`（或 `<div>`）标签而不是标题本身。这允许使用 JavaScript 操作整个部分，或在 CSS 中进行不同的处理。
+如果 `--section-divs` 指定了该选项，则每个部分将被包裹在 section（或 div，如果指定了 html4）中，并且标识符将附加到封闭的 `<section>`（或 `<div>`）标签而不是标题本身。这允许使用 JavaScript 操作整个部分，或在 CSS 中进行不同的处理。
 
 #### 扩展：`ascii_identifiers`
 
@@ -103,7 +104,7 @@ See the section on
 
 请注意，虽然此语法允许分配类和键/值属性，但编写者通常不会使用所有这些信息。标识符、类和键/值属性用于 HTML 和基于 HTML 的格式（例如 EPUB 和 slidy）。标识符用于 LaTeX、ConTeXt、Textile、Jira 标记和 AsciiDoc 编写器中的标签和链接锚点。
 
-即使指定了 ，带有 类的标题unnumbered也不会被编号--number-sections。属性上下文中的单个连字符 ( -) 相当于.unnumbered，并且在非英语文档中更可取。因此，
+如果指定了带有 `unnumbered` 类的标题，则即使使用 `--number-sections` 也不会被编号。属性上下文中的单个连字符（`-`） 相当于 `.unnumbered`，并且在非英语文档中更可取。因此，
 
 ```markdown
 # My heading {-}
@@ -125,7 +126,7 @@ See the section on
 
 #### 扩展：`implicit_header_references`
 
-Pandoc 的行为就像每个标题都定义了引用链接 （reference links） 一样。因此，要链接到标题，只需要直接在标题加上`[]`。
+Pandoc 的行为就像每个标题都定义了引用链接（reference links）一样。因此，要链接到标题，只需要直接在标题加上`[]`。
 
 如要链接到标题：
 
@@ -152,7 +153,7 @@ HTML]`
 
 与常规参考链接一样，这些参考不区分大小写。
 
-显式链接引用定义始终优先于隐式标题引用。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
+*显式链接引用定义始终优先于隐式标题引用。*因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
 
 ```markdown
 # Foo
@@ -167,4 +168,3 @@ See [foo]
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/headings/implicit_header_references.md ]]
 ```
-

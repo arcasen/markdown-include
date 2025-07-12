@@ -18,6 +18,8 @@ Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档�
 
 你可能想知道，人们为何使用 Markdown 而不是所见即所得编辑器。为什么在界面中按按钮格式化文本时还要使用 Markdown 来编写？事实证明，人们使用 Markdown 而不是所见即所得编辑器的原因有很多。
 
+- Markdown 使语义（semantics）与格式（format）分离，让你更聚焦于语义。
+- Markdown 是最简单的标记语言语言（markup languages）之一。
 - Markdown 可用于一切。人们使用它来创建 网站、文档、笔记、书籍、演示文稿、电子邮件 和 技术文档。
 - Markdown 是可移植的。包含 Markdown 格式文本的文件几乎可以使用任何应用程序打开。如果你决定不喜欢当前使用的 Markdown 应用程序，你可以将 Markdown 文件导入另一个 Markdown 应用程序。这与 Microsoft Word 等将内容锁定为专有文件格式的文字处理应用程序形成了鲜明的对比。
 - Markdown 与平台无关。你可以在运行任何操作系统的任何设备上创建 Markdown 格式的文本。

@@ -60,7 +60,7 @@
 
 链接定义由方括号内的标签、冒号和空格、URL 以及可选的（空格后）链接标题（用引号或括号括起来）组成。
 
-标签不能被解析为文献引用（假设启用了扩展 `citations`）：**文献引用优先于链接标签**。
+标签不能被解析为文献引用（假设启用了扩展 `citations`）：*文献引用优先于链接标签*。
 
 URL 可以选择性地用尖括号括起来。
 
@@ -80,7 +80,7 @@ URL 可以选择性地用尖括号括起来。
 
 ![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
 
-注意：在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
+**注意**：在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
 
 ![[ ../../examples/pandoc-flavored-markdown/links/links-inside-blockquotes-and-lists.md ]]
 

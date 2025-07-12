@@ -2,7 +2,7 @@
 
 #### 无序列表
 
-项目符号列表是由项目符号列表项组成的列表。项目符号列表项以项目符号（`*`、`+` 或 `-`）开头，**列表前必须添加空行**。如：
+项目符号列表是由项目符号列表项组成的列表。项目符号列表项以项目符号（`*`、`+` 或 `-`）开头，*列表前必须添加空行*。如：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
@@ -52,7 +52,7 @@
 
 与原始 Markdown 不同，Pandoc 允许使用大小写字母和罗马数字以及阿拉伯数字来标记有序列表项。列表标记可以用括号括起来，也可以后跟一个右括号或句点。它们必须与后面的文本至少间隔一个空格；如果列表标记是带句点的大写字母，则必须至少间隔两个空格。
 
-该` fancy_lists` 扩展还允许使用 `#` 代替数字作为有序列表标记：
+该 ` fancy_lists` 扩展还允许使用 `#` 代替数字作为有序列表标记：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-fancy.md ]]
@@ -65,7 +65,7 @@
 
 #### 扩展：`task_lists`
 
-Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
+Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-task.md ]]
@@ -89,7 +89,7 @@ Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
 
-#### 结束列表
+#### 列表的结束
 
 如果您想在列表后放置缩进的代码块怎么办？要“截断”第二项之后的列表，您可以插入一些非缩进的内容，例如 HTML 注释，这样不会以任何格式产生可见的输出；如果您想要两个连续的列表而不是一个大列表，则可以使用相同的技巧：
 
@@ -101,6 +101,6 @@ Pandoc 支持任务列表，使用 GitHub-Flavored Markdown 的语法。
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-end.md ]]
 
-#### 紧凑列表
+#### 紧凑型列表
 
 在使用 Pandoc 将 Markdown 列表转换为 LaTeX 时，是否使用 `\tightlist` 取决于 Pandoc 的版本、列表的上下文以及输出的 LaTeX 模板。如果列表嵌套在其他环境中（例如表格、定义列表等）或列表项间存在空行，Pandoc 可能不会插入 `\tightlist`。

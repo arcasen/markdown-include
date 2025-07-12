@@ -1,4 +1,4 @@
-### 表格
+### 表格 Tables
 
 Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width font）[^fwf],最后一种可以使用比例间隔字体（proportionally spaced font）[^psf]：
 
@@ -9,7 +9,9 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 [^fwf]: Fixed-width Font（等宽字体），又称为 Monospaced Font，是一种所有字符（包括字母、数字、标点符号等）占据相同水平宽度的字体。
 
-[^psf]: Proportionally Spaced Font（比例间隔字体）是一种字符宽度不固定的字体，每个字符根据其实际形状占据不同的水平空间。
+[^psf]: Proportionally Spaced Font（比例间隔字体）是一种字符宽度不固定的字体，每个字符根据其实际形状占据不同的水平空间。现代中文字体（如思源黑体、苹方、微软雅黑）多为比例间隔字体，尤其在标点和中西文混排时体现宽度优化，适合出版、网页、UI 设计等。
+
+**注意**：中文排版时该对齐是不好控制的，因为中文字体不属于等宽字体。
 
 #### 扩展：`table_captions`
 
@@ -17,9 +19,7 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 
 #### 扩展：`simple_tables`
 
-表头和表行必须各占一行。列对齐由表头文本相对于其下方虚线的位置决定[^cn-simple-table]：
-
-[^cn-simple-table]: 中文排版时该对齐是不好控制的，因为中文字体不属于等宽字体。
+表头和表行必须各占一行。列对齐由表头文本相对于其下方虚线的位置决定：
 
 - 如果虚线与右侧的标题文本齐平，但左侧超出标题文本，则该列右对齐。
 - 如果虚线与左侧的标题文本齐平，但在右侧超出标题文本，则该列左对齐。
@@ -33,12 +33,12 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```markdown
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-simple.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/simple-tables.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-simple.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/simple-tables.md ]]
 
 #### 扩展：`mutiline_tables`
 
@@ -59,18 +59,18 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```markdown
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-multiline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/multiline-tables.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-multiline.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/multiline-tables.md ]]
 
 #### 扩展：`grid_tables`
 
 `=` 行将表头与表体分隔开来，对于无表头的表格，可以省略该行。网格表格的单元格可以包含任意块元素（多个段落、代码块、列表等）。
 
-单元格可以跨越多列或多行。
+单元格可以跨越多列或多行^[对于含有中文的表格，可能会失效。]。
 
 表头可能包含多行。
 
@@ -87,40 +87,40 @@ Pandoc 中支持四种列表样式，前三种要求等宽字体（fixed-width f
 示例：
 
 ```markdown
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-grid.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/grid-tables.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-grid.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/grid-tables.md ]]
 
 #### 扩展：`pipe_tables`
 
-管道表格语法与 [PHP Markdown Extra 表格](https://michelf.ca/projects/php-markdown/extra/#table) 表相同。起始和结束竖线字符（`|`）是可选的，但所有列之间都需要竖线。冒号指示列对齐方式。**表头不可省略**。要模拟无表头表格，请添加一个带有空白单元格的表头。由于管道指示列边界，因此列无需像上例那样垂直对齐。
+管道表格语法与 [PHP Markdown Extra 表格](https://michelf.ca/projects/php-markdown/extra/#table) 表相同。起始和结束竖线字符（`|`）是可选的，但所有列之间都需要竖线。冒号指示列对齐方式。*表头不可省略*。要模拟无表头表格，请添加一个带有空白单元格的表头。由于管道指示列边界，因此列无需像上例那样垂直对齐。
 
 管道表格的单元格不能包含段落和列表等块元素，也不能跨越多行。如果 Markdown 源代码中的任何一行比列宽（参见[`--columns`](https://pandoc.org/MANUAL.html#option--columns)），则表格将占据整个文本宽度，单元格内容将换行，相对单元格宽度由表格标题和表格主体之间分隔线的虚线数量决定。（例如， `---|-`将第一列设置为整个文本宽度的 3/4，第二列设置为整个文本宽度的 1/4。）另一方面，如果没有行比列宽更宽，则单元格内容将不会换行，单元格将根据其内容调整大小。
 
 示例：
 
 ```markdown
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/pipe-tables.md ]]
 ```
 
 渲染效果如下：
 
-![[ ../../examples/pandoc-flavored-markdown/tables/tables-pipe.md ]]
+![[ ../../examples/pandoc-flavored-markdown/tables/pipe-tables.md ]]
 
 #### Caveats
 
 1. 在 Pandoc 表格中插入图片是支持的，而且相对简单。你可以使用标准的 Markdown 图片语法在表格的单元格中插入图片。
 
-2. 在 Pandoc 中，直接在 Markdown 表格的单元格内插入多行围栏代码块是不支持的。
+2. 在 Pandoc 中，直接在 Markdown 表格的单元格内插入多行围栏式代码块是不支持的。
 
-   Pandoc 的标准 Markdown 表格语法（如 Pipe Tables、Simple Tables 和 Grid Tables）对单元格内容有一些限制。它们通常期望单元格内容是单行的，或者至少是不包含像围栏代码块那样需要多行且有特定格式的块级元素。
+   Pandoc 的标准 Markdown 表格语法（如 Pipe Tables、Simple Tables 和 Grid Tables）对单元格内容有一些限制。它们通常期望单元格内容是单行的，或者至少是不包含像围栏式代码块那样需要多行且有特定格式的块级元素。
 
    如果你尝试这样做，Pandoc 通常会将其解析为表格中断，或者将代码块视为表格之外的独立内容，导致表格结构被破坏。
 
-   在 Pandoc Markdown 表格中直接插入多行围栏代码块是不推荐且通常不可行的。Pandoc 的表格语法设计目的不是为了容纳这种复杂的块级内容。
+   在 Pandoc Markdown 表格中直接插入多行围栏式代码块是不推荐且通常不可行的。Pandoc 的表格语法设计目的不是为了容纳这种复杂的块级内容。
 
 3. 在 Pandoc 的 Markdown 表格中处理多行中文内容时，容易出现换行错乱、对齐错误或单元格溢出等问题。以下是具体原因和解决方案：
 

@@ -12,10 +12,10 @@ shift-heading-level-by: -1
 filters:
   - pandoc-crossref
   - citeproc
-  - define-textcolor.py
-  - define-environment.py
+  - enable-textcolor.py
+  - enable-environment.py
 
-# Resolve '! LaTeX Error: Environment lstlisting undefined.' when 
+# Resolve '! LaTeX Error: Environment lstlisting unenabled.' when 
 # using the pandoc-crossref filter together with Eisvogel template
 # https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146
 metadata:

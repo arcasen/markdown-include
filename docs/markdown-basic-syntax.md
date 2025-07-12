@@ -1,5 +1,5 @@
 ---
-documentclass: scrbook
+documentclass: ctexbook
 ---
 
 # Markdown Basic Syntax 
@@ -493,7 +493,7 @@ following lines will produce a horizontal rule:
 
     ***
 
-    *****
+    *
 
     - - -
 
