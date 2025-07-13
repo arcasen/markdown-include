@@ -1,0 +1,28 @@
+% 示例中，虽然使用了 @{} 去掉了表格最左侧和最右侧的 \tabcolsep，
+% 但如果你仍然看到左右间距，可能是因为以下原因：
+%   - 列定义之间的默认 \tabcolsep（列间距）未被移除。
+%   - 页面边距或列宽设置使得表格看起来仍有额外空间。
+%   - 颜色填充效果可能让间距显得更明显。
+
+\documentclass{article}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.9}
+
+\begin{document}
+
+% 设置条纹效果，从第2行开始（跳过标题行）
+\rowcolors{2}{white}{lightgray}
+% 去掉左右 tabcolsep
+\begin{longtable}{@{}p{4cm}p{4cm}p{4cm}@{}}
+\toprule
+\textbf{列1} & \textbf{列2} & \textbf{列3} \\ 
+\midrule
+内容1 & 内容2 & 内容3 \\
+内容4 & 内容5 & 内容6 \\ 
+内容7 & 内容8 & 内容9 \\ 
+\bottomrule
+\end{longtable}
+
+\end{document}

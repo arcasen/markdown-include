@@ -2,16 +2,16 @@
 
 from panflute import *
 
-
 def action(elem, doc):
-    # 处理表格：在表格前插入 \rowcolors（LaTeX）或添加 CSS 类（HTML）
+    # 处理表格: 在表格前插入 \rowcolors（LaTeX）或添加 CSS 类（HTML）
     if isinstance(elem, Table):
         if doc.format == "latex":
-            # LaTeX 方式：插入 \rowcolors 命令
+            # LaTeX 方式: 插入 \rowcolors 命令
+            # 或在导言区加入: \AtBeginEnvironment{longtable}{\cmd}
             color_cmd = RawBlock("\\rowcolors{1}{white}{cyan!15}", format="latex")
             return [color_cmd, elem]
         elif doc.format == "html":
-            # HTML 方式：为表格添加 CSS 类
+            # HTML 方式: 为表格添加 CSS 类
             elem.classes = ["striped-table"]
             return elem
 

@@ -1,8 +1,13 @@
 ---
 documentclass: ctexbook
+# title: Markdown & Pandoc Essentials
+# author: arcasen
+# press: https://github.com/arcasen
+title-page: title-page.tex
+indent: 2em
 ---
 
-# Markdown & Pandoc Essentials
+<!-- # Markdown & Pandoc Essentials -->
 
 ![[ chapters/introduction.md ]]
 

@@ -1,0 +1,17 @@
+\documentclass{ctexart}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+\begin{document}
+
+\begin{longtable}{|c|c|}
+\hline
+\rowcolor{gray!20} 内容1 & 内容2\footnotemark \\
+\hline
+\end{longtable}
+\footnotetext{这是一个脚注}
+
+\end{document}

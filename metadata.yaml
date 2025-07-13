@@ -6,7 +6,7 @@ classoption: a4paper,12pt
 has-frontmatter: true
 toc-title: Contents
 titlepage: true
-pagestyle: empty
+pagestyle: plain
 linkcolor: purple
 listings-disable-line-numbers: true
 geometry:
@@ -28,9 +28,6 @@ geometry:
 #   \setmainfont{Noto Sans SC}
 #   \setmonofont{Source Han Mono SC}
 #   \raggedbottom
-
-# header-includes: |
-#     \
 
 # If true, citations will be hyperlinked to the corresponding bibliography
 # entries (for author-date and numerical styles only). Defaults to false.

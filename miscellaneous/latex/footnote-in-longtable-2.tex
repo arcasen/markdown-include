@@ -1,0 +1,20 @@
+\documentclass{ctexart}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{longtable}
+
+\renewcommand{\thefootnote}{\alph{footnote}} % 设置脚注编号为字母
+
+\begin{document}
+
+\rowcolors{2}{cyan!15}{white}
+
+\begin{longtable}{|c|c|}
+\hline
+内容1 & 内容2\footnote{这是一个脚注} \\
+\hline
+内容1 & 内容2\footnote{这是一个脚注} \\
+\hline
+\end{longtable}
+
+\end{document}

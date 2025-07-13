@@ -1,0 +1,16 @@
+$if(title-page)$
+\input{$title-page$}
+$else$
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  $if(title)${\Huge\textbf{$title$}\\}$endif$
+  \vspace*{1.5cm}
+  $if(author)${\large{$author$}}\\$endif$
+  \vspace*{12cm}
+  $if(press)${\large{$press$}}\\$endif$
+  \vspace*{1cm}
+  $if(date)${\normalsize{$date$}}$else${\normalsize\today}$endif$
+  \vfill
+\end{titlepage}
+$endif$

@@ -14,6 +14,8 @@ filters:
   - citeproc
   - enable-textcolor.py
   - enable-environment.py
+  - enable-reference.py
+  # - enable-striped-table.py
 
 # Resolve '! LaTeX Error: Environment lstlisting unenabled.' when 
 # using the pandoc-crossref filter together with Eisvogel template

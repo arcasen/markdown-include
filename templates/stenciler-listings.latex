@@ -1,9 +1,7 @@
 % -----------------------------------------------
 % Code Listings Style
-% -----------------------------------------------
-
 % https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
-
+% -----------------------------------------------
 % Colors: https://htmlcolorcodes.com/color-chart/
 \definecolor{color-background}{HTML}{fafafa}
 \definecolor{color-rule}      {HTML}{d5dbdb}

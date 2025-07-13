@@ -139,7 +139,7 @@ header-includes: |
 
 所有 reveal.js 配置选项[^reveal-options]均可用作变量。若需关闭 reveal.js 中默认开启的布尔标志，使用 `0`。
 
-[^reveal-options]: https://revealjs.com/config/
+[^reveal-options]: <https://revealjs.com/config/>
 
 #### Beamer 幻灯片变量
 

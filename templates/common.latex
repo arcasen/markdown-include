@@ -1,5 +1,10 @@
 $if(linestretch)$
 \usepackage{setspace}
+$else$
+% Use setspace anyway because we change the default line spacing.
+% The spacing is changed early to affect the titlepage and the TOC.
+\usepackage{setspace}
+\setstretch{1.2}
 $endif$
 $--
 $-- paragraph formatting
@@ -58,11 +63,27 @@ $if(listings)$
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
 $endif$
+$if(listings-no-page-break)$
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{lstlisting}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{lstlisting}{\end{minipage}\par\addvspace{\topskip}}
+$endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $endif$
 $if(highlighting-macros)$
 $highlighting-macros$
+
+% Workaround/bugfix from jannick0.
+% See https://github.com/jgm/pandoc/issues/4302#issuecomment-360669013)
+% or https://github.com/Wandmalfarbe/pandoc-latex-template/issues/2
+%
+% Redefine the verbatim environment 'Highlighting' to break long lines (with
+% the help of fvextra). Redefinition is necessary because it is unlikely that
+% pandoc includes fvextra in the default template.
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,fontsize=$if(code-block-font-size)$$code-block-font-size$$else$\small$endif$,commandchars=\\\{\}}
+
 $endif$
 $--
 $-- tables
@@ -107,7 +128,10 @@ $if(graphics)$
   \fi%
 }
 % Set default figure placement to htbp
-\def\fps@figure{htbp}
+% Make use of float-package and set default placement for figures to H.
+% The option H means 'PUT IT HERE' (as  opposed to the standard h option which means 'You may put it here if you like').
+\usepackage{float}
+\floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
 \makeatother
 $endif$
 $if(svg)$
@@ -216,7 +240,7 @@ $--
 $-- tight lists
 $--
 \providecommand{\tightlist}{%
-  \setlength{\topsep}{0pt}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 $--
 $-- subfigure support
 $--

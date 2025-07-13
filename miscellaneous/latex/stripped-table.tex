@@ -1,0 +1,47 @@
+% Setting up the document class and necessary packages
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage{geometry} % For adjusting page margins
+\usepackage{booktabs} % For professional table rules (\toprule, \midrule, \bottomrule)
+\usepackage{longtable} % For creating tables that span multiple pages
+\geometry{a4paper, margin=1cm} % Set minimal margins for demonstration
+
+% Starting the document
+\begin{document}
+
+% Removing indentation to align table with page edge
+\noindent
+
+\rowcolors{1}{white}{cyan!15}
+\setlength{\tabcolsep}{6pt}
+
+% Defining the longtable with no padding on first and last columns
+\begin{longtable}[]{@{}ccc@{}}
+% Adding a top rule for the table header
+\toprule
+\textbf{Col 1} & \textbf{Col 2} & \textbf{Col 3} \\
+\midrule
+\endhead % This marks the end of the table header, repeated on each page
+% Adding a bottom rule for the table footer
+\bottomrule
+\endfoot % This marks the end of the table footer
+% Table content
+Row 1 & Data A & 123 \\
+Row 2 & Data B & 456 \\
+Row 3 & Data C & 789 \\
+Row 4 & Data D & 101 \\
+Row 5 & Data E & 112 \\
+Row 6 & Data F & 131 \\
+Row 7 & Data G & 415 \\
+Row 8 & Data H & 161 \\
+Row 9 & Data I & 718 \\
+Row 10 & Data J & 192 \\
+Row 11 & Data K & 202 \\
+Row 12 & Data L & 213 \\
+Row 13 & Data M & 224 \\
+Row 14 & Data N & 235 \\
+Row 15 & Data O & 246 \\
+% Ending the table
+\end{longtable}
+
+\end{document}

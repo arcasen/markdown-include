@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{longtable}
+\usepackage{array}
+
+\usepackage{hyperref}
+\usepackage{footnotebackref}
+\usepackage{etoolbox}
+\patchcmd{\footnote}{\edef}{\xdef}{}{\errmessage{failed to patch}}
+
+\makeatletter
+\renewcommand\@makefntext[1]{%
+    \edef\@makefnmark{%
+        \noexpand\mbox{\noexpand\textsuperscript{\noexpand\normalfont%
+        \noexpand\hyperref[\BackrefFootnoteTag]{\noexpand\@thefnmark}}}\noexpand\,}%
+    \BHFN@OldMakefntext{#1}}%
+\makeatother
+
+
+\begin{document}
+
+\begin{longtable}{
+    c
+    >{\raggedright}p{3cm}
+  }
+  % start of table cells:
+  centered \footnote{Here's a note from a
+    centered column} \tabularnewline
+  & paragraph \footnote{This note is from paragraph } \tabularnewline
+\end{longtable}
+
+\end{document}

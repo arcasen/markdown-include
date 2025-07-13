@@ -1,10 +1,7 @@
-% ===============================================
-%
+% =========================================================
 % The Stenciler Pandoc LaTeX Template
-%
-% 参考 default.latex 和 eisvogel.latex
-%
-% ===============================================
+% https://github.com/arcasen/markdown-include/templates
+% =========================================================
 
 $stenciler-passoptions.latex()$
 \documentclass[
@@ -30,9 +27,19 @@ $endif$
 \usepackage{xcolor}
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
-$-- \usepackage{amsmath,amssymb}
 $stenciler-math.latex()$
+
+$-- % add backlinks to footnote references, 
+$-- % cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
+$-- % Hyperref + footnotebackref fails in longtable, 
+$-- % cf. https://tex.stackexchange.com/questions/137594/hyperref-footnotebackref-in-longtable
+$-- $if(footnotes-disable-backlinks)$
+$-- $else$
+$-- \usepackage{footnotebackref}
+$-- $endif$
 $--
 $-- section numbering
 $--
@@ -58,6 +65,7 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
 $--------------------- end ----------------------
+
 $stenciler-hypersetup.latex()$
 
 $if(listings)$
@@ -83,8 +91,11 @@ $endif$
 $if(has-frontmatter)$
 \frontmatter
 $endif$
+$stenciler-title-page.latex()$
+
 $if(title)$
-\maketitle
+% don't generate the default title
+% \maketitle
 $if(abstract)$
 \begin{abstract}
 $abstract$

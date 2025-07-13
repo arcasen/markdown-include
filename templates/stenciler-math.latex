@@ -1,7 +1,6 @@
 % -----------------------------------------------
 % Mathematical Symbols & Envrionments
 % -----------------------------------------------
-
 % fourier package 产生如下错误:
 %   xdvipdfmx: Command for 'xdvipdfmx' gave return code 34304
 
