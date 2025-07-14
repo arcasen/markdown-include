@@ -1,6 +1,6 @@
-% -----------------------------------------------
+% ---------------------------------------------------------
 % Mathematical Symbols & Envrionments
-% -----------------------------------------------
+% ---------------------------------------------------------
 % fourier package 产生如下错误:
 %   xdvipdfmx: Command for 'xdvipdfmx' gave return code 34304
 
@@ -106,3 +106,4 @@ $endif$
 \newenvironment{rcase}
   {\left.\begin{aligned}}
   {\end{aligned}\right\rbrace}
+% ---------------------------------------------------------

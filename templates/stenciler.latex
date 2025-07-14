@@ -1,9 +1,12 @@
 % =========================================================
 % The Stenciler Pandoc LaTeX Template
-% https://github.com/arcasen/markdown-include/templates
+%
+% https://github.com/arcasen/markdown-include/tree/main/templates
 % =========================================================
 
 $stenciler-passoptions.latex()$
+
+
 \documentclass[
 $for(babel-otherlangs)$
   $babel-otherlangs$,
@@ -30,7 +33,9 @@ $if(geometry)$
 $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+
 $stenciler-math.latex()$
+
 
 $-- % add backlinks to footnote references, 
 $-- % cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
@@ -48,12 +53,26 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 $endif$
+
 $stenciler-fonts.latex()$
+
+
 $stenciler-common.latex()$
+
+
+% ------------------- header-includes ---------------------
 $for(header-includes)$
 $header-includes$
 $endfor$
-$-------- after-header-includes.latex() ---------
+% ------------------------- end ---------------------------
+
+% ------------------- header-continue ---------------------
+$for(header-continue)$
+$header-continue$
+$endfor$
+% ------------------------- end ---------------------------
+
+% ------------- after-header-includes.latex() -------------
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{$if(urlstyle)$$urlstyle$$else$same$endif$}
@@ -64,13 +83,15 @@ $endif$
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
-$--------------------- end ----------------------
+% ------------------------- end ---------------------------
 
 $stenciler-hypersetup.latex()$
+
 
 $if(listings)$
 $stenciler-listings.latex()$
 $endif$
+
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
@@ -91,6 +112,7 @@ $endif$
 $if(has-frontmatter)$
 \frontmatter
 $endif$
+
 $stenciler-title-page.latex()$
 
 $if(title)$

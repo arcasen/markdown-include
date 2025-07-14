@@ -1,5 +1,5 @@
 ---
-documentclass: ctexbook
+documentclass: book
 ---
 
 # Markdown Basic Syntax 

@@ -1,3 +1,6 @@
+% ---------------------------------------------------------
+% Stenciler Common Settings
+% ---------------------------------------------------------
 $if(linestretch)$
 \usepackage{setspace}
 $else$
@@ -280,3 +283,4 @@ $--
 $if(csquotes)$
 \usepackage[$for(csquotesoptions)$$csquotesoptions$$sep$,$endfor$]{csquotes}
 $endif$
+% ---------------------------------------------------------

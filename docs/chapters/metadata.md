@@ -99,3 +99,30 @@ pandoc -d defaults.yaml --metadata-file meta.yaml input.md -o output.pdf
 
 - `defaults.yaml` 定义转换规则（如 PDF 模板、字体）。
 - `meta.yaml` 定义文档内容相关的元数据（如标题、作者）。
+
+### 内置默认元数据
+
+在使用 Pandoc 将文档转换为 PDF 时，Pandoc 会根据输入文件的内容、元数据（metadata）以及使用的模板自动生成一些变量。这些变量主要用于模板渲染，特别是在 LaTeX 或其他模板中生成 PDF 时。 例如，即使不设置 `header-includes`， Pandoc 也会有默认的元数据，可以查看生成的 LaTeX 即知。在元数据中定义了：
+
+- `figurename`
+- `tablename`
+- `listfigurename`
+- `listtablename`
+- `lstlistlistingname`
+- 等等
+
+如果在文档中重新设置 `header-includes`，将被置于内置的 `header-includes` 之前，无法修改这些默认元数据。在 Stenciler 模板[^stenciler-url]中，在 `header-includes` 之后增加 `header-continue`。这样，我们就可以在文档中设置新的数据，如：
+
+```yaml
+header-continue: |
+  \AtBeginDocument{%
+    \renewcommand*\figurename{图}
+    \renewcommand*\tablename{表}
+    \renewcommand*\lstlistingname{代码}
+    \renewcommand*\listfigurename{图表清单}
+    \renewcommand*\listtablename{表格清单}
+    \renewcommand*\lstlistlistingname{代码清单}
+  }
+```
+
+[^stenciler-url]: <https://github.com/arcasen/markdown-include/tree/main/templates>

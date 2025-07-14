@@ -1,10 +1,20 @@
 ---
 documentclass: ctexbook
-# title: Markdown & Pandoc Essentials
-# author: arcasen
-# press: https://github.com/arcasen
+title: Markdown & Pandoc Essentials
+author: arcasen
+press: https://github.com/arcasen/markdown-include
 title-page: title-page.tex
 indent: 2em
+lang: zh
+header-continue: |
+  \AtBeginDocument{%
+    \renewcommand*\figurename{图}
+    \renewcommand*\tablename{表}
+    \renewcommand*\lstlistingname{代码}
+    \renewcommand*\listfigurename{图表清单}
+    \renewcommand*\listtablename{表格清单}
+    \renewcommand*\lstlistlistingname{代码清单}
+  }
 ---
 
 <!-- # Markdown & Pandoc Essentials -->

@@ -4,7 +4,7 @@ classoption: a4paper,12pt
 #   - a4paper
 #   - 12pt
 has-frontmatter: true
-toc-title: Contents
+# toc-title: Contents
 titlepage: true
 pagestyle: plain
 linkcolor: purple
