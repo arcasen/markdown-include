@@ -57,7 +57,7 @@ CSL 文件存储位置：
 
 `--bibliography=references.bib --csl=apa.csl`
 
-或也可以通过 YAML 文件指定，见[引文渲染]：
+或也可以通过 YAML 文件指定，见*[引文渲染]*：
 
 ```yaml
 ---

@@ -4,7 +4,7 @@ Pandoc 可以使用两种标题格式：Setext 和 ATX。
 
 #### Setext 样式
 
-Setext 样式的标题是一行带有“下划线”的文本，其中带有一行=符号（对于一级标题）或 -符号（对于二级标题）。标题文本可能包括[内联格式 Inline Formatting]，例如强调和斜体。
+Setext 样式的标题是一行带有“下划线”的文本，其中带有一行=符号（对于一级标题）或 -符号（对于二级标题）。标题文本可能包括*[内联格式 Inline Formatting]*，例如强调和斜体。
 
 示例：
 
@@ -14,7 +14,7 @@ Setext 样式的标题是一行带有“下划线”的文本，其中带有一�
 
 #### ATX 格式
 
-ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行尾可能有任意数量的符号。行首的符号`#`数量即为标题的级别。与 Setext 标题一样，ATX 标题允许[内联格式 Inline Formatting]。
+ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行尾可能有任意数量的符号。行首的符号`#`数量即为标题的级别。与 Setext 标题一样，ATX 标题允许*[内联格式 Inline Formatting]*。
 
 示例：
 
@@ -126,7 +126,7 @@ See the section on
 
 #### 扩展：`implicit_header_references`
 
-Pandoc 的行为就像每个标题都定义了引用链接（reference links）一样。因此，要链接到标题，只需要直接在标题加上`[]`。
+Pandoc 的行为就像每个标题都定义了引用链接（reference links）一样。因此，要链接到标题，只需要直接在标题加上`[]`，并且可以使用*[内联格式 Inline Formatting]*。
 
 如要链接到标题：
 
@@ -135,6 +135,10 @@ Pandoc 的行为就像每个标题都定义了引用链接（reference links）�
 你可以简单地写：
 
 `[Heading identifiers in HTML]`
+
+或者（使用斜体）
+
+`*[Heading identifiers in HTML]*`
 
 或者
 
@@ -153,7 +157,7 @@ HTML]`
 
 与常规参考链接一样，这些参考不区分大小写。
 
-*显式链接引用定义始终优先于隐式标题引用。*因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
+*显式链接引用定义始终优先于隐式标题引用*。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
 
 ```markdown
 # Foo

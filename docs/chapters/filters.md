@@ -68,7 +68,7 @@ cp -p /path/to/thefilter ~/.local/share/pandoc/filters
 pandoc input.md --filter thefilter
 ```
 
-![[ ./filters/Panflute.md ]]
+![[ ./filters/panflute.md ]]
 
 ![[ ./filters/define-environment.md ]]
 

@@ -37,7 +37,7 @@ This is the first note[^note1], this is the second note[^note2], this is the ref
 [^note2]: bar
 ```
 
-使用 Panflute 编写过滤器（见[过滤器 Filters]）：
+使用 Panflute 编写过滤器（见*[过滤器 Filters]*）：
 
 ```python
 #!/usr/bin/env python3

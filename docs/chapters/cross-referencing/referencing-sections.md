@@ -21,3 +21,5 @@ See [@sec:a] and [@sec:b].
 ```bash
 pandoc --number-sections --filter pandoc-crossref -o output.pdf input.md
 ```
+
+**注意**：使用 Crossref 的 `[@sec:label]` 只能显示章节编号；而 Pandoc 的*[扩展：`implicit_header_references`]* 能够显示章节名称。

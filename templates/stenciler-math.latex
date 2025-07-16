@@ -32,19 +32,9 @@
 
 \theoremstyle{note}
 
-% 重新定义 proof 环境(由文档示例修改):
-%   1. 将 addpunct 由 . 改为 空格
-\makeatletter
-\renewenvironment{proof}[1][\indent \proofname]{\par
-  \pushQED{\qed}%
-  \normalfont \topsep6\p@\@plus6\p@\relax
-  \trivlist
-  \item\relax
-{\itshape #1\@addpunct{ }}\hspace\labelsep\ignorespaces
-}{%
-  \popQED\endtrivlist\@endpefalse
-}
-\makeatother
+% Undefine the existing proof environment
+\let\proof\relax
+\let\endproof\relax
 
 $if(chinese)$
 % 中文定理环境设置(来自知乎), 包括定理, 引理, 命题, 例题, 证明等环境, 
@@ -71,8 +61,9 @@ $if(chinese)$
   \newtheorem*{problem*}{\indent 问题}
   \newtheorem{solution}{\indent 解}
   \newtheorem*{solution*}{\indent 解}
-  \renewcommand{\proofname}{\indent\bf 证明}
+  % \renewcommand{\proofname}{\indent\bf 证明}
   %\renewcommand{\qedsymbol}{}
+  \newtheorem*{proof}{\indent 证明}
 }{ % 其它 documentclass
   \newtheorem{theorem}{\indent 定理}[section] 
   \newtheorem{lemma}{\indent 引理}[section]
@@ -86,8 +77,9 @@ $if(chinese)$
   \newtheorem*{problem*}{\indent 问题}
   \newtheorem{solution}{\indent 解}
   \newtheorem*{solution*}{\indent 解}
-  \renewcommand{\proofname}{\indent\bf 证明}
+  % \renewcommand{\proofname}{\indent\bf 证明}
   %\renewcommand{\qedsymbol}{}
+  \newtheorem*{proof}{\indent 证明}
 }
 \makeatother%
 $else$

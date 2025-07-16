@@ -6,6 +6,7 @@ press: https://github.com/arcasen/markdown-include
 title-page: title-page.tex
 indent: 2em
 lang: zh
+chinese: true
 header-continue: |
   \AtBeginDocument{%
     \renewcommand*\figurename{图}
