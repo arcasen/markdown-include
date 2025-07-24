@@ -34,8 +34,7 @@ $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
-$stenciler-math.latex()$
-
+\usepackage{etoolbox}
 
 $-- % add backlinks to footnote references, 
 $-- % cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
@@ -60,16 +59,44 @@ $stenciler-fonts.latex()$
 $stenciler-common.latex()$
 
 
+% ---------------------- language -------------------------
+\makeatletter
+$if(lang)$
+\def\stenciler@lang{$lang$}
+$else$
+\def\stenciler@lang{en}
+$endif$
+
+\ifdefstring{\stenciler@lang}{zh-CN}{
+  % paragraph indentation
+  \setlength{\parindent}{2em}
+}{\relax}
+\makeatother
+% ------------------------- end ---------------------------
+
+$stenciler-math.latex()$
+
+
 % ------------------- header-includes ---------------------
 $for(header-includes)$
 $header-includes$
 $endfor$
 % ------------------------- end ---------------------------
 
-% ------------------- header-continue ---------------------
-$for(header-continue)$
-$header-continue$
-$endfor$
+% ---------------------------------------------------------
+% Overwrite some names defined in pandoc default header-includes
+\makeatletter
+\ifdefstring{\stenciler@lang}{zh-CN}{
+  \AtBeginDocument{%
+    \renewcommand*\figurename{图}
+    \renewcommand*\tablename{表}
+    \renewcommand*\lstlistingname{代码}
+    \renewcommand*\listfigurename{图表清单}
+    \renewcommand*\listtablename{表格清单}
+    \renewcommand*\lstlistlistingname{代码清单}
+  }
+}{\relax}
+\makeatother
 % ------------------------- end ---------------------------
 
 % ------------- after-header-includes.latex() -------------

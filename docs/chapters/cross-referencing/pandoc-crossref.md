@@ -7,8 +7,8 @@ pandoc-crossref 主要用于交叉引用 图表、公式、章节、表格 等�
 要想使用 pandoc-crossref，需要安装相互兼容的 pandoc 和 pandoc-crossref；
 否则 Pandoc 会提示兼容性问题。如： pandoc-3.6.4 和 pandoc-crossref-v0.3.18.2。
 
-- [pandoc 下载地址](https://github.com/jgm/pandoc/releases)
-- [pandoc-crossref 下载地址](https://github.com/lierdakil/pandoc-crossref/releases)
+- pandoc 下载地址：<https://github.com/jgm/pandoc/releases>
+- pandoc-crossref 下载地址：<https://github.com/lierdakil/pandoc-crossref/releases>
 
 解压缩 pandoc 可执行文件到一个目录中，如 `~/.local/bin/pandoc`。
 解压缩 pandoc-crossref 可执行文件到 `~/.local/bin/pandoc-crossref` 中.

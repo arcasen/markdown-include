@@ -34,6 +34,8 @@
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-nested.md ]]
 
+**注意**：在 LaTeX 中，列表（包括 itemize、enumerate 和 description 环境）默认支持 四级嵌套；否则，LaTeX 会报错，提示 `Too deeply nested`。在 HTML 中，列表（包括无序列表 `<ul>` 和有序列表 `<ol>`）的嵌套层级没有明确的上限，理论上可以无限嵌套。
+
 #### 有序列表
 
 有序列表的工作方式与项目符号列表相同，只是项目以枚举器而不是项目符号开头。

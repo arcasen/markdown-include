@@ -24,7 +24,7 @@
 {3pt}% ⟨Space above ⟩1 
 {3pt}% ⟨Space below ⟩1
 {}% ⟨Body font ⟩
-{}% ⟨Indent amount ⟩2
+{\parindent}% ⟨Indent amount ⟩2
 {\bf}% ⟨Theorem head font⟩
 {}% ⟨Punctuation after theorem head ⟩
 {.5em}% ⟨Space after theorem head ⟩3
@@ -36,7 +36,6 @@
 \let\proof\relax
 \let\endproof\relax
 
-$if(chinese)$
 % 中文定理环境设置(来自知乎), 包括定理, 引理, 命题, 例题, 证明等环境, 
 % 说明:
 %   1. \indent 为了段前空两格, 似乎未起作用
@@ -46,53 +45,49 @@ $if(chinese)$
 %   3. 下面的英文版定义的环境有 bug, 如 theorem, lemma
 %      使用了同一编号计算器, 应该各自独立编号
 %   4. proof 默认以 QED 符号结束, 而 solution 去掉了 QED 符号
+\makeatletter
+\ifdefstring{\stenciler@lang}{zh-CN}{
+  \renewcommand*{\proofname}{证明}
+  \newcommand{\definitionname}{定义}
+  \newcommand{\theoremname}{定理}
+  \newcommand{\axiomname}{公理}
+  \newcommand{\postulatename}{公设}
+  \newcommand{\lemmaname}{引理}
+  \newcommand{\propositionname}{命题}
+  \newcommand{\corollaryname}{推论}
+  \newcommand{\examplename}{例题} %
+  \newcommand{\instancename}{示例} %
+  \newcommand{\problemname}{问题} % 问题
+  \newcommand{\exercisename}{练习} % 练习=习题
+  \newcommand{\remarkname}{注}
+  \newcommand{\assumptionname}{假设}
+  \newcommand{\conclusionname}{结论}
+  \newcommand{\solutionname}{解}
+  \newcommand{\propertyname}{性质}
+}{\relax}
+\makeatother
+
+% Specify the counter to use for numbering
 \makeatletter%
-\@ifclassloaded{book}% 对于 documentclass 为 ctexbook, book
-{
-  \newtheorem{theorem}{\indent 定理}[chapter] 
-  \newtheorem{lemma}{\indent 引理}[chapter]
-  \newtheorem{proposition}{\indent 命题}[chapter]
-  \newtheorem{corollary}{\indent 推论}[chapter]
-  \newtheorem{definition}{\indent 定义}[chapter]
-  \newtheorem{example}{\indent 例}[chapter]
-  \newtheorem{remark}{\indent 注}[] 
-  \newtheorem*{remark*}{\indent 注} % unnumbered
-  \newtheorem{problem}{\indent 问题}[chapter]
-  \newtheorem*{problem*}{\indent 问题}
-  \newtheorem{solution}{\indent 解}
-  \newtheorem*{solution*}{\indent 解}
-  % \renewcommand{\proofname}{\indent\bf 证明}
-  %\renewcommand{\qedsymbol}{}
-  \newtheorem*{proof}{\indent 证明}
+\@ifclassloaded{book}{% 对于 documentclass 为 ctexbook, book
+  \def\thm@withincounter{chapter}
 }{ % 其它 documentclass
-  \newtheorem{theorem}{\indent 定理}[section] 
-  \newtheorem{lemma}{\indent 引理}[section]
-  \newtheorem{proposition}{\indent 命题}[section]
-  \newtheorem{corollary}{\indent 推论}[section]
-  \newtheorem{definition}{\indent 定义}[section]
-  \newtheorem{example}{\indent 例}[section]
-  \newtheorem{remark}{\indent 注}[] 
-  \newtheorem*{remark*}{\indent 注} % unnumbered
-  \newtheorem{problem}{\indent 问题}[section]
-  \newtheorem*{problem*}{\indent 问题}
-  \newtheorem{solution}{\indent 解}
-  \newtheorem*{solution*}{\indent 解}
-  % \renewcommand{\proofname}{\indent\bf 证明}
-  %\renewcommand{\qedsymbol}{}
-  \newtheorem*{proof}{\indent 证明}
+  \def\thm@withincounter{section}
 }
+\newtheorem{theorem}{\theoremname}[\thm@withincounter] 
+\newtheorem{lemma}{\lemmaname}[\thm@withincounter]
+\newtheorem{proposition}{\propositionname}[\thm@withincounter]
+\newtheorem{corollary}{\corollaryname}[\thm@withincounter]
+\newtheorem{definition}{\definitionname}[\thm@withincounter]
+\newtheorem{example}{\examplename}[\thm@withincounter]
+\newtheorem{remark}{\remarkname}[] 
+\newtheorem*{remark*}{\remarkname} % unnumbered
+\newtheorem{problem}{\problemname}[\thm@withincounter]
+\newtheorem*{problem*}{\problemname}
+\newtheorem{solution}{\solutionname}
+\newtheorem*{solution*}{\solutionname}
+\newtheorem*{proof}{\proofname}
 \makeatother%
-$else$
-% English theorem environment
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{example}{Example}[section]
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-$endif$
 
 % cases
 \newenvironment{rcase}

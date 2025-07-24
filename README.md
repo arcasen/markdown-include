@@ -93,6 +93,3 @@ make pdf
 - [Makrdown 中文](https://www.markdown.cn/) 或 [Markdown 指南中文版](https://www.markdown.xyz/)
 - [Introducing Markdown and Pandoc](https://github.com/Apress/introducing-markdown-and-pandoc)
 
-## License
-
-MIT License

@@ -111,7 +111,7 @@ pandoc -d defaults.yaml --metadata-file meta.yaml input.md -o output.pdf
 - `lstlistlistingname`
 - 等等
 
-如果在文档中重新设置 `header-includes`，将被置于内置的 `header-includes` 之前，无法修改这些默认元数据。在 Stenciler 模板[^stenciler-url]中，在 `header-includes` 之后增加 `header-continue`。这样，我们就可以在文档中设置新的数据，如：
+如果在文档中重新设置 `header-includes`，将被置于内置的 `header-includes` 之前，无法修改这些默认元数据。可以在 LaTeX 模板的 `header-includes` 之后增加 `header-continue`。这样，我们就可以在文档中设置新的数据，如：
 
 ```yaml
 header-continue: |
@@ -124,5 +124,3 @@ header-continue: |
     \renewcommand*\lstlistlistingname{代码清单}
   }
 ```
-
-[^stenciler-url]: <https://github.com/arcasen/markdown-include/tree/main/templates>
