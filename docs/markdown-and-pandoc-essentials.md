@@ -4,7 +4,7 @@ title: Markdown & Pandoc Essentials
 author: arcasen
 press: https://github.com/arcasen/markdown-include
 title-page: title-page.tex
-lang: zh-CN
+lang: zh
 ---
 
 <!-- # Markdown & Pandoc Essentials -->

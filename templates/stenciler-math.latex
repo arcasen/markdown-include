@@ -46,7 +46,7 @@
 %      使用了同一编号计算器, 应该各自独立编号
 %   4. proof 默认以 QED 符号结束, 而 solution 去掉了 QED 符号
 \makeatletter
-\ifdefstring{\stenciler@lang}{zh-CN}{
+\ifdefstring{\stenciler@lang}{zh}{
   \renewcommand*{\proofname}{证明}
   \newcommand{\definitionname}{定义}
   \newcommand{\theoremname}{定理}

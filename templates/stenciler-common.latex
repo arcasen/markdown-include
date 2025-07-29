@@ -1,6 +1,36 @@
 % ---------------------------------------------------------
 % Stenciler Common Settings
 % ---------------------------------------------------------
+% Redefine labels to a different symbol
+\makeatletter
+\ifdefstring{\stenciler@lang}{zh}{
+\usepackage{amssymb}
+\usepackage{enumitem}
+\renewcommand{\labelitemi  }{$$\bullet$$}
+\renewcommand{\labelitemii }{$$\diamond$$}
+\renewcommand{\labelitemiii}{$$\ast$$}
+\renewcommand{\labelitemiv }{$$\circ$$}
+\setlist{
+  align=left,
+  labelwidth=.85em,
+  labelsep=0.15em,
+  leftmargin=0pt,
+}
+% Setting global list indentation for each level
+\setlist[1]{itemindent=3em}
+\setlist[2]{itemindent=3em,leftmargin=2em}
+\setlist[3]{itemindent=3em,leftmargin=2em}
+\setlist[4]{itemindent=3em,leftmargin=2em}
+% Settings for description
+\setlist[description]{
+  labelindent=2em,
+  labelsep*=1em,
+  itemindent=1em,
+  leftmargin=!,
+}
+}{\relax}
+\makeatother
+
 $if(linestretch)$
 \usepackage{setspace}
 $else$
@@ -23,6 +53,11 @@ $else$
     \setlength{\parskip}{6pt plus 2pt minus 1pt}}
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
+  
+\ifdefstring{\stenciler@lang}{zh}{
+  % paragraph indentation
+  \setlength{\parindent}{2em}
+}{\relax}
 \makeatother
 $endif$
 $if(beamer)$

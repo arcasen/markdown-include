@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/questions/66820/how-to-create-highlight-boxes-in-latex
+
+\documentclass{ctexart}
+
+\usepackage[most]{tcolorbox}
+
+%textmarker style from colorbox doc
+\tcbset{textmarker/.style={%
+        enhanced,
+        left skip=0pt,
+        parbox=false,boxrule=0mm,boxsep=2mm,arc=0mm,
+        outer arc=0mm,left=3mm,right=3mm,top=7pt,bottom=7pt,
+        toptitle=1mm,
+        bottomtitle=1mm,
+        % oversize
+        }}
+
+
+% define new colorboxes
+\newtcolorbox{hintBox}{textmarker,
+    borderline west={6pt}{0pt}{yellow},
+    colback=yellow!10!white}
+\newtcolorbox{importantBox}{textmarker,
+    borderline west={6pt}{0pt}{red},
+    colback=red!10!white}
+\newtcolorbox{noteBox}{textmarker,
+    borderline west={6pt}{0pt}{green},
+    colback=green!10!white}
+
+% define commands for easy access
+\newcommand{\note}[1]{\begin{noteBox} \textbf{Note:} #1 \end{noteBox}}
+\newcommand{\warning}[1]{\begin{hintBox} \textbf{Warning:} #1 \end{hintBox}}
+\newcommand{\important}[1]{\begin{importantBox} \textbf{Important:} #1 \end{importantBox}}
+
+\begin{document}
+
+在 LaTeX 中，没有直接内置的“messagebox”功能，因为 LaTeX 是一种排版系统，主要用于生成静态文档，而不是交互式界面（如 GUI 中的 messagebox）。不过，LaTeX 可以通过一些方式模拟类似 messagebox 的效果，或者在生成的 PDF 中添加提示、警告等信息。
+\note{LaTeX 本身是静态的，生成的 PDF 无法像程序界面那样直接弹出交互式消息框。任何“消息框”效果都依赖于 PDF 阅读器的功能或外部工具。}
+% draw some highlight boxes
+\note{Certainly elsewhere my do allowance at. The address farther six hearted hundred towards husband. Strangers ye to he sometimes propriety in. She right plate seven has. Bed who perceive judgment did marianne.}
+\warning{Doubtful two bed way pleasure confined followed. Shew up ye away no eyes life or were this.}
+\important{Travelling alteration impression six all uncommonly. Chamber hearing inhabit joy highest private ask him our believe. Up nature valley do warmly. Entered of cordial do on no hearted.}
+
+\end{document}

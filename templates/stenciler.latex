@@ -36,6 +36,18 @@ $endif$
 
 \usepackage{etoolbox}
 
+\usepackage{awesomebox}
+
+% ---------------------- language -------------------------
+\makeatletter
+$if(lang)$
+\def\stenciler@lang{$lang$}
+$else$
+\def\stenciler@lang{en}
+$endif$
+\makeatother
+% ------------------------- end ---------------------------
+
 $-- % add backlinks to footnote references, 
 $-- % cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways
 $-- % Hyperref + footnotebackref fails in longtable, 
@@ -59,21 +71,6 @@ $stenciler-fonts.latex()$
 $stenciler-common.latex()$
 
 
-% ---------------------- language -------------------------
-\makeatletter
-$if(lang)$
-\def\stenciler@lang{$lang$}
-$else$
-\def\stenciler@lang{en}
-$endif$
-
-\ifdefstring{\stenciler@lang}{zh-CN}{
-  % paragraph indentation
-  \setlength{\parindent}{2em}
-}{\relax}
-\makeatother
-% ------------------------- end ---------------------------
-
 $stenciler-math.latex()$
 
 
@@ -86,7 +83,7 @@ $endfor$
 % ---------------------------------------------------------
 % Overwrite some names defined in pandoc default header-includes
 \makeatletter
-\ifdefstring{\stenciler@lang}{zh-CN}{
+\ifdefstring{\stenciler@lang}{zh}{
   \AtBeginDocument{%
     \renewcommand*\figurename{图}
     \renewcommand*\tablename{表}

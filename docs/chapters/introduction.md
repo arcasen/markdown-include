@@ -33,9 +33,8 @@ Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档�
 简而言之，您需要一个能够处理 Markdown 文件的 Markdown 应用程序。
 
 Markdown 应用程序使用称为 Markdown 处理器（通常也称为“解析器”或“实现”）的东西，将 Markdown 格式的文本提取出来并将其输出为 HTML 格式。在这一点上，您的文档可以在网络浏览器中查看，或与样式表结合使用并打印出来。您可以在下面看到此过程的可视化表示。
-注意
 
-Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（“Markdown 应用程序”）。
+**注意**：Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（“Markdown 应用程序”）。
 
 ![Markdown Flowchart](../images/markdown-flowchart.png)
 

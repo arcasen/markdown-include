@@ -157,7 +157,7 @@ ${ it:bibentry() }
 ${ endfor }
 ```
 
-注意，迭代部分模板时，必须使用代词关键字 `it`。在上述示例中，`bibentry` 部分模板应包含 `it.title`（依此类推），而不是 `articles.title`。
+**注意**：迭代部分模板时，必须使用代词关键字 `it`。在上述示例中，`bibentry` 部分模板应包含 `it.title`（依此类推），而不是 `articles.title`。
 
 包含的部分模板会省略末尾换行符。
 
