@@ -36,8 +36,6 @@ $endif$
 
 \usepackage{etoolbox}
 
-\usepackage{awesomebox}
-
 % ---------------------- language -------------------------
 \makeatletter
 $if(lang)$
@@ -47,6 +45,8 @@ $else$
 $endif$
 \makeatother
 % ------------------------- end ---------------------------
+
+$stenciler-addons.latex()$
 
 $-- % add backlinks to footnote references, 
 $-- % cf. https://tex.stackexchange.com/questions/302266/make-footnote-clickable-both-ways

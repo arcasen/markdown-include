@@ -16,6 +16,6 @@
 ![[ ../../examples/extended-syntax/emoji-shortcodes.md]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/extended-syntax/emoji-shortcodes.md]]

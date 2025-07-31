@@ -4,6 +4,8 @@
 ```markdown
 ![[ ../../examples/math/quadratic-equation.md ]]
 ```
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/math/quadratic-equation.md ]]
+
+:::

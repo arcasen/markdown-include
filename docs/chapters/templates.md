@@ -16,7 +16,11 @@ pandoc -D <FORMAT>
 |   docx          | default.openxml |
 |   html          |  default.html   |
 
-**注意**：`docx`、`odt` 和 `pptx` 输出还可以通过 `--reference-doc` 选项进行自定义。使用参考文档调整文档样式；使用模板处理变量插值、自定义元数据的呈现、目录位置、样板文本等。
+::: caution
+
+`docx`、`odt` 和 `pptx` 输出还可以通过 `--reference-doc` 选项进行自定义。使用参考文档调整文档样式；使用模板处理变量插值、自定义元数据的呈现、目录位置、样板文本等。
+
+:::
 
 模板包含变量，允许在文件的任意位置插入任意信息。变量可通过 `-V/--variable` 选项在命令行设置。如果变量未设置，Pandoc 会在文档的元数据中查找键，元数据可通过 YAML 元数据块或 `-M/--metadata` 选项设置。此外，Pandoc 会为某些变量赋予默认值[^default-meta]。
 

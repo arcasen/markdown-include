@@ -56,11 +56,15 @@ mkdir -p ~/.local/share/pandoc/filters
 cp -p /path/to/thefilter ~/.local/share/pandoc/filters
 ```
 
-**注意**： 在 Linux/Unix 系统中， `cp` 命令的 `-p` 选项的作用是保留源文件的元数据，包括以下内容：
+::: caution
+
+在 Linux/Unix 系统中， `cp` 命令的 `-p` 选项的作用是保留源文件的元数据，包括以下内容：
 
 1. 文件权限：保留源文件的权限设置（读、写、执行等）。
 2. 时间戳：保留源文件的访问时间（atime）、修改时间（mtime）和创建时间（ctime，如果系统支持）。
 3. 文件所有者和所属组：尽可能保留源文件的所有者和组信息（需要有相应权限，通常需要超级用户权限）。
+
+:::
 
 我们可以在任务地方以如下方式调用过滤器：
 

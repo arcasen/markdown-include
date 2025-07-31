@@ -8,7 +8,7 @@
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-single-paragraph.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-single-paragraph.md ]]
 
@@ -22,7 +22,7 @@
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-multiple-paragraphs.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-multiple-paragraphs.md ]]
 
@@ -36,7 +36,7 @@
 ![[ ../../examples/basic-syntax/blockquotes/nested-blockquotes.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/blockquotes/nested-blockquotes.md ]]
 
@@ -50,7 +50,7 @@
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-other-elements.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/blockquotes/blockquotes-with-other-elements.md ]]
 

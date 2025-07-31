@@ -5,6 +5,6 @@
 ```markdown
 H~2~O
 ```
-渲染效果如下：
+::: rendered
 
 H~2~O

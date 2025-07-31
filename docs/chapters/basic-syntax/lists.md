@@ -12,7 +12,7 @@ Markdown 支持有序或无序列表 ( ordered/numbered lists & unordered/bullet
 ![[ ../../examples/basic-syntax/lists/lists-ordered.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-ordered.md ]]
 
@@ -22,7 +22,7 @@ Markdown 支持有序或无序列表 ( ordered/numbered lists & unordered/bullet
 ![[ ../../examples/basic-syntax/lists/lists-ordered-with-disordered-numbers.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-ordered-with-disordered-numbers.md ]]
 
@@ -38,7 +38,7 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（`)`）
 ![[ ../../examples/basic-syntax/lists/lists-unordered.md]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-unordered.md ]]
 
@@ -52,7 +52,7 @@ CommonMark 和其它几种轻量级标记语言可以让你使用括号（`)`）
 ![[ ../../examples/basic-syntax/lists/lists-unordered-start-with-number-period.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-unordered-start-with-number-period.md ]]
 
@@ -70,7 +70,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 ![[ ../../examples/basic-syntax/lists/lists-including-paragraphs.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-including-paragraphs.md ]]
 
@@ -82,7 +82,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 ![[ ../../examples/basic-syntax/lists/lists-including-blockquotes.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-including-blockquotes.md ]]
 
@@ -96,7 +96,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 ![[ ../../examples/basic-syntax/lists/lists-including-codeblocks.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-including-codeblocks.md ]]
 
@@ -108,7 +108,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 ![[ ../../examples/basic-syntax/lists/lists-including-images.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-including-images.md ]]
 
@@ -122,7 +122,7 @@ Markdown 应用程序在如何处理同一列表中混用不同分隔符上并�
 ![[ ../../examples/basic-syntax/lists/lists-nested.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/lists/lists-nested.md ]]
 

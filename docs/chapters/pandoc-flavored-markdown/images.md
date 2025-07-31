@@ -8,9 +8,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/images.md ]]
 ```
 
-渲染效果见下文。
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/images.md ]]
+
+:::
 
 #### 扩展: `implicit_figures`
 
@@ -53,6 +55,8 @@
 ![[ ../../examples/pandoc-flavored-markdown/images-attributes.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/images-attributes.md ]]
+
+:::

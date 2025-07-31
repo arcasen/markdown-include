@@ -6,7 +6,7 @@
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 ```
 
-渲染效果如下：
+::: rendered
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
@@ -18,7 +18,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 ```
 
-渲染效果如下：
+::: rendered
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 
@@ -32,7 +32,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 <fake@example.com>
 ```
 
-渲染效果如下：
+::: rendered
 
 <https://www.markdownguide.org>
 
@@ -48,7 +48,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 ![[ ../../examples/basic-syntax/links/links-formatted.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/links/links-formatted.md ]]
 

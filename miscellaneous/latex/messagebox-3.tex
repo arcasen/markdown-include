@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[many]{tcolorbox}
+\usepackage{xeCJK} % 支持中文
+
+% 定义一个带标题的彩色框环境
+\newtcolorbox{mybox}[1][title=信息框]{%
+    colback=blue!5!white, % 背景颜色
+    colframe=blue!75!black, % 边框颜色
+    % title=#1, % 标题使用第一个参数
+    #1,
+    fonttitle=\bfseries, % 标题加粗
+    coltitle=black, % 标题颜色
+    boxrule=0.5mm, % 边框粗细
+    arc=4mm, % 圆角半径
+    width=\textwidth % 框宽度
+}
+
+\begin{document}
+
+\begin{mybox}[title=我的标题]
+    这是一个基于 tcolorbox 定义的自定义环境，内容可以放在这里。
+\end{mybox}
+
+\begin{mybox}
+  这是一个基于 tcolorbox 定义的自定义环境，内容可以放在这里。
+\end{mybox}
+
+\end{document}

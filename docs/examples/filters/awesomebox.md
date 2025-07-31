@@ -1,28 +1,28 @@
-::: noteblock
+::: note
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 
 :::
 
-::: tipblock
+::: tip
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 
 :::
 
-::: warningblock
+::: warning
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 
 :::
 
-::: cautionblock
+::: caution
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 
 :::
 
-::: importantblock
+::: important
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquet libero quis lectus elementum fermentum.
 

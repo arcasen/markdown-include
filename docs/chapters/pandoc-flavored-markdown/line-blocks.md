@@ -8,9 +8,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/line_blocks-1.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/line_blocks-1.md ]]
+
+:::
 
 如果需要，可以将行硬换行，但续行必须以空格开头：
 
@@ -18,9 +20,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/line_blocks-2.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/line_blocks-2.md ]]
+
+:::
 
 内容中允许使用行内格式（例如强调）（但不能跨越行边界）。块级格式（例如块引用或列表）无法识别。
 

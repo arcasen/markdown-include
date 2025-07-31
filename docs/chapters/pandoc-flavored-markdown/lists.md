@@ -8,9 +8,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
+
+:::
 
 列表项可以包含其他列表。在这种情况下，前面的空行是可选的。嵌套列表必须缩进，以与包含列表项的列表标记后的第一个非空格字符对齐。
 
@@ -20,9 +22,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-with-block-contents.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-with-block-contents.md ]]
+
+:::
 
 #### 嵌套列表
 
@@ -30,11 +34,17 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-nested.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-nested.md ]]
 
-**注意**：在 LaTeX 中，列表（包括 itemize、enumerate 和 description 环境）默认支持 四级嵌套；否则，LaTeX 会报错，提示 `Too deeply nested`。在 HTML 中，列表（包括无序列表 `<ul>` 和有序列表 `<ol>`）的嵌套层级没有明确的上限，理论上可以无限嵌套。
+:::
+
+::: caution
+
+在 LaTeX 中，列表（包括 itemize、enumerate 和 description 环境）默认支持 四级嵌套；否则，LaTeX 会报错，提示 `Too deeply nested`。在 HTML 中，列表（包括无序列表 `<ul>` 和有序列表 `<ol>`）的嵌套层级没有明确的上限，理论上可以无限嵌套。
+
+:::
 
 #### 有序列表
 
@@ -46,9 +56,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-ordered.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-ordered.md ]]
+
+:::
 
 #### 扩展：`fancy_lists`
 
@@ -60,10 +72,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-fancy.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-fancy.md ]]
 
+:::
 
 #### 扩展：`task_lists`
 
@@ -73,9 +86,11 @@ Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-task.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-task.md ]]
+
+:::
 
 #### 扩展：`definition_lists`
 
@@ -87,9 +102,11 @@ Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
+
+:::
 
 #### 列表的结束
 
@@ -99,9 +116,11 @@ Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-end.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-end.md ]]
+
+:::
 
 #### 紧凑型列表
 

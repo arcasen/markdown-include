@@ -10,7 +10,7 @@
 This **word** is bold. This <em>word</em> is italic.
 ```
 
-渲染效果如下：
+::: rendered
 
 This **word** is bold. This <em>word</em> is italic.
 

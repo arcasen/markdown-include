@@ -3,6 +3,8 @@
 ```markdown
 ![[ ../../examples/math/euler-formula.md ]]
 ```
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/math/euler-formula.md ]]
+
+:::

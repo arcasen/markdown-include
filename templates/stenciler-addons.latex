@@ -1,0 +1,47 @@
+% ---------------------------------------------------------
+% Stenciler Predeined Commands and Environments
+% ---------------------------------------------------------
+\usepackage{awesomebox}
+% Rename the start and end commands of the environment
+\let\note\noteblock
+\let\endnote\endnoteblock
+\let\tip\tipblock
+\let\endtip\endtipblock
+\let\warning\warningblock
+\let\endwarning\endwarningblock
+\let\caution\cautionblock
+\let\endcaution\endcautionblock
+\let\important\importantblock
+\let\endimportant\endimportantblock
+
+% Defining the 'rendered' environment to show the rendered result
+\usepackage{tikz}
+\newenvironment{rendered}{%
+  % \par\vspace{0.5cm}% Adding vertical space before the top line
+  % Drawing the top separator line with TikZ
+  \noindent\begin{tikzpicture}
+    \draw[line width=2pt, draw=teal] (0,0) -- (\textwidth,0);
+  \end{tikzpicture}\nobreak
+  % 渲染结果：
+  % \par\vspace{0.2cm}% Adding space between line and content
+}{%
+  % \par\vspace{0.2cm}% Adding space after content
+  % Drawing the bottom separator line with TikZ
+  \noindent\begin{tikzpicture}
+    \node (line) at (0,0) {}; % Node to anchor baseline
+    \draw[line width=2pt, draw=teal] (0,0) -- (\textwidth,0);
+  \end{tikzpicture}\nobreak
+  % \par\vspace{0.5cm}% Adding vertical space after the bottom line
+}
+
+\usepackage[most]{tcolorbox}
+\newtcolorbox{messagebox}[1][title=Message Box]{%
+  enhanced jigsaw,
+  breakable,
+  pad at break*=1mm,
+  colback=cyan!25!yellow!10!white,
+  colframe=cyan!75!black,
+  drop fuzzy shadow,
+  #1,
+}
+% ---------------------------------------------------------

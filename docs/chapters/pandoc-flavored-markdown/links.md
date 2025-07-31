@@ -26,9 +26,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/links/automatic-links.md  ]]
 ```
 
-渲染结果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/links/automatic-links.md ]]
+
+:::
 
 #### 内联链接 Inline Links
 
@@ -40,9 +42,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/links/inline-links.md ]]
 ```
 
-渲染结果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/links/inline-links.md ]]
+
+:::
 
 方括号和圆括号之间不能有空格。链接文本可以包含格式（例如强调），但标题不能。
 
@@ -76,13 +80,19 @@ URL 可以选择性地用尖括号括起来。
 ![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/links/reference-links.md ]]
 
-**注意**：在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
+:::
+
+::: caution
+
+在 Markdown.pl Markdown 和大多数其他实现中，引用链接定义不能出现在嵌套结构中，例如列表项或块引用。Pandoc 取消了这一限制。因此，以下代码在 Pandoc 中可以正常工作，但在大多数其他实现中则不行：
 
 ![[ ../../examples/pandoc-flavored-markdown/links/links-inside-blockquotes-and-lists.md ]]
+
+:::
 
 #### 扩展：`shortcut_reference_links`
 
@@ -117,6 +127,3 @@ See the [Introduction].
 ```
 
 内部链接目前支持 HTML 格式（包括 HTML 幻灯片和 EPUB）、LaTeX 和 ConTeXt。
-
-
-

@@ -13,13 +13,19 @@ Pandoc 支持两种代码块：
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/indented-code-blocks.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/indented-code-blocks.md ]]
 
+:::
+
 初始（四个空格或一个制表符）缩进不被视为逐字文本的一部分，并将在输出中删除。
 
-**注意**：逐字文本中的空白行不必以四个空格开头。
+::: caution
+
+逐字文本中的空白行不必以四个空格开头。
+
+:::
 
 #### 扩展：`fenced_code_blocks`
 
@@ -55,9 +61,11 @@ code including tildes
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/fenced_code_attributes.md ]]
 ~~~
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/code-blocks/fenced_code_attributes.md ]]
+
+:::
 
 这里 `#helloworld` 是一个标识符，可以使用 `[Helloworld](#helloworld)` 建立链接； `c` 和 `numberLines` 是类，并且 `startFrom` 是一个值为 101 的属性。某些输出格式可以使用此信息进行语法高亮显示。目前，唯一使用此信息的输出格式是 HTML、LaTeX、Docx、Ms 和 PowerPoint。如果您的输出格式和语言支持高亮显示，则上面的代码块将高亮显示，并带有编号行。（要查看支持哪些语言，请输入 `pandoc --list-highlight-languages`。）
 

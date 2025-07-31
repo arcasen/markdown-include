@@ -12,7 +12,7 @@
 ![[ ../../examples/basic-syntax/emphasis/bold.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/emphasis/bold.md ]]
 
@@ -28,7 +28,7 @@
 ![[ ../../examples/basic-syntax/emphasis/italic.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/emphasis/italic.md ]]
 
@@ -44,7 +44,7 @@
 ![[ ../../examples/basic-syntax/emphasis/bold-italic.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/emphasis/bold-italic.md ]]
 

@@ -10,6 +10,6 @@
 ![[ ../../examples/basic-syntax/paragraphs.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/paragraphs.md ]]

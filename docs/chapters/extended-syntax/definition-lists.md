@@ -6,6 +6,6 @@
 ![[ ../../examples/extended-syntax/definition-lists.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/extended-syntax/definition-lists.md ]]

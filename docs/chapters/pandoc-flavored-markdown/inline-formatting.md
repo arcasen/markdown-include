@@ -12,9 +12,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/emphasis.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/emphasis.md ]]
+
+:::
 
 
 #### 扩展：`intraword_underscores`
@@ -25,9 +27,11 @@
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/intraword_underscores.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/intraword_underscores.md ]]
+
+:::
 
 Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析强调语法，需要取消该扩展：`-f markdown-intraword_underscores`。
 
@@ -39,9 +43,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/strikeout.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/strikeout.md ]]
+
+:::
 
 #### 扩展：`superscript` 和 `subscript`
 
@@ -52,9 +58,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/superscript-subscript.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/superscript-subscript.md ]]
+
+:::
 
 `^...^`或之间的文本`~...~`不能包含空格或换行符。如果上标或下标文本包含空格，则必须使用反斜杠转义这些空格。（这是为了防止在日常使用~和 时 意外地将文本变为上标或下标^，以及与脚注产生不良交互。）因此，如果您希望下标中包含字母 P 和“a cat”，请使用 `P~a\ cat~`，而不是`P~a cat~`。
 
@@ -68,9 +76,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/verbatim.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/verbatim.md ]]
+
+:::
 
 #### 扩展：`inline_code_attributes`
 
@@ -80,9 +90,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/inline_code_attributes.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/inline_code_attributes.md ]]
+
+:::
 
 #### 下划线
 
@@ -92,9 +104,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/underline.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/underline.md ]]
+
+:::
 
 #### Small Caps
 
@@ -104,9 +118,11 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/small-caps.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/small-caps.md ]]
+
+:::
 
 #### 高亮显示
 
@@ -116,6 +132,8 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/highlighting.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/highlighting.md ]]
+
+:::

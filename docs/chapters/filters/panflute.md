@@ -32,7 +32,9 @@ pandoc helloworld.md --filter ./uppercase.py
 <p>你好, 世界</p>
 ```
 
-**注意**： 默认情况下， Pandoc 调用系统的 Python 解释器（如： macOS 是 python2），而上述过滤器需要调用 python3 解释器。解决方案如下：
+::: caution
+
+默认情况下， Pandoc 调用系统的 Python 解释器（如： macOS 是 python2），而上述过滤器需要调用 python3 解释器。解决方案如下：
 
 方案 1： 建立虚拟环境，如：
 
@@ -55,3 +57,5 @@ workon pandoc
 ```bash
 chmod +x uppercase.py
 ```
+
+:::

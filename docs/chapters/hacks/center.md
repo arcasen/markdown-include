@@ -6,6 +6,6 @@ Markdown 没有文本对齐的语法，但可以使用 HTML 标签 <center>（�
 <p style="text-align:center">这段文字居中显示。</p>
 ```
 
-渲染效果如下：
+::: rendered
 
 <p style="text-align:center">这段文字居中显示。</p>

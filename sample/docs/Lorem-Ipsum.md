@@ -1,5 +1,5 @@
 ---
-chinese: true
+lang: zh
 ---
 
 # Lorem Ipsum

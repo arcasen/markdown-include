@@ -43,7 +43,11 @@ ${ foo }
 
 [^condition]: Pandoc 只支持对变量值进行 true/false 判断，并不支持变量/常量之间进行比较运算，见：<https://github.com/jgm/pandoc/issues/1057>。
 
-**注意**：在 YAML 元数据（或通过 `-M/--metadata` 在命令行指定的元数据）中，未加引号的 `true` 和 `false` 将被解释为布尔值。但通过 `-V/--variable` 在命令行指定的变量始终为字符串值。因此，`if(foo)` 条件在 `-V foo=false` 时会被触发，但在 `-M foo=false` 时不会触发。
+::: caution
+
+在 YAML 元数据（或通过 `-M/--metadata` 在命令行指定的元数据）中，未加引号的 `true` 和 `false` 将被解释为布尔值。但通过 `-V/--variable` 在命令行指定的变量始终为字符串值。因此，`if(foo)` 条件在 `-V foo=false` 时会被触发，但在 `-M foo=false` 时不会触发。
+
+:::
 
 示例：  
 
@@ -157,7 +161,11 @@ ${ it:bibentry() }
 ${ endfor }
 ```
 
-**注意**：迭代部分模板时，必须使用代词关键字 `it`。在上述示例中，`bibentry` 部分模板应包含 `it.title`（依此类推），而不是 `articles.title`。
+::: caution
+
+迭代部分模板时，必须使用代词关键字 `it`。在上述示例中，`bibentry` 部分模板应包含 `it.title`（依此类推），而不是 `articles.title`。
+
+:::
 
 包含的部分模板会省略末尾换行符。
 

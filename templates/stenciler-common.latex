@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \renewcommand{\labelitemi  }{$$\bullet$$}
-\renewcommand{\labelitemii }{$$\diamond$$}
+\renewcommand{\labelitemii }{$$-$$}
 \renewcommand{\labelitemiii}{$$\ast$$}
 \renewcommand{\labelitemiv }{$$\circ$$}
 \setlist{

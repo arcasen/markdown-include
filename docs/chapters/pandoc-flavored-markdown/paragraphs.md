@@ -14,15 +14,21 @@ https://tex.stackexchange.com/questions/296523/listings-package-last-whitespace-
 ![[ ../../examples/pandoc-flavored-markdown/paragraphs/paragraphs-and-newline.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/paragraphs/paragraphs-and-newline.md ]]
+
+:::
 
 #### 扩展：`escaped_line_breaks`
 
 反斜杠后跟换行符也是一种硬换行符。
 
-**注意**：在多行和网格表格单元格中，这是创建硬换行符的**唯一**方法，因为单元格中的尾随空格会被忽略，见*[扩展：`mutiline_tables`]* 和*[扩展：`grid_tables`]*。
+::: caution
+
+在多行和网格表格单元格中，这是创建硬换行符的**唯一**方法，因为单元格中的尾随空格会被忽略，见*[扩展：`mutiline_tables`]* 和*[扩展：`grid_tables`]*。
+
+:::
 
 示例：
 
@@ -30,6 +36,8 @@ https://tex.stackexchange.com/questions/296523/listings-package-last-whitespace-
 ![[ ../../examples/pandoc-flavored-markdown/paragraphs/escaped_line_breaks.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/pandoc-flavored-markdown/paragraphs/escaped_line_breaks.md ]]
+
+:::

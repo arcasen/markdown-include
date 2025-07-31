@@ -8,7 +8,7 @@
 ![[ ../../examples/basic-syntax/code-blocks.md ]]
 ```
 
-渲染效果如下：
+::: rendered
 
 ![[ ../../examples/basic-syntax/code-blocks.md ]]
 
@@ -22,7 +22,7 @@
 ``在你的 Markdown 文件中使用 `code`。``
 ~~~
 
-渲染效果如下：
+::: rendered
 
 ``在你的 Markdown 文件中使用 `code`。``
 
@@ -39,7 +39,7 @@
     </html>
 ~~~
 
-渲染效果如下：
+::: rendered
 
     <html>
       <head>

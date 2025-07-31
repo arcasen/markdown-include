@@ -490,7 +490,11 @@ $endif$
 
 `toc-title`： 目录标题（仅适用于 EPUB、HTML、revealjs、opendocument、odt、docx、pptx、Beamer、LaTeX）。
 
-**注意**：在 docx 和 pptx 中，自定义 `toc-title` 可从元数据中获取，但无法作为变量设置。
+::: caution
+
+在 docx 和 pptx 中，自定义 `toc-title` 可从元数据中获取，但无法作为变量设置。
+
+:::
 
 #### 修改自动设置的变量
 

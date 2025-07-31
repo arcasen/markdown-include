@@ -1,22 +1,41 @@
-### 过滤器实例：LaTeX 环境
+### 过滤器实例：启用 LaTeX 环境
 
-下面是一个用 Panflute 编写的过滤器，可以处理 Pandoc 的 Div，将其转换成对应类名的 LaTeX 环境：
+下面是一个用 Panflute 编写的过滤器，可以处理 Pandoc 的 Div，将其转换成对应类名的 LaTeX 环境。以下是具体的渲染规则和输出示例：
 
-```python
-![[ ../../examples/filters/define-environment.py ]]
+1. 第一个类（class）：如果存在类，会使用第一个类名相应的 LaTeX 环境名称。
+2. 其它类：其它类将转化成 LaTeX 环境的参数。
+3. id： 通常被转换为 LaTeX 的 `\label` 命令，用于交叉引用。
+4. 属性：键值对（如 key=value）也将转化成 LaTeX 环境的参数。
+
+该过滤器支持 LaTeX 模板中的如下形式的环境：
+
+```latex
+\begin{env_name}[env_options]\label{env_label}
+<content>
+\end{env_name}
 ```
 
-示例 1：通过这个过滤器，我们可以在 Markdown 中使用定理环境：
+```python
+![[ ../../examples/filters/enable-environment.py ]]
+```
+
+#### 定理环境
+
+通过这个过滤器，我们可以在 Markdown 中使用定理环境：
 
 ```markdown
 ![[ ../../examples/filters/vieta-formulas.md ]]
 ```
 
-其渲染效果如下：
+::: rendered
 
 ![[ ../../examples/filters/vieta-formulas.md ]]
 
-示例 2：通过这个过滤器，我们可以在 Markdown 中使用 awesomebox[^awesomebox] 环境：
+:::
+
+#### awesomebox
+
+通过这个过滤器，我们可以在 Markdown 中使用 awesomebox[^awesomebox] 环境：
 
 [^awesomebox]: <https://ctan.org/pkg/awesomebox>
 
@@ -24,6 +43,23 @@
 ![[ ../../examples/filters/awesomebox.md ]]
 ```
 
-其渲染效果如下：
+::: rendered
 
 ![[ ../../examples/filters/awesomebox.md ]]
+
+:::
+
+#### `messagebox` 环境
+
+示例：在 stenciler 模板中预定义了 `messagebox` 环境，我们可以按如下方法使用。
+
+```markdown
+![[ ../../examples/filters/messagebox.md ]]
+```
+
+::: rendered
+
+![[ ../../examples/filters/messagebox.md ]]
+
+:::
+
