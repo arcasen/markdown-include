@@ -1,0 +1,72 @@
+% https://tex.stackexchange.com/questions/266438/booktabs-and-colortbl-not-filling-height-of-row
+
+\documentclass[12pt]{article}
+
+% set the font of the document
+%\usepackage{fontspec}
+
+% set line spacing
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{relsize}
+
+% table materials
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+% define colours
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\definecolor{my-blue}{RGB}{83,87,118}
+
+\usepackage{microtype}
+
+\newcommand*{\belowrulesepcolor}[1]{%
+  \noalign{%
+    \kern-\belowrulesep
+    \begingroup
+      \color{#1}%
+      \hrule height\belowrulesep
+    \endgroup
+  }%
+}
+\newcommand*{\aboverulesepcolor}[1]{%
+  \noalign{%
+    \begingroup
+      \color{#1}%
+      \hrule height\aboverulesep
+    \endgroup
+    \kern-\aboverulesep
+  }%
+}
+
+\begin{document}
+
+\rowcolors{1}{white}{cyan!15}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule 
+\rowcolor{cyan!40}
+Variable &  Field One &  Field Two \\
+\midrule
+\cellcolor{my-blue}{A} & 0.0002 & 0.0005 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+\belowrulesepcolor{my-blue}
+\rowcolor{my-blue} Variable &  Field One &  Field Two \\
+\aboverulesepcolor{my-blue}
+\midrule
+A & 0.0002 & 0.0005 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

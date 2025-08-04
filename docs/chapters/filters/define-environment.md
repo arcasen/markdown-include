@@ -49,6 +49,12 @@
 
 :::
 
+::: caution
+
+awesomebox 内部不能使用脚注。
+
+:::
+
 #### `messagebox` 环境
 
 示例：在 stenciler 模板中预定义了 `messagebox` 环境，我们可以按如下方法使用。

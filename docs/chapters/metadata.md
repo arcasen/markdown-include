@@ -39,9 +39,7 @@ Pandoc 命令中的几个相关选项：
 
 ::: caution
 
-将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式 [^underscore_issue]，可以将相关代码直接以 `header-includes` 形式加入。
-
-[^underscore_issue]: <https://github.com/jgm/pandoc/issues/2139>
+将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式（见：<https://github.com/jgm/pandoc/issues/2139>），可以将相关代码直接以 `header-includes` 形式加入。
 
 :::
 

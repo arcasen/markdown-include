@@ -4,6 +4,9 @@
 %   - 页面边距或列宽设置使得表格看起来仍有额外空间。
 %   - 颜色填充效果可能让间距显得更明显。
 
+% https://tex.stackexchange.com/questions/209574/problems-with-rowcolors-and-booktabs
+% @{} 改为 @{\kern\tabcolsep}
+
 \documentclass{article}
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -15,7 +18,7 @@
 % 设置条纹效果，从第2行开始（跳过标题行）
 \rowcolors{2}{white}{lightgray}
 % 去掉左右 tabcolsep
-\begin{longtable}{@{}p{4cm}p{4cm}p{4cm}@{}}
+\begin{longtable}{@{\kern\tabcolsep}p{4cm}p{4cm}p{4cm}@{\kern\tabcolsep}}
 \toprule
 \textbf{列1} & \textbf{列2} & \textbf{列3} \\ 
 \midrule

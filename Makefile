@@ -148,8 +148,11 @@ include depends
 	@perl -ne 's/^!\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
 
 # Rule: create PDF document
-%.pdf: %.md $(SETTINGS)
-	pandoc -d defaults.yaml --template stenciler.latex $$< -o $$@
+# Solve the issue of the color on both sides of a striped table exceeding the table's width
+# https://tex.stackexchange.com/questions/209574/problems-with-rowcolors-and-booktabs
+%.pdf: %.tex
+	sed -i 's/@{}/@{\\\\kern\\\\tabcolsep}/g' $$<
+	@latexmk -xelatex -quiet -interaction=nonstopmode -synctex=1 -file-line-error $$<
 
 # Rule: create LaTeX document
 %.tex: %.md $(SETTINGS)

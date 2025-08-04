@@ -1,0 +1,91 @@
+% https://tex.stackexchange.com/questions/209574/problems-with-rowcolors-and-booktabs
+% https://tex.stackexchange.com/questions/177202/booktabs-and-row-color
+% https://tex.stackexchange.com/questions/567300/booktabs-cell-coloring-overflow-and-position-bias
+% https://tex.stackexchange.com/questions/209682/problems-for-coloring-tables-using-booktabs-and-xcolor
+
+\documentclass[fontsize=10pt,paper=letter,headings=big,bibliography=totoc,DIV=8]{scrbook}
+\KOMAoptions{headsepline=true,draft=false}
+\usepackage{typearea}
+\usepackage[usenames,dvipsnames,x11names,table]{xcolor}
+\usepackage[single=false,macros=false,xspace=false]{acro}
+\usepackage[spanish,mexico]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+\usepackage[defaultsans]{opensans}
+\usepackage{array,multirow,tabularx,ragged2e,booktabs}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash\hspace{0pt}}X}
+\newcolumntype{C}{>{\centering\arraybackslash\hspace{0pt}}X}
+\usepackage{rotating}
+\usepackage{colortbl}
+\usepackage[per-mode=symbol]{siunitx}
+\DeclareSIUnit\poise{P}
+\DeclareSIUnit\stokes{St}
+%\DeclareSIUnit\radian{rad}
+\DeclareSIUnit\dyna{dyn}
+
+\begin{document}
+
+\begin{table}
+\centering
+\rowcolors{2}{}{lightgray!20}
+\begin{tabularx}{3.4in}{@{\kern\tabcolsep}CS[table-format=4.4]<{\kern\tabcolsep}}
+\toprule
+Propiedades materiales en la media & Valor \\
+\midrule
+$c_M$      & \SI{3.0}{[\kilo\pascal]} \\
+$k_{1_M}$  & \SI{2.3632}{[\kilo\pascal]} \\
+$k_{2_M}$  & \num{0.8393} \\
+$\beta_M$  & \ang{29.0} \\
+$\kappa_M$ & \SI{1000}{[\mega\pascal]}\\
+\midrule
+Propiedades materiales en la adventicia & Valor \\
+\midrule
+$c_A$      & \SI{0.3}{[\kilo\pascal]} \\
+$k_{1_A}$  & \SI{0.5620}{[\kilo\pascal]} \\
+$k_{2_A}$  & \num{0.7112} \\
+$\beta_A$  & \ang{62.0} \\
+$\kappa_A$ & \SI{1000}{[\mega\pascal]} \\
+\bottomrule
+\end{tabularx}
+\caption[Parámetros materiales de la arteria]{Parámetros materiales de la arteria en sus dos túnicas externas: media y adventicia.}
+\label{taula:param}
+%\setfloatalignment{t}
+\end{table}
+
+\begin{table}
+\centering
+\rowcolors{2}{}{lightgray!20}
+\begin{tabularx}{3.2in}{@{\kern\tabcolsep} lYS[table-format=4.4]<{\kern\tabcolsep}}
+\toprule
+\multicolumn{2}{c}{Propiedades materiales} & Valor \\
+\midrule
+\cellcolor{lightgray!20}               %%% remove this if you don't want
+ & $\rho_s$   & \SI{1060}{[\kilo\gram\per\metre^3]} \\
+\multirow{-2}{*}{\rotatebox{90}{{\cellcolor{lightgray!20}\footnotesize Sangre}}}& $\mu_{s}$  & \SI{3.8e-6}{[\metre^2\per\second]} \\
+\midrule
+\rowcolor{white} \multicolumn{3}{c}{Modelo hiperelástico de Mooney-Rivlin}\\
+\midrule
+\cellcolor{lightgray!20}
+\cellcolor{lightgray!20}& $C_1$  & \SI{0.020}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_2$  & \SI{0.003}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_3$  & \SI{0.175}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_4$  & \SI{0.090}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_5$  & \SI{0}{[\mega\pascal]} \\
+\multirow{-6}{*}{\rotatebox{90}{{\footnotesize Arteria}}}& $C_6$  & \SI{0}{[\mega\pascal]} \\
+\midrule
+\multicolumn{3}{c}{Modelo hiperelástico de Mooney-Rivlin}\\
+\midrule
+\cellcolor{lightgray!20}
+\cellcolor{lightgray!20}& $C_1$  & \SI{-0.452}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_2$  & \SI{0.510}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_3$  & \SI{0.101}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_4$  & \SI{1.256}{[\mega\pascal]} \\
+\cellcolor{lightgray!20}& $C_5$  & \SI{0}{[\mega\pascal]} \\
+\multirow{-6}{*}{\rotatebox{90}{{\cellcolor{lightgray!20}\footnotesize Placa}}}& $C_6$  & \SI{0.301}{[\mega\pascal]} \\
+\bottomrule
+\end{tabularx}
+\caption[Parámetros materiales de la sangre, arteria y placa]{Parámetros materiales de la sangre, arteria y placa que los definen como materiales para COMSOL.}
+\label{taula:sangue}
+\end{table}
+\end{document}

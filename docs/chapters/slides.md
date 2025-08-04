@@ -288,7 +288,7 @@ contents...
 
 可以在自包含的 reveal.js 幻灯片、Beamer 幻灯片和 pptx 幻灯片中添加背景图片。
 
-#### 所有幻灯片（Beamer、reveal.js、pptx）
+1. 所有幻灯片（Beamer、reveal.js、pptx）
 
 在 Beamer 和 reveal.js 中，可以通过 YAML 元数据块或命令行变量使用 `background-image` 配置选项，在每页幻灯片上设置相同的背景图片。
 
@@ -296,13 +296,13 @@ contents...
 
 对于 pptx，可以使用 `--reference-doc`，在相关布局上设置背景图片。
 
-#### parallaxBackgroundImage（reveal.js）
+2. parallaxBackgroundImage（reveal.js）
 
 对于 reveal.js，还可以使用 reveal.js 原生选项 `parallaxBackgroundImage`，生成视差滚动背景。必须同时设置 `parallaxBackgroundSize`，并可以选择设置 `parallaxBackgroundHorizontal` 和 `parallaxBackgroundVertical` 来配置滚动行为。有关这些选项的含义，请参阅 reveal.js 文档。
 
 在 reveal.js 的概览模式中，`parallaxBackgroundImage` 仅在第一页幻灯片上显示。
 
-#### 单个幻灯片（reveal.js、pptx）
+3. 单个幻灯片（reveal.js、pptx）
 
 要在特定 reveal.js 或 pptx 幻灯片上设置背景图片，请在幻灯片的第一个幻灯片级别标题上添加 `{background-image="/path/to/image"}`（标题甚至可以为空）。
 
@@ -310,13 +310,13 @@ contents...
 
 为与 reveal.js 保持一致，pptx 也支持 `data-background-image`——如果未找到 `background-image`，将检查 `data-background-image`。
 
-#### 标题幻灯片（reveal.js、pptx）
+4. 标题幻灯片（reveal.js、pptx）
 
 要在 reveal.js 的自动生成标题幻灯片上添加背景图片，请在 YAML 元数据块中使用 `title-slide-attributes` 变量，该变量必须包含属性名称和值的映射。（注意，此处需要 `data-` 前缀，因为它不会自动添加。）
 
 对于 pptx，请传递一个在“标题幻灯片”布局上设置了背景图片的 `--reference-doc`。
 
-#### 示例（reveal.js）
+示例（reveal.js）：
 
 ```markdown
 ---
