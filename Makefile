@@ -1,5 +1,5 @@
-# Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250805
+# Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
+# Version: 20250806
 
 # Specify input and output directories
 DOCS ?= docs
@@ -11,7 +11,7 @@ SETTINGS := defaults.yaml metadata.yaml
 # Copy all files to the '$(DIST)' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
 # these .markdown files into the final .md files.
-DOCUMENTS := $(shell find $(DOCS) -type f)
+DOCUMENTS := $(shell find $(DOCS) -not -path $(DOCS)) # everything under $(DOCS)
 DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
 DUPLICATE += $(patsubst %,$(DIST)/%,$(SETTINGS))
 MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
@@ -87,8 +87,6 @@ $(DIST)/%: $(DOCS)/%
 	@echo "Creating $@ ..."
 	@mkdir -p $(dir $@)
 	@cp -rf $< $@
-
-.PHONY: all clean
 
 # Rebasing paths of embedded images and markdowns
 # Caution: processing embedded images in both inline and reference form
