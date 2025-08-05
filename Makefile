@@ -1,5 +1,5 @@
 # Makefiel for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250601
+# Version: 20250805
 
 # Specify input and output directories
 DOCS ?= docs
@@ -152,7 +152,7 @@ include depends
 # https://tex.stackexchange.com/questions/209574/problems-with-rowcolors-and-booktabs
 %.pdf: %.tex
 	sed -i 's/@{}/@{\\\\kern\\\\tabcolsep}/g' $$<
-	@latexmk -xelatex -quiet -interaction=nonstopmode -synctex=1 -file-line-error $$<
+	latexmk -xelatex -quiet -interaction=nonstopmode -synctex=1 -file-line-error $$<
 
 # Rule: create LaTeX document
 %.tex: %.md $(SETTINGS)
