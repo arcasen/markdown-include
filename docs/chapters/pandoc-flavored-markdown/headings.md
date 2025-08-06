@@ -34,9 +34,13 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 
 #### 扩展：`space_in_atx_header`
 
-许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。*Pandoc 默认要求 `#` 与标题文本之间有空格[^disable-space-atx]。*
+许多 Markdown 实现并不要求 ATX 标题开头的 `#` 与标题文本之间有空格，因此 `# heading 1` 和 `#heading 1` 都算作标题。
 
-[^disable-space-atx]: 如果要取消这个要求，编译时使用选项 `-f markdown-space_in_atx_header`。
+::: caution 
+
+Pandoc 默认要求 `#` 与标题文本之间有空格。如果要取消这个要求，编译时使用选项 `-f markdown-space_in_atx_header`。
+
+:::
 
 示例：
 
@@ -44,7 +48,7 @@ ATX 样式标题由 1 到 6 个连续的`#`符号和一行文本组成，在行�
 ![[ ../../examples/pandoc-flavored-markdown/headings/space_in_atx_header.md ]]
 ```
 
-编译时运行：`pandoc -f markdown-space_in_atx_header input.md -o output.md`。
+编译时执行命令：`pandoc -f markdown-space_in_atx_header input.md -o output.md`。
 
 #### 扩展：`auto_identifiers`
 
@@ -157,7 +161,9 @@ HTML]`
 
 与常规参考链接一样，这些参考不区分大小写。
 
-*显式链接引用定义始终优先于隐式标题引用*。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
+::: caution
+
+显式链接引用定义始终优先于隐式标题引用。因此，在下面的例子中，链接将指向 `bar`，而不是 `#foo`：
 
 ```markdown
 # Foo
@@ -166,6 +172,8 @@ HTML]`
 
 See [foo]
 ```
+
+:::
 
 下面是一个完整示例：
 

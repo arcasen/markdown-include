@@ -2,7 +2,17 @@
 % Fonts Settings
 % ---------------------------------------------------------
 \usepackage{fontspec}
-\setmainfont{Noto Serif SC}
-\setsansfont{Noto Sans SC}
+% \setmainfont{Noto Serif CJK SC}
+% \setsansfont{Noto Sans CJK SC}
 \setmonofont{Source Han Mono}
+
+\makeatletter
+\ifdefstring{\stenciler@lang}{zh}{
+\setCJKmainfont[
+  ItalicFont = Noto Sans CJK SC Thin,     
+  BoldFont   = Noto Sans CJK SC,
+]{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+}{\relax}
+\makeatother
 % ---------------------------------------------------------

@@ -37,7 +37,15 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 #### 扩展：`strikeout`
 
-要用水平线划掉一段文本，请以 开始和结束该部分~~。例如，
+要用水平线划掉一段文本，请以 `~~` 开始和结束该部分。
+
+::: caution
+
+在转化为 LaTeX/PDF 时，unline 类会转化成 `\st{...}`（`soul` 宏包命令）， 对于中文是不起作用的。 在 Stenciler 模板中，使用了 `CJKfntef` 宏包的 `CJKsout` 命令重新定义。
+
+:::
+
+例如，
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/strikeout.md ]]
@@ -64,7 +72,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 :::
 
-`^...^`或之间的文本`~...~`不能包含空格或换行符。如果上标或下标文本包含空格，则必须使用反斜杠转义这些空格。（这是为了防止在日常使用~和 时 意外地将文本变为上标或下标^，以及与脚注产生不良交互。）因此，如果您希望下标中包含字母 P 和“a cat”，请使用 `P~a\ cat~`，而不是`P~a cat~`。
+`^...^` 或之间的文本 `~...~` 不能包含空格或换行符。如果上标或下标文本包含空格，则必须使用反斜杠转义这些空格。（这是为了防止在日常使用~和 时 意外地将文本变为上标或下标^，以及与脚注产生不良交互。）因此，如果您希望下标中包含字母 P 和“a cat”，请使用 `P~a\ cat~`，而不是 `P~a cat~`。
 
 #### 抄录（代码）
 
@@ -98,7 +106,15 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 #### 下划线
 
-要为文本添加下划线，请使用以下underline类：
+要为文本添加下划线，请使用以下 underline 类。
+
+::: caution
+
+在转化为 LaTeX/PDF 时，unline 类会转化成 `\ul{...}`（`soul` 宏包命令）， 对于中文是不起作用的。 在 Stenciler 模板中，使用了 `CJKfntef` 宏包的 `CJKunderline` 命令重新定义。
+
+:::
+
+示例：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/underline.md ]]
@@ -112,7 +128,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 #### Small Caps
 
-要编写小型大写字母，请使用以下smallcaps类：
+要编写小型大写字母，请使用以下 smallcaps 类：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/small-caps.md ]]
@@ -126,7 +142,15 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 #### 高亮显示
 
-要突出显示文本，请使用以下mark类：
+要突出显示文本，请使用以下 mark 类。
+
+::: caution
+
+在转化为 LaTeX/PDF 时，unline 类会转化成 `\hl{...}`（`soul` 宏包命令）， 对于中文是不起作用的。`CJKfntef` 宏包不支持中文高亮显示。
+
+:::
+
+示例：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/inline-formatting/highlighting.md ]]

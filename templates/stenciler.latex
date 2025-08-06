@@ -1,8 +1,8 @@
-% =========================================================
-% The Stenciler Pandoc LaTeX Template
-%
-% https://github.com/arcasen/markdown-include/tree/main/templates
-% =========================================================
+%%
+%% The Stenciler Pandoc LaTeX Template
+%%
+%% https://github.com/arcasen/markdown-include/tree/main/templates
+%%
 
 $stenciler-passoptions.latex()$
 
@@ -133,6 +133,11 @@ $endif$
 \date{$date$}
 
 \begin{document}
+
+% 设置顶部对齐，防止文字与图片混排时出现多余的空白
+% book 默认是两端对齐
+\raggedbottom 
+
 $if(has-frontmatter)$
 \frontmatter
 $endif$

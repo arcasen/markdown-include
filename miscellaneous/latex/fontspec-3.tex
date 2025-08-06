@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+
+% 设置英文主要字体
+\setmainfont[
+  Ligatures = TeX
+]{Times New Roman}
+
+% 设置中文主要字体
+\setCJKmainfont[
+  BoldFont = Noto Sans CJK SC Bold
+]{Noto Serif CJK SC}
+
+\begin{document}
+This is English text in Times New Roman.
+
+这是一个中文测试，使用 Noto Serif CJK SC。
+
+\textbf{Bold Chinese text: 这是一个粗体中文。}
+\end{document}

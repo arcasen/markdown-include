@@ -184,6 +184,16 @@ $if(strikeout)$
   \usepackage[soul]{lua-ul}
 \else
   \usepackage{soul}
+
+% Redefine underline command
+\makeatletter
+\ifdefstring{\stenciler@lang}{zh}{
+\usepackage{CJKfntef}
+\let\ul\CJKunderline
+\let\st\CJKsout
+}{\relax}
+\makeatother
+
 $if(beamer)$
   \makeatletter
   \let\HL\hl
