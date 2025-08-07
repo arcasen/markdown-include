@@ -59,6 +59,12 @@ awesomebox 内部不能使用脚注。
 
 示例：在 Stenciler 模板中预定义了 `messagebox` 环境，我们可以按如下方法使用。
 
+::: caution
+
+messagebox 可以嵌套使用。
+
+:::
+
 ```markdown
 ![[ ../../examples/filters/messagebox.md ]]
 ```

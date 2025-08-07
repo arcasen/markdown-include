@@ -4,7 +4,7 @@
 
 Pandoc 为用户提供了一个接口，用于编写程序（称为过滤器）[^filters]，这些程序作用于 Pandoc 的抽象语法树（AST）。
 
-[^filters]: https://pandoc.org/filters.html
+[^filters]: <https://pandoc.org/filters.html>
 
 Pandoc 由一组读取器和写入器组成。在将文档从一种格式转换为另一种格式时，读取器会将文本解析为Pandoc 的文档中间表示——即“抽象语法树”或 AST ——然后由写入器将其转换为目标格式。
 

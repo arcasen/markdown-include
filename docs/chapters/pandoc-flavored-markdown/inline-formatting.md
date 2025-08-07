@@ -146,7 +146,7 @@ Pandoc 默认是启用该扩展的，如果要想将单词内部的 `_` 解析�
 
 ::: caution
 
-在转化为 LaTeX/PDF 时，unline 类会转化成 `\hl{...}`（`soul` 宏包命令）， 对于中文是不起作用的。`CJKfntef` 宏包不支持中文高亮显示。
+在转化为 LaTeX/PDF 时，unline 类会转化成 `\hl{...}`（`soul` 宏包命令）， 对于中文是不起作用的。`CJKfntef` 宏包不支持中文高亮显示。在 Stenciler 模板中，使用了 `CJKfntef` 宏包绘制字高宽度的下划线来替代。（见<https://tex.stackexchange.com/questions/75019/is-there-any-solution-for-highlighting-text-in-cjk>）
 
 :::
 

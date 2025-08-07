@@ -52,10 +52,10 @@
 
 ```bash
 .
-├── enable-textcolor-enhanced.py             # 过滤器脚本
-├── custom-reference.docx       # Word 参考文档
-├── input.md                    # 示例输入文件
-└── Makefile                    # 构建脚本示例
+├── enable-textcolor-enhanced.py  # 过滤器脚本
+├── custom-reference.docx         # Word 参考文档
+├── input.md                      # 示例输入文件
+└── Makefile                      # 构建脚本示例
 ```
 
 命令：

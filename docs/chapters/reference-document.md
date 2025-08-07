@@ -31,7 +31,7 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
 `--reference-docx` 选项的参数应该是指向 reference.docx 文件的路径[^ref-dir]。如果你在数据目录（而非工作目录）中放置了一个 reference.docx 文件，并使用 `--reference-docx reference.docx` 命令，程序将无法找到该文件。这不是错误，而是设计如此。当不使用 `--reference-docx` 选项时，用户数据目录中的 reference.docx 文件会覆盖系统默认设置。
 
-[^ref-dir]: https://github.com/jgm/pandoc/issues/2965
+[^ref-dir]: <https://github.com/jgm/pandoc/issues/2965>
 
 要创建自定义 reference.docx 文件，首先获取默认 reference.docx 文件的副本： `pandoc -o custom-reference.docx --print-default-data-file reference.docx` 。然后在 Word 中打开 custom-reference.docx，修改样式并保存文件。为获得最佳结果，除修改 Pandoc 使用的样式外，不要对该文件进行其他更改：
 

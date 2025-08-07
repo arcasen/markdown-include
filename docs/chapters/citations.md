@@ -12,7 +12,9 @@ Pandoc 支持文献引用，常用格式为 BibTeX 或 BibLaTeX，结合 Markdow
 
 ### CSL 文件
 
-Pandoc 使用 CSL 文件定义引文和参考文献的格式。你可以从 [CSL GitHub 仓库](https://github.com/citation-style-language/styles) 下载现成的 CSL 文件（如 APA、MLA、Chicago 等），或自定义 CSL 文件。例如：
+Pandoc 使用 CSL 文件定义引文和参考文献的格式。你可以从 CSL GitHub 仓库[^csl] 下载现成的 CSL 文件（如 APA、MLA、Chicago 等），或自定义 CSL 文件。例如：
+
+[^csl]: <https://github.com/citation-style-language/styles>
 
 - APA 风格：`apa.csl`
 - Chicago 风格：`chicago-author-date.csl`

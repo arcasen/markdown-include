@@ -127,15 +127,17 @@ header-includes: |
 
 `institute`： 作者隶属机构：支持多个作者时可以是列表。
 
-`revealjs-url`： reveal.js 文档的基础 URL（默认为 `https://unpkg.com/reveal.js@^5`）。
+`revealjs-url`： reveal.js 文档的基础 URL（默认为 <https://unpkg.com/reveal.js@^5> ）。
 
 `s5-url`： S5 文档的基础 URL（默认为 `s5/default`）。
 
-`slidy-url`： Slidy 文档的基础 URL（默认为 `https://www.w3.org/Talks/Tools/Slidy2`）。
+`slidy-url`： Slidy 文档的基础 URL（默认为 <https://www.w3.org/Talks/Tools/Slidy2> ）。
 
 `slideous-url`： Slideous 文档的基础 URL（默认为 `slideous`）。
 
-`title-slide-attributes`： reveal.js 幻灯片标题页的额外属性。参见 [reveal.js、Beamer 和 pptx 中的背景示例](https://pandoc.org/MANUAL.html#background-in-reveal.js-Beamer-and-pptx)。
+`title-slide-attributes`： reveal.js 幻灯片标题页的额外属性。参见 reveal.js、Beamer 和 pptx 中的背景示例[^slide-bg]。
+
+[^slide-bg]: <https://pandoc.org/MANUAL.html#background-in-reveal.js-Beamer-and-pptx>
 
 所有 reveal.js 配置选项[^reveal-options]均可用作变量。若需关闭 reveal.js 中默认开启的布尔标志，使用 `0`。
 
@@ -259,7 +261,9 @@ hyperrefoptions:
 
 `fontfamily`： 配合 `pdflatex` 使用的字体包：TeX Live 包含许多选项，详见 [LaTeX 字体目录](https://tug.org/FontCatalogue/)。默认值为 [Latin Modern](https://ctan.org/pkg/lm)。
 
-`fontfamilyoptions`： 作为 `fontfamily` 的包的选项；可重复设置多个选项。例如，通过 [`libertinus` 包](https://ctan.org/pkg/libertinus)使用 Libertine 字体并启用比例小写（旧式）数字：
+`fontfamilyoptions`： 作为 `fontfamily` 的包的选项；可重复设置多个选项。例如，通过 `libertinus` 宏包[^libertinus]使用 Libertine 字体并启用比例小写（旧式）数字：
+
+[^libertinus]: <https://ctan.org/pkg/libertinus>
 
 ```yaml
 ---
@@ -438,7 +442,10 @@ Pandoc 在使用 wkhtmltopdf 生成 PDF 时使用这些变量。`--css` 选项�
 
 #### ms 变量
 
-`fontfamily`： 字体：`A`（Avant Garde）、`B`（Bookman）、`C`（Helvetica）、`HN`（Helvetica Narrow）、`P`（Palatino）或 `T`（Times New Roman）。此设置不影响源代码，源代码始终使用等宽 Courier 显示。这些内置字体字符覆盖范围有限。可使用 Peter Schaffter 提供的 [`install-font.sh`](https://www.schaffter.ca/mom/bin/install-font.sh) 脚本安装额外字体，详见其[网站](https://www.schaffter.ca/mom/momdoc/appendices.html#steps)。
+`fontfamily`： 字体：`A`（Avant Garde）、`B`（Bookman）、`C`（Helvetica）、`HN`（Helvetica Narrow）、`P`（Palatino）或 `T`（Times New Roman）。此设置不影响源代码，源代码始终使用等宽 Courier 显示。这些内置字体字符覆盖范围有限。可使用 Peter Schaffter 提供的 `install-font.sh`[^install-sh] 脚本安装额外字体，详见其网站[^ms-web]。
+
+[^install-sh]: <https://www.schaffter.ca/mom/bin/install-font.sh>
+[^ms-web]: <https://www.schaffter.ca/mom/momdoc/appendices.html#steps>
 
 `indent`： 段落缩进（例如 `2m`）。
 
@@ -448,7 +455,9 @@ Pandoc 在使用 wkhtmltopdf 生成 PDF 时使用这些变量。`--css` 选项�
 
 ### 自动设置的变量
 
-Pandoc 根据[选项](https://pandoc.org/MANUAL.html#options)或文档内容自动设置这些变量，用户也可修改。这些变量因输出格式而异，包括：
+Pandoc 根据选项[^options]或文档内容自动设置这些变量，用户也可修改。这些变量因输出格式而异，包括：
+
+[^options]: <https://pandoc.org/MANUAL.html#options>
 
 `body`： 文档正文。
 

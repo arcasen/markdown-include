@@ -185,12 +185,15 @@ $if(strikeout)$
 \else
   \usepackage{soul}
 
-% Redefine underline command
+% Redefine underline, hightlight and strikeout commands
+% https://tex.stackexchange.com/questions/75019/is-there-any-solution-for-highlighting-text-in-cjk
 \makeatletter
 \ifdefstring{\stenciler@lang}{zh}{
 \usepackage{CJKfntef}
 \let\ul\CJKunderline
 \let\st\CJKsout
+\renewcommand\hl{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-.5ex]{2pt}{2.5ex}}}\ULon}
 }{\relax}
 \makeatother
 

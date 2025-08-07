@@ -94,19 +94,46 @@ Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 
 #### 扩展：`definition_lists`
 
+Pandoc 支持定义列表，使用 [PHP Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) 的语法，并带有一些扩展。
+
+```markdown
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-1.md ]]
+```
+
+::: rendered
+
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-1.md ]]
+
+:::
+
 每个术语必须占一行，行尾可以空一行，并且必须跟一个或多个定义。定义以冒号或波浪号开头，可以缩进一至两个空格。
 
 一个术语可能有多个定义，每个定义可以由一个或多个块元素（段落、代码块、列表等）组成，每个块元素缩进四个空格或一个制表位。定义的主体（不包括第一行）应该缩进四个空格。但是，与其他 Markdown 列表一样，除了段落或其他块元素的开头外，你可以“懒惰地”省略缩进。
 
 ```markdown
-![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-2.md ]]
 ```
 
 ::: rendered
 
-![[ ../../examples/pandoc-flavored-markdown/lists/lists-definition.md ]]
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-2.md ]]
 
 :::
+
+如果你在定义前留有空格（如上例所示），定义的文本将被视为段落。在某些输出格式中，这意味着术语/定义对之间的间距会更大。要获得更紧凑的定义列表，请省略定义前的空格：
+
+```markdown
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-3.md ]]
+```
+
+::: rendered
+
+![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-3.md ]]
+
+:::
+
+请注意，定义列表中的项目之间需要有空格。
+
 
 #### 列表的结束
 
