@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250806
+# Version: 20250808
 
 # Specify input and output directories
 DOCS ?= docs
@@ -8,12 +8,15 @@ DIST ?= dist
 # Changes of defaults.yaml or metadata.yaml will trigger re-compiling
 SETTINGS := defaults.yaml metadata.yaml
 
+INCLUDES := include-head.tex include-before.tex include-after.tex
+
 # Copy all files to the '$(DIST)' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
 # these .markdown files into the final .md files.
 DOCUMENTS := $(shell find $(DOCS) -not -path $(DOCS)) # everything under $(DOCS)
 DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
 DUPLICATE += $(patsubst %,$(DIST)/%,$(SETTINGS))
+DUPLICATE += $(patsubst %,$(DIST)/%,$(INCLUDES))
 MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
 
 # Proccessed .md documents (will be created in the directory '$(DIST)')
@@ -51,7 +54,7 @@ html: all
 	make -C $(DIST) html
 
 clean:
-	rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html
+	rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html $(DIST)/*.yaml
 
 cleanup:
 	rm -rf $(DIST)
@@ -64,7 +67,13 @@ $(DIST)/Makefile: $(MARKDOWNS)
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
 
-$(DIST)/%.yaml: %.yaml
+# $(DIST)/%.yaml: %.yaml
+# 	@echo "Creating $@ ..."
+# 	@mkdir -p $(DIST)
+# 	@cp -f $< $@
+
+# Rule: copy *.yaml include-*.tex
+$(DIST)/%: %
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@cp -f $< $@

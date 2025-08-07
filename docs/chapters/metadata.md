@@ -37,9 +37,115 @@ Pandoc 命令中的几个相关选项：
 
 : Set the template variable KEY to the string value VAL when rendering the document in standalone mode.
 
+### Pandoc 对元数据的解析
+
+Pandoc 将其解析为 Markdown 格式[^meta-md]。我们可以执行命令 `pandoc -t native input.md` 来查看 Pandoc 的解析结果。
+
+[^meta-md]: <https://github.com/jgm/pandoc/issues/2139>
+
 ::: caution
 
-将 “CJKmainfont: 方正楷体_GBK” 写入 metadata.yaml 时, 会被解析成 “方正楷体\\_GBK”, 导致 LaTeX 编译出错。这是因为 Pandoc 将其解析为 Markdown 格式（见：<https://github.com/jgm/pandoc/issues/2139>），可以将相关代码直接以 `header-includes` 形式加入。
+- 如果将 `CJKmainfont: 方正楷体_GBK` 写入 metadata.yaml 时, 会被解析成 `方正楷体\\_GBK`, 导致 LaTeX 编译出错。
+- 在 `header-includes` 加入 LaTeX 代码时，有可能会解析成 Markdown 文本而发生错误。
+- 能够正确以原始代码形式插入的是：`--include-in-header`、`--include-before-body` 和 `--include-after-body`。（见*[通用写入器选项]*）
+
+:::
+
+示例：
+
+1. 文件 1 含有下面的 LaTeX 代码：
+
+```markdown
+![[ ../examples/metadata/latex-code-snippet-1.md]]
+```
+
+Pandoc 解析结果：
+
+```bash
+[ RawBlock
+    (Format "tex")
+    "\\renewcommand*{\\thefootnote}{(\\alph{footnote})}\n\\newcommand{\\smalltext}[1]{\\small#1}\n\\usepackage{etoolbox}\n\\pretocmd{\\section}{\\clearpage}{}{}\n\\preto{\\section}{\\setcounter{footnote}{0}} \n\\apptocmd{\\toprule}{\\rowcolor{cyan!40}}{}{}"
+]
+```
+
+2. 文件 2 含有下面的 LaTeX 代码：
+
+```markdown
+![[ ../examples/metadata/latex-code-snippet-2.md]]
+```
+
+```bash
+[ RawBlock (Format "tex") "\\usepackage{titlesec}"
+, Para
+    [ Str "\\titleformat{\\chapter}[display]"
+    , SoftBreak
+    , Str "{"
+    , RawInline (Format "tex") "\\vspace*{\\fill}"
+    , RawInline (Format "tex") "\\centering"
+    , RawInline (Format "tex") "\\Huge"
+    , RawInline (Format "tex") "\\bfseries"
+    , Str "}"
+    , SoftBreak
+    , Str "{\31532"
+    , Space
+    , RawInline (Format "tex") "\\thechapter "
+    , Str "\31456}"
+    , SoftBreak
+    , Str "{20pt}"
+    , SoftBreak
+    , Str "{"
+    , RawInline (Format "tex") "\\centering"
+    , Str "}"
+    , SoftBreak
+    , Str "["
+    , RawInline (Format "tex") "\\vspace*{\\fill}"
+    , RawInline (Format "tex") "\\clearpage"
+    , Str "]"
+    ]
+]
+```
+::: caution
+
+后者 LaTeX 代码被解析成字符串文本，编译时将出现错误。
+
+:::
+
+### `--include-in-header` 与 `header-includes`
+
+Pandoc 的 `--include-in-header` 命令行选项允许将原始内容直接包含到生成输出文档的头部区域。此内容可以是目标文档格式头部中有效的任何内容，例如：
+
+- LaTeX 前导代码：为 PDF 输出添加自定义命令、包或设置。
+- HTML `<head>` 元素：包括样式表（`<link>`）、脚本（`<script>`）或元标签。
+- 其他特定于格式的头部元素：根据输出格式，此选项允许直接注入将出现在文档头部的内容。
+
+该选项通常通过指定包含内容的文件名或直接以字符串形式提供内容来使用：
+
+1. 使用文件：
+   
+```bash
+pandoc input.md --include-in-header=header.tex -o output.pdf
+```
+
+在此示例中，`header.tex` 的内容将被插入到生成的 `output.pdf` 的 LaTeX 前导代码中。
+
+2. 直接提供内容：
+   
+```bash
+pandoc input.md --include-in-header='<style>body { color: blue; }</style>' -o output.html
+```
+
+在此示例中，CSS 样式定义被直接插入到 `output.html` 的 `<head>` 部分。
+
+::: caution
+
+`--include-in-header` 选项直接修改 Pandoc 使用的模板，允许对文档头部内容进行精细控制。如果同时存在 `header-includes` 元数据变量，则后者将被覆盖，见：
+
+- <https://github.com/jgm/pandoc/issues/3139>
+- <https://github.com/jgm/pandoc/issues/3138>
+
+由于 Pandoc 会自动设置一些 `header-includes` 变量（见*[自动设置的变量]*），建议使用 `--include-in-header` 时先包含这部分代码。
+
+避免在过滤器中写入 `header-includes` 变量（见*[过滤器 Filters]*）。
 
 :::
 
@@ -64,13 +170,13 @@ Pandoc 命令中的几个相关选项：
    - 最低优先级，会被以上两者覆盖
    - 例如：`pandoc --metadata-file=meta.yaml`
 
-**特殊说明**：
+特殊说明：
 
 - 如果同时使用多个来源定义同一个变量，Pandoc 会按照上述优先级采用值
 - YAML 元数据块中可以包含复杂结构（如列表、嵌套对象），而命令行参数只适合简单键值对
 - 可以通过 `--variable` (`-V`) 定义的变量属于 LaTeX 模板变量系统，与元数据系统不同但可能有交互
 
-**建议实践**：
+建议实践：
 
 - 将通用元数据放在外部 YAML 文件中
 - 文档特定的元数据放在文档头部的 YAML 块中
@@ -88,10 +194,10 @@ Pandoc 的 `-d`（`--defaults`）和 `--metadata-file` 选项都用于从外部�
 
 | 特性             | `-d` / `--defaults`              | `--metadata-file`         |
 | ---------------- | -------------------------------- | ------------------------- |
-| **影响范围**     | 控制整个转换流程（格式、模板等） | 仅设置文档元数据          |
-| **文件内容**     | Pandoc 选项 + 元数据             | 仅元数据                  |
-| **优先级**       | 低于命令行选项                   | 与文档内元数据合并        |
-| **常用字段示例** | `from`, `to`, `filters`          | `title`, `author`, `date` |
+| 影响范围     | 控制整个转换流程（格式、模板等） | 仅设置文档元数据          |
+| 文件内容     | Pandoc 选项 + 元数据             | 仅元数据                  |
+| 优先级       | 低于命令行选项                   | 与文档内元数据合并        |
+| 常用字段示例  | `from`, `to`, `filters`          | `title`, `author`, `date` |
 
 示例：结合使用两者
 
