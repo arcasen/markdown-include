@@ -34,12 +34,14 @@ standalone: true
 toc: true
 toc-depth: 3
 
-include-in-header:
-  - include-head.tex
-include-before-body:
-  - include-before.tex
-include-after-body:
-  - include-after.tex
+# Include raw code (verbatim)
+# Caution: include-in-header will disable 'header-includes' metadata
+# include-in-header:
+#   - include-head.tex
+# include-before-body:
+#   - include-before.tex
+# include-after-body:
+#   - include-after.tex
 
 # ============= Options affecting specific writers ==============
 top-level-division: chapter

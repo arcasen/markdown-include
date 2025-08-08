@@ -138,14 +138,16 @@ pandoc input.md --include-in-header='<style>body { color: blue; }</style>' -o ou
 
 ::: caution
 
-`--include-in-header` 选项直接修改 Pandoc 使用的模板，允许对文档头部内容进行精细控制。如果同时存在 `header-includes` 元数据变量，则后者将被覆盖，见：
+Pandoc `--include-in-header` 选项直接修改使用的模板，允许对文档头部内容进行精细控制。
 
-- <https://github.com/jgm/pandoc/issues/3139>
-- <https://github.com/jgm/pandoc/issues/3138>
+- 如果同时存在 `header-includes` 元数据变量，则后者将被覆盖，见：
 
-由于 Pandoc 会自动设置一些 `header-includes` 变量（见*[自动设置的变量]*），建议使用 `--include-in-header` 时先包含这部分代码。
+  - <https://github.com/jgm/pandoc/issues/3139>
+  - <https://github.com/jgm/pandoc/issues/3138>
 
-避免在过滤器中写入 `header-includes` 变量（见*[过滤器 Filters]*）。
+- 由于 Pandoc 会自动设置一些 `header-includes` 变量（见*[自动设置的变量]*），建议使用 `--include-in-header` 时先包含这部分代码，见<https://github.com/arcasen/markdown-include/blob/main/preamble.tex>。
+
+- 避免在过滤器中写入 `header-includes` 变量（见*[过滤器 Filters]*）。
 
 :::
 

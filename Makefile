@@ -6,9 +6,7 @@ DOCS ?= docs
 DIST ?= dist
 
 # Changes of defaults.yaml or metadata.yaml will trigger re-compiling
-SETTINGS := defaults.yaml metadata.yaml
-
-INCLUDES := include-head.tex include-before.tex include-after.tex
+SETTINGS := defaults.yaml metadata.yaml preamble.tex
 
 # Copy all files to the '$(DIST)' directory, where .md files will have their 
 # extensions changed to .markdown. Later, rules will be defined to convert 
