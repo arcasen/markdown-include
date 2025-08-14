@@ -17,7 +17,7 @@
 
 代码如下：
 
-```python
+```{.python .numberLines}
 ![[ ../../examples/filters/latex-environment ]]
 ```
 

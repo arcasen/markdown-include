@@ -2,8 +2,8 @@
 
 以下是支持 docx、HTML 和 PDF 输出的完整过滤器，能够处理以 `#` 开头的十六进制颜色代码：
 
-```python
-![[ ../../examples/filters/text-color-plus          ]]
+```{.python .numberLines}
+![[ ../../examples/filters/text-color-plus ]]
 ```
 
 使用说明：

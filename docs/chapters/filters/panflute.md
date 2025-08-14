@@ -44,7 +44,7 @@ chmod +x uppercase
 
 下面的实例中将将 Markdown 文本的字母转换为大写字母：
 
-```python
+```{.python .numberLines}
 ![[ ../../examples/filters/uppercase ]]
 ```
 

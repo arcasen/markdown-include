@@ -16,13 +16,13 @@ def action(elem, doc):
       if color.startswith('#'):
         # 十六进制颜色
         elem.content = [pf.RawInline(f'\\textcolor[HTML]{{{color[1:]}}}{{', format='latex')] + \
-                list(elem.content) + \
-                [pf.RawInline('}', format='latex')]
+          list(elem.content) + \
+          [pf.RawInline('}', format='latex')]
       else:
         # 标准颜色名称
         elem.content = [pf.RawInline(f'\\textcolor{{{color}}}{{', format='latex')] + \
-                list(elem.content) + \
-                [pf.RawInline('}', format='latex')]
+          list(elem.content) + \
+          [pf.RawInline('}', format='latex')]
     
     del elem.attributes['color']
     return elem
@@ -40,13 +40,13 @@ def action(elem, doc):
       if color.startswith('#'):
         # 十六进制颜色
         elem.content = [pf.RawBlock(f'{{\\color[HTML]{{{color[1:]}}}', format='latex')] + \
-                list(elem.content) + \
-                [pf.RawBlock('}', format='latex')]
+          list(elem.content) + \
+          [pf.RawBlock('}', format='latex')]
       else:
         # 标准颜色名称
         elem.content = [pf.RawBlock(f'{{\\color{{{color}}}', format='latex')] + \
-                list(elem.content) + \
-                [pf.RawBlock('}', format='latex')]
+          list(elem.content) + \
+          [pf.RawBlock('}', format='latex')]
     
     del elem.attributes['color']
     return elem

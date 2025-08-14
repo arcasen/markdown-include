@@ -16,9 +16,9 @@
    :::
    ```
 
-过滤器代码：
+代码如下：
 
-```python
+```{.python .numberLines}
 ![[ ../../examples/filters/text-color ]]
 ```
 

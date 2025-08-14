@@ -32,8 +32,8 @@ def action(elem, doc):
       if new_caption_text:
         # 使用 convert_text 将新标题字符串解析为 AST
         parsed_doc = pf.convert_text(new_caption_text, 
-                       input_format='markdown', 
-                       standalone=False)
+                                     input_format='markdown', 
+                                     standalone=False)
         # 创建新的 Caption 元素，提取解析后的内联内容
         new_caption = pf.Caption(*parsed_doc) if parsed_doc else pf.Caption()
         elem.caption = new_caption

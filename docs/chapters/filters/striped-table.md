@@ -1,8 +1,8 @@
 ### 过滤器实例：条纹表格 Striped Table
 
-下面是一个用 Panflute 编写的过滤器，可以处理生成条纹表格（Striped Table）。过滤器代码：
+下面是一个用 Panflute 编写的过滤器，可以处理生成条纹表格（Striped Table）。代码如下：
 
-```python
+```{.python .numberLines}
 ![[ ../../examples/filters/striped-table ]]
 ```
 
