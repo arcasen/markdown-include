@@ -1,19 +1,19 @@
 <!-- 使用图片: 在链接前加上感叹号! -->
 
 <!-- 内联形式: "标题" 在鼠标悬停在图上时显示 -->
-![内联形式图片](../../images/eisvogel-bayern.jpg "翠鸟图片")
+![内联形式图片](../../images/tux.png "Tux")
 
 <!-- 引用形式 -->
 ![引用形式图片][img-ref]
 
-[img-ref]: ../../images/eisvogel-bayern.jpg "翠鸟图片"
+[img-ref]: ../../images/tux.png "Tux"
 
 <!-- 隐式形式 -->
 ![隐式形式图片][]
 
-[隐式形式图片]: ../../images/eisvogel-bayern.jpg "翠鸟图片"
+[隐式形式图片]: ../../images/tux.png "Tux"
 
 <!-- 快捷形式 -->
 ![快捷形式图片]
 
-[快捷形式图片]: ../../images/eisvogel-bayern.jpg "翠鸟图片"
+[快捷形式图片]: ../../images/tux.png "Tux"

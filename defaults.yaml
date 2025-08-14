@@ -10,12 +10,12 @@ shift-heading-level-by: -1
 # OPTIONS += --filter pandoc-crossref -M listings
 # crossref and citeproc use similar syntax, use pandoc-crossref first
 filters:
+  - striped-table
   - pandoc-crossref
   - citeproc
-  - enable-textcolor.py
-  - enable-environment.py
-  - enable-reference.py
-  # - enable-striped-table.py
+  - text-color
+  - latex-environment
+  # - hypertext-reference
 
 # Resolve '! LaTeX Error: Environment lstlisting unenabled.' when 
 # using the pandoc-crossref filter together with Eisvogel template
@@ -37,7 +37,7 @@ toc-depth: 3
 # Include raw code (verbatim)
 # Caution: include-in-header will disable 'header-includes' metadata
 # include-in-header:
-#   - include-head.tex
+#   - preamble.tex
 # include-before-body:
 #   - include-before.tex
 # include-after-body:

@@ -3,12 +3,12 @@
 以下是支持 docx、HTML 和 PDF 输出的完整过滤器，能够处理以 `#` 开头的十六进制颜色代码：
 
 ```python
-![[ ../../examples/filters/enable-textcolor-enhanced.py ]]
+![[ ../../examples/filters/text-color-plus          ]]
 ```
 
 使用说明：
 
-1. 将上述代码保存为 `enable-textcolor-enhanced.py`
+1. 将上述代码保存为 `text-color-plus         `
 2. 准备一个 Word 参考文档 `custom-reference.docx` 包含以下样式：
    - `ColoredText` - 用于行内彩色文本
    - `ColoredBlock` - 用于彩色文本块
@@ -17,13 +17,13 @@
 
    ```bash
    # 转换为 HTML
-   pandoc input.md -o output.html --filter enable-textcolor-enhanced.py
+   pandoc input.md -o output.html --filter text-color-plus         
    
    # 转换为 PDF
-   pandoc input.md -o output.pdf --filter enable-textcolor-enhanced.py
+   pandoc input.md -o output.pdf --filter text-color-plus         
    
    # 转换为 docx
-   pandoc input.md -o output.docx --filter enable-textcolor-enhanced.py --reference-doc=custom-reference.docx
+   pandoc input.md -o output.docx --filter text-color-plus          --reference-doc=custom-reference.docx
    ```
 
 注意事项：
@@ -52,10 +52,10 @@
 
 ```bash
 .
-├── enable-textcolor-enhanced.py  # 过滤器脚本
-├── custom-reference.docx         # Word 参考文档
-├── input.md                      # 示例输入文件
-└── Makefile                      # 构建脚本示例
+├── text-color-plus           # 过滤器脚本
+├── custom-reference.docx     # Word 参考文档
+├── input.md                  # 示例输入文件
+└── Makefile                  # 构建脚本示例
 ```
 
 命令：
@@ -63,11 +63,11 @@
 ```bash
 #!/bin/bash
 # 生成 HTML
-pandoc input.md -o output.html --filter ./enable-textcolor-enhanced.py
+pandoc input.md -o output.html --filter ./text-color-plus         
 
 # 生成 PDF
-pandoc input.md -o output.pdf --filter ./enable-textcolor-enhanced.py
+pandoc input.md -o output.pdf --filter ./text-color-plus         
 
 # 生成 docx
-pandoc input.md -o output.docx --filter ./enable-textcolor-enhanced.py --reference-doc=custom-reference.docx
+pandoc input.md -o output.docx --filter ./text-color-plus          --reference-doc=custom-reference.docx
 ```

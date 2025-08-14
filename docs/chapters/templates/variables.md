@@ -381,8 +381,7 @@ Pandoc 在使用 ConTeXt 生成 PDF 时使用这些变量。
 
 `papersize`： 纸张大小，例如 `letter`、`A4`、`landscape`（参见 [ConTeXt 纸张设置](https://wiki.contextgarden.net/PaperSetup)）；可重复设置多个选项。
 
-`pdfa`  
-添加生成指定类型 PDF/A 所需的设置，例如 `1a:2005`、`2a`。如果未指定类型（例如通过 `--metadata=pdfa` 或 YAML 中 `pdfa: true` 设置），默认使用 `1b:2005` 以保持向后兼容性。不支持未指定值的 `--variable=pdfa`。生成 PDF/A 需确保 ICC 颜色配置文件可用，且内容及包含文件（如图片）符合标准。ICC 配置文件和输出意图可通过 `pdfaiccprofile` 和 `pdfaintent` 变量指定。参见 [ConTeXt PDFA](https://wiki.contextgarden.net/PDF/A) 了解详情。
+`pdfa`： 添加生成指定类型 PDF/A 所需的设置，例如 `1a:2005`、`2a`。如果未指定类型（例如通过 `--metadata=pdfa` 或 YAML 中 `pdfa: true` 设置），默认使用 `1b:2005` 以保持向后兼容性。不支持未指定值的 `--variable=pdfa`。生成 PDF/A 需确保 ICC 颜色配置文件可用，且内容及包含文件（如图片）符合标准。ICC 配置文件和输出意图可通过 `pdfaiccprofile` 和 `pdfaintent` 变量指定。参见 [ConTeXt PDFA](https://wiki.contextgarden.net/PDF/A) 了解详情。
 
 `pdfaiccprofile`： 配合 `pdfa` 使用，指定 PDF 使用的 ICC 配置文件，例如 `default.cmyk`。如果未指定，默认使用 `sRGB.icc`。可重复设置多个配置文件。配置文件需在系统上可用，可从 [ConTeXt ICC 配置文件](https://wiki.contextgarden.net/PDFX#ICC_profiles)获取。
 

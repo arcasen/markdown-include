@@ -19,20 +19,20 @@
 过滤器代码：
 
 ```python
-![[ ../../examples/filters/enable-textcolor.py ]]
+![[ ../../examples/filters/text-color ]]
 ```
 
 使用说明：
 
-1. 将上述代码保存为 `enable-textcolor.py`
+1. 将上述代码保存为 `text-color`
 2. 使用 Pandoc 转换时添加过滤器：
 
    ```bash
    # 转换为 HTML
-   pandoc input.md -o output.html --filter enable-textcolor.py
+   pandoc input.md -o output.html --filter text-color
    
    # 转换为 PDF
-   pandoc input.md -o output.pdf --filter enable-textcolor.py
+   pandoc input.md -o output.pdf --filter text-color
    ```
 
 功能特点：
@@ -43,7 +43,7 @@
 
 2. 自动适应输出格式：
    - HTML 输出：使用 `style="color: #FF0000;"`
-   - LaTeX 输出：自动生成 `\enablecolor` 命令和 `\textcolor` 环境
+   - LaTeX 输出：自动生成 `\definecolor` 命令和 `\textcolor` 环境
 
 3. 块级和行内颜色支持：
    - 行内：`[红色文字]{color=#FF0000}`

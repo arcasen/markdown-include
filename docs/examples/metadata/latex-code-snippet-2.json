@@ -1,0 +1,158 @@
+{
+    "pandoc-api-version": [
+        1,
+        23,
+        1
+    ],
+    "meta": {
+        "header-includes": {
+            "t": "MetaBlocks",
+            "c": [
+                {
+                    "t": "RawBlock",
+                    "c": [
+                        "tex",
+                        "\\usepackage{titlesec}"
+                    ]
+                },
+                {
+                    "t": "Para",
+                    "c": [
+                        {
+                            "t": "Str",
+                            "c": "\\titleformat{\\chapter}[display]"
+                        },
+                        {
+                            "t": "SoftBreak"
+                        },
+                        {
+                            "t": "Str",
+                            "c": "{"
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\vspace*{\\fill}"
+                            ]
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\centering"
+                            ]
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\Huge"
+                            ]
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\bfseries"
+                            ]
+                        },
+                        {
+                            "t": "Str",
+                            "c": "}"
+                        },
+                        {
+                            "t": "SoftBreak"
+                        },
+                        {
+                            "t": "Str",
+                            "c": "{\u7b2c"
+                        },
+                        {
+                            "t": "Space"
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\thechapter "
+                            ]
+                        },
+                        {
+                            "t": "Str",
+                            "c": "\u7ae0}"
+                        },
+                        {
+                            "t": "SoftBreak"
+                        },
+                        {
+                            "t": "Str",
+                            "c": "{20pt}"
+                        },
+                        {
+                            "t": "SoftBreak"
+                        },
+                        {
+                            "t": "Str",
+                            "c": "{"
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\centering"
+                            ]
+                        },
+                        {
+                            "t": "Str",
+                            "c": "}"
+                        },
+                        {
+                            "t": "SoftBreak"
+                        },
+                        {
+                            "t": "Str",
+                            "c": "["
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\vspace*{\\fill}"
+                            ]
+                        },
+                        {
+                            "t": "RawInline",
+                            "c": [
+                                "tex",
+                                "\\clearpage"
+                            ]
+                        },
+                        {
+                            "t": "Str",
+                            "c": "]"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "blocks": [
+        {
+            "t": "Para",
+            "c": [
+                {
+                    "t": "Str",
+                    "c": "hello,"
+                },
+                {
+                    "t": "Space"
+                },
+                {
+                    "t": "Str",
+                    "c": "world"
+                }
+            ]
+        }
+    ]
+}

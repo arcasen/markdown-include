@@ -54,3 +54,13 @@
 ```markdown
 [这是 *一些文本*]{.class key="val"}
 ```
+
+::: caution 
+
+通过 Divs 和 Spans 的 id 属性，可以文档内部实现链接（见*[链接 Links]*）：
+
+```markdown
+[链接文本](#标识符)
+```
+
+:::

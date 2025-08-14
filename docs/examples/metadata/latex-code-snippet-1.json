@@ -1,0 +1,39 @@
+{
+    "pandoc-api-version": [
+        1,
+        23,
+        1
+    ],
+    "meta": {
+        "header-includes": {
+            "t": "MetaBlocks",
+            "c": [
+                {
+                    "t": "RawBlock",
+                    "c": [
+                        "tex",
+                        "\\renewcommand*{\\thefootnote}{(\\alph{footnote})}\n\\newcommand{\\smalltext}[1]{\\small#1}\n\\usepackage{etoolbox}\n\\pretocmd{\\section}{\\clearpage}{}{}\n\\preto{\\section}{\\setcounter{footnote}{0}} \n\\apptocmd{\\toprule}{\\rowcolor{cyan!40}}{}{}"
+                    ]
+                }
+            ]
+        }
+    },
+    "blocks": [
+        {
+            "t": "Para",
+            "c": [
+                {
+                    "t": "Str",
+                    "c": "hello,"
+                },
+                {
+                    "t": "Space"
+                },
+                {
+                    "t": "Str",
+                    "c": "world"
+                }
+            ]
+        }
+    ]
+}

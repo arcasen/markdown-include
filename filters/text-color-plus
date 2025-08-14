@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import panflute as pf
+
+def action(elem, doc):
+  # 处理行内颜色 [文字]{color=颜色}
+  if isinstance(elem, pf.Span) and 'color' in elem.attributes:
+    color = elem.attributes['color']
+    
+    if doc.format in ('html', 'html5'):
+      # HTML 输出
+      elem.attributes['style'] = f'color: {color};'
+      
+    elif doc.format == 'latex':
+      # LaTeX/PDF 输出
+      if color.startswith('#'):
+        # 十六进制颜色
+        elem.content = [pf.RawInline(f'\\textcolor[HTML]{{{color[1:]}}}{{', format='latex')] + \
+                list(elem.content) + \
+                [pf.RawInline('}', format='latex')]
+      else:
+        # 标准颜色名称
+        elem.content = [pf.RawInline(f'\\textcolor{{{color}}}{{', format='latex')] + \
+                list(elem.content) + \
+                [pf.RawInline('}', format='latex')]
+    
+    elif doc.format == 'docx':
+      # DOCX 输出 - 使用 OpenXML 属性
+      elem.attributes['custom-style'] = 'ColoredText'
+      # 将颜色信息存储在临时属性中，后续处理
+      elem.attributes['_color'] = color
+    
+    del elem.attributes['color']
+    return elem
+  
+  # 处理块级颜色 ::: {color=颜色} 文字内容 :::
+  elif isinstance(elem, pf.Div) and 'color' in elem.attributes:
+    color = elem.attributes['color']
+    
+    if doc.format in ('html', 'html5'):
+      elem.attributes['style'] = f'color: {color};'
+      
+    elif doc.format == 'latex':
+      if color.startswith('#'):
+        # 十六进制颜色
+        elem.content = [pf.RawBlock(f'{{\\color[HTML]{{{color[1:]}}}', format='latex')] + \
+                list(elem.content) + \
+                [pf.RawBlock('}', format='latex')]
+      else:
+        # 标准颜色名称
+        elem.content = [pf.RawBlock(f'{{\\color{{{color}}}', format='latex')] + \
+                list(elem.content) + \
+                [pf.RawBlock('}', format='latex')]
+    
+    elif doc.format == 'docx':
+      # DOCX 输出 - 使用 pf.Div 的 custom-style
+      elem.attributes['custom-style'] = 'ColoredBlock'
+      # 存储颜色信息
+      elem.attributes['_color'] = color
+    
+    del elem.attributes['color']
+    return elem
+
+if __name__ == '__main__':
+  pf.run_filter(action, doc=None)

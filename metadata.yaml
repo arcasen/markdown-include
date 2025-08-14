@@ -32,3 +32,9 @@ geometry:
 # If true, citations will be hyperlinked to the corresponding bibliography
 # entries (for author-date and numerical styles only). Defaults to false.
 link-citations: true
+
+# Prefixes for pandoc-crossref
+secPrefix: ["§", "§"]
+figPrefix: ["图", "图"]
+tblPrefix: ["表", "表"]
+eqnPrefix: ["式", "式"]

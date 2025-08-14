@@ -1,11 +1,17 @@
 MARKDOWNS := $(shell find . -name "*.md")
 TARGETS   := $(subst .md,.pdf,$(MARKDOWNS))
 TARGETS   += $(subst .md,.tex,$(MARKDOWNS))
-TARGETS   += $(subst .md,.html,$(MARKDOWNS))
+# TARGETS   += $(subst .md,.html,$(MARKDOWNS))
 
-OPTIONS   += -V CJKmainfont="华文楷体"
+# OPTIONS   += -V CJKmainfont="华文楷体"
 OPTIONS   += --pdf-engine=xelatex
-OPTIONS   += --filter define-textcolor.py --filter define-environment.py
+OPTIONS   += --filter striped-table \
+             --filter pandoc-crossref \
+             --filter text-color \
+						 --filter latex-environment
+OPTIONS   += --template stenciler
+OPTIONS   += --metadata lang=zh 
+OPTIONS   += --metadata documentclass=ctexart
 
 all: $(TARGETS)
 

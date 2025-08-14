@@ -64,7 +64,25 @@
   \newcommand{\conclusionname}{结论}
   \newcommand{\solutionname}{解}
   \newcommand{\propertyname}{性质}
-}{\relax}
+}{
+  \renewcommand*{\proofname}{Proof}
+  \newcommand{\definitionname}{Definition}
+  \newcommand{\theoremname}{Theorem}
+  \newcommand{\axiomname}{Axiom}
+  \newcommand{\postulatename}{Postulate}
+  \newcommand{\lemmaname}{Lemma}
+  \newcommand{\propositionname}{Proposition}
+  \newcommand{\corollaryname}{Corollary}
+  \newcommand{\examplename}{Example} %
+  \newcommand{\instancename}{Instance} %
+  \newcommand{\problemname}{Problem} % 问题
+  \newcommand{\exercisename}{Exercise} % 练习=习题
+  \newcommand{\remarkname}{Remark}
+  \newcommand{\assumptionname}{Assumption}
+  \newcommand{\conclusionname}{Conclusion}
+  \newcommand{\solutionname}{Solution}
+  \newcommand{\propertyname}{Property}
+}
 \makeatother
 
 % Specify the counter to use for numbering

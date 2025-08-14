@@ -61,11 +61,8 @@ Pandoc 将其解析为 Markdown 格式[^meta-md]。我们可以执行命令 `pan
 
 Pandoc 解析结果：
 
-```bash
-[ RawBlock
-    (Format "tex")
-    "\\renewcommand*{\\thefootnote}{(\\alph{footnote})}\n\\newcommand{\\smalltext}[1]{\\small#1}\n\\usepackage{etoolbox}\n\\pretocmd{\\section}{\\clearpage}{}{}\n\\preto{\\section}{\\setcounter{footnote}{0}} \n\\apptocmd{\\toprule}{\\rowcolor{cyan!40}}{}{}"
-]
+```haskell
+![[ ../examples/metadata/latex-code-snippet-1.hs]]
 ```
 
 2. 文件 2 含有下面的 LaTeX 代码：
@@ -74,36 +71,10 @@ Pandoc 解析结果：
 ![[ ../examples/metadata/latex-code-snippet-2.md]]
 ```
 
-```bash
-[ RawBlock (Format "tex") "\\usepackage{titlesec}"
-, Para
-    [ Str "\\titleformat{\\chapter}[display]"
-    , SoftBreak
-    , Str "{"
-    , RawInline (Format "tex") "\\vspace*{\\fill}"
-    , RawInline (Format "tex") "\\centering"
-    , RawInline (Format "tex") "\\Huge"
-    , RawInline (Format "tex") "\\bfseries"
-    , Str "}"
-    , SoftBreak
-    , Str "{\31532"
-    , Space
-    , RawInline (Format "tex") "\\thechapter "
-    , Str "\31456}"
-    , SoftBreak
-    , Str "{20pt}"
-    , SoftBreak
-    , Str "{"
-    , RawInline (Format "tex") "\\centering"
-    , Str "}"
-    , SoftBreak
-    , Str "["
-    , RawInline (Format "tex") "\\vspace*{\\fill}"
-    , RawInline (Format "tex") "\\clearpage"
-    , Str "]"
-    ]
-]
+```haskell
+![[ ../examples/metadata/latex-code-snippet-2.hs]]
 ```
+
 ::: caution
 
 后者 LaTeX 代码被解析成字符串文本，编译时将出现错误。
@@ -140,14 +111,13 @@ pandoc input.md --include-in-header='<style>body { color: blue; }</style>' -o ou
 
 Pandoc `--include-in-header` 选项直接修改使用的模板，允许对文档头部内容进行精细控制。
 
-- 如果同时存在 `header-includes` 元数据变量，则后者将被覆盖，见：
+- 如果同时存在 `header-includes` 元数据变量或在过滤器中写入 `header-includes` 变量
+  （见*[过滤器 Filters]*，则该元数据将被 `--include-in-header` 文件内容覆盖，见：
 
   - <https://github.com/jgm/pandoc/issues/3139>
   - <https://github.com/jgm/pandoc/issues/3138>
 
 - 由于 Pandoc 会自动设置一些 `header-includes` 变量（见*[自动设置的变量]*），建议使用 `--include-in-header` 时先包含这部分代码，见<https://github.com/arcasen/markdown-include/blob/main/preamble.tex>。
-
-- 避免在过滤器中写入 `header-includes` 变量（见*[过滤器 Filters]*）。
 
 :::
 
