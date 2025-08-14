@@ -117,3 +117,39 @@ pandoc --highlight-style my.theme
 
 [^shaded]: 此时 `--highlight-style` 和 `--no-highlight` 选项才起作用，使用 `--listings` 时，格式由 `listings` 宏设置。
 
+#### 非断行空格 Non-breaking Space
+
+在使用 Pandoc 将 Markdown 转换为其他格式（如 HTML 或 PDF）时，
+含有前导空格的代码（如 `  hello,world`）可能会忽略前导空格，即渲染为：`  hello,world`。
+
+在 Markdown 中，可以手动将前导空格替换为 Unicode 非断行空格（Non-breaking Space，简称 NBSP）。非断行空格可以通过文本编辑器或脚本替换输入，也可以直接输入：
+
+  - Windows：`Alt + 0160`（小键盘）
+  - Mac：`Option + Space`
+  - HTML/XML：`&nbsp;`
+  - LaTeX：`~`（波浪号）
+  - Unicode：`U+00A0`
+
+非断行空格的主要用途：
+
+1. 防止自动换行。普通空格（U+0020）在文本换行时会被断开，但 NBSP 会强制让相连的单词或字符保持在同一行，避免被分开。示例： 
+
+```html
+100&nbsp;km/h  <!-- "100 km/h" 会始终显示在同一行 -->
+```
+
+2. 在 HTML 中保留空格。HTML 默认会合并多个普通空格为一个，使用 `&nbsp;` 可以保留连续的空格。示例：  
+
+```html
+你好&nbsp;&nbsp;&nbsp;世界  <!-- 显示为 "你好   世界"（3个空格） -->
+```
+
+3. 用于对齐或固定格式。在表格、代码等需要对齐的场景下，可以用 NBSP 代替普通空格，确保格式稳定。  
+
+::: caution
+
+  - 过度使用 `&nbsp;` 可能导致代码可读性下降，建议在真正需要时使用。
+  - 在响应式设计中，依赖 NBSP 控制布局可能不灵活，推荐使用 CSS（如 `white-space: nowrap`）替代。  
+
+:::
+

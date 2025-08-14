@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20250808
+# Version: 20250815
 
 # Specify input and output directories
 DOCS ?= docs
@@ -14,7 +14,6 @@ SETTINGS := defaults.yaml metadata.yaml preamble.tex
 DOCUMENTS := $(shell find $(DOCS) -not -path $(DOCS)) # everything under $(DOCS)
 DUPLICATE := $(patsubst $(DOCS)%,$(DIST)%,$(subst .md,.markdown,$(DOCUMENTS)))
 DUPLICATE += $(patsubst %,$(DIST)/%,$(SETTINGS))
-DUPLICATE += $(patsubst %,$(DIST)/%,$(INCLUDES))
 MARKDOWNS := $(patsubst $(DOCS)%.md,$(DIST)%.markdown,$(shell find $(DOCS) -name "*.md"))
 
 # Proccessed .md documents (will be created in the directory '$(DIST)')
@@ -36,45 +35,35 @@ HTML := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.html,$(TOP_DOCS)))
 # export TARGETS
 # export PDFS
 
-all: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends
+# Prerequisites to build targets
+requisite: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends
 	make -C $(DIST)
 
 # Create PDF documents
-pdf: all
+pdf: requisite
 	make -C $(DIST) pdf
 
 # Create LaTeX documents
-tex: all
+tex: requisite
 	make -C $(DIST) tex
 
 # Create html documents
-html: all
+html: requisite
 	make -C $(DIST) html
 
 clean:
-	rm -f $(DIST)/*.pdf $(DIST)/*.tex $(DIST)/*.html $(DIST)/*.yaml
+	make -C $(DIST) clean
 
 cleanup:
 	rm -rf $(DIST)
 
-.PHONY: all clean cleanup pdf tex html
+.PHONY: requisite clean cleanup pdf tex html
 
 # Rule: create Makefile in the directory '$(DIST)'
 $(DIST)/Makefile: $(MARKDOWNS)
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
-
-# $(DIST)/%.yaml: %.yaml
-# 	@echo "Creating $@ ..."
-# 	@mkdir -p $(DIST)
-# 	@cp -f $< $@
-
-# Rule: copy *.yaml include-*.tex
-$(DIST)/%: %
-	@echo "Creating $@ ..."
-	@mkdir -p $(DIST)
-	@cp -f $< $@
 
 # Rule: automatically generating inclusion dependencies between Markdown files
 $(DIST)/depends: $(MARKDOWNS)
@@ -90,6 +79,11 @@ $(DIST)/%.markdown: $(DOCS)/%.md
 	@$(call rebasepath,$@)
 
 # Rule: copy other files to the directory '$(DIST)'
+$(DIST)/%: %
+	@echo "Creating $@ ..."
+	@mkdir -p $(DIST)
+	@cp -f $< $@
+
 $(DIST)/%: $(DOCS)/%
 	@echo "Creating $@ ..."
 	@mkdir -p $(dir $@)
@@ -144,6 +138,11 @@ pdf: $(PDFS)
 tex: $(TEXS)
 
 html: $(HTML)
+
+clean:
+	rm -f $(PDFS) $(TEXS) $(HTML)
+
+.PHONY: all clean
 
 include depends
 

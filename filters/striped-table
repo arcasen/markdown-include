@@ -43,9 +43,10 @@ def action(elem, doc):
          
       # 如果输出格式是 LaTeX，添加 LaTeX 代码
       if doc.format == 'latex':
-        return [pf.RawBlock(r'{\rowcolors{1}{white}{cyan!15}', format='latex'),
-            elem,
-            pf.RawBlock(r'}', format='latex')]
+        return [pf.RawBlock(r'{\apptocmd{\toprule}{\rowcolor{cyan!40}}{}{}', format='latex'),
+                pf.RawBlock(r'\rowcolors{1}{white}{cyan!15}', format='latex'),
+                elem,
+                pf.RawBlock(r'}', format='latex')]
       elif doc.format == "html":
         # HTML 方式: 为表格添加 CSS 类
         elem.classes = ["striped-table"]

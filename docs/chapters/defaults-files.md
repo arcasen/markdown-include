@@ -12,6 +12,17 @@ Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式
 
 ### General Options
 
+<!-- 
+
+在使用 Pandoc 将 Markdown 转换为其他格式（如 HTML 或 PDF）时，
+表格单元格中以反引号（`）包裹的代码（如 ` hello,world`）可能会导致前面
+的空格被忽略。
+
+在 Markdown 中，可以手动将前导空格替换为 Unicode 非断行空格（U+00A0）。
+虽然直接输入非断行空格不方便，但可以通过文本编辑器或脚本替换。
+
+-->
+
 ----------------------------------------------------------------------
 Command line                        Default file                  
 ----------------------------------  ----------------------------------
@@ -24,8 +35,16 @@ Command line                        Default file
 `--data-dir dir`                    `data-dir: dir`                 
 
 `--defaults file`                   `defaults:`\                     
-                                    `- file`       
+                                    `  - file`       
 ----------------------------------------------------------------------
+
+: General Options{.striped}
+
+::: caution
+
+表格中只列举部分选项，详见 Pandoc 文档，下同。
+
+:::
 
 默认文件中指定的选项始终优先于通过 `defaults:` 条目包含的其他文件中的选项。
 
@@ -41,11 +60,22 @@ Command line                        Default file
 `--file-scope`                      `file-scope: true`
 
 `--citeproc \`                      `filters:`\
-`--lua-filter count-words.lua \`    `- citeproc`\
-`--filter special.lua`              `- count-words.lua`\
-                                    `- type: json`\
-                                    `  path: special.lua`
+`--lua-filter count-words.lua \`    `  - citeproc`\
+`--filter special.lua`              `  - count-words.lua`\
+                                    `  - type: json`\
+                                    `    path: special.lua`
+
+`--metadata key=value \`            `metadata:`\
+`--metadata key2`                   `  key: value`\
+                                    `  key2: true`
+  
+`--metadata-file meta.yaml`         `metadata-files:`\
+                                    `  - meta.yaml`\
+                                    OR\
+                                    `metadata-file: meta.yaml`
 ----------------------------------------------------------------------
+
+: Reader Options{.striped}
 
 默认文件中指定的元数据值被解析为字面字符串文本（literal string text），而不是 Markdown。
 
@@ -61,8 +91,8 @@ Command line                        Default file
 `--template letter`                 `template: letter`               
 
 `--variable key=val \`              `variables:`\
-`--variable key2`                   `  key: val`\  
-                                    `  key2: true`                   
+`--variable key2`                   `  key: val`\  
+                                    `  key2: true`                   
 
 `--table-of-contents`               `table-of-contents: true`        
 
@@ -77,14 +107,16 @@ Command line                        Default file
 `--highlight-style kate`            `highlight-style: kate`  
 
 `--include-in-header inc.tex`       `include-in-header:`\
-                                    `- inc.tex`
+                                    `  - inc.tex`
 
 `--include-before-body inc.tex`     `include-before-body:`\
-                                    `- inc.tex`
+                                    `  - inc.tex`
 
 `--include-after-body inc.tex`      `include-after-body:`\
-                                    `- inc.tex`
+                                    `  - inc.tex`
 ----------------------------------------------------------------------
+
+: 通用写入器选项{.striped}
 
 ### 特定写入器选项
 
@@ -154,10 +186,12 @@ Command line                        Default file
 `--pdf-engine xelatex`              `pdf-engine: xelatex`             
 
 `--pdf-engine-opt=--shell-escape`   `pdf-engine-opts: `\
-                                    `  - 'shell-escape`\
+                                    `  - 'shell-escape`\
                                     OR\
                                     `pdf-engine-opt: '-shell-escape'` 
 ----------------------------------------------------------------------
+
+: 特定写入器选项{.striped}
 
 ### 引文渲染
 
@@ -177,6 +211,8 @@ Command line                        Default file
 `--biblatex`                        `cite-method: biblatex`           
 ----------------------------------------------------------------------
 
+: 引文渲染{.striped}
+
 `cite-method` 可以是 `citeproc`、`natbib` 或 `biblatex`。这仅影响 LaTeX 输出。如果要使用 citeproc 格式化引文，还应设置 `citeproc: true`。
 
 如果需要控制 citeproc 处理与其他过滤器的相对顺序，应在过滤器列表中使用 citeproc（参见阅读器选项）。
@@ -187,20 +223,22 @@ Command line                        Default file
 Command line                        Default file                  
 ----------------------------------  ----------------------------------
 `--mathjax`                         `html-math-method:`\
-                                    `  method: mathjax` 
+                                    `  method: mathjax` 
 
 `--mathml`                          `html-math-method:`\
-                                    `  method: mathml`  
+                                    `  method: mathml`  
 
 `--webtex`                          `html-math-method:`\
-                                    `  method: webtex`  
+                                    `  method: webtex`  
 
 `--katex`                           `html-math-method:`\
-                                    `  method: katex`   
+                                    `  method: katex`   
 
 `--gladtex`                         `html-math-method:`\
-                                    `  method: gladtex` 
+                                    `  method: gladtex` 
 ----------------------------------------------------------------------
+
+: HTML 中的数学渲染{.striped}
 
 除上述值外，`method` 还可以取值 `plain`。
 
