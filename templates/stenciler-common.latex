@@ -12,15 +12,16 @@
 \renewcommand{\labelitemiv }{$$\circ$$}
 \setlist{
   align=left,
-  labelwidth=1.15em,
-  labelsep=0.35em,
-  leftmargin=0pt,
+  labelwidth=1em,
+  labelsep=0.2em,
+  itemindent=0em,
+  leftmargin=3.2em,
 }
 % Setting global list indentation for each level
-\setlist[1]{itemindent=3.5em}
-\setlist[2]{itemindent=3.5em,leftmargin=2em}
-\setlist[3]{itemindent=3.5em,leftmargin=2em}
-\setlist[4]{itemindent=3.5em,leftmargin=2em}
+% \setlist[1]{itemindent=0em,leftmargin=3.5em}
+% \setlist[2]{itemindent=0em,leftmargin=3.5em}
+% \setlist[3]{itemindent=0em,leftmargin=3.5em}
+% \setlist[4]{itemindent=0em,leftmargin=3.5em}
 % Settings for description
 % \setlist[description]{
 %   labelindent=2em,

@@ -3,62 +3,69 @@
 # 替换表格标题中的 .striped 字符串，并重新以 Pandoc 方式解析
 # 使其能够被 pandoc-crossref 调用
 
-import panflute as pf
 import re
 from functools import reduce
+import panflute as pf
+
 
 def action(elem, doc):
-  # 检查元素是否为表格且有标题
-  if isinstance(elem, pf.Table) and elem.caption:
-    # 将标题内容转换为纯文本
-    caption_text = pf.stringify(elem.caption)
-    # 判断是否包含 .striped
-    if '.striped' in caption_text:
-      replacements = [
-        (r'\{\s+', '{'),           # 去掉 { 后面的空格
-        (r'\s+\}', '}'),           # 去掉 } 前面的空格
-        (r'\s*\.striped\s*', ''),  # 确定 .striped 子字符串
-        (r'\{\}', ''),             # 确定 {} 子字符串
-        (r'^\s+', ''),             # 去掉前导空格
-        (r'\s+$', ''),             # 确定尾部空格
-      ]
-      # reduce 将 caption_text 作为初始值，依次对每对 (pattern, repl) 调用 
-      # re.sub(), 每次的结果作为下一次的输入
-      new_caption_text = reduce(lambda s, pr: re.sub(pr[0], pr[1], s), 
-                                replacements, 
-                                caption_text)
-    
-      # 如果替换后标题不为空，重新解析为 Pandoc AST
-      if new_caption_text:
-        # 使用 convert_text 将新标题字符串解析为 AST
-        parsed_doc = pf.convert_text(new_caption_text, 
-                                     input_format='markdown', 
-                                     standalone=False)
-        # 创建新的 Caption 元素，提取解析后的内联内容
-        new_caption = pf.Caption(*parsed_doc) if parsed_doc else pf.Caption()
-        elem.caption = new_caption
-      else:
-        # 如果标题为空，移除标题
-        elem.caption = None
-         
-      # 如果输出格式是 LaTeX，添加 LaTeX 代码
-      if doc.format == 'latex':
-        return [pf.RawBlock(r'{\apptocmd{\toprule}{\rowcolor{cyan!40}}{}{}', format='latex'),
-                pf.RawBlock(r'\rowcolors{1}{white}{cyan!15}', format='latex'),
-                elem,
-                pf.RawBlock(r'}', format='latex')]
-      elif doc.format == "html":
-        # HTML 方式: 为表格添加 CSS 类
-        elem.classes = ["striped-table"]
-        return elem
-      
+    # 检查元素是否为表格且有标题
+    if isinstance(elem, pf.Table) and elem.caption:
+        # 将标题内容转换为纯文本
+        caption_text = pf.stringify(elem.caption)
+        # 判断是否包含 .striped
+        if '.striped' in caption_text:
+            replacements = [
+                (r'\{\s+', '{'),           # 去掉 { 后面的空格
+                (r'\s+\}', '}'),           # 去掉 } 前面的空格
+                (r'\s*\.striped\s*', ''),  # 确定 .striped 子字符串
+                (r'\{\}', ''),             # 确定 {} 子字符串
+                (r'^\s+', ''),             # 去掉前导空格
+                (r'\s+$', ''),             # 确定尾部空格
+            ]
+            # reduce 将 caption_text 作为初始值，依次对每对 (pattern, repl) 调用
+            # re.sub(), 每次的结果作为下一次的输入
+            new_caption_text = reduce(lambda s, pr: re.sub(pr[0], pr[1], s),
+                                      replacements,
+                                      caption_text)
+
+            # 如果替换后标题不为空，重新解析为 Pandoc AST
+            if new_caption_text:
+                # 使用 convert_text 将新标题字符串解析为 AST
+                parsed_doc = pf.convert_text(new_caption_text,
+                                             input_format='markdown',
+                                             standalone=False)
+                # 创建新的 Caption 元素，提取解析后的内联内容
+                new_caption = pf.Caption(
+                    *parsed_doc) if parsed_doc else pf.Caption()
+                elem.caption = new_caption
+            else:
+                # 如果标题为空，移除标题
+                elem.caption = None
+
+            # 如果输出格式是 LaTeX，添加 LaTeX 代码
+            if doc.format == 'latex':
+                return [pf.RawBlock(r'{\apptocmd{\toprule}{\rowcolor{cyan!40}}{}{}',
+                                    format='latex'),
+                        pf.RawBlock(
+                            r'\rowcolors{1}{white}{cyan!15}', format='latex'),
+                        elem,
+                        pf.RawBlock(r'}', format='latex')]
+            elif doc.format == "html":
+                # HTML 方式: 为表格添加 CSS 类
+                elem.classes = ["striped-table"]
+                return elem
+
+
 def finalize(doc):
-  # HTML 输出时插入 CSS 样式
-  if doc.format == "html":
-    css = """<style>
+    # HTML 输出时插入 CSS 样式
+    if doc.format == "html":
+        css = """<style>
       table.striped-table tr:nth-child(even) { background: #f0f0f0; }
     </style>"""
-    doc.metadata["header-includes"] = pf.MetaBlocks(pf.RawBlock(css, format="html"))
+        doc.metadata["header-includes"] = pf.MetaBlocks(
+            pf.RawBlock(css, format="html"))
+
 
 if __name__ == '__main__':
-  pf.run_filter(action, finalize=finalize, doc=None)
+    pf.run_filter(action, finalize=finalize, doc=None)

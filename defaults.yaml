@@ -11,10 +11,10 @@ shift-heading-level-by: -1
 # crossref and citeproc use similar syntax, use pandoc-crossref first
 filters:
   - striped-table
-  - pandoc-crossref
-  - citeproc
   - text-color
   - latex-environment
+  - pandoc-crossref
+  - citeproc
   # - hypertext-reference
 
 # Resolve '! LaTeX Error: Environment lstlisting unenabled.' when 

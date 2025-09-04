@@ -104,3 +104,86 @@ pandoc example.md --filter pandoc-crossref --citeproc -o example.pdf
 
 在编译时加入：`-M link-citations=true` 或将 `link-citations=true` 写入元数据文件中（注意不是 defaults file）。
 
+### 参考文献的位置
+
+默认情况下，Pandoc 会将参考文献列表（由 `references.bib` 文件生成）自动放置在生成文档的末尾。这是学术写作的标准格式（如 APA、MLA、Chicago 等），因此也是 Pandoc 的默认行为。
+
+如果你需要将参考文献放在其他位置怎么办？虽然不能通过一个简单的标记来改变位置，但有几种有效的方法可以实现你的需求：
+
+#### 方法一：使用 `div` 包裹引用（推荐且标准）
+
+这是最“Pandoc”的方式。你可以在你的 Markdown 主文件（例如 `paper.md`）中，**精确地指定**你希望参考文献列表出现的位置。
+
+1.  在你希望参考文献出现的地方，插入一个特定的 `div` 容器，并为其设置一个唯一的 ID，例如 `#refs`。
+
+    ```markdown
+    # 正文内容
+
+    这里是论文的正文内容，包含了各种引用 [@Author2020; @Scholar2018]。
+
+    ## 参考文献
+
+    ::: {#refs}
+    :::
+
+    ## 附录
+
+    这里是附录内容。
+    ```
+
+2.  在使用 Pandoc 编译时，使用 `--citeproc` 或 `--filter=citeproc` 参数（它负责处理参考文献），Pandoc 会自动识别 `{#refs}` 这个特定的 div，并将生成的参考文献列表填充到里面。
+
+    ```bash
+    pandoc paper.md --bibliography=references.bib --citeproc -o paper.pdf
+    # 或者使用 CSL 样式文件
+    pandoc paper.md --bibliography=references.bib --csl chicago-author-date.csl --citeproc -o paper.pdf
+    ```
+
+关键点：`{#refs}` 这个 ID 是 `citeproc` 过滤器识别的一个**特殊信号**。当你使用它时，Pandoc 就不会再把参考文献放在文末，而是放在你指定的这个位置。
+
+#### 方法二：后处理文档结构（更灵活但复杂）
+
+如果方法一不满足需求，或者你需要更复杂的控制，可以采用“分体-合并”的策略。
+
+1.  将文档分成两部分：主文 (`main.md`) 和附录 (`appendix.md`)。
+2.  单独为主文生成带参考文献的文档：
+    ```bash
+    pandoc main.md --bibliography=references.bib --citeproc -o main_with_refs.md
+    ```
+    这会生成一个包含了正确格式参考文献的 Markdown 文件。
+3.  合并文件：
+    ```bash
+    pandoc main_with_refs.md appendix.md -o final_paper.pdf
+    ```
+
+这种方法给你最大的灵活性，你可以把参考文献放在任何两个文件之间，但需要更多的步骤和文件管理。
+
+#### 方法三：使用 LaTeX 指令（仅适用于 PDF/LaTeX 输出）
+
+如果你输出的目标是 PDF（通过 LaTeX 引擎），你可以在 Markdown 文件中直接使用 LaTeX 命令来控制位置。
+
+在你的 Markdown 文件中插入以下代码：
+
+```markdown
+# 正文内容
+
+这里是论文的正文内容，包含了各种引用 [@Author2020; @Scholar2018]。
+
+\begingroup
+\renewcommand{\section}[2]{} % 可选：抑制参考文献部分的标题
+\begin{thebibliography}{}
+\end{thebibliography}
+\endgroup
+
+# 附录
+
+这里是附录内容。
+```
+
+然后使用 Pandoc 编译：
+
+```bash
+pandoc paper.md --bibliography=references.bib --citeproc -o paper.pdf
+```
+
+Pandoc 的 `citeproc` 会将生成的参考文献列表填充到 `thebibliography` 环境中。注意：这种方法依赖于 LaTeX，因此只适用于输出格式为 PDF 的情况。

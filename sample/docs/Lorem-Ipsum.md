@@ -1,4 +1,7 @@
 ---
+documentclass: ctexart
+has-frontmatter: false
+top-level-division: section
 lang: zh
 ---
 

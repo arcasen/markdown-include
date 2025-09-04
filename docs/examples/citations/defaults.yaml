@@ -2,8 +2,9 @@
 
 # crossref and citeproc use similar syntax, use pandoc-crossref first
 filters:
+  - latex-environment
   - pandoc-crossref
-  - citeproc
+  # - citeproc
 
 variables:
   CJKmainfont: "华文楷体"

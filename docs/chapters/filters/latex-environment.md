@@ -21,6 +21,12 @@
 ![[ ../../examples/filters/latex-environment ]]
 ```
 
+::: caution 
+
+与参考文献（见*[文献引用 Citations]*）有冲突，编译时应先使用 `--filter latex-environment`，后使用 `--citeproc`；否则，无法定义 `\citeproc` 等命令。
+
+:::
+
 #### 定理环境
 
 通过这个过滤器，我们可以在 Markdown 中使用定理环境：

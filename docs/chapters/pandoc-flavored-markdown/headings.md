@@ -122,6 +122,12 @@ See the section on
 
 如果存在 `unnumbered` 和 `unlisted` ，则标题将不会包含在目录中。（目前此功能仅适用于某些格式：基于 LaTeX 和 HTML、PowerPoint 和 RTF 的格式。）
 
+::: caution
+
+不编号的标题仍然会出现在目录中，除非你明确排除它们（例如，使用 {.unlisted} 属性）。
+
+:::
+
 示例：
 
 ```markdown
