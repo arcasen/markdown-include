@@ -11,7 +11,7 @@ $else$
   \vspace*{1.5cm}
   $if(author)${\large{$author$}}\\$endif$
   \vspace*{12cm}
-  $if(press)${\large{$press$}}\\$endif$
+  $if(publisher)${\large{$publisher$}}\\$endif$
   \vspace*{1cm}
   $if(date)${\normalsize{$date$}}$else${\normalsize\today}$endif$
   \vfill

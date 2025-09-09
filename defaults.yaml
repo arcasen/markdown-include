@@ -15,14 +15,15 @@ filters:
   - latex-environment
   - pandoc-crossref
   - citeproc
+  - pageref
   # - hypertext-reference
 
-# Resolve '! LaTeX Error: Environment lstlisting unenabled.' when 
+# Resolve '! LaTeX Error: Environment lstlisting unenabled.' when
 # using the pandoc-crossref filter together with Eisvogel template
 # https://mickey-happygolucky.hatenablog.com/entry/2022/04/05/012146
 metadata:
   listings: true
-  
+
 metadata-file: metadata.yaml
 
 # ==================== General writer options ===================
@@ -52,7 +53,7 @@ pdf-engine: xelatex
 # pdf-engine-opts:
 #   - '-shell-escape'
 
-# Use the listings package for LaTeX code blocks. 
+# Use the listings package for LaTeX code blocks.
 # (default: pandoc's Shaded envrionment)
 listings: true
 # reference-doc: custom-reference.docx

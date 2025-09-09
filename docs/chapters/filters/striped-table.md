@@ -10,7 +10,7 @@
 
 ::: caution
 
-如何与 pandoc-crossref 一起使用时，请调用 striped-table。
+如果与 pandoc-crossref 一起使用时，请先调用 striped-table。
 
 :::
 

@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""为文档内部链接建立页码引用.
+"""
+
+
+import panflute as pf
+
+
+def is_chinese(char):
+    # 判断是否为中文字符（CJK 统一汉字范围 U+4E00 到 U+9FFF）
+    return '\u4e00' <= char <= '\u9fff'
+
+
+def chinese_to_ux(id):
+    """将链接标识符中的中文转为 Unicode.
+
+    Args:
+        id (str): Pandoc 链接中的标识符 (已按 Pandoc 
+            auto_identifiers 算法处理过, 仅含中文)
+
+    Returns:
+        str: 中文转为 Unicode 后的标识符
+    """
+
+    # 将中文字符转换为 ux****, 这是 Pandoc 含中文的标识符形式
+    result = ''.join(f'ux{ord(ch):04x}' if is_chinese(ch)
+                     else ch for ch in id)
+
+    if not result:
+        result = 'section'
+
+    return result
+
+
+def action(elem, doc):
+    # Only process elements if the output format is LaTeX
+    if doc.format == 'latex' and isinstance(elem, pf.Link):
+        # Check if the link is a section reference (starts with #sec:)
+        # if elem.url.startswith('#sec:'):
+        if elem.url.startswith('#'):
+            # Remove '#' and convert
+            identifier = chinese_to_ux(elem.url[1:])
+            pageref = pf.RawInline(
+                f'\\pageref{{{identifier}}}', format='latex')
+            # Combine hyperref and pageref with comma, "p.", and brackets
+            return [elem, pf.Str('[p.'), pf.Space, pageref, pf.Str(']')]
+    return None
+
+
+if __name__ == '__main__':
+    pf.run_filter(action, doc=None)

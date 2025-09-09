@@ -10,6 +10,8 @@
 
 ![[ ./filters/striped-table.md ]]
 
+![[ ./filters/pageref.md ]]
+
 ![[ ./filters/text-color.md ]]
 
 ![[ ./filters/text-color-plus.md ]]

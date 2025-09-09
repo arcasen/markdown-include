@@ -51,13 +51,11 @@ Pandoc 将其解析为 Markdown 格式[^meta-md]。我们可以执行命令 `pan
 
 :::
 
-示例：
+示例 1：含有下面的 LaTeX 代码：
 
-1. 文件 1 含有下面的 LaTeX 代码：
-
-```markdown
-![[ ../examples/metadata/latex-code-snippet-1.md]]
-```
+ ```markdown
+ ![[ ../examples/metadata/latex-code-snippet-1.md]]
+ ```
 
 Pandoc 解析结果：
 
@@ -65,15 +63,17 @@ Pandoc 解析结果：
 ![[ ../examples/metadata/latex-code-snippet-1.hs]]
 ```
 
-2. 文件 2 含有下面的 LaTeX 代码：
+示例 2： 含有下面的 LaTeX 代码：
 
-```markdown
-![[ ../examples/metadata/latex-code-snippet-2.md]]
-```
+ ```markdown
+ ![[ ../examples/metadata/latex-code-snippet-2.md]]
+ ```
 
-```haskell
-![[ ../examples/metadata/latex-code-snippet-2.hs]]
-```
+ Pandoc 解析结果：
+
+ ```haskell
+ ![[ ../examples/metadata/latex-code-snippet-2.hs]]
+ ```
 
 ::: caution
 
@@ -93,19 +93,19 @@ Pandoc 的 `--include-in-header` 命令行选项允许将原始内容直接包�
 
 1. 使用文件：
    
-```bash
-pandoc input.md --include-in-header=header.tex -o output.pdf
-```
+   ```bash
+   pandoc input.md --include-in-header=header.tex -o output.pdf
+   ```
 
-在此示例中，`header.tex` 的内容将被插入到生成的 `output.pdf` 的 LaTeX 前导代码中。
+   在此示例中，`header.tex` 的内容将被插入到生成的 `output.pdf` 的 LaTeX 前导代码中。
 
 2. 直接提供内容：
    
-```bash
-pandoc input.md --include-in-header='<style>body { color: blue; }</style>' -o output.html
-```
+   ```bash
+   pandoc input.md --include-in-header='<style>body { color: blue; }</style>' -o output.html
+   ```
 
-在此示例中，CSS 样式定义被直接插入到 `output.html` 的 `<head>` 部分。
+   在此示例中，CSS 样式定义被直接插入到 `output.html` 的 `<head>` 部分。
 
 ::: caution
 

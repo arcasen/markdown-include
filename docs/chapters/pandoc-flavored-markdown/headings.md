@@ -108,7 +108,7 @@ See the section on
 
 请注意，虽然此语法允许分配类和键/值属性，但编写者通常不会使用所有这些信息。标识符、类和键/值属性用于 HTML 和基于 HTML 的格式（例如 EPUB 和 slidy）。标识符用于 LaTeX、ConTeXt、Textile、Jira 标记和 AsciiDoc 编写器中的标签和链接锚点。
 
-如果指定了带有 `unnumbered` 类的标题，则即使使用 `--number-sections` 也不会被编号。属性上下文中的单个连字符（`-`） 相当于 `.unnumbered`，并且在非英语文档中更可取。因此，
+如果指定了带有 `unnumbered` 类的标题，则即使使用 `--number-sections` 也不会被编号。属性上下文中的单个连字符（`-`） 相当于 `.unnumbered`，并且在非英语文档中更可取。例如：
 
 ```markdown
 # My heading {-}

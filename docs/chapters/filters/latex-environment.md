@@ -41,7 +41,7 @@
 
 :::
 
-#### awesomebox
+#### awesomebox 环境
 
 通过这个过滤器，我们可以在 Markdown 中使用 awesomebox[^awesomebox] 环境：
 
@@ -63,7 +63,7 @@ awesomebox 内部不能使用脚注。
 
 :::
 
-#### `messagebox` 环境
+#### messagebox 环境
 
 示例：在 Stenciler 模板中预定义了 `messagebox` 环境，我们可以按如下方法使用。
 
