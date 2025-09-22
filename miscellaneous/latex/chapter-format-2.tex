@@ -1,0 +1,88 @@
+% 在 LaTeX 文档中保存当前的 \chapter 格式，同时定义一个新的 \chapter 格式，并在文档的不同部分分别使用这两种格式。以下是一个解决方案，通过定义新的命令来实现这一点，同时确保 LaTeX 代码正确且可编译。
+
+% 说明
+% 1. 保存原始格式：在文档开头明确使用 titlesec 的 \titleformat 和 \titlespacing* 定义了原始 \chapter 格式的参数（基于 book 类的默认设置）。这确保了我们有明确的原始格式配置，而不是依赖 \let 命令，因为 titlesec 可能会覆盖默认的 \chapter 定义。
+% 2. 定义切换命令：
+
+  % \originalchapterformat：重新应用原始的 \chapter 格式（默认字体、间距等）。
+  % \newchapterformat：应用新的 \chapter 格式（蓝色标题、斜体、调整间距）。
+
+% 3. 格式切换：通过在文档中调用 \originalchapterformat 和 \newchapterformat，可以在不同章节之间切换格式。
+% 4. 差异化新格式：新格式使用了蓝色标题（\color{blue}）、斜体（\itshape）和不同的间距（30pt），以便与原始格式明显区分。
+
+
+% 设置文档类和必要包
+\documentclass[a4paper,12pt]{ctexbook}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% 章节标题（\chapter）后的第一个段落默认不缩进。这是 LaTeX 的标准排版惯例，基于传统印刷规范（尤其在书籍中），
+% 认为章节开头段落不缩进更美观，更能突出章节的起始。
+% 通过重新定义 \@afterheading 命令（LaTeX 内部用于控制章节标题后格式的命令），可以让所有章节后的首段缩进：
+% \makeatletter
+% \let\old@afterheading\@afterheading
+% \renewcommand{\@afterheading}{\old@afterheading \indent}
+% \makeatother
+
+% 保存原始 chapter 格式的配置
+% 使用 titlesec 保存默认格式的参数
+\titleformat{name=\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+% 定义命令以应用原始 chapter 格式
+\newcommand{\originalchapterformat}{
+  \titleformat{name=\chapter}[display]
+    {\normalfont\huge\bfseries}
+    {\chaptertitlename\ \thechapter}
+    {20pt}
+    {\Huge}
+  \titlespacing*{\chapter}{0pt}{50pt}{40pt}
+}
+
+% 定义新的 chapter 格式（蓝色标题，调整间距）
+\newcommand{\newchapterformat}{
+  \titleformat{name=\chapter}[display]
+    {\normalfont\Huge\bfseries\color{blue}}
+    {\chaptertitlename\ \thechapter}
+    {15pt}
+    {\Huge\itshape}
+  \titlespacing*{\chapter}{0pt}{30pt}{30pt}
+}
+
+% 设置默认字体以支持非拉丁字符（可选）
+\usepackage{noto}
+
+% 开始文档
+\begin{document}
+
+\originalchapterformat
+\tableofcontents
+
+% 使用原始 chapter 格式
+\originalchapterformat
+\chapter{First Chapter with Original Format}
+这是一个使用原始 book 类 chapter 格式的章节。
+
+% 切换到新的 chapter 格式
+\newchapterformat
+\chapter{Second Chapter with New Format}
+这是一个使用新格式的章节，标题为蓝色且间距不同。
+
+% 恢复原始 chapter 格式
+\originalchapterformat
+\chapter{Third Chapter with Original Format Again}
+
+这是一个恢复原始格式的章节。
+
+这是一个恢复原始格式的章节。
+
+\end{document}

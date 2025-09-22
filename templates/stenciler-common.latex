@@ -56,6 +56,12 @@ $else$
   \KOMAoptions{parskip=half}}
   
 \ifdefstring{\stenciler@lang}{zh}{
+  % 章节标题（\chapter）后的第一个段落默认不缩进。这是 LaTeX 的标准排版惯例，基于传统印刷规范（尤其在书籍中），
+  % 认为章节开头段落不缩进更美观，更能突出章节的起始。
+  % 通过重新定义 \@afterheading 命令（LaTeX 内部用于控制章节标题后格式的命令），可以让所有章节后的首段缩进：
+  \let\old@afterheading\@afterheading
+  \renewcommand{\@afterheading}{\old@afterheading \indent}
+
   % paragraph indentation
   \setlength{\parindent}{2em}
 }{\relax}
