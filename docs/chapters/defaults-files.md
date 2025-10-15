@@ -60,8 +60,8 @@ Command line                        Default file
 `--file-scope`                      `file-scope: true`
 
 `--citeproc \`                      `filters:`\
-`--lua-filter count-words.lua \`    `  - citeproc`\
-`--filter special.lua`              `  - count-words.lua`\
+`--lua-filter wc.lua \`             `  - citeproc`\
+`--filter special.lua`              `  - wc.lua`\
                                     `  - type: json`\
                                     `    path: special.lua`
 
