@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20251016
+# Version: 20251224
 
 # Specify input and output directories
 DOCS ?= docs
@@ -69,7 +69,7 @@ $(DIST)/Makefile: $(MARKDOWNS)
 $(DIST)/depends: $(MARKDOWNS)
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
-	@$(makedepend)
+	@mdtool depend $(DIST) > $@
 
 # Rule: copy Markdown files, change extension and resolve paths
 $(DIST)/%.markdown: $(DOCS)/%.md
@@ -96,33 +96,15 @@ $(DIST)/%: $(DOCS)/%
 #            [<pciture-reference>]: <url> "<picture-title>"
 define rebasepath
 $(eval RELPATH := $(patsubst $(DIST)/%,%,$(dir $1)))
-sed -i -E -e "/\!\[([^]]*)\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
--e "/\!\[([^]]*)\]\(\ *(\/|\~)[^)]*\)/b"                         \
--e "s|\!\[([^]]*)\]\(\ *([^)]*)\)|\![\1]($(RELPATH)\2)|g"        \
--e "/^\!\[\[\ *(\/|\~)[^]]*\]\]$$/b"                             \
--e "s|^\!\[\[\ *([^]]*)\]\]$$|![[$(RELPATH)\1]]|g" $1            \
--e "/\[([^]]*)\]\:\ *(http|https|ftp):\/\/([^[:space:]$$])*/b"   \
--e "/\[([^]]*)\]\:\ *(\/|\~)([^[:space:]$$])*/b"                 \
--e "s|\[([^]]*)\]\:\ *([^[:space:]$$]*)(jpg\|jpeg\|png)|[\1]\: $(RELPATH)\2\3|g"        
-endef
-
-# automatically generating inclusion dependencies between Markdown files
-define makedepend
-find $(DIST) -name "*.markdown" -exec          \
-awk 'match($$0, /^!\[\[([^]]+)\]\] *$$/, a) {  \
-  gsub(/^ +| +$$/, "", a[1]);                  \
-  if (!seen[a[1]]++) {                         \
-    files = (files ? files " " : "") a[1]      \
-  }                                            \
-}                                              \
-END {                                          \
-  if (files) {                                 \
-    sub(/^$(DIST)\//, "", FILENAME);           \
-    sub(/\.markdown$$/, ".md", FILENAME);      \
-    print FILENAME ": " files                  \
-  }                                            \
-}' {} \;                                       \
-> $(DIST)/depends
+sed -i -E \
+-e "/\!\[([^]]*)\]\(\ *(http|https|ftp):\/\/[^)]*\)/b" \
+-e "/\!\[([^]]*)\]\(\ *(\/|\~)[^)]*\)/b" \
+-e "s|\!\[([^]]*)\]\(\ *([^)]*)\)|\![\1]($(RELPATH)\2)|g" \
+-e "/^\s*\!\[\[\s*(\/|\~)[^]]*\s*\]\]\s*$$/b" \
+-e "s|^(\s*)\!\[\[\s*([^]]*)\s*\]\](\s*)$$|\1![[$(RELPATH)\2]]\3|g" \
+-e "/\[([^]]*)\]\:\ *(http|https|ftp):\/\/(\S*)/b" \
+-e "/\[([^]]*)\]\:\ *(\/|\~)\S*/b" \
+-e "s|\[([^]]*)\]\:\ *(\S*)(jpg\|jpeg\|png)|[\1]\: $(RELPATH)\2\3|g" $1
 endef
 
 # https://stackoverflow.com/questions/649246/is-it-possible-to-create-a-multi-line-string-variable-in-a-makefile
@@ -149,7 +131,7 @@ include depends
 # Rule: perform file inclusion
 %.md: %.markdown
 	@echo "Processing $$< ..."
-	@perl -ne 's/^!\[\[(.+)\]\]\ *$$$$/`cat $$$$1`/e;print' $$< > $$@
+	@mdtool embed $$< > $$@
 
 # Rule: create PDF document
 # Solve the issue of the color on both sides of a striped table exceeding the table's width

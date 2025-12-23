@@ -4,3 +4,12 @@ PANDOC_DATADIR=~/.local/share/pandoc
 mkdir -p $PANDOC_DATADIR
 cp -rfp templates $PANDOC_DATADIR
 cp -rfp filters $PANDOC_DATADIR
+
+BOILERPLATE_DIR=$PANDOC_DATADIR/boilerplate
+rm -rf $BOILERPLATE_DIR
+mkdir -p $BOILERPLATE_DIR/docs
+cp -rfp boilerplate/docs $BOILERPLATE_DIR
+cp -f Makefile defaults.yaml metadata.yaml preamble.tex $BOILERPLATE_DIR
+
+mkdir -p ~/.local/bin
+cp mdtool ~/.local/bin

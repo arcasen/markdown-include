@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""Markdown Tool
+
+Example: 
+    mdtool init target_dir
+    mdtool init target_dir -y  # overwrite
+    mdtool depend doc.md
+    mdtool embed doc.md
+"""
+
+import argparse
+import re
+import sys
+import shutil
+import os
+from collections import OrderedDict  # 用于保持插入顺序
+
+
+# 正则匹配：行首可选空格 + ![[ + 内容 + ]] + 可选空格 + 行尾
+pattern = re.compile(r'^(\s*)!\[\[([^]]+)\]\]\s*$')
+
+
+def process_embeding(filepath):
+    """Processing file embeding.
+
+    Args:
+        filepath: str, Markdown document file path
+
+    Returns:
+        (stdout): processed document text
+    """
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            match = pattern.match(line)
+
+            if match:
+                indentation = match.group(1)
+                subdoc_path = match.group(2).strip()
+
+                with open(subdoc_path, 'r', encoding='utf-8') as subdoc:
+                    for include_line in subdoc:
+                        print(f"{indentation}{include_line}", end="")
+
+                print("")  # 输出空行
+            else:
+                print(line, end="")
+
+
+def process_depends(dir):
+    """Generating the dependencies.
+
+    Args:
+        dir: str, directory including markdown files(.markdown)
+
+    Returns:
+        (stdout): the dependencies in the form of 'target: dependencies'  
+    """
+
+    for root, _, files in os.walk(dir):
+        for file in files:
+            if not file.endswith('.markdown'):
+                continue
+
+            filepath = os.path.join(root, file)
+
+            # 计算相对路径并转换为目标文件名：xxx.md
+            rel_path = os.path.relpath(filepath, dir)
+            target = rel_path[:-9] + '.md'  # 去除 .markdown，添加 .md
+
+            # 收集唯一嵌入文件（保持第一次出现的顺序）
+            depends = OrderedDict()
+
+            with open(filepath, 'r', encoding='utf-8') as f:
+                for line in f:
+                    match = pattern.match(line)
+                    if match:
+                        sub_doc = match.group(2).strip()  # 去除内容内首尾空格
+                        if sub_doc and sub_doc not in depends:
+                            depends[sub_doc] = None
+
+            if depends:
+                print(f"{target}: {' '.join(depends.keys())}")
+
+
+def process_init(target_dir, overwrite=False):
+    """Initializing the project.
+
+    Args:
+        target_dir: str, directory name
+        overwrite: bool, overwrite while file existing
+
+    Returns:
+        None
+    """
+
+    source_dir = os.path.expanduser('~/.local/share/pandoc/boilerplate')
+
+    if not os.path.isdir(source_dir):
+        print(
+            f"Error: The source directory does not exist or is not a directory: {source_dir}.")
+        return
+
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+
+    for root, dirs, files in os.walk(source_dir):
+        # 计算相对路径
+        rel_path = os.path.relpath(root, source_dir)
+        dst_path = target_dir if rel_path == '.' else os.path.join(
+            target_dir, rel_path)
+
+        # 构建目标子目录(如果不存在)
+        os.makedirs(dst_path, exist_ok=True)
+
+        # 复制文件
+        for file in files:
+            src_file = os.path.join(root, file)
+            dst_file = os.path.join(dst_path, file)
+
+            if os.path.exists(dst_file) and not overwrite:
+                # 文件已存在，询问是否覆盖
+                response = input(
+                    f"The file already exists: {dst_file}.\nDo you want to overwrite it? (y/N): ").strip().lower()
+                if response != 'y':
+                    print(f"Skipped: {dst_file}")
+                    continue
+
+            # 执行拷贝（保留元数据）
+            shutil.copy2(src_file, dst_file)
+            print(f"Copied: {src_file} -> {dst_file}")
+
+
+if __name__ == "__main__":
+    try:
+        parser = argparse.ArgumentParser(
+            prog="mdtool",
+            description="Markdown Processing Tool",
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            epilog="""
+example:
+  mdtool init target_dir
+  mdtool init target_dir -y  # overwrite
+  mdtool depend doc.md
+  mdtool embed doc.md
+"""
+        )
+
+        subparsers = parser.add_subparsers(
+            # title="note",
+            # description="subcommands implement different functions",
+            dest="command",  # 存储子命令名称的属性名
+            help="Description",  # 附加帮助信息
+            metavar="Command",  # 帮助信息中的占位符
+            required=True,  # 是否必须提供子命令 (Python 3.7+)
+        )
+
+        # ------------------- init (-i) -------------------
+        p_i = subparsers.add_parser(
+            "init",
+            aliases=["i"],
+            help="initialize a markdown document project"
+        )
+        p_i.add_argument("dir", help="destination directory")
+        p_i.add_argument('-y', '--yes', action='store_true',
+                         help='Overwrite')  # default: False
+
+        p_i.set_defaults(func=lambda args: process_init(
+            args.dir, overwrite=args.yes))
+
+        # ------------------- depend (-d) -------------------
+        p_d = subparsers.add_parser(
+            "depend",
+            aliases=["d"],
+            help="generate the dependencies, i.e. sub documents"
+        )
+        p_d.add_argument("dir", help="directory of .markdown files")
+
+        p_d.set_defaults(func=lambda args: process_depends(args.dir))
+
+        # ------------------- embed (-e) -------------------
+        p_e = subparsers.add_parser(
+            "embed",
+            aliases=["e"],
+            help="process markdown embeding"
+        )
+        p_e.add_argument("file", help=".markdown file to be processed")
+
+        p_e.set_defaults(func=lambda args: process_embeding(args.file))
+
+        # 解析并执行
+        args = parser.parse_args()
+        args.func(args)
+
+    except Exception as e:
+        print(e, file=sys.stderr)

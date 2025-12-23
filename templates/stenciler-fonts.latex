@@ -4,7 +4,11 @@
 \usepackage{fontspec}
 % \setmainfont{Noto Serif CJK SC}
 % \setsansfont{Noto Sans CJK SC}
-\setmonofont{Source Han Mono}
+% \setmonofont{Source Han Mono}
+% \setmonofont{JetBrains Mono}
+% \setmonofont{Google Sans Code}
+% \setmonofont{Monaspace Xenon}
+\setmonofont{Monaspace Neon}
 
 \makeatletter
 \ifdefstring{\stenciler@lang}{zh}{
@@ -13,6 +17,7 @@
   BoldFont   = Noto Sans CJK SC,
 ]{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
+% \setCJKmonofont{Sarasa Mono SC} % 默认为仿宋
 }{\relax}
 \makeatother
 % ---------------------------------------------------------

@@ -11,9 +11,27 @@ The advantage of Markdown is its simplicity; with just a few types of markup, it
 - Text processing utilities: perl, awk, sed
 - GNU make
 - If you want to convert Markdown to PDF, you must install TeX Live and Pandoc.
-- Noto fonts
-  - Debian: `sudo apt install fonts-noto-cjk`
-  - macOS: `brew install --cask font-noto-sans-cjk font-noto-serif-cjk`
+- Noto and JetBrain Mono fonts
+  - Debian: 
+    `sudo apt install fonts-noto-cjk fonts-jetbrains-mono`
+  - macOS: 
+    `brew install --cask font-noto-sans-cjk font-noto-serif-cjk font-jetbrains-mono`
+
+## Installation
+
+```bash
+bash install
+```
+
+This command will install `mdtool` in `~/.local/bin`. Please append this path to your `PATH`.
+This command will also install `boilerplate` in `~/.local/share/pandoc`, then 
+you can create the first project:
+
+```bash
+mdtool init helloworld
+cd helloworld
+make pdf
+```
 
 ## Embedded Markdown Syntax
 
@@ -34,7 +52,7 @@ OR
 注意:
 
 - 文件包含指令必须单独成行,
-- `![[` 必须顶格开始,
+- `![[` 前面可以有缩进, 替换时每一行都保留该缩进,
 - `filename.md` 前后可以有空格,
 - `]]` 后面除了空格外, 不能含有其它字符.
 
@@ -45,7 +63,8 @@ The embeded markdown syntax is comptiable with [Obsidian Flavored Markdown](http
 Note:
 
 - The file inclusion directives must stand alone on their own lines.
-- `![[` must start at the beginning of the line.
+- `![[` can be preceded by indentation, and when replacing, 
+  this indentation will be retained on each line.
 - Spaces before or after `filename.md` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
 
