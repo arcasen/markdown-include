@@ -67,6 +67,7 @@ Note:
   this indentation will be retained on each line.
 - Spaces before or after `filename.md` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
+- Circular file inclusions can cause errors.
 
 Beset practice: To ensure content between files does not interfere with each other, each directive in a file should be preceded and followed by a blank line.
 

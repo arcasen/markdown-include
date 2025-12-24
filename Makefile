@@ -89,8 +89,8 @@ $(DIST)/%: $(DOCS)/%
 	@mkdir -p $(dir $@)
 	@cp -rf $< $@
 
-# Rebasing paths of embedded images and markdowns
-# Caution: processing embedded images in both inline and reference form
+# Rebasing paths of expandded images and markdowns
+# Caution: processing expandded images in both inline and reference form
 #          - ![<alt-text>](<url> "<picture-title>")
 #          - ![<atl-text>][<picture-reference>]
 #            [<pciture-reference>]: <url> "<picture-title>"
@@ -131,7 +131,7 @@ include depends
 # Rule: perform file inclusion
 %.md: %.markdown
 	@echo "Processing $$< ..."
-	@mdtool embed $$< > $$@
+	@mdtool expand $$< > $$@
 
 # Rule: create PDF document
 # Solve the issue of the color on both sides of a striped table exceeding the table's width

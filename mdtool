@@ -5,7 +5,7 @@ Example:
     mdtool init target_dir
     mdtool init target_dir -y  # overwrite
     mdtool depend doc.md
-    mdtool embed doc.md
+    mdtool expand doc.md
 """
 
 import argparse
@@ -20,8 +20,8 @@ from collections import OrderedDict  # 用于保持插入顺序
 pattern = re.compile(r'^(\s*)!\[\[([^]]+)\]\]\s*$')
 
 
-def process_embeding(filepath):
-    """Processing file embeding.
+def process_expansion(filepath):
+    """Processing file expansion.
 
     Args:
         filepath: str, Markdown document file path
@@ -48,7 +48,7 @@ def process_embeding(filepath):
 
 
 def process_depends(dir):
-    """Generating the dependencies.
+    """Generating dependency rules.
 
     Args:
         dir: str, directory including markdown files(.markdown)
@@ -84,7 +84,7 @@ def process_depends(dir):
 
 
 def process_init(target_dir, overwrite=False):
-    """Initializing the project.
+    """Creating a project from a template/boilerplate.
 
     Args:
         target_dir: str, directory name
@@ -142,7 +142,7 @@ example:
   mdtool init target_dir
   mdtool init target_dir -y  # overwrite
   mdtool depend doc.md
-  mdtool embed doc.md
+  mdtool expand doc.md
 """
         )
 
@@ -159,9 +159,10 @@ example:
         p_i = subparsers.add_parser(
             "init",
             aliases=["i"],
-            help="initialize a markdown document project"
+            help="create a project from a boilerplate"
         )
-        p_i.add_argument("dir", help="destination directory")
+        p_i.add_argument("dir", nargs="?", default=".",
+                         help="destination directory(default: '.')")
         p_i.add_argument('-y', '--yes', action='store_true',
                          help='Overwrite')  # default: False
 
@@ -172,21 +173,22 @@ example:
         p_d = subparsers.add_parser(
             "depend",
             aliases=["d"],
-            help="generate the dependencies, i.e. sub documents"
+            help="generate dependencies rules, i.e. sub documents"
         )
-        p_d.add_argument("dir", help="directory of .markdown files")
+        p_d.add_argument("dir", nargs="?", default=".",
+                         help="directory of .markdown files(default: '.')")
 
         p_d.set_defaults(func=lambda args: process_depends(args.dir))
 
-        # ------------------- embed (-e) -------------------
+        # ------------------- expand (-e) -------------------
         p_e = subparsers.add_parser(
-            "embed",
+            "expand",
             aliases=["e"],
-            help="process markdown embeding"
+            help="process markdown expansion"
         )
         p_e.add_argument("file", help=".markdown file to be processed")
 
-        p_e.set_defaults(func=lambda args: process_embeding(args.file))
+        p_e.set_defaults(func=lambda args: process_expansion(args.file))
 
         # 解析并执行
         args = parser.parse_args()
