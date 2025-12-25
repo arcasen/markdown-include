@@ -1,9 +1,9 @@
-documentclass: ctexbook
+documentclass: ctexart
 classoption: a4paper,12pt
 # classoption:
 #   - a4paper
 #   - 12pt
-has-frontmatter: true
+# has-frontmatter: true
 # toc-title: Contents
 # titlepage: true  # for eisovgel template
 pagestyle: plain

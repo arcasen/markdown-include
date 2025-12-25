@@ -83,18 +83,24 @@ def process_depends(dir):
                 print(f"{target}: {' '.join(depends.keys())}")
 
 
-def process_init(target_dir, overwrite=False):
+def process_init(target_dir, article=False, overwrite=False):
     """Creating a project from a template/boilerplate.
 
     Args:
         target_dir: str, directory name
+        article: bool, create an article if true, else book
         overwrite: bool, overwrite while file existing
 
     Returns:
         None
     """
 
-    source_dir = os.path.expanduser('~/.local/share/pandoc/boilerplate')
+    if article:
+        source_dir = os.path.expanduser(
+            '~/.local/share/pandoc/boilerplate/article')
+    else:
+        source_dir = os.path.expanduser(
+            '~/.local/share/pandoc/boilerplate/book')
 
     if not os.path.isdir(source_dir):
         print(
@@ -141,6 +147,7 @@ if __name__ == "__main__":
 example:
   mdtool init target_dir
   mdtool init target_dir -y  # overwrite
+  mdtool init target_dir -a  # create an article
   mdtool depend doc.md
   mdtool expand doc.md
 """
@@ -163,11 +170,13 @@ example:
         )
         p_i.add_argument("dir", nargs="?", default=".",
                          help="destination directory(default: '.')")
+        p_i.add_argument('-a', '--article', action='store_true',
+                         help='Overwrite')  # default: False
         p_i.add_argument('-y', '--yes', action='store_true',
                          help='Overwrite')  # default: False
 
         p_i.set_defaults(func=lambda args: process_init(
-            args.dir, overwrite=args.yes))
+            args.dir, article=args.article, overwrite=args.yes))
 
         # ------------------- depend (-d) -------------------
         p_d = subparsers.add_parser(
