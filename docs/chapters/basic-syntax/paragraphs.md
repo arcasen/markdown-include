@@ -13,3 +13,5 @@
 ::: rendered
 
 ![[ ../../examples/basic-syntax/paragraphs.md ]]
+
+:::

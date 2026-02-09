@@ -9,3 +9,5 @@
 ::: rendered
 
 ![[ ../../examples/extended-syntax/task-lists.md ]]
+
+:::

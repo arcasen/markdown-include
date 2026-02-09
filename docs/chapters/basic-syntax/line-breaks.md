@@ -15,3 +15,5 @@
 ::: rendered
 
 ![[ ../../examples/basic-syntax/line-breaks.md ]]
+
+:::

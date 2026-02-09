@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20251224
+# Version: 20260210
 
 # Specify input and output directories
 DOCS ?= docs
@@ -65,7 +65,7 @@ $(DIST)/Makefile: $(MARKDOWNS)
 	@mkdir -p $(DIST)
 	@echo "$$submakefile" > $@
 
-# Rule: automatically generating inclusion dependencies between Markdown files
+# Rule: automatically generating nested markdown and image dependencies
 $(DIST)/depends: $(MARKDOWNS)
 	@echo "Creating $@ ..."
 	@mkdir -p $(DIST)
@@ -127,6 +127,14 @@ clean:
 .PHONY: all clean
 
 include depends
+
+# Include makefile snippets
+MK_SNIPPETS_DIR := ../make.d
+MK_SNIPPETS := $$(wildcard $$(MK_SNIPPETS_DIR)/*.mk $$(MK_SNIPPETS_DIR)/*.mak)
+
+ifneq ($$(MK_SNIPPETS),)
+include $$(MK_SNIPPETS)
+endif
 
 # Rule: perform file inclusion
 %.md: %.markdown

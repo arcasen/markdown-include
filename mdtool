@@ -14,10 +14,11 @@ import sys
 import shutil
 import os
 from collections import OrderedDict  # 用于保持插入顺序
+import panflute as pf
 
 
 # 正则匹配：行首可选空格 + ![[ + 内容 + ]] + 可选空格 + 行尾
-pattern = re.compile(r'^(\s*)!\[\[([^]]+)\]\]\s*$')
+markdown_include_pattern = re.compile(r'^(\s*)!\[\[([^]]+)\]\]\s*$')
 
 
 def process_expansion(filepath):
@@ -32,7 +33,7 @@ def process_expansion(filepath):
 
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
-            match = pattern.match(line)
+            match = markdown_include_pattern.match(line)
 
             if match:
                 indentation = match.group(1)
@@ -47,7 +48,7 @@ def process_expansion(filepath):
                 print(line, end="")
 
 
-def process_depends(dir):
+def process_markdown_depends(dir):
     """Generating dependency rules.
 
     Args:
@@ -56,6 +57,8 @@ def process_depends(dir):
     Returns:
         (stdout): the dependencies in the form of 'target: dependencies'  
     """
+
+    print("# Nested markdowns")
 
     for root, _, files in os.walk(dir):
         for file in files:
@@ -73,7 +76,7 @@ def process_depends(dir):
 
             with open(filepath, 'r', encoding='utf-8') as f:
                 for line in f:
-                    match = pattern.match(line)
+                    match = markdown_include_pattern.match(line)
                     if match:
                         sub_doc = match.group(2).strip()  # 去除内容内首尾空格
                         if sub_doc and sub_doc not in depends:
@@ -81,6 +84,75 @@ def process_depends(dir):
 
             if depends:
                 print(f"{target}: {' '.join(depends.keys())}")
+
+
+def process_image_depends(dir):
+    """Generating image dependency rules.
+
+    Args:
+        dir: str, directory including markdown files(.markdown)
+
+    Returns:
+        (stdout): the dependencies in the form of 'target: dependencies'  
+    """
+
+    print("# Nested images")
+
+    # 排除网络图片（即 URL 形式的图片），只提取 本地文件路径的图片文件名，
+    # 你可以在判断 Image 元素的 url 时，先检测它是否为 本地路径
+    # （而非以 http: //、https: // 等开头的网络链接）
+    URL_PATTERN = re.compile(r'^https?://|^//', re.IGNORECASE)
+
+    # 查找所有图片元素
+    def action(elem, doc):
+        if isinstance(elem, pf.Image):
+            # 判断是否为本地路径（非网络 URL）
+            if (not URL_PATTERN.match(elem.url)):
+                # 注意：这里需要一种方式把数据传出去
+                doc.depends[elem.url] = None
+
+    for root, _, files in os.walk(dir):
+        for file in files:
+            if not file.endswith('.markdown'):
+                continue
+
+            filepath = os.path.join(root, file)
+
+            # 计算相对路径并转换为目标文件名：xxx.md
+            rel_path = os.path.relpath(filepath, dir)
+            target = rel_path[:-9] + '.md'  # 去除 .markdown，添加 .md
+
+            # 直接读取文件并转换为 panflute 能够处理的 doc 对象
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+                # 将 markdown 文本转换为抽象语法树 (AST)
+                doc = pf.convert_text(
+                    content, input_format='markdown', standalone=True)
+                
+                # 给 doc 对象临时挂载一个属性来存储结果
+                # 收集唯一嵌入文件（保持第一次出现的顺序）
+                doc.depends = OrderedDict()
+
+                # 对文档应用 action
+                doc.walk(action)
+
+                if doc.depends:
+                    print(f"{target}: {' '.join(doc.depends.keys())}")
+
+
+def process_depends(dir):
+    """Generating nested markdown and image dependency rules.
+
+    Args:
+        dir: str, directory including markdown files(.markdown)
+
+    Returns:
+        (stdout): the dependencies in the form of 'target: dependencies'  
+    """
+
+    process_markdown_depends(dir)
+    process_image_depends(dir)
 
 
 def process_init(target_dir, article=False, overwrite=False):
@@ -182,7 +254,7 @@ example:
         p_d = subparsers.add_parser(
             "depend",
             aliases=["d"],
-            help="generate dependencies rules, i.e. sub documents"
+            help="generate nested markdown and image dependencies rules, i.e. sub documents"
         )
         p_d.add_argument("dir", nargs="?", default=".",
                          help="directory of .markdown files(default: '.')")

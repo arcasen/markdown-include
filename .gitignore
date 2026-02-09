@@ -28,3 +28,5 @@ playground/
 *.latexcode
 *.fls *.fdb_latexmk
 *.listing *.mul
+
+*.err

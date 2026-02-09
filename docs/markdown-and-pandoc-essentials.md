@@ -39,6 +39,8 @@ lang: zh
 
 ![[ chapters/markmap.md ]]
 
+![[ chapters/mermaid.md ]]
+
 \backmatter
 
 ![[ chapters/references.md ]]

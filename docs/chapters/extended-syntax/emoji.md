@@ -19,3 +19,5 @@
 ::: rendered
 
 ![[ ../../examples/extended-syntax/emoji-shortcodes.md]]
+
+:::

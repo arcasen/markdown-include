@@ -10,6 +10,8 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
+:::
+
 #### 添加标题
 
 您可以选择为链接添加标题。当用户将鼠标悬停在链接上时，它将显示为工具提示。要添加标题，请在 URL 后用引号将其括起来，如：
@@ -21,6 +23,8 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 ::: rendered
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
+
+:::
 
 #### URL 和电子邮件地址
 
@@ -38,6 +42,8 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 <fake@example.com>
 
+:::
+
 #### 格式化链接
 
 要 强调 链接，请在方括号和圆括号前后添加星号。要将链接表示为 代码，请在方括号中添加反引号。
@@ -51,6 +57,8 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 ::: rendered
 
 ![[ ../../examples/basic-syntax/links/links-formatted.md ]]
+
+:::
 
 #### 引用式链接
 

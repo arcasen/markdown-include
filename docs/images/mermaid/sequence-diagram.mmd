@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant 用户
+    participant 前端
+    participant 后端
+    用户->>前端: 输入账号密码
+    前端->>后端: 发送登录请求
+    后端-->>前端: 返回验证结果
+    前端-->>用户: 显示成功/失败
