@@ -68,7 +68,7 @@ def process_markdown_depends(dir):
             filepath = os.path.join(root, file)
 
             # 计算相对路径并转换为目标文件名：xxx.md
-            rel_path = os.path.relpath(filepath, dir)
+            rel_path = os.path.normpath(os.path.relpath(filepath, dir))
             target = rel_path[:-9] + '.md'  # 去除 .markdown，添加 .md
 
             # 收集唯一嵌入文件（保持第一次出现的顺序）
@@ -78,9 +78,10 @@ def process_markdown_depends(dir):
                 for line in f:
                     match = markdown_include_pattern.match(line)
                     if match:
-                        sub_doc = match.group(2).strip()  # 去除内容内首尾空格
-                        if sub_doc and sub_doc not in depends:
-                            depends[sub_doc] = None
+                        subdoc_path = match.group(2).strip()  # 去除内容内首尾空格
+                        if subdoc_path and subdoc_path not in depends:
+                            subdoc_path_norm = os.path.normpath(subdoc_path)
+                            depends[subdoc_path_norm] = None
 
             if depends:
                 print(f"{target}: {' '.join(depends.keys())}")
@@ -109,7 +110,8 @@ def process_image_depends(dir):
             # 判断是否为本地路径（非网络 URL）
             if (not URL_PATTERN.match(elem.url)):
                 # 注意：这里需要一种方式把数据传出去
-                doc.depends[elem.url] = None
+                url_norm = os.path.normpath(elem.url)
+                doc.depends[url_norm] = None
 
     for root, _, files in os.walk(dir):
         for file in files:
@@ -119,7 +121,7 @@ def process_image_depends(dir):
             filepath = os.path.join(root, file)
 
             # 计算相对路径并转换为目标文件名：xxx.md
-            rel_path = os.path.relpath(filepath, dir)
+            rel_path = os.path.normpath(os.path.relpath(filepath, dir))
             target = rel_path[:-9] + '.md'  # 去除 .markdown，添加 .md
 
             # 直接读取文件并转换为 panflute 能够处理的 doc 对象
@@ -129,7 +131,10 @@ def process_image_depends(dir):
                 # 将 markdown 文本转换为抽象语法树 (AST)
                 doc = pf.convert_text(
                     content, input_format='markdown', standalone=True)
-                
+
+                # 传递路径给 action
+                doc.filepath = filepath
+
                 # 给 doc 对象临时挂载一个属性来存储结果
                 # 收集唯一嵌入文件（保持第一次出现的顺序）
                 doc.depends = OrderedDict()
