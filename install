@@ -10,10 +10,13 @@ rm -rf $BOILERPLATE_DIR
 
 mkdir -p $BOILERPLATE_DIR/book
 cp -rfp boilerplate/book/docs $BOILERPLATE_DIR/book
+cp -rfp boilerplate/book/examples $BOILERPLATE_DIR/book
+cp -rfp boilerplate/book/make $BOILERPLATE_DIR/book
 cp -f Makefile defaults.yaml metadata.yaml preamble.tex $BOILERPLATE_DIR/book
 
 mkdir -p $BOILERPLATE_DIR/article
 cp -rfp boilerplate/article/docs $BOILERPLATE_DIR/article
+cp -rfp boilerplate/article/examples $BOILERPLATE_DIR/article
 cp -f boilerplate/article/Makefile \
       boilerplate/article/defaults.yaml \
       boilerplate/article/metadata.yaml \
