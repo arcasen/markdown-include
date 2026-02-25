@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-"""Markdown Tool
 
-Example: 
-    mdtool init target_dir
-    mdtool init target_dir -y  # overwrite
-    mdtool depend doc.md
-    mdtool expand doc.md
+"""Markdown Tool
 """
 
 import argparse
@@ -222,12 +217,20 @@ if __name__ == "__main__":
             formatter_class=argparse.RawDescriptionHelpFormatter,
             epilog="""
 example:
-  mdtool init target_dir
-  mdtool init target_dir -y  # overwrite
-  mdtool init target_dir -a  # create an article
-  mdtool depend doc.md
-  mdtool expand doc.md
+  mdtool init [target_dir]  # default dir: .
+  mdtool init [target_dir] -y  # overwrite
+  mdtool init [target_dir] -a  # create an article
+  mdtool depend input.md 
+  mdtool expand input.md
 """
+        )
+
+        # 添加版本参数
+        # %(prog)s 是一个占位符，会自动替换为你的文件名
+        parser.add_argument(
+            '-v', '--version',
+            action='version',
+            version='%(prog)s 0.2.0'
         )
 
         subparsers = parser.add_subparsers(
@@ -259,7 +262,7 @@ example:
         p_d = subparsers.add_parser(
             "depend",
             aliases=["d"],
-            help="generate nested markdown and image dependencies rules, i.e. sub documents"
+            help="generate nested markdown and image dependencies rules"
         )
         p_d.add_argument("dir", nargs="?", default=".",
                          help="directory of .markdown files(default: '.')")

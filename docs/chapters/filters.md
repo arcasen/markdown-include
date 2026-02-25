@@ -15,3 +15,5 @@
 ![[ ./filters/text-color.md ]]
 
 ![[ ./filters/text-color-plus.md ]]
+
+![[ ./filters/rotate-image.md ]]

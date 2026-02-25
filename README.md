@@ -1,4 +1,4 @@
-# Markdown-Include
+# Markdown Utilities
 
 ## Introduction
 
@@ -38,13 +38,13 @@ make pdf
 语法 Syntax:
 
 ```
-![[ relative/path/to/filename.md ]]
+![[ relative/path/to/filename ]]
 ```
 
 OR
 
 ```
-![[ /absolute/path/to/filename.md ]]
+![[ /absolute/path/to/filename ]]
 ```
 
 该语法与 [Obsidian Flavored Markdown](https://help.obsidian.md/obsidian-flavored-markdown) 兼容，但做了一些限制。文档的所有文件应置于 docs 目录下，所有 Markdown 文件以 .md 为后缀，如涉及文件包含 (包括图片等)，文件包含路径应是绝对路径或相对于本 Markdown 文件的路径； 将 Makefile 放入与 docs 同级目录中，运行 make 命令即可，生成文件在 dist 目录中。
@@ -53,7 +53,7 @@ OR
 
 - 文件包含指令必须单独成行,
 - `![[` 前面可以有缩进, 替换时每一行都保留该缩进,
-- `filename.md` 前后可以有空格,
+- `filename` 前后可以有空格, 可以为任意文本文件,
 - `]]` 后面除了空格外, 不能含有其它字符.
 
 Beset practice: 为了保证文件之间的内容不相互干扰, 每个文件指令包含指令前后应该空出一行.
@@ -65,7 +65,7 @@ Note:
 - The file inclusion directives must stand alone on their own lines.
 - `![[` can be preceded by indentation, and when replacing, 
   this indentation will be retained on each line.
-- Spaces before or after `filename.md` are allowed.
+- Spaces before or after `filename` are allowed.
 - After `]]`, only whitespace is permitted—no other characters are allowed.
 - Circular file inclusions can cause errors.
 

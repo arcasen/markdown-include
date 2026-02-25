@@ -9,13 +9,13 @@
 示例：
 
 ```markdown
-关于在 Markdown 中书写书写公式，请参考[数学公式 Mathematical
-Expressions]。
+关于在 Markdown 中书写书写公式，请参考 *[数学公式 Mathematical
+Expressions]*。
 ```
 
 ::: rendered
 
-关于在 Markdown 中书写书写公式，请参考[数学公式 Mathematical
-Expressions]。
+关于在 Markdown 中书写书写公式，请参考 *[数学公式 Mathematical
+Expressions]*。
 
 :::

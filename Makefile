@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20260210
+# Version: 20260224
 
 # Specify input and output directories
 DOCS ?= docs
@@ -129,7 +129,7 @@ clean:
 include depends
 
 # Include makefile snippets
-MK_SNIPPETS_DIR := ../make.d
+MK_SNIPPETS_DIR := ../make
 MK_SNIPPETS := $$(wildcard $$(MK_SNIPPETS_DIR)/*.mk $$(MK_SNIPPETS_DIR)/*.mak)
 
 ifneq ($$(MK_SNIPPETS),)

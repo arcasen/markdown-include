@@ -28,4 +28,6 @@
 
 内容中允许使用行内格式（例如强调）（但不能跨越行边界）。块级格式（例如块引用或列表）无法识别。
 
-此语法借用自 [reStructuredText](https://docutils.sourceforge.io/docs/ref/rst/introduction.html)。
+此语法借用自 reStructuredText[^reStructuredText]。
+
+[^reStructuredText]: <https://docutils.sourceforge.io/docs/ref/rst/introduction.html>

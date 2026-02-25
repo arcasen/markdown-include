@@ -1,4 +1,4 @@
-## 集成 Mermaid 图表 
+## 使用 Mermaid 图表
 
 Mermaid 是一个用于生成图表和流程图的轻量级、基于文本的标记语言，它允许用户使用简洁、易读的代码来创建各种可视化图形。Mermaid 的最大特点是：你只需编写纯文本代码，它就能自动渲染出对应的图表，非常适合在 Markdown 文档、技术文档、Wiki 页面或支持 Mermaid 的编辑器（如 Typora、Obsidian、VS Code 插件、GitLab、GitHub（需插件）等）中使用。
 
@@ -20,9 +20,9 @@ Mermaid 是一个用于生成图表和流程图的轻量级、基于文本的标
 
 ### 在 Markdown 中使用
 
-1. 通过过滤器处理 mermaid 代码，如 mermaid-filter 或 python-mermaid；
+1. 通过过滤器处理 Mermaid 代码，如 `mermaid-filter` 或 `python-mermaid`；
 2. 通过 Quarto 编译含 mermaid 代码的 Markdown 文件；
-3. 直接使用 mermaid-cli(mmdc) 生成图片，再在 Markdown 中使用。
+3. 直接使用 `mermaid-cli`(`mmdc`) 生成图片，再在 Markdown 中使用。
    
    ::: note
    为了确保图片的像素质量，可以先放大 4 倍，然后在 Makefile 中使用 `{width=50%}` 属性。

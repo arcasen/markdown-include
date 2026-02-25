@@ -19,7 +19,7 @@
 pandoc --metadata-file=metadata.yaml input.md -o output.html
 ```
 
-上述命令中，metadata.yaml 是包含YAML元数据的文件，input.md 是待转换的标记文件，output.html 是转换后的输出文件。
+上述命令中，`metadata.yaml` 是包含YAML元数据的文件，`input.md` 是待转换的标记文件，`output.html` 是转换后的输出文件。
 
 在实际应用中，读取 Pandoc 标记文件中的 YAML 元数据可以用于自动化文档处理、生成静态网页、构建电子书等场景。通过提取元数据，我们可以根据文档属性进行个性化处理，如根据作者生成不同样式的页面，根据日期进行归档等。
 
@@ -45,13 +45,13 @@ Pandoc 将其解析为 Markdown 格式[^meta-md]。我们可以执行命令 `pan
 
 ::: caution
 
-- 如果将 `CJKmainfont: 方正楷体_GBK` 写入 metadata.yaml 时, 会被解析成 `方正楷体\\_GBK`, 导致 LaTeX 编译出错。
-- 在 `header-includes` 加入 LaTeX 代码时，有可能会解析成 Markdown 文本而发生错误。
+- 如果将 `CJKmainfont: 方正楷体_GBK` 写入 metadata.yaml 时, 会被解析成 `方正楷体\\_GBK`, 导致 \LaTeX 编译出错。
+- 在 `header-includes` 加入 \LaTeX 代码时，有可能会解析成 Markdown 文本而发生错误。
 - 能够正确以原始代码形式插入的是：`--include-in-header`、`--include-before-body` 和 `--include-after-body`。（见*[通用写入器选项]*）
 
 :::
 
-示例 1：含有下面的 LaTeX 代码：
+示例 1：含有下面的 \LaTeX 代码：
 
  ```markdown
  ![[ ../examples/metadata/latex-code-snippet-1.md]]
@@ -63,7 +63,7 @@ Pandoc 解析结果：
 ![[ ../examples/metadata/latex-code-snippet-1.hs]]
 ```
 
-示例 2： 含有下面的 LaTeX 代码：
+示例 2： 含有下面的 \LaTeX 代码：
 
  ```markdown
  ![[ ../examples/metadata/latex-code-snippet-2.md]]
@@ -77,7 +77,7 @@ Pandoc 解析结果：
 
 ::: caution
 
-后者 LaTeX 代码被解析成字符串文本，编译时将出现错误。
+后者 \LaTeX 代码被解析成字符串文本，编译时将出现错误。
 
 :::
 
@@ -85,7 +85,7 @@ Pandoc 解析结果：
 
 Pandoc 的 `--include-in-header` 命令行选项允许将原始内容直接包含到生成输出文档的头部区域。此内容可以是目标文档格式头部中有效的任何内容，例如：
 
-- LaTeX 前导代码：为 PDF 输出添加自定义命令、包或设置。
+- \LaTeX 前导代码：为 PDF 输出添加自定义命令、包或设置。
 - HTML `<head>` 元素：包括样式表（`<link>`）、脚本（`<script>`）或元标签。
 - 其他特定于格式的头部元素：根据输出格式，此选项允许直接注入将出现在文档头部的内容。
 
@@ -97,7 +97,7 @@ Pandoc 的 `--include-in-header` 命令行选项允许将原始内容直接包�
    pandoc input.md --include-in-header=header.tex -o output.pdf
    ```
 
-   在此示例中，`header.tex` 的内容将被插入到生成的 `output.pdf` 的 LaTeX 前导代码中。
+   在此示例中，`header.tex` 的内容将被插入到生成的 `output.pdf` 的 \LaTeX 前导代码中。
 
 2. 直接提供内容：
    
@@ -146,7 +146,7 @@ Pandoc `--include-in-header` 选项直接修改使用的模板，允许对文档
 
 - 如果同时使用多个来源定义同一个变量，Pandoc 会按照上述优先级采用值
 - YAML 元数据块中可以包含复杂结构（如列表、嵌套对象），而命令行参数只适合简单键值对
-- 可以通过 `--variable` (`-V`) 定义的变量属于 LaTeX 模板变量系统，与元数据系统不同但可能有交互
+- 可以通过 `--variable` (`-V`) 定义的变量属于 \LaTeX 模板变量系统，与元数据系统不同但可能有交互
 
 建议实践：
 

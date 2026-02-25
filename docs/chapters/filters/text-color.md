@@ -1,6 +1,6 @@
 ### 过滤器实例：设置文字颜色
 
-下面是一个用 Panflute 编写的过滤器，可以处理两种颜色标记格式，支持以 `#` 开头的 HTML 十六进制颜色代码，并同时兼容 HTML 和 PDF/LaTeX 输出：
+下面是一个用 Panflute 编写的过滤器，可以处理两种颜色标记格式，支持以 `#` 开头的 HTML 十六进制颜色代码，并同时兼容 HTML 和 PDF/\LaTeX 输出：
 
 1. 行内（Span）颜色
    
@@ -43,7 +43,7 @@
 
 2. 自动适应输出格式：
    - HTML 输出：使用 `style="color: #FF0000;"`
-   - LaTeX 输出：自动生成 `\definecolor` 命令和 `\textcolor` 环境
+   - \LaTeX 输出：自动生成 `\definecolor` 命令和 `\textcolor` 环境
 
 3. 块级和行内颜色支持：
    - 行内：`[红色文字]{color=#FF0000}`
@@ -56,9 +56,9 @@
 
 注意事项：
 
-1. 确保 LaTeX 安装了 `xcolor` 包
-2. 对于 PDF 输出，复杂的颜色组合可能需要额外的 LaTeX 包
-3. 颜色名称和十六进制值需要是有效的 CSS/LateX 颜色值
+1. 确保 \LaTeX 安装了 `xcolor` 包
+2. 对于 PDF 输出，复杂的颜色组合可能需要额外的 \LaTeX 包
+3. 颜色名称和十六进制值需要是有效的 CSS/\LaTeX 颜色值
 
 示例：
 

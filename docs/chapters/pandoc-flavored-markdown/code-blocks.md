@@ -73,9 +73,9 @@ code including tildes
 
 #### 语法高亮显示
 
-Pandoc 会在标记了语言名称的代码块中自动高亮语法，使用 Haskell 库 [skylighting] 进行高亮。目前仅支持 HTML、EPUB、Docx、Ms、Man 和 LaTeX/PDF 输出的高亮功能。要查看 pandoc 识别的语言名称列表，请输入 `pandoc --list-highlight-languages`。
+Pandoc 会在标记了语言名称的代码块中自动高亮语法，使用 Haskell 库 skylighting[^skylighting] 进行高亮。目前仅支持 HTML、EPUB、Docx、Ms、Man 和 LaTeX/PDF 输出的高亮功能。要查看 pandoc 识别的语言名称列表，请输入 `pandoc --list-highlight-languages`。
 
-[skylighting]: https://github.com/jgm/skylighting
+[^skylighting]: <https://github.com/jgm/skylighting>
 
 语法高亮的风格通过样式表的变化进行控制：HTML 输出使用级联样式表（CSS），LaTeX（以及 PDF）输出使用一组 `\newcommand` 选项。这些高亮指令直接嵌入输出文件中（当生成独立文档时），因此不易覆盖。不过，你可以从预定义的高亮样式列表中选择。运行以下命令可查看完整样式列表：
 
@@ -83,9 +83,9 @@ Pandoc 会在标记了语言名称的代码块中自动高亮语法，使用 Has
 pandoc --list-highlight-styles
 ```
 
-默认配色方案是 `pygments`，模仿了 Python 库 [pygments] 的默认配色（尽管实际高亮并未使用 pygments）。使用 `--highlight-style` 选项选择样式。例如，我在构建书籍的打印版本时想要黑白输出，因此使用选项：
+默认配色方案是 `pygments`，模仿了 Python 库 pygments[^pygments] 的默认配色（尽管实际高亮并未使用 pygments）。使用 `--highlight-style` 选项选择样式。例如，我在构建书籍的打印版本时想要黑白输出，因此使用选项：
 
-[pygments]: https://pygments.org/。
+[^pygments]: <https://pygments.org/>
 
 ```bash
 pandoc --highlight-style=monochrome

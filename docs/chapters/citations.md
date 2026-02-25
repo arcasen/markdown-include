@@ -1,6 +1,6 @@
 ## 文献引用 Citations
 
-Pandoc 支持文献引用，常用格式为 BibTeX 或 BibLaTeX，结合 Markdown 或 LaTeX 进行引用。Pandoc 支持通过 CSL（Citation Style Language）文件自定义引用文献风格，用于格式化参考文献和引文。Pandoc 支持多种文献数据格式，常用的是 BibTeX (.bib) 或 BibLaTeX，也支持 JSON、YAML 等格式。
+Pandoc 支持文献引用，常用格式为 BibTeX 或 BibLaTeX，结合 Markdown 或 \LaTeX 进行引用。Pandoc 支持通过 CSL（Citation Style Language）文件自定义引用文献风格，用于格式化参考文献和引文。Pandoc 支持多种文献数据格式，常用的是 BibTeX (`.bib`) 或 BibLaTeX，也支持 JSON、YAML 等格式。
 
 ### 创建 BibTeX 文件
 
@@ -158,9 +158,9 @@ pandoc example.md --filter pandoc-crossref --citeproc -o example.pdf
 
 这种方法给你最大的灵活性，你可以把参考文献放在任何两个文件之间，但需要更多的步骤和文件管理。
 
-#### 方法三：使用 LaTeX 指令（仅适用于 PDF/LaTeX 输出）
+#### 方法三：使用 \LaTeX 指令（仅适用于 PDF/\LaTeX 输出）
 
-如果你输出的目标是 PDF（通过 LaTeX 引擎），你可以在 Markdown 文件中直接使用 LaTeX 命令来控制位置。
+如果你输出的目标是 PDF（通过 \LaTeX 引擎），你可以在 Markdown 文件中直接使用 \LaTeX 命令来控制位置。
 
 在你的 Markdown 文件中插入以下代码：
 
@@ -186,4 +186,4 @@ pandoc example.md --filter pandoc-crossref --citeproc -o example.pdf
 pandoc paper.md --bibliography=references.bib --citeproc -o paper.pdf
 ```
 
-Pandoc 的 `citeproc` 会将生成的参考文献列表填充到 `thebibliography` 环境中。注意：这种方法依赖于 LaTeX，因此只适用于输出格式为 PDF 的情况。
+Pandoc 的 `citeproc` 会将生成的参考文献列表填充到 `thebibliography` 环境中。注意：这种方法依赖于 \LaTeX，因此只适用于输出格式为 PDF 的情况。

@@ -4,7 +4,7 @@
 
 Pandoc 的 `-t native` 选项将输入文档转换为 Pandoc 的内部表示格式，即 Haskell 数据结构。具体来说，`-t native` 的输出是 Pandoc 的 Native AST（抽象语法树），本质上是 Pandoc 的文档模型（Abstract Syntax Tree, AST）的序列化形式，用 Haskell 的语法表达。这种格式主要用于调试或开发 Pandoc 相关工具，方便开发者查看 Pandoc 如何解析文档的内部结构。
 
-示例：测试文档 lorem-ipsum.md 的内容如下：
+示例：测试文档 `lorem-ipsum.md` 的内容如下：
 
 ```markdown
 ![[ ../../examples/filters/ast/lorem-ipsum.md]]

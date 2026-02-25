@@ -2,7 +2,7 @@
 
 #### 无序列表
 
-项目符号列表是由项目符号列表项组成的列表。项目符号列表项以项目符号（`*`、`+` 或 `-`）开头，*列表前必须添加空行*。如：
+项目符号列表是由项目符号列表项组成的列表。项目符号列表项以项目符号（`*`、`+` 或 `-`）开头，**列表前必须添加空行**。如：
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/lists/lists-bullet.md ]]
@@ -107,7 +107,9 @@ Pandoc 支持任务列表，使用 GitHub Flavored Markdown 的语法。
 
 #### 扩展：`definition_lists`
 
-Pandoc 支持定义列表，使用 [PHP Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) 的语法，并带有一些扩展。
+Pandoc 支持定义列表，使用 PHP Markdown Extra[^php] 的语法，并带有一些扩展。
+
+[^php]: <https://michelf.ca/projects/php-markdown/extra/>
 
 ```markdown
 ![[ ../../examples/pandoc-flavored-markdown/lists/definition-lists-1.md ]]

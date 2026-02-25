@@ -2,11 +2,13 @@
 
 ### 什么是 Markdown？
 
-Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档添加格式元素。Markdown 由 [John Gruber] 于 2004 年创建，现在是世界上最流行的标记语言之一。
+Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档添加格式元素。Markdown 由 John Gruber[^gruber] 于 2004 年创建，现在是世界上最流行的标记语言之一。
 
-[John Gruber]: https://daringfireball.net/projects/markdown/
+[^gruber]: <https://daringfireball.net/projects/markdown/>
 
-使用 Markdown 与使用 [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) 编辑器不同。在 Microsoft Word 等应用程序中，你可以单击按钮来设置单词和短语的格式，并且更改会立即显示。Markdown 并非如此。当你创建一个 Markdown 格式的文件时，你向文本添加 Markdown 语法来指示哪些单词和短语应显示为不同格式。
+使用 Markdown 与使用 WYSIWYG[^wysiwyg] 编辑器不同。在 Microsoft Word 等应用程序中，你可以单击按钮来设置单词和短语的格式，并且更改会立即显示。Markdown 并非如此。当你创建一个 Markdown 格式的文件时，你向文本添加 Markdown 语法来指示哪些单词和短语应显示为不同格式。
+
+[^wysiwyg]: <https://en.wikipedia.org/wiki/WYSIWYG>
 
 例如，要表示标题，你可以在标题前添加一个井号（例如，`# 标题一`）。或者要使短语变为粗体，你可以在短语前后添加两个星号（例如，`**此文本为粗体**`）。在文本中看到 Markdown 语法可能需要一段时间才能适应，特别是如果你习惯于 WYSIWYG 应用程序。
 
@@ -34,13 +36,13 @@ Markdown 是一种轻量级标记语言，你可以使用它向纯文本文档�
 
 Markdown 应用程序使用称为 Markdown 处理器（通常也称为“解析器”或“实现”）的东西，将 Markdown 格式的文本提取出来并将其输出为 HTML 格式。在这一点上，您的文档可以在网络浏览器中查看，或与样式表结合使用并打印出来。您可以在下面看到此过程的可视化表示。
 
-Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（“Markdown 应用程序”）。
+Markdown 应用程序和处理器是两个独立的组件。为了简洁起见，我在下图中将它们合并为一个元素（Markdown 应用程序）。
 
 ![Markdown Flowchart](../images/markdown-flowchart.png)
 
 总而言之，这是一个由四部分组成的过程
 
-1. 使用文本编辑器或专门的 Markdown 应用程序创建 Markdown 文件。该文件应具有 .md 或 .markdown 扩展名。
+1. 使用文本编辑器或专门的 Markdown 应用程序创建 Markdown 文件。该文件应具有 `.md` 或 `.markdown` 扩展名。
 2. 在 Markdown 应用程序中打开 Markdown 文件。
 3. 使用 Markdown 应用程序将 Markdown 文件转换为 HTML 文档。
 4. 在网络浏览器中查看 HTML 文件，或使用 Markdown 应用程序将其转换为其他文件格式，例如 PDF。
@@ -59,7 +61,7 @@ Markdown 是一种快速简便的方法，可用于做笔记、为网站创建�
 
 有许多资源可用于学习 Markdown。以下是一些其他入门资源：
 
-- [John Gruber 的 Markdown 文档](https://daringfireball.net/projects/markdown/)：由 Markdown 创建者编写的原始指南。
-- [Markdown 教程](https://www.markdowntutorial.com/)：一个开源网站，允许你在网络浏览器中尝试 Markdown。
-- [Awesome Markdown](https://github.com/mundimark/awesome-markdown)：Markdown 工具和学习资源列表。
-- [Markdown 排版](https://dave.autonoma.ca/blog/2019/05/22/typesetting-markdown-part-1)：一个多部分系列，描述了使用 pandoc 和 ConTeXt 排版 Markdown 文档的生态系统。
+- John Gruber 的 Markdown 文档：<https://daringfireball.net/projects/markdown/>，由 Markdown 创建者编写的原始指南。
+- Markdown 教程：<https://www.markdowntutorial.com/>，一个开源网站，允许你在网络浏览器中尝试 Markdown。
+- Awesome Markdown：<https://github.com/mundimark/awesome-markdown>，Markdown 工具和学习资源列表。
+- Markdown 排版：<https://dave.autonoma.ca/blog/2019/05/22/typesetting-markdown-part-1>，一个多部分系列，描述了使用 pandoc 和 ConTeXt 排版 Markdown 文档的生态系统。

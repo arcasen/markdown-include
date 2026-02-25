@@ -2,7 +2,7 @@
 # documentclass: ctexbook
 title: Hello World
 author: arcasen
-publisher: <https://github.com/arcasen/markdown-include>
+publisher: <https://github.com/arcasen/markdown-utilities>
 # title-page: title-page.tex
 lang: zh
 ---

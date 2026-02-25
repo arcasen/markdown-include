@@ -6,7 +6,7 @@ Pandoc 的默认配置文件（defaults files）[^defaults]是一个 YAML 格式
 
 [^yaml]: YAML Ain't Markup Language，与 XML（标记语言）不同，YAML 避免使用标签（`< >`），而是依赖缩进和符号表示结构。
 
-`--defaults` 选项可用于指定一组选项，格式为 YAML 文件。默认文件可以放置在用户数据目录的 defaults 子目录中，并从任何目录使用。例如，可以创建一个指定写信默认设置的文件，将其保存为用户数据目录的 defaults 子目录中的 letter.yaml，然后从任何目录通过 `pandoc --defaults letter` 或 `pandoc -dletter` 调用这些默认设置。
+`--defaults` 选项可用于指定一组选项，格式为 YAML 文件。默认文件可以放置在用户数据目录的 `defaults` 子目录中，并从任何目录使用。例如，可以创建一个指定写信默认设置的文件，将其保存为用户数据目录的 `defaults` 子目录中的 `letter.yaml`，然后从任何目录通过 `pandoc --defaults letter` 或 `pandoc -dletter` 调用这些默认设置。
 
 当使用多个默认文件时，它们的设置将被合并。需要注意的是，对于可以重复的命令行参数（例如 `--metadata-file`、`--css`、`--include-in-header`、`--include-before-body`、`--include-after-body`、`--variable`、`--metadata`、`--syntax-definition`），命令行中指定的值将与默认文件中指定的值合并，而不是替换。
 
@@ -79,7 +79,7 @@ Command line                        Default file
 
 默认文件中指定的元数据值被解析为字面字符串文本（literal string text），而不是 Markdown。
 
-如果过滤器具有 `.lua` 扩展名，则假定为 Lua 过滤器，否则为 JSON 过滤器。但也可以明确指定过滤器类型，如上所示。过滤器按指定顺序运行。要包含内置的 citeproc 过滤器，可以使用 `citeproc` 或 `{type: citeproc}`。
+如果过滤器具有 `.lua` 扩展名，则假定为 Lua 过滤器，否则为 JSON 过滤器。但也可以明确指定过滤器类型，如上所示。过滤器按指定顺序运行。要包含内置的 `citeproc` 过滤器，可以使用 `citeproc` 或 `{type: citeproc}`。
 
 ### 通用写入器选项
 
@@ -213,9 +213,9 @@ Command line                        Default file
 
 : 引文渲染{.striped}
 
-`cite-method` 可以是 `citeproc`、`natbib` 或 `biblatex`。这仅影响 LaTeX 输出。如果要使用 citeproc 格式化引文，还应设置 `citeproc: true`。
+`cite-method` 可以是 `citeproc`、`natbib` 或 `biblatex`。这仅影响 \LaTeX 输出。如果要使用 `citeproc` 格式化引文，还应设置 `citeproc: true`。
 
-如果需要控制 citeproc 处理与其他过滤器的相对顺序，应在过滤器列表中使用 citeproc（参见*[阅读器选项 Reader Options]*）。
+如果需要控制 `citeproc` 处理与其他过滤器的相对顺序，应在过滤器列表中使用 `citeproc（参见`*[阅读器选项 Reader Options]*）。
 
 ### HTML 中的数学渲染
 

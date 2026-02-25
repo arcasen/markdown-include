@@ -36,6 +36,8 @@ $endif$
 
 \usepackage{etoolbox}
 
+\usepackage{adjustbox}
+
 % ---------------------- language -------------------------
 \makeatletter
 $if(lang)$

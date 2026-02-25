@@ -66,3 +66,25 @@
 ![[ ../../examples/pandoc-flavored-markdown/images-attributes.md ]]
 
 :::
+
+#### 旋转图片
+
+由于标准的 Markdown 语法不支持旋转图片，需要使用过滤器，见 *[过滤器实例：旋转图片]*。
+
+使用语法：
+
+```markdown
+![旋转的图片](/path/to/image.png){width=30% angle=90}
+```
+
+示例：
+
+```markdown
+![[ ../../examples/pandoc-flavored-markdown/images-rotation.md ]]
+```
+
+::: rendered
+
+![[ ../../examples/pandoc-flavored-markdown/images-rotation.md ]]
+
+:::

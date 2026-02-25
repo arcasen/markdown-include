@@ -1,8 +1,10 @@
 ### 设计哲学 Philosophy
 
-[John Gruber] 将 Markdown 设计为易于编写，并且更重要的是易于阅读：
+John Gruber[^gruber] 将 Markdown 设计为易于编写，并且更重要的是易于阅读：
 
 > Markdown 格式的文档应该可以直接发布为纯文本，而不应看起来像是被标签或格式化指令标记过。
+
+[^gruber]: <https://daringfireball.net/projects/markdown/>
 
 在 HTML 中，元素主要分为两类：块级元素（Block Elements）和内联元素（Span Elements，也称为行内元素）。这两类元素在页面布局和行为上有显著区别。
 

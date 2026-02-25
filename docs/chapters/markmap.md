@@ -1,4 +1,4 @@
-## 使用 Markmap 制作思维导图
+## 使用 Markmap 思维导图
 
 ### 什么是 Markmap ？
 
@@ -27,7 +27,7 @@
    ```
 3. 运行命令将 Markdown 文件转换为思维导图：
    ```bash
-   markmap sample.md
+   markmap sample.mm.md
    ```
    - 输出为 `sample.html`，自动在浏览器打开。
    - 可选参数：
@@ -44,4 +44,40 @@
 2. 创建以 `.mm.md` 结尾的 Markdown 文件（或普通 `.md` 文件）。
 3. 编写 Markdown 文本，点击右上角的 “Markmap” 图标或使用快捷键（默认 `Ctrl+Alt+M`）预览思维导图。
 4. 可点击 “Export” 按钮导出为 HTML。
+
+
+### 导出图片
+
+markmap-cli 本身并不直接支持导出 PNG 格式。安装 `mmap-cli`[^mmap]。
+
+[^mmap]: <https://github.com/arcasen/mmap-cli>
+
+<!-- for Nodejs 14：
+```bash
+npm install -g markmap-lib@0.14 markmap-view@0.14 markmap-common@0.14 puppeteer@19.11.1
+``` 
+-->
+
+<!-- markmap.mm.md 本身含有代码块 -->
+
+``````markdown
+![[ ../examples/markmap/simple.mm.md ]]
+``````
+
+在项目目录下新建 `make/markap.mk`:
+
+```makefile
+# convert markamp markdown to png
+
+%.png: %.mm.md
+	markmap $< --offline --no-toolbar --no-open -o $*.html
+	mmap -i $*.html -o $@ -s 3
+```
+
+导出的思维导图如下：
+
+![Markmap 示例](../examples/markmap/simple.png)
+
+
+
 

@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import panflute as pf
+
+
+def action(elem, doc):
+    # 检查是否是图片且带有 angle 属性
+    if isinstance(elem, pf.Image) and 'angle' in elem.attributes:
+        # 1. 提取 angle 并从属性中移除，避免递归无限循环
+        angle = elem.attributes.pop('angle')
+
+        if doc.format in ('latex', 'beamer'):
+            # 2. 创建一个临时的文档对象，只包含这个图片
+            temp_doc = pf.Doc(pf.Para(elem))
+
+            # 3. 将这个临时文档转换为 LaTeX 字符串
+            # 此时 Pandoc 会自动处理所有的 width, height 单位转换
+            inner_tex = pf.convert_text(
+                temp_doc, input_format='panflute', output_format='latex')
+
+            # 注意：convert_text 可能会返回带有换行符的字符串
+            inner_tex = inner_tex.strip()
+
+            # 4. 用 adjustbox 包装
+            # \adjustbox 会自动处理内部的 \includegraphics
+            rotated_tex = f"\\begin{{adjustbox}}{{angle={angle}}}\n{inner_tex}\n\\end{{adjustbox}}"
+
+            return pf.RawInline(rotated_tex, format='latex')
+
+        elif doc.format in ('html', 'html5'):
+            # HTML 依然使用 style
+            elem.attributes['style'] = f"transform: rotate({angle}deg); display: inline-block;"
+            return elem
+
+
+if __name__ == '__main__':
+    pf.run_filter(action, doc=None)

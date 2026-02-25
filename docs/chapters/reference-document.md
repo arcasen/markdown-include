@@ -1,6 +1,6 @@
 ## 使用样式参考文档
 
-`--reference-doc` 是 Pandoc 中用于指定模板文档（docx、ODT 或 pptx 格式）的选项[^ref-doc]，可在转换为同类文件时保留模板的样式和格式。尤其适用于需要严格匹配 Word（.docx）、LibreOffice（.odt）或 PowerPoint（.pptx）模板的场景。基本用法：
+`--reference-doc` 是 Pandoc 中用于指定模板文档（docx、ODT 或 pptx 格式）的选项[^ref-doc]，可在转换为同类文件时保留模板的样式和格式。尤其适用于需要严格匹配 Word（`.docx`）、LibreOffice（`.odt`）或 PowerPoint（`.pptx`）模板的场景。基本用法：
 
 [^ref-doc]: <https://pandoc.org/MANUAL.html#option--reference-doc>
 
@@ -23,17 +23,17 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
 - 兼容性
 
-  - 支持 .docx、.odt（LibreOffice）和 .pptx（演示文稿）。
+  - 支持 `.docx`、`.odt`（LibreOffice）和 `.pptx`（演示文稿）。
 
 ### 参考 docx 文件
 
-为了获得最佳结果，参考的 docx 文件应是使用 Pandoc 生成的 docx 文件的修改版本。参考 docx 文件的内容会被忽略，但其样式表和文档属性（包括边距、页面大小、页眉和页脚）将被用于新的 docx 文件。如果在命令行中未指定参考 docx 文件，Pandoc 将在用户数据目录（参见 `--data-dir` 选项）中查找名为 reference.docx 的文件。
+为了获得最佳结果，参考的 docx 文件应是使用 Pandoc 生成的 docx 文件的修改版本。参考 docx 文件的内容会被忽略，但其样式表和文档属性（包括边距、页面大小、页眉和页脚）将被用于新的 docx 文件。如果在命令行中未指定参考 docx 文件，Pandoc 将在用户数据目录（参见 `--data-dir` 选项）中查找名为 `reference.docx` 的文件。
 
-`--reference-docx` 选项的参数应该是指向 reference.docx 文件的路径[^ref-dir]。如果你在数据目录（而非工作目录）中放置了一个 reference.docx 文件，并使用 `--reference-docx reference.docx` 命令，程序将无法找到该文件。这不是错误，而是设计如此。当不使用 `--reference-docx` 选项时，用户数据目录中的 reference.docx 文件会覆盖系统默认设置。
+`--reference-docx` 选项的参数应该是指向 `reference.docx` 文件的路径[^ref-dir]。如果你在数据目录（而非工作目录）中放置了一个 `reference.docx` 文件，并使用 `--reference-docx reference.docx` 命令，程序将无法找到该文件。这不是错误，而是设计如此。当不使用 `--reference-docx` 选项时，用户数据目录中的 `reference.docx` 文件会覆盖系统默认设置。
 
 [^ref-dir]: <https://github.com/jgm/pandoc/issues/2965>
 
-要创建自定义 reference.docx 文件，首先获取默认 reference.docx 文件的副本： `pandoc -o custom-reference.docx --print-default-data-file reference.docx` 。然后在 Word 中打开 custom-reference.docx，修改样式并保存文件。为获得最佳结果，除修改 Pandoc 使用的样式外，不要对该文件进行其他更改：
+要创建自定义 `reference.docx` 文件，首先获取默认 `reference.docx` 文件的副本： `pandoc -o custom-reference.docx --print-default-data-file reference.docx` 。然后在 Word 中打开 `custom-reference.docx`，修改样式并保存文件。为获得最佳结果，除修改 Pandoc 使用的样式外，不要对该文件进行其他更改：
 
 段落样式：
 
@@ -84,7 +84,7 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
 ### 参考 pptx 文件
 
-微软 PowerPoint 2013 包含的模板（扩展名为 .pptx 或 .potx）已知是可用的，大多数基于这些模板衍生的模板也是如此。
+微软 PowerPoint 2013 包含的模板（扩展名为 `.pptx` 或 `.potx`）已知是可用的，大多数基于这些模板衍生的模板也是如此。
 
 具体要求是模板必须包含以下名称的布局（在 PowerPoint 中可见）：
 
@@ -100,11 +100,11 @@ pandoc input.md --reference-doc=reference.docx -o output.docx
 
 最近版本的 MS PowerPoint 包含的所有模板都符合这些标准。（您可以在“开始”菜单下点击“布局”来检查。）
 
-您还可以修改默认的 reference.pptx：首先运行命令 `pandoc -o custom-reference.pptx --print-default-data-file reference.pptx` ，然后在 MS PowerPoint 中修改 custom-reference.pptx（Pandoc 将使用上述列出的布局名称）。
+您还可以修改默认的 `reference.pptx`：首先运行命令 `pandoc -o custom-reference.pptx --print-default-data-file reference.pptx` ，然后在 MS PowerPoint 中修改 `custom-reference.pptx`（Pandoc 将使用上述列出的布局名称）。
 
 ### pptx 分页
 
-在使用 Pandoc 生成 PowerPoint（.pptx）文件时，可以通过在 Markdown 文件中设置标题级别或使用特定的分隔符来实现分页（即创建新的幻灯片）。以下是具体的方法和步骤：
+在使用 Pandoc 生成 PowerPoint（`.pptx`）文件时，可以通过在 Markdown 文件中设置标题级别或使用特定的分隔符来实现分页（即创建新的幻灯片）。以下是具体的方法和步骤：
 
 #### 使用标题级别控制分页
    

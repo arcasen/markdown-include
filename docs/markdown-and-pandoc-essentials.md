@@ -2,7 +2,7 @@
 documentclass: ctexbook
 title: Markdown & Pandoc Essentials
 author: arcasen
-publisher: https://github.com/arcasen/markdown-include
+publisher: <https://github.com/arcasen/markdown-utilities>
 title-page: title-page.tex
 lang: zh
 ---
@@ -10,6 +10,8 @@ lang: zh
 <!-- # Markdown & Pandoc Essentials -->
 
 ![[ chapters/introduction.md ]]
+
+![[ chapters/how-to-use.md ]]
 
 <!-- ![[ chapters/markdown-cheat-sheet.md ]] -->
 
