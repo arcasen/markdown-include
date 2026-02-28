@@ -1,5 +1,5 @@
 # Makefile for merging Markdown files and converting Markdown to PDF, HTML, TEX etc
-# Version: 20260224
+# Version: 20260228
 
 # Specify input and output directories
 DOCS ?= docs
@@ -31,9 +31,13 @@ TEXS := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.tex,$(TOP_DOCS)))
 # HTML documents (will be created in the directory '$(DIST)')
 HTML := $(patsubst $(DOCS)/%,%,$(patsubst %.md,%.html,$(TOP_DOCS)))
 
-# Don't export variables, evaluate them directly in submakefile
-# export TARGETS
-# export PDFS
+# LaTeX settings
+LATEXMK = latexmk -xelatex
+LATEXMK_OPTIONS = -shell-escape \
+          -quiet \
+          -interaction=nonstopmode \
+          -synctex=1 \
+          -file-line-error
 
 # Prerequisites to build targets
 requisite: $(DUPLICATE) $(DIST)/Makefile $(DIST)/depends
@@ -147,7 +151,7 @@ endif
 %.pdf: %.tex
 	sed -i 's/@{}/@{\\\\kern\\\\tabcolsep}/g' $$<
 	sed -i 's/\\\\real/\\\\real{0.95} * \\\\real/g' $$<
-	latexmk -xelatex -quiet -interaction=nonstopmode -synctex=1 -file-line-error $$<
+	$(LATEXMK) $(LATEXMK_OPTIONS) $$< -outdir=$$(dir $$<) -jobname=$$(notdir $$(basename $$<))
 
 # Rule: create LaTeX document
 %.tex: %.md $(SETTINGS)
